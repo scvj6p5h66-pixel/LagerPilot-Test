@@ -194,7 +194,7 @@ function rebuildDemoCache(){
  for(const [code,entries] of grouped){
   if(!entries.length)continue;
   const a=DEMO_BY_CODE[code],pack=a.unit==='P'?a.pack:1;
-  const target=1000+(simHash(Number(code.slice(-6))||code.length)*13)%29001;
+  const target=(a.name.startsWith('RB ')||a.name.startsWith('Bürsten')||a.name.startsWith('SDS-'))?10+(simHash(Number(code.slice(-6))||code.length)*13)%91:1000+(simHash(Number(code.slice(-6))||code.length)*13)%29001;
   const units=Math.max(entries.length,Math.floor(target/pack));
   const each=Math.floor(units/entries.length),extra=units%entries.length;
   entries.forEach((line,i)=>{line.qty=each+(i<extra?1:0);});
