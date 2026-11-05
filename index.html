@@ -177,7 +177,30 @@ let simulation={occupied:50,reserved:5};
 try{const stored=localStorage.getItem(SIMKEY);if(stored!==null){const v=JSON.parse(stored);simulation=v&&Number.isInteger(v.occupied)&&Number.isInteger(v.reserved)?v:null;}}catch{simulation=null;}
 const simHash=(x)=>((x*7919+104729)>>>0)%6480;
 function simType(place){if(!simulation)return null;const m=/^(H4A|H4B)-(\d+)-(\d+)$/.exec(place);if(!m)return null;const hall=m[1],r=Number(m[2]),n=Number(m[3]);if(r<1||r>(hall==='H4A'?22:18)||n<1||n>144)return null;if(place==='H4B-1-1')return 'mixed';const ix=(hall==='H4A'?0:3168)+(r-1)*144+n;const pct=simHash(ix)*100/5760;if(pct<simulation.reserved)return 'reserved';return pct<simulation.reserved+simulation.occupied*(100-simulation.reserved)/100?'occupied':'free';}
-function demoBox(place){const type=simType(place);if(type==='mixed')return {place,mixed:true,lines:RB.map((a,i)=>({code:a.code,qty:[24,20,12,16,12,12,8,7,6,5,4,3,3,2][i]||1}))};if(type!=='occupied')return null;const m=/^(H4A|H4B)-(\d+)-(\d+)$/.exec(place),hall=m[1],r=Number(m[2]),n=Number(m[3]),offset=hall==='H4A'?0:3168;const ix=simHash(offset+(r-1)*144+n+311)%DEMO_ITEMS.length;const a=DEMO_ITEMS[ix];const q=[8,15,25,40,60,85,100,125,150,175,200][simHash(offset+(r-1)*144+n+17)%11];return {place,mixed:false,lines:[{code:a.code,qty:a.unit==='STK'?Math.max(1,Math.floor(q/2)):q}]};}
+function rawDemoBox(place){const type=simType(place);if(type==='mixed')return {place,mixed:true,lines:RB.map((a,i)=>({code:a.code,qty:[24,20,12,16,12,12,8,7,6,5,4,3,3,2][i]||1}))};if(type!=='occupied')return null;const m=/^(H4A|H4B)-(\d+)-(\d+)$/.exec(place),hall=m[1],r=Number(m[2]),n=Number(m[3]),offset=hall==='H4A'?0:3168;const ix=simHash(offset+(r-1)*144+n+311)%DEMO_ITEMS.length;const a=DEMO_ITEMS[ix];const q=[8,15,25,40,60,85,100,125,150,175,200][simHash(offset+(r-1)*144+n+17)%11];return {place,mixed:false,lines:[{code:a.code,qty:a.unit==='STK'?Math.max(1,Math.floor(q/2)):q}]};}
+let demoCache=null,demoCacheKey='';
+function rebuildDemoCache(){
+ const key=JSON.stringify(simulation);
+ if(demoCache&&demoCacheKey===key)return;
+ demoCacheKey=key;demoCache=new Map();
+ if(!simulation)return;
+ const grouped=new Map(DEMO_ITEMS.map(a=>[a.code,[]]));
+ for(const [hall,count] of [['H4A',22],['H4B',18]])for(let r=1;r<=count;r++)for(let n=1;n<=144;n++){
+  const place=hall+'-'+r+'-'+n,box=rawDemoBox(place);
+  if(!box)continue;
+  demoCache.set(place,box);
+  for(const line of box.lines)if(grouped.has(line.code))grouped.get(line.code).push(line);
+ }
+ for(const [code,entries] of grouped){
+  if(!entries.length)continue;
+  const a=DEMO_BY_CODE[code],pack=a.unit==='P'?a.pack:1;
+  const target=1000+(simHash(Number(code.slice(-6))||code.length)*13)%29001;
+  const units=Math.max(entries.length,Math.floor(target/pack));
+  const each=Math.floor(units/entries.length),extra=units%entries.length;
+  entries.forEach((line,i)=>{line.qty=each+(i<extra?1:0);});
+ }
+}
+function demoBox(place){rebuildDemoCache();return demoCache?.get(place)||null;}
 function demoMatches(code){const result=[];for(const [hall,count] of [['H4A',22],['H4B',18]])for(let r=1;r<=count;r++)for(let n=1;n<=144;n++){const box=demoBox(`${hall}-${r}-${n}`);if(!box)continue;const line=box.lines.find(x=>x.code===code);if(line)result.push({place:box.place,qty:line.qty,mixed:box.mixed});}return result;}
 function simInfo(){if(simulation){$('simLevel').value=String(simulation.occupied);$('simReserved').value=String(simulation.reserved);message($('simMessage'),'🧪 ARTIKEL-TESTLAGER AKTIV – '+DEMO_ITEMS.length+' Artikel aus deinen Listen. RB-Mischpalette fest auf Halle 4B, Regal 1, Bodenplatz 1-1. Reale Daten unverändert.','warning');}else message($('simMessage'),'Simulation aus – echte Lageransicht.','hint');}
 $('simStart').onclick=()=>{simulation={occupied:Number($('simLevel').value),reserved:Number($('simReserved').value)};try{localStorage.setItem(SIMKEY,JSON.stringify(simulation));}catch{}simInfo();render();closeStockDetails();$('placeDetail').textContent='Wähle einen Lagerplatz im simulierten Regal.';};
