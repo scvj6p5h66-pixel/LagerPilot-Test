@@ -1,0 +1,3 @@
+LagerPilot-Test – Verbindungstest
+Diese Datei wurde als ungefährlicher Schreibtest aus dem ChatGPT-Chat angelegt.
+Keine Änderung an der Anwendung oder am produktiven Repository.
