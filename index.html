@@ -148,7 +148,7 @@ RB 35 M6|33535101
 RB 40 M6|33537101
 Bürstenverlängerung RBL M6|33968101
 SDS-Plus Adapter RBL M6 SDS|33350101`;
-const DEMO_ITEMS=DEMO_RAW.split('\n').map((line)=>{const [name,code]=line.split('|');return {name,code,unit:name.startsWith('RB ')||name.startsWith('Bürsten')||name.startsWith('SDS-')?'STK':'P'};});
+const DEMO_ITEMS=DEMO_RAW.split('\n').map((line,i)=>{const [name,code]=line.split('|');const unit=name.startsWith('RB ')||name.startsWith('Bürsten')||name.startsWith('SDS-')?'STK':'P';return {name,code,unit,pack:unit==='P'?[50,60,75,80,100][i%5]:1};});
 const DEMO_BY_CODE=Object.fromEntries(DEMO_ITEMS.map(x=>[x.code,x]));
 const RB=DEMO_ITEMS.filter(x=>x.name.startsWith('RB '));
 let simulation={occupied:50,reserved:5};
