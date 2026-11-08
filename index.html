@@ -487,10 +487,13 @@ $('mergeScanStop').onclick=stopCamera;
 $('scanStop').onclick=stopCamera;window.addEventListener('pagehide',()=>{if(scanner)stopCamera();});
 
 const PICK_KEY='lagerpilot_pick_demo_v1';
-const pickDefaults=()=>({people:[],roster:[],orders:[{id:'K-1042',lines:3,assignee:'',status:'Offen'},{id:'K-1043',lines:8,assignee:'',status:'Offen'},{id:'K-1044',lines:5,assignee:'',status:'Offen'}],session:''});
+const PICK_TEST_DEVICES={'Max':'Scanner 1','Peter':'Scanner 2','Leon':'Scanner 3'};
+const PICK_TEST_NAMES=Object.keys(PICK_TEST_DEVICES);
+const pickDefaults=()=>({people:[],roster:[...PICK_TEST_NAMES],orders:[{id:'K-1042',lines:3,assignee:'',status:'Offen'},{id:'K-1043',lines:8,assignee:'',status:'Offen'},{id:'K-1044',lines:5,assignee:'',status:'Offen'}],session:''});
 function pickLoad(){try{return {...pickDefaults(),...JSON.parse(localStorage.getItem(PICK_KEY)||'null')}}catch(e){return pickDefaults()}}
 let pickState=pickLoad();
 if(!Array.isArray(pickState.roster))pickState.roster=[];
+for(const name of PICK_TEST_NAMES)if(!pickState.roster.includes(name))pickState.roster.push(name);
 if(!pickState.testStatus||typeof pickState.testStatus!=='object')pickState.testStatus={};
 for(const p of pickState.people||[])if(p.name&&!pickState.roster.includes(p.name))pickState.roster.push(p.name);
 function pickSave(){localStorage.setItem(PICK_KEY,JSON.stringify(pickState));pickRender()}
@@ -520,6 +523,9 @@ function pickRender(){
  const pickIsActive=n=>pickState.testStatus[n]===true||(pickState.testStatus[n]!==false&&pickState.people.some(p=>p.name===n&&p.active));
  $('pickEmployee').innerHTML='<option value="">Mitarbeiter wählen</option>'+pickState.roster.map(n=>'<option value="'+escapePick(n)+'">'+escapePick(n)+'</option>').join('');
  if(pickState.roster.includes(previous))$('pickEmployee').value=previous;
+else if(!pickState.roster.includes($('pickEmployee').value))$('pickEmployee').value='';
+const selectedDevice=PICK_TEST_DEVICES[$('pickEmployee').value];
+if(selectedDevice)$('pickDevice').value=selectedDevice;
  $('pickRoster').innerHTML=pickState.roster.length?'<div class="scroll"><table><thead><tr><th>Mitarbeiter</th><th>Ampel (Test)</th><th>Aktion</th></tr></thead><tbody>'+pickState.roster.map(n=>'<tr><td>'+escapePick(n)+'</td><td><span style="white-space:nowrap">'+(pickIsActive(n)?'<span class="lp-status-dot is-active" aria-hidden="true"></span>Aktiv':'<span class="lp-status-dot is-offline" aria-hidden="true"></span>Offline')+'</span></td><td><button type="button" data-pick-toggle="'+escapePick(n)+'">'+(pickIsActive(n)?'🔴 Offline stellen':'🟢 Aktiv stellen')+'</button> <button class="secondary" data-pick-remove="'+escapePick(n)+'">Entfernen</button></td></tr>').join('')+'</tbody></table></div>':'<p class="sub">Noch keine Mitarbeiter angelegt.</p>';
  pickWorkerRender();
  $('pickCurrent').textContent=person?'Aktuelle Test-Anmeldung: '+person.name+' · '+person.device:'Auf diesem Gerät niemand angemeldet';
@@ -531,6 +537,7 @@ function pickRender(){
 function escapePick(v){return String(v).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
 $('pickAddEmployee').onclick=()=>{const n=$('pickNewEmployee').value.trim();if(!n)return alert('Bitte einen Mitarbeiternamen eingeben.');if(pickState.roster.some(x=>x.toLocaleLowerCase('de')===n.toLocaleLowerCase('de')))return alert('Dieser Mitarbeiter ist bereits angelegt.');pickState.roster.push(n);$('pickNewEmployee').value='';pickSave();$('pickEmployee').value=n};
 $('pickRoster').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.pickToggle!==undefined){const n=b.dataset.pickToggle;const p=pickState.people.find(x=>x.name===n);const wasActive=pickState.testStatus[n]===true||(pickState.testStatus[n]!==false&&!!p?.active);pickState.testStatus[n]=!wasActive;pickSave();return;}if(b.dataset.pickRemove===undefined)return;const n=b.dataset.pickRemove;if(pickState.orders.some(o=>o.assignee===n&&o.status!=='Abgeschlossen'))return alert('Mitarbeiter hat noch einen offenen Auftrag. Bitte zuerst übertragen oder abschließen.');if(!confirm('Mitarbeiter '+n+' aus der Liste entfernen?'))return;pickState.roster=pickState.roster.filter(x=>x!==n);delete pickState.testStatus[n];pickState.people=pickState.people.filter(x=>x.name!==n);if(pickState.session===n)pickState.session='';pickSave()});
+$('pickEmployee').addEventListener('change',()=>{const device=PICK_TEST_DEVICES[$('pickEmployee').value];if(device)$('pickDevice').value=device;});
 $('pickLogin').onclick=()=>{const name=$('pickEmployee').value.trim(),device=$('pickDevice').value.trim();if(!name||!device)return alert('Bitte Mitarbeiter und Gerät angeben.');if(!pickState.roster.includes(name))return alert('Bitte einen gespeicherten Mitarbeiter auswählen.');/* Testmodus: bereits simulierte Mitarbeiter bleiben aktiv, auch wenn auf diesem Gerät eine weitere Test-Anmeldung erfolgt. */let p=pickState.people.find(p=>p.name===name);if(!p){p={name,device,active:true,lastSeen:Date.now()};pickState.people.push(p)}else Object.assign(p,{device,active:true,lastSeen:Date.now()});pickState.session=name;delete pickState.testStatus[name];pickSave()};
 $('pickLogout').onclick=()=>{const p=pickState.people.find(p=>p.name===pickState.session);if(p)p.active=false;if(p)delete pickState.testStatus[p.name];pickState.session='';pickSave()};
 $('pickOrders').addEventListener('click',e=>{const btn=e.target.closest('button');if(!btn)return;const id=btn.dataset.pickAssign||btn.dataset.pickFinish||btn.dataset.pickProgress,o=pickState.orders.find(x=>x.id===id);if(!o)return;if(btn.dataset.pickProgress){if(!o.assignee||o.status==='Abgeschlossen')return;const next=o.status==='In Bearbeitung'?'Pausiert':'In Bearbeitung';if(next==='In Bearbeitung'&&!o.startedAt)o.startedAt=new Date().toISOString();o.status=next;pickSave();return}if(btn.dataset.pickFinish){if(!confirm('Testauftrag '+id+' abschließen?'))return;o.status='Abgeschlossen';pickSave();return}const name=$('pickOrders').querySelector('select[data-pick-to="'+id+'"]')?.value;if(!name)return alert('Bitte einen verfügbaren Mitarbeiter wählen.');const p=pickState.people.find(x=>x.name===name);if(!(pickState.testStatus[name]===true||(pickState.testStatus[name]!==false&&p?.active))||pickState.orders.some(x=>x!==o&&x.assignee===name&&x.status!=='Abgeschlossen'))return alert('Mitarbeiter nicht verfügbar.');o.assignee=name;o.checkedLines=[];if(o.status!=='In Bearbeitung'&&o.status!=='Pausiert')o.status='Zugewiesen';pickSave()});
