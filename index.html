@@ -509,21 +509,23 @@ for(const name of PICK_TEST_NAMES)if(!pickState.roster.includes(name))pickState.
 if(!pickState.testStatus||typeof pickState.testStatus!=='object')pickState.testStatus={};
 for(const p of pickState.people||[])if(p.name&&!pickState.roster.includes(p.name))pickState.roster.push(p.name);
 function pickSave(){localStorage.setItem(PICK_KEY,JSON.stringify(pickState));pickRender()}
-const PICK_DEMO_ARTICLES=[
- {sku:'BW-1001',name:'Befestigungswinkel 90°',place:'H4B-1-62',unitWeight:0.5,qty:24},
- {sku:'MS-2004',name:'Montageschiene 400 mm',place:'H4B-1-63',unitWeight:1.2,qty:50},
- {sku:'VE-3010',name:'Verbindungselement',place:'H4B-1-64',unitWeight:null,qty:30},
- {sku:'HK-4002',name:'Halteklammer',place:'H4B-1-65',unitWeight:0.15,qty:40},
- {sku:'ST-5011',name:'Stahlprofil 600 mm',place:'H4B-2-10',unitWeight:2.4,qty:12},
- {sku:'KL-6007',name:'Klemmstück',place:'H4B-2-11',unitWeight:0.08,qty:100},
- {sku:'SP-7002',name:'Spannplatte',place:'H4B-2-12',unitWeight:0.75,qty:20},
- {sku:'AB-8003',name:'Abdeckkappe',place:'H4B-2-13',unitWeight:0.04,qty:60}
-];
+function pickDemoItems(count){
+ const found=[],seen=new Set();
+ if(simulation)for(const [hall,racks] of [['H4B',18],['H4A',22]])for(let rack=1;rack<=racks&&found.length<count;rack++)for(let slot=1;slot<=144&&found.length<count;slot++){
+  const place=hall+'-'+rack+'-'+slot,box=demoBox(place);if(!box)continue;
+  for(const line of box.lines){const a=DEMO_BY_CODE[line.code];if(!a||seen.has(a.code))continue;seen.add(a.code);
+   const qty=Math.max(1,Math.min(24,Math.floor(line.qty*(a.unit==='P'?a.pack:1))));
+   found.push({sku:a.code,name:a.name,place,qty,actual:qty,unitWeight:a.unit==='STK'&&Number.isFinite(a.weight)?a.weight:null,source:'rack-demo'});if(found.length>=count)break;
+  }
+ }
+ if(!found.length)for(const box of state.boxes.filter(x=>x.qty>0)){const a=article(box.code);if(!a||seen.has(a.code))continue;seen.add(a.code);const qty=Math.max(1,Math.min(24,box.qty*(a.unit==='P'?a.pack:1)));found.push({sku:a.code,name:a.name,place:box.place,qty,actual:qty,unitWeight:a.unit==='STK'&&Number.isFinite(a.weight)?a.weight:null,source:'rack-stock'});if(found.length>=count)break}
+ return found.length?Array.from({length:count},(_,i)=>({...found[i%found.length]})):[];
+}
 const pickNumber=v=>Number.isFinite(Number(v))&&String(v).trim()!==''?Number(v):null;
 const pickKg=v=>v===null?'—':v.toLocaleString('de-DE',{maximumFractionDigits:3})+' kg';
 function pickEnsureLines(o){
  if(!Array.isArray(o.items)||o.items.length!==o.lines){
-  o.items=Array.from({length:o.lines},(_,i)=>{const x=PICK_DEMO_ARTICLES[i%PICK_DEMO_ARTICLES.length];return {...x,qty:x.qty,actual:x.qty,unitWeight:x.unitWeight}});
+  o.items=pickDemoItems(o.lines);
  }
  if(!Array.isArray(o.checkedLines))o.checkedLines=[];
  if(!o.packaging)o.packaging={type:'euro',palletWeight:null,boxWeight:null};
@@ -543,7 +545,7 @@ function pickWorkerRender(){
  const allWeights=missing.length===0&&packagingValid;
  const pack=order.packaging.type;
  target.innerHTML='<div class="lp-worker-id">'+escapePick(order.id)+'</div><div class="muted">Mitarbeiter: '+escapePick(name)+' · Status: '+escapePick(order.status)+' · Testmodus</div>'+
- '<p class="sub">DEMO-Artikelstamm: Beispielartikel und Lagerplätze, keine Live-Daten. Fehlende Stückgewichte bitte ergänzen.</p><div class="lp-worker-progress" role="progressbar" aria-label="Bestätigte Positionen" aria-valuenow="'+done+'" aria-valuemin="0" aria-valuemax="'+total+'"><span style="width:'+(total?done/total*100:0)+'%"></span></div><p class="sub">'+done+' von '+total+' Positionen bestätigt · keine Bestandsbuchung</p>'+
+ '<p class="sub">Artikel und Lagerplätze aus der Regalansicht (Demo). Packgewichte werden nicht ohne geprüfte Umrechnung als Stückgewichte übernommen.</p><div class="lp-worker-progress" role="progressbar" aria-label="Bestätigte Positionen" aria-valuenow="'+done+'" aria-valuemin="0" aria-valuemax="'+total+'"><span style="width:'+(total?done/total*100:0)+'%"></span></div><p class="sub">'+done+' von '+total+' Positionen bestätigt · keine Bestandsbuchung</p>'+
  order.items.map((it,i)=>'<div class="lp-worker-line '+(order.checkedLines.includes(i)?'done':'')+'"><div class="lp-pick-line-main"><div class="sub">POSITION '+(i+1)+' / '+total+' · '+escapePick(it.sku)+'</div><strong>'+escapePick(it.name)+'</strong><div class="lp-pick-location">📍 '+escapePick(it.place)+'</div><div class="lp-pick-qty"><div><span class="sub">Sollmenge</span><b>'+it.qty+' Stk.</b></div><div><label for="pick-actual-'+i+'">Entnommene Menge (Stk.)</label><input id="pick-actual-'+i+'" data-pick-actual="'+i+'" type="number" min="0" step="1" inputmode="numeric" value="'+escapePick(it.actual)+'" '+(working&& !order.checkedLines.includes(i)?'':'disabled')+'></div></div><div class="lp-pick-qty"><div><label for="pick-weight-'+i+'">Stückgewicht (kg)</label><input id="pick-weight-'+i+'" data-pick-weight="'+i+'" type="number" min="0" step="any" inputmode="decimal" placeholder="Fehlt" value="'+(it.unitWeight===null?'':escapePick(it.unitWeight))+'" '+(working&&!order.checkedLines.includes(i)?'':'disabled')+'></div><div><span class="sub">Positionsgewicht</span><b>'+((pickNumber(it.actual)!==null&&pickNumber(it.unitWeight)!==null&&pickNumber(it.actual)>=0&&pickNumber(it.unitWeight)>=0)?pickKg(Number(it.actual)*Number(it.unitWeight)):'⚠ Fehlt')+'</b></div></div></div><button type="button" '+(!working?'disabled ':'')+'data-worker-line="'+i+'" class="'+(order.checkedLines.includes(i)?'secondary':'')+'">'+(order.checkedLines.includes(i)?'↶ Rückgängig':'✓ Position bestätigen')+'</button></div>').join('')+
  '<div class="lp-pick-weight-panel"><h3>⚖️ Gewichtskontrolle</h3><label for="pick-pack-type">Ladungsträger</label><select id="pick-pack-type" data-pick-pack="type"><option value="euro" '+(pack==='euro'?'selected':'')+'>Europalette + große Pappbox</option><option value="small" '+(pack==='small'?'selected':'')+'>Kleine Einwegpalette + kleine Pappbox</option></select><div class="lp-pick-qty"><div><label for="pick-pallet-weight">Palettengewicht (kg)</label><input id="pick-pallet-weight" data-pick-pack="palletWeight" type="number" min="0" step="any" inputmode="decimal" placeholder="Eintragen" value="'+(pw===null?'':escapePick(order.packaging.palletWeight))+'"></div><div><label for="pick-box-weight">Pappboxgewicht (kg)</label><input id="pick-box-weight" data-pick-pack="boxWeight" type="number" min="0" step="any" inputmode="decimal" placeholder="Eintragen" value="'+(bw===null?'':escapePick(order.packaging.boxWeight))+'"></div></div><p>Bekanntes Warengewicht: <b>'+pickKg(known)+'</b></p><p>Erwartetes Gesamtgewicht: <strong>'+(allWeights?pickKg(known+pw+bw):'Nicht berechenbar')+'</strong></p>'+(missing.length?'<p class="warning">⚠ Stückgewicht oder Istmenge fehlt/ist ungültig bei Position '+missing.join(', ')+'.</p>':'')+(!packagingValid?'<p class="warning">⚠ Paletten- und Boxgewicht müssen gültig hinterlegt sein.</p>':'')+'</div>'+
  '<div class="actions"><button type="button" class="secondary" data-worker-action="print">🖨 Kommissionierschein / Wiegeübersicht</button><button type="button" data-worker-action="toggle">'+(working?'⏸ Pausieren':order.status==='Pausiert'?'▶ Fortsetzen':'▶ Auftrag starten')+'</button><button type="button" class="secondary" data-worker-action="finish" '+(!complete||!allWeights?'disabled':'')+'>✓ Auftrag abschließen</button></div>'+
