@@ -495,7 +495,8 @@ async function startCamera(target){
     message($(output),(target==='mergeFrom'?'Quellplatz':'Zielplatz')+' erkannt: '+place,'success');
     message($('mergeCheck'),'Lagerplatz übernommen. Bitte Umlagerung vor dem Buchen prüfen.','hint');
    }else handleScan(code);
-   stopCamera();
+   await stopCamera();
+   if(pickMode)pickSave();
   });
   message($(output),pickMode?'Kamera aktiv. Artikelbarcode scannen.':'Kamera aktiv. Lagerplatz-QR-Code scannen.','hint');
  }catch(e){await stopCamera();message($(output),'Scanner konnte nicht starten: '+e.message,'error');}
@@ -514,13 +515,13 @@ const PICK_KEY='lagerpilot_pick_demo_v1';
 const PICK_TEST_DEVICES={'Max':'Scanner 1','Peter':'Scanner 2','Leon':'Scanner 3'};
 const PICK_TEST_NAMES=Object.keys(PICK_TEST_DEVICES);
 const pickDefaults=()=>({people:[],roster:[...PICK_TEST_NAMES],orders:[{id:'K-1042',lines:3,assignee:'',status:'Offen'},{id:'K-1043',lines:8,assignee:'',status:'Offen'},{id:'K-1044',lines:5,assignee:'',status:'Offen'}],session:''});
-function pickLoad(){try{return {...pickDefaults(),...JSON.parse(localStorage.getItem(PICK_KEY)||'null')}}catch(e){return pickDefaults()}}
+function pickLoad(){try{const raw=JSON.parse(localStorage.getItem(PICK_KEY)||'null');if(!raw||typeof raw!=='object'||!Array.isArray(raw.orders)||!Array.isArray(raw.people)||!Array.isArray(raw.roster)||typeof raw.session!=='string')return pickDefaults();return {...pickDefaults(),...raw,orders:raw.orders.filter(o=>o&&typeof o.id==='string'&&Number.isInteger(o.lines)&&o.lines>0&&o.lines<=100&&['Offen','In Bearbeitung','Pausiert','Abgeschlossen'].includes(o.status)&&typeof o.assignee==='string'),people:raw.people.filter(p=>p&&typeof p.name==='string'&&typeof p.device==='string'),roster:raw.roster.filter(n=>typeof n==='string'&&n.trim().length>0)};}catch(e){return pickDefaults()}}
 let pickState=pickLoad();
 if(!Array.isArray(pickState.roster))pickState.roster=[];
 for(const name of PICK_TEST_NAMES)if(!pickState.roster.includes(name))pickState.roster.push(name);
 if(!pickState.testStatus||typeof pickState.testStatus!=='object')pickState.testStatus={};
 for(const p of pickState.people||[])if(p.name&&!pickState.roster.includes(p.name))pickState.roster.push(p.name);
-function pickSave(){localStorage.setItem(PICK_KEY,JSON.stringify(pickState));pickRender()}
+function pickSave(){try{localStorage.setItem(PICK_KEY,JSON.stringify(pickState));pickRender()}catch(e){alert('Kommissionierdaten konnten nicht gespeichert werden: '+e.message)}}
 function pickDemoItems(count){
  const found=[],seen=new Set();
  if(simulation)for(const [hall,racks] of [['H4B',18],['H4A',22]])for(let rack=1;rack<=racks&&found.length<count;rack++)for(let slot=1;slot<=144&&found.length<count;slot++){
@@ -531,7 +532,7 @@ function pickDemoItems(count){
   }
  }
  if(!found.length)for(const box of state.boxes.filter(x=>x.qty>0)){const a=article(box.code);if(!a||seen.has(a.code))continue;seen.add(a.code);const qty=Math.max(1,Math.min(24,box.qty*(a.unit==='P'?a.pack:1)));found.push({sku:a.code,name:a.name,place:box.place,qty,actual:qty,unitWeight:a.unit==='STK'&&Number.isFinite(a.weight)?a.weight:null,source:'rack-stock'});if(found.length>=count)break}
- return found.length?Array.from({length:count},(_,i)=>({...found[i%found.length]})):[];
+ return found.length?Array.from({length:Math.min(count,found.length)},(_,i)=>({...found[i]})):[];
 }
 const pickNumber=v=>Number.isFinite(Number(v))&&String(v).trim()!==''?Number(v):null;
 const pickKg=v=>v===null?'—':v.toLocaleString('de-DE',{maximumFractionDigits:3})+' kg';
@@ -540,18 +541,22 @@ function pickEnsureLines(o){
   o.items=pickDemoItems(o.lines);
  }
  if(!Array.isArray(o.checkedLines))o.checkedLines=[];
- if(!o.packaging)o.packaging={type:'euro',palletWeight:null,boxWeight:null};
+  o.checkedLines=o.checkedLines.filter(i=>Number.isInteger(i)&&i>=0&&i<o.items.length);
+  if(!Array.isArray(o.scannedLines))o.scannedLines=[];
+  o.scannedLines=o.scannedLines.filter(i=>Number.isInteger(i)&&i>=0&&i<o.items.length);
+ if(!o.packaging||typeof o.packaging!=='object')o.packaging={type:'euro',palletWeight:null,boxWeight:null};
 }
 let pickScanIndex=null;
 function pickAcceptScan(raw){
  const o=pickState.orders.find(x=>x.assignee===pickState.session&&x.status==='In Bearbeitung');
  if(!o||pickScanIndex===null)return false;
  pickEnsureLines(o);const i=pickScanIndex,it=o.items[i],code=String(raw).trim();
+  if(!it){message($('pickScanMessage'),'Auftragsposition nicht vorhanden.','error');return false;}
  const catalog=DEMO_BY_CODE[it.sku]||article(it.sku);
  if(code!==it.sku&&code!==catalog?.barcode){message($('pickScanMessage'),'Falscher Artikel! Erwartet: '+it.sku+'. Erkannt: '+code,'error');return false}
  if(!Array.isArray(o.scannedLines))o.scannedLines=[];
  if(!o.scannedLines.includes(i))o.scannedLines.push(i);
- pickScanIndex=null;pickSave();return true;
+ pickScanIndex=null;return true;
 }
 function pickWorkerRender(){
  const target=$('pickWorker');if(!target)return;
@@ -593,7 +598,7 @@ $('pickWorker').addEventListener('click',e=>{
  if(b.dataset.workerLine!==undefined){if(o.status!=='In Bearbeitung')return;const n=Number(b.dataset.workerLine);if(!Number.isInteger(n)||n<0||n>=o.items.length)return;if(!o.checkedLines.includes(n)){if(!o.scannedLines?.includes(n))return alert('Bitte zuerst den Artikel scannen.');const q=pickNumber(o.items[n].actual);if(q===null||q<0||!Number.isInteger(q))return alert('Bitte eine gültige entnommene Menge eingeben.')}o.checkedLines=o.checkedLines.includes(n)?o.checkedLines.filter(x=>x!==n):[...o.checkedLines,n];pickSave();return}
  if(b.dataset.workerAction==='print'){window.print();return}
  if(b.dataset.workerAction==='toggle'){o.status=o.status==='In Bearbeitung'?'Pausiert':'In Bearbeitung';if(o.status==='In Bearbeitung'&&!o.startedAt)o.startedAt=new Date().toISOString();pickSave();return}
- if(b.dataset.workerAction==='finish'){if(o.checkedLines.length!==o.items.length)return alert('Bitte zuerst alle Positionen bestätigen.');const weights=o.items.every(it=>{const q=pickNumber(it.actual),w=pickNumber(it.unitWeight);return q!==null&&w!==null&&q>=0&&Number.isInteger(q)&&w>=0});const pw=pickNumber(o.packaging.palletWeight),bw=pickNumber(o.packaging.boxWeight);if(!weights||pw===null||bw===null||pw<0||bw<0)return alert('Gewichtskontrolle unvollständig.');if(!confirm('Testauftrag '+o.id+' abschließen?'))return;o.status='Abgeschlossen';o.finishedAt=new Date().toISOString();pickSave()}
+ if(b.dataset.workerAction==='finish'){if(!o.items.length||o.checkedLines.length!==o.items.length)return alert('Bitte zuerst alle Positionen bestätigen.');const weights=o.items.every(it=>{const q=pickNumber(it.actual),w=pickNumber(it.unitWeight);return q!==null&&w!==null&&q>=0&&Number.isInteger(q)&&w>=0});const pw=pickNumber(o.packaging.palletWeight),bw=pickNumber(o.packaging.boxWeight);if(!weights||pw===null||bw===null||pw<0||bw<0)return alert('Gewichtskontrolle unvollständig.');if(!confirm('Testauftrag '+o.id+' abschließen?'))return;o.status='Abgeschlossen';o.finishedAt=new Date().toISOString();pickSave()}
 });
 
 function pickRender(){
@@ -619,7 +624,7 @@ $('pickRoster').addEventListener('click',e=>{const b=e.target.closest('button');
 $('pickEmployee').addEventListener('change',()=>{const device=PICK_TEST_DEVICES[$('pickEmployee').value];if(device)$('pickDevice').value=device;});
 $('pickLogin').onclick=()=>{const name=$('pickEmployee').value.trim(),device=$('pickDevice').value.trim();if(!name||!device)return alert('Bitte Mitarbeiter und Gerät angeben.');if(!pickState.roster.includes(name))return alert('Bitte einen gespeicherten Mitarbeiter auswählen.');/* Testmodus: bereits simulierte Mitarbeiter bleiben aktiv, auch wenn auf diesem Gerät eine weitere Test-Anmeldung erfolgt. */let p=pickState.people.find(p=>p.name===name);if(!p){p={name,device,active:true,lastSeen:Date.now()};pickState.people.push(p)}else Object.assign(p,{device,active:true,lastSeen:Date.now()});pickState.session=name;delete pickState.testStatus[name];pickSave()};
 $('pickLogout').onclick=()=>{const p=pickState.people.find(p=>p.name===pickState.session);if(p)p.active=false;if(p)delete pickState.testStatus[p.name];pickState.session='';pickSave()};
-$('pickOrders').addEventListener('click',e=>{const btn=e.target.closest('button');if(!btn)return;const id=btn.dataset.pickAssign||btn.dataset.pickFinish||btn.dataset.pickProgress,o=pickState.orders.find(x=>x.id===id);if(!o)return;if(btn.dataset.pickProgress){if(!o.assignee||o.status==='Abgeschlossen')return;const next=o.status==='In Bearbeitung'?'Pausiert':'In Bearbeitung';if(next==='In Bearbeitung'&&!o.startedAt)o.startedAt=new Date().toISOString();o.status=next;pickSave();return}if(btn.dataset.pickFinish){if(!confirm('Testauftrag '+id+' abschließen?'))return;o.status='Abgeschlossen';pickSave();return}const name=$('pickOrders').querySelector('select[data-pick-to="'+id+'"]')?.value;if(!name)return alert('Bitte einen verfügbaren Mitarbeiter wählen.');const p=pickState.people.find(x=>x.name===name);if(!(pickState.testStatus[name]===true||(pickState.testStatus[name]!==false&&p?.active))||pickState.orders.some(x=>x!==o&&x.assignee===name&&x.status!=='Abgeschlossen'))return alert('Mitarbeiter nicht verfügbar.');o.assignee=name;o.checkedLines=[];o.scannedLines=[];if(o.status!=='In Bearbeitung'&&o.status!=='Pausiert')o.status='Zugewiesen';pickSave()});
+$('pickOrders').addEventListener('click',e=>{const btn=e.target.closest('button');if(!btn)return;const id=btn.dataset.pickAssign||btn.dataset.pickFinish||btn.dataset.pickProgress,o=pickState.orders.find(x=>x.id===id);if(!o)return;if(btn.dataset.pickProgress){if(!o.assignee||o.status==='Abgeschlossen')return;const next=o.status==='In Bearbeitung'?'Pausiert':'In Bearbeitung';if(next==='In Bearbeitung'&&!o.startedAt)o.startedAt=new Date().toISOString();o.status=next;pickSave();return}if(btn.dataset.pickFinish){pickEnsureLines(o);const validWeights=o.items.length>0&&o.checkedLines.length===o.items.length&&o.items.every(it=>{const q=pickNumber(it.actual),w=pickNumber(it.unitWeight);return q!==null&&Number.isInteger(q)&&q>=0&&w!==null&&w>=0});const pw=pickNumber(o.packaging.palletWeight),bw=pickNumber(o.packaging.boxWeight);if(!validWeights||pw===null||bw===null||pw<0||bw<0)return alert('Auftrag kann erst nach vollständiger Positions- und Gewichtskontrolle abgeschlossen werden.');if(!confirm('Testauftrag '+id+' abschließen?'))return;o.status='Abgeschlossen';o.finishedAt=new Date().toISOString();pickSave();return}const name=$('pickOrders').querySelector('select[data-pick-to="'+id+'"]')?.value;if(!name)return alert('Bitte einen verfügbaren Mitarbeiter wählen.');const p=pickState.people.find(x=>x.name===name);if(!(pickState.testStatus[name]===true||(pickState.testStatus[name]!==false&&p?.active))||pickState.orders.some(x=>x!==o&&x.assignee===name&&x.status!=='Abgeschlossen'))return alert('Mitarbeiter nicht verfügbar.');o.assignee=name;o.checkedLines=[];o.scannedLines=[];if(o.status!=='In Bearbeitung'&&o.status!=='Pausiert')o.status='Zugewiesen';pickSave()});
 $('pickReset').onclick=()=>{if(confirm('Lokale Kommissionier-Testdaten zurücksetzen?')){pickState=pickDefaults();pickState.testStatus={};pickSave()}};
 window.addEventListener('focus',()=>{const p=pickState.people.find(p=>p.name===pickState.session);if(p&&p.active){p.lastSeen=Date.now();pickSave()}});
 
