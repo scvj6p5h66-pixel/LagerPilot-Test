@@ -598,7 +598,7 @@ function pickDemoItems(count){
    found.push({sku:a.code,name:a.name,place,qty,actual:qty,unitWeight:Number.isFinite(a.weight)&&a.weight>=0&&(a.unit==='STK'||a.unit==='P'&&Number.isSafeInteger(a.pack)&&a.pack>0)?(a.unit==='P'?a.weight/a.pack:a.weight):null,source:'rack-demo'});if(found.length>=count)break;
   }
  }
- if(!found.length)for(const box of state.boxes.filter(x=>x.qty>0)){const a=article(box.code);if(!a||seen.has(a.code))continue;seen.add(a.code);const qty=Math.max(1,Math.min(24,box.qty*(a.unit==='P'?a.pack:1)));found.push({sku:a.code,name:a.name,place:box.place,qty,actual:qty,unitWeight:Number.isFinite(a.weight)&&a.weight>=0&&(a.unit==='STK'||a.unit==='P'&&Number.isSafeInteger(a.pack)&&a.pack>0)?(a.unit==='P'?a.weight/a.pack:a.weight):null,source:'rack-stock'});if(found.length>=count)break}
+ if(!found.length)for(const box of state.boxes.filter(x=>x.qty>(x.blocked||0)&&state.places[x.place]?.status!=='locked'&&state.places[x.place]?.status!=='reserved')){const a=article(box.code);if(!a||seen.has(a.code))continue;seen.add(a.code);const qty=Math.max(1,Math.min(24,(box.qty-(box.blocked||0))*(a.unit==='P'?a.pack:1)));found.push({sku:a.code,name:a.name,place:box.place,qty,actual:qty,unitWeight:Number.isFinite(a.weight)&&a.weight>=0&&(a.unit==='STK'||a.unit==='P'&&Number.isSafeInteger(a.pack)&&a.pack>0)?(a.unit==='P'?a.weight/a.pack:a.weight):null,source:'rack-stock'});if(found.length>=count)break}
  return found.length?Array.from({length:Math.min(count,found.length)},(_,i)=>({...found[i]})):[];
 }
 const pickNumber=v=>{if(typeof v==='number')return Number.isFinite(v)?v:null;if(typeof v==='string'&&v.trim()!==''){const n=Number(v);return Number.isFinite(n)?n:null;}return null;};
