@@ -666,6 +666,7 @@ function pickAcceptScan(raw){
  pickEnsureLines(o);const i=pickScanIndex,it=o.items[i],code=String(raw??'').trim();
   if(!it){message($('pickScanMessage'),'Auftragsposition nicht vorhanden.','error');return false;}
  if(pickScanPhase==='place'){const place=resolve(code);if(!place||place!==it.place){message($('pickScanMessage'),'Falscher Lagerplatz! Erwartet: '+it.place+'. Erkannt: '+(place||code||'leer')+'. Bitte Lagerplatz-QR scannen.','error');return false;}pickScanPhase='article';message($('pickScanMessage'),'✓ Lagerplatz '+place+' bestätigt. Jetzt Artikelbarcode scannen.','success');return false;}
+ if(pickScanPhase==='article'&&resolve(code)===it.place)return false;
  const catalog=DEMO_BY_CODE[it.sku]||article(it.sku);
  if(!code||(code!==String(it.sku).trim()&&(!catalog?.barcode||code!==String(catalog.barcode).trim()))){message($('pickScanMessage'),'Falscher Artikel! Erwartet: '+it.sku+'. Erkannt: '+code,'error');return false}
  if(!Array.isArray(o.scannedLines))o.scannedLines=[];
