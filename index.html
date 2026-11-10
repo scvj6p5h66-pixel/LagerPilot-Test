@@ -636,12 +636,15 @@ function pickEnsureLines(o){
 function pickWeightCheck(o){
  const p=o.packaging||{},pw=pickNumber(p.palletWeight),bw=pickNumber(p.boxWeight),measured=pickNumber(p.measuredWeight),tolerance=pickNumber(p.tolerancePercent);
  const values=(o.items||[]).map(it=>({q:pickNumber(it.actual),w:pickNumber(it.unitWeight)}));
- const complete=values.length>0&&values.every(v=>v.q!==null&&Number.isSafeInteger(v.q)&&v.q>=0&&v.w!==null&&v.w>=0)&&pw!==null&&bw!==null&&pw>=0&&bw>=0;
- const expected=complete?values.reduce((sum,v)=>sum+v.q*v.w,0)+(p.scaleMode==='tared'?0:pw+bw):null;
- const validTolerance=tolerance!==null&&tolerance>=0&&tolerance<=100;
- const delta=complete&&measured!==null&&measured>=0?measured-expected:null;
- const percent=delta!==null&&expected>0?Math.abs(delta)/expected*100:delta===0?0:null;
- return {complete,expected,measured,delta,percent,tolerance,validTolerance,passed:complete&&measured!==null&&measured>=0&&validTolerance&&percent!==null&&percent<=tolerance};
+ const complete=values.length>0&&values.every(v=>v.q!==null&&Number.isSafeInteger(v.q)&&v.q>=0&&v.w!==null&&Number.isFinite(v.w)&&v.w>=0)&&pw!==null&&bw!==null&&Number.isFinite(pw)&&Number.isFinite(bw)&&pw>=0&&bw>=0;
+ const itemWeight=complete?values.reduce((sum,v)=>sum+v.q*v.w,0):null;
+ const expected=complete?itemWeight+(p.scaleMode==='tared'?0:pw+bw):null;
+ const validExpected=expected!==null&&Number.isFinite(expected)&&expected>=0;
+ const validMeasured=measured!==null&&Number.isFinite(measured)&&measured>=0;
+ const validTolerance=tolerance!==null&&Number.isFinite(tolerance)&&tolerance>=0&&tolerance<=100;
+ const delta=validExpected&&validMeasured?measured-expected:null;
+ const percent=delta!==null&&Number.isFinite(delta)?expected>0?Math.abs(delta)/expected*100:delta===0?0:null:null;
+ return {complete:complete&&validExpected,expected:validExpected?expected:null,measured:validMeasured?measured:null,delta,percent,tolerance,validTolerance,passed:complete&&validExpected&&validMeasured&&validTolerance&&percent!==null&&Number.isFinite(percent)&&percent<=tolerance};
 }
 function pickDiscrepancies(o){return (o.items||[]).map((it,i)=>({index:i,expected:pickNumber(it.qty),actual:pickNumber(it.actual)})).filter(x=>x.expected!==x.actual);}
 function pickDiscrepancyReady(o){const d=pickDiscrepancies(o);return !d.length||!!(o.deviation&&o.deviation.approvedAt&&o.deviation.signature===JSON.stringify(d)&&typeof o.deviation.reason==='string'&&o.deviation.reason.trim().length>=5);}
