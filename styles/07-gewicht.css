@@ -1,0 +1,13 @@
+/* Weight overview first: immediately visible above the picking positions */
+#picking .lp-pick-weight-panel{margin:16px 0 22px;border:2px solid #b7d3f4}
+#picking .lp-pick-weight-panel>p{line-height:1.5}
+#picking .lp-pick-weight-panel>p strong{display:inline-block;color:#0b4c8d}
+
+/* Compact weight indicator stays visible while scrolling through picking positions */
+#picking .lp-weight-sticky{position:sticky;top:60px;z-index:3;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2px 12px;padding:11px 15px;margin:12px 0 0;border:1px solid #b9d5f3;border-radius:13px;background:rgba(239,247,255,.97);box-shadow:0 5px 18px rgba(17,58,105,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#picking .lp-weight-sticky-label{font-size:13px;font-weight:750;color:#294a6e}
+#picking .lp-weight-sticky strong{grid-column:2;grid-row:1 / span 2;font-size:clamp(18px,2.6vw,24px);color:#0b4c8d;text-align:right;overflow-wrap:anywhere}
+#picking .lp-weight-sticky-meta{font-size:11px;color:#5b6e82}
+@media(max-width:700px){#picking .lp-weight-sticky{top:57px;padding:10px 12px;gap:2px 8px}#picking .lp-weight-sticky-label{font-size:12px}#picking .lp-weight-sticky strong{font-size:18px}}
+@media(max-width:360px){#picking .lp-weight-sticky{grid-template-columns:1fr}#picking .lp-weight-sticky strong{grid-column:1;grid-row:auto;text-align:left}}
+@media print{#picking .lp-weight-sticky{display:none!important}}
