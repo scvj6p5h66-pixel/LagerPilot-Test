@@ -670,9 +670,9 @@ $('pickWorker').addEventListener('change',e=>{
   const isQty=el.dataset.pickActual!==undefined,i=Number(isQty?el.dataset.pickActual:el.dataset.pickWeight),v=pickNumber(el.value);
   if(!Number.isInteger(i)||i<0||i>=order.items.length||order.checkedLines.includes(i))return;
   if(v===null||v<0||(isQty&&!Number.isInteger(v))){alert('Bitte eine gültige '+(isQty?'ganze Istmenge':'Gewichtsangabe')+' eingeben.');pickRender();return}
-  order.items[i][isQty?'actual':'unitWeight']=v;if(isQty)pickDeviationReset(order);pickSave();return;
+  order.items[i][isQty?'actual':'unitWeight']=v;if(isQty)pickDeviationReset(order);order.packaging.measuredWeight=null;pickSave();return;
  }
- if(el.dataset.pickPack){const k=el.dataset.pickPack;if(k==='type')order.packaging.type=el.value;else if(k==='scaleMode'){if(!['gross','tared'].includes(el.value))return;order.packaging.scaleMode=el.value;}else{const v=pickNumber(el.value);if(v!==null&&(v<0||!Number.isFinite(v)||k==='tolerancePercent'&&v>100)){alert('Bitte einen gültigen Wert eingeben (Toleranz 0 bis 100 %).');pickRender();return}order.packaging[k]=v}pickSave()}
+ if(el.dataset.pickPack){const k=el.dataset.pickPack;if(['palletWeight','boxWeight','scaleMode','type'].includes(k))order.packaging.measuredWeight=null;if(k==='type')order.packaging.type=el.value;else if(k==='scaleMode'){if(!['gross','tared'].includes(el.value))return;order.packaging.scaleMode=el.value;}else{const v=pickNumber(el.value);if(v!==null&&(v<0||!Number.isFinite(v)||k==='tolerancePercent'&&v>100)){alert('Bitte einen gültigen Wert eingeben (Toleranz 0 bis 100 %).');pickRender();return}order.packaging[k]=v}pickSave()}
 });
 $('pickWorker').addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;const o=pickState.orders.find(x=>x.assignee===pickState.session&&x.status!=='Abgeschlossen');if(!o)return;pickEnsureLines(o);
