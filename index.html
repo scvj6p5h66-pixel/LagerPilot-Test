@@ -596,6 +596,7 @@ for(const name of PICK_TEST_NAMES)if(!pickState.roster.includes(name))pickState.
 if(!pickState.testStatus||typeof pickState.testStatus!=='object')pickState.testStatus={};
 for(const p of pickState.people||[])if(p.name&&!pickState.roster.includes(p.name))pickState.roster.push(p.name);
 function pickPrintReceipt(o){
+ if(!o||!Array.isArray(o.items)||o.items.some(it=>!it||typeof it!=='object'||Array.isArray(it))){alert('Beleg kann nicht gedruckt werden: Auftragspositionen beschädigt. Bitte Auftrag prüfen.');return false;}
  const check=pickWeightCheck(o),p=o.packaging||{},diff=pickDiscrepancies(o),fmt=v=>v===null||v===undefined?'–':escapePick(v);
  const kg=v=>v===null||v===undefined||!Number.isFinite(Number(v))?'–':Number(v).toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' kg';
  const rows=(o.items||[]).map((it,i)=>'<tr><td>'+(i+1)+'</td><td>'+fmt(it.sku)+'</td><td>'+fmt(it.name)+'</td><td>'+fmt(it.place)+'</td><td>'+fmt(it.qty)+'</td><td>'+fmt(it.actual)+'</td><td>'+kg(it.unitWeight)+'</td><td>'+kg((pickNumber(it.actual)||0)*(pickNumber(it.unitWeight)||0))+'</td></tr>').join('');
@@ -605,6 +606,7 @@ function pickPrintReceipt(o){
 }
 function pickSave(){try{localStorage.setItem(PICK_KEY,JSON.stringify(pickState));pickRender();return true}catch(e){alert('Kommissionierdaten konnten nicht gespeichert werden: '+e.message);return false}}
 function pickComplete(o){
+ if(o.repaired)return alert('Auftragsdaten wurden repariert. Bitte alle Positionen erneut prüfen und bestätigen.');
  pickScanIndex=null;pickScanPhase='place';
  const previousStatus=o.status,previousFinished=o.finishedAt;
  o.status='Abgeschlossen';o.finishedAt=new Date().toISOString();
@@ -628,10 +630,13 @@ const pickKg=v=>v===null?'—':v.toLocaleString('de-DE',{maximumFractionDigits:3
 function pickEnsureLines(o){
  if(!Array.isArray(o.items)||o.items.length!==o.lines||o.items.some(it=>!it||typeof it!=='object'||Array.isArray(it)||typeof it.sku!=='string'||typeof it.name!=='string'||typeof it.place!=='string')){
   o.items=pickDemoItems(o.lines);
+  o.checkedLines=[];o.scannedLines=[];delete o.lastScanned;delete o.deviation;
+  if(o.packaging&&typeof o.packaging==='object')o.packaging.measuredWeight=null;
+  o.repaired=true;
  }
- if(!Array.isArray(o.checkedLines))o.checkedLines=[];
+ if(!Array.isArray(o.checkedLines)){o.checkedLines=[];o.repaired=true;delete o.deviation;if(o.packaging&&typeof o.packaging==='object')o.packaging.measuredWeight=null;}
   o.checkedLines=o.checkedLines.filter(i=>Number.isInteger(i)&&i>=0&&i<o.items.length);
-  if(!Array.isArray(o.scannedLines))o.scannedLines=[];
+  if(!Array.isArray(o.scannedLines)){o.scannedLines=[];o.checkedLines=[];o.repaired=true;delete o.deviation;if(o.packaging&&typeof o.packaging==='object')o.packaging.measuredWeight=null;}
   o.scannedLines=o.scannedLines.filter(i=>Number.isInteger(i)&&i>=0&&i<o.items.length);
  if(!o.packaging||typeof o.packaging!=='object'||Array.isArray(o.packaging))o.packaging={type:'euro',palletWeight:null,boxWeight:null};
  for(const k of ['palletWeight','boxWeight','measuredWeight','tolerancePercent']){const n=pickNumber(o.packaging[k]);o.packaging[k]=n!==null&&Number.isFinite(n)&&n>=0&&(k!=='tolerancePercent'||n<=100)?n:null;}
@@ -684,7 +689,7 @@ function pickWorkerRender(){
  const packagingValid=pw!==null&&bw!==null&&pw>=0&&bw>=0;
  const allWeights=missing.length===0&&packagingValid;
  const pack=order.packaging.type,scaleMode=order.packaging.scaleMode==='tared'?'tared':'gross',weightCheck=pickWeightCheck(order);
- target.innerHTML='<div class="lp-worker-id">'+escapePick(order.id)+'</div><div class="muted">Mitarbeiter: '+escapePick(name)+' · Status: '+escapePick(order.status)+' · Testmodus</div>'+
+ target.innerHTML=(order.repaired?'<p class="warning" role="alert">⚠ Auftragsdaten waren beschädigt und wurden zurückgesetzt. Bitte alle Positionen erneut scannen und bestätigen.</p>':'')+'<div class="lp-worker-id">'+escapePick(order.id)+'</div><div class="muted">Mitarbeiter: '+escapePick(name)+' · Status: '+escapePick(order.status)+' · Testmodus</div>'+
  (order.lastScanned&&Number.isInteger(order.lastScanned.index)?'<div class="success" role="status">✓ Zuletzt gescannt: <b>'+escapePick(order.lastScanned.name)+'</b> · Artikelnummer: <b>'+escapePick(order.lastScanned.sku)+'</b></div>':'')+
  '<div class="lp-next-step" role="status"><b>➡️ Nächste Position</b><strong>'+(nextIndex>=0?escapePick(order.items[nextIndex].place)+' · '+escapePick(order.items[nextIndex].name):'Alle Positionen bestätigt')+'</strong>'+(nextIndex>=0?'<button type="button" data-pick-next="'+nextIndex+'">Zur Position '+(nextIndex+1)+'</button>':'')+'</div><p class="sub">Artikel und Lagerplätze aus der Regalansicht (Demo). Kataloggewichte: bei Packartikeln Gewicht je Pack ÷ Stück pro Pack, bei Stückartikeln Gewicht je Stück. Werte sind Richtwerte und müssen vor produktiver Nutzung geprüft werden.</p><div class="lp-worker-step"><b>Kommissionierfortschritt</b><span>'+done+' / '+total+' Positionen erledigt</span></div><div id="pickCameraBox" style="width:100%;max-width:430px;margin:auto"></div><button type="button" id="pickCameraStop" class="secondary hidden">Kamera schließen</button><div id="pickScanMessage" class="status" aria-live="polite"></div><div class="lp-worker-progress" role="progressbar" aria-label="Bestätigte Positionen" aria-valuenow="'+done+'" aria-valuemin="0" aria-valuemax="'+total+'"><span style="width:'+(total?done/total*100:0)+'%"></span></div><p class="sub">'+done+' von '+total+' Positionen bestätigt · keine Bestandsbuchung</p>'+
  '<div class="lp-weight-sticky" role="status" aria-label="Erwarteter Waagenwert"><span class="lp-weight-sticky-label">⚖️ Erwarteter Waagenwert</span><strong>'+(allWeights?pickKg(scaleMode==='tared'?known:known+pw+bw):'Noch unvollständig')+'</strong><span class="lp-weight-sticky-meta">'+(allWeights?(scaleMode==='tared'?'Waage bereits tariert · nur Warengewicht':'Brutto · Ware + Palette + Box'):'Gewichtsangaben ergänzen')+'</span></div>'+
@@ -709,7 +714,7 @@ $('pickWorker').addEventListener('click',e=>{
  if(b.dataset.pickNext!==undefined){const n=Number(b.dataset.pickNext);if(Number.isInteger(n)&&n>=0&&n<o.items.length)document.getElementById('pick-line-'+n)?.scrollIntoView({behavior:'smooth',block:'center'});return}
  if(b.dataset.pickScan!==undefined){if(o.status!=='In Bearbeitung')return;const n=Number(b.dataset.pickScan);if(!Number.isInteger(n)||n<0||n>=o.items.length)return alert('Ungültige Auftragsposition.');pickScanIndex=n;pickScanPhase='place';message($('pickScanMessage'),'Zuerst Lagerplatz '+o.items[n].place+' scannen, danach den Artikel.','warning');startCamera('pickArticle');return}
  if(b.id==='pickCameraStop'){pickScanIndex=null;pickScanPhase='place';stopCamera();return}
- if(b.dataset.workerLine!==undefined){if(o.status!=='In Bearbeitung')return;const n=Number(b.dataset.workerLine);if(!Number.isInteger(n)||n<0||n>=o.items.length)return;if(!o.checkedLines.includes(n)){if(!o.scannedLines?.includes(n))return alert('Bitte zuerst den Artikel scannen.');const q=pickNumber(o.items[n].actual);if(q===null||q<0||!Number.isInteger(q))return alert('Bitte eine gültige entnommene Menge eingeben.')}o.checkedLines=o.checkedLines.includes(n)?o.checkedLines.filter(x=>x!==n):[...o.checkedLines,n];pickSave();return}
+ if(b.dataset.workerLine!==undefined){if(o.status!=='In Bearbeitung')return;const n=Number(b.dataset.workerLine);if(!Number.isInteger(n)||n<0||n>=o.items.length)return;if(!o.checkedLines.includes(n)){if(!o.scannedLines?.includes(n))return alert('Bitte zuerst den Artikel scannen.');const q=pickNumber(o.items[n].actual);if(q===null||q<0||!Number.isInteger(q))return alert('Bitte eine gültige entnommene Menge eingeben.')}o.checkedLines=o.checkedLines.includes(n)?o.checkedLines.filter(x=>x!==n):[...o.checkedLines,n];if(o.repaired&&o.items.length>0&&o.checkedLines.length===o.items.length&&o.scannedLines.length===o.items.length){o.repaired=false;}pickSave();return}
  if(b.dataset.workerAction==='print'){pickPrintReceipt(o);return}
  if(b.dataset.workerAction==='toggle'){pickScanIndex=null;pickScanPhase='place';o.status=o.status==='In Bearbeitung'?'Pausiert':'In Bearbeitung';if(o.status==='In Bearbeitung'&&!o.startedAt)o.startedAt=new Date().toISOString();pickSave();return}
  if(b.dataset.workerAction==='finish'){if(!o.items.length||o.checkedLines.length!==o.items.length)return alert('Bitte zuerst alle Positionen bestätigen.');const weights=o.items.every(it=>{const q=pickNumber(it.actual),w=pickNumber(it.unitWeight);return q!==null&&w!==null&&q>=0&&Number.isInteger(q)&&w>=0});const pw=pickNumber(o.packaging.palletWeight),bw=pickNumber(o.packaging.boxWeight);if(!weights||pw===null||bw===null||pw<0||bw<0)return alert('Gewichtskontrolle unvollständig.');if(!pickDiscrepancyReady(o))return alert('Mengenabweichung: Bitte in der Auftragsübersicht begründen und freigeben lassen.');if(!pickWeightCheck(o).passed)return alert('Gewichtskontrolle nicht bestanden: Waagenwert und Toleranz prüfen.');if(!confirm('Testauftrag '+o.id+' abschließen?'))return;pickComplete(o)}
