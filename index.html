@@ -604,6 +604,7 @@ function pickPrintReceipt(o){
 }
 function pickSave(){try{localStorage.setItem(PICK_KEY,JSON.stringify(pickState));pickRender();return true}catch(e){alert('Kommissionierdaten konnten nicht gespeichert werden: '+e.message);return false}}
 function pickComplete(o){
+ pickScanIndex=null;
  const previousStatus=o.status,previousFinished=o.finishedAt;
  o.status='Abgeschlossen';o.finishedAt=new Date().toISOString();
  if(!pickSave()){o.status=previousStatus;if(previousFinished===undefined)delete o.finishedAt;else o.finishedAt=previousFinished;return false}
@@ -656,7 +657,7 @@ function pickAcceptScan(raw){
  pickEnsureLines(o);const i=pickScanIndex,it=o.items[i],code=String(raw).trim();
   if(!it){message($('pickScanMessage'),'Auftragsposition nicht vorhanden.','error');return false;}
  const catalog=DEMO_BY_CODE[it.sku]||article(it.sku);
- if(code!==it.sku&&code!==catalog?.barcode){message($('pickScanMessage'),'Falscher Artikel! Erwartet: '+it.sku+'. Erkannt: '+code,'error');return false}
+ if(!code||(code!==String(it.sku).trim()&&(!catalog?.barcode||code!==String(catalog.barcode).trim()))){message($('pickScanMessage'),'Falscher Artikel! Erwartet: '+it.sku+'. Erkannt: '+code,'error');return false}
  if(!Array.isArray(o.scannedLines))o.scannedLines=[];
  if(!o.scannedLines.includes(i))o.scannedLines.push(i);
  o.lastScanned={index:i,sku:it.sku,name:catalog?.name||it.name||'Unbekannter Artikel'};
@@ -699,11 +700,11 @@ $('pickWorker').addEventListener('change',e=>{
 });
 $('pickWorker').addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;const o=pickState.orders.find(x=>x.assignee===pickState.session&&x.status!=='Abgeschlossen');if(!o)return;pickEnsureLines(o);
- if(b.dataset.pickScan!==undefined){if(o.status!=='In Bearbeitung')return;pickScanIndex=Number(b.dataset.pickScan);startCamera('pickArticle');return}
+ if(b.dataset.pickScan!==undefined){if(o.status!=='In Bearbeitung')return;const n=Number(b.dataset.pickScan);if(!Number.isInteger(n)||n<0||n>=o.items.length)return alert('Ungültige Auftragsposition.');pickScanIndex=n;startCamera('pickArticle');return}
  if(b.id==='pickCameraStop'){stopCamera();return}
  if(b.dataset.workerLine!==undefined){if(o.status!=='In Bearbeitung')return;const n=Number(b.dataset.workerLine);if(!Number.isInteger(n)||n<0||n>=o.items.length)return;if(!o.checkedLines.includes(n)){if(!o.scannedLines?.includes(n))return alert('Bitte zuerst den Artikel scannen.');const q=pickNumber(o.items[n].actual);if(q===null||q<0||!Number.isInteger(q))return alert('Bitte eine gültige entnommene Menge eingeben.')}o.checkedLines=o.checkedLines.includes(n)?o.checkedLines.filter(x=>x!==n):[...o.checkedLines,n];pickSave();return}
  if(b.dataset.workerAction==='print'){pickPrintReceipt(o);return}
- if(b.dataset.workerAction==='toggle'){o.status=o.status==='In Bearbeitung'?'Pausiert':'In Bearbeitung';if(o.status==='In Bearbeitung'&&!o.startedAt)o.startedAt=new Date().toISOString();pickSave();return}
+ if(b.dataset.workerAction==='toggle'){pickScanIndex=null;o.status=o.status==='In Bearbeitung'?'Pausiert':'In Bearbeitung';if(o.status==='In Bearbeitung'&&!o.startedAt)o.startedAt=new Date().toISOString();pickSave();return}
  if(b.dataset.workerAction==='finish'){if(!o.items.length||o.checkedLines.length!==o.items.length)return alert('Bitte zuerst alle Positionen bestätigen.');const weights=o.items.every(it=>{const q=pickNumber(it.actual),w=pickNumber(it.unitWeight);return q!==null&&w!==null&&q>=0&&Number.isInteger(q)&&w>=0});const pw=pickNumber(o.packaging.palletWeight),bw=pickNumber(o.packaging.boxWeight);if(!weights||pw===null||bw===null||pw<0||bw<0)return alert('Gewichtskontrolle unvollständig.');if(!pickDiscrepancyReady(o))return alert('Mengenabweichung: Bitte in der Auftragsübersicht begründen und freigeben lassen.');if(!pickWeightCheck(o).passed)return alert('Gewichtskontrolle nicht bestanden: Waagenwert und Toleranz prüfen.');if(!confirm('Testauftrag '+o.id+' abschließen?'))return;pickComplete(o)}
 });
 
