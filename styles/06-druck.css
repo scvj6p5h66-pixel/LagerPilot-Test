@@ -1,0 +1,7 @@
+@media print{
+ #picking .lp-worker-line{display:block;box-shadow:none}
+ #picking .lp-pick-location{background:transparent;padding:0}
+ #picking .lp-pick-qty>div{border:0;background:transparent;padding:0}
+ #picking .lp-worker-step{display:none}
+}
+
