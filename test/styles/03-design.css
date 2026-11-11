@@ -1,0 +1,34 @@
+/* LagerPilot 2.7 – behutsames Design-Facelift, ohne Änderungen an Lagerdaten */
+:root{--lp-shadow:0 6px 22px rgba(15,43,78,.075);--lp-motion:cubic-bezier(.2,.7,.2,1)}
+header{box-shadow:0 5px 22px rgba(5,23,49,.16);position:relative;z-index:5}
+header .mark{box-shadow:0 3px 12px rgba(36,105,232,.28);border:1px solid rgba(255,255,255,.2)}
+nav{border-bottom:1px solid #e4ebf4;scrollbar-width:thin}
+nav button{border-radius:11px;transition:background-color .18s var(--lp-motion),border-color .18s var(--lp-motion),box-shadow .18s var(--lp-motion)}
+nav button:hover{border-color:#8bb3ed;background:#eef5ff!important}
+section{box-shadow:var(--lp-shadow)}
+section.active{animation:lp-page-in .23s var(--lp-motion) both}
+.card{background:linear-gradient(145deg,#fff 0%,#f7f9fd 100%);box-shadow:0 2px 10px rgba(12,43,82,.045);transition:box-shadow .2s var(--lp-motion),transform .2s var(--lp-motion),border-color .2s var(--lp-motion)}
+button{transition:transform .16s var(--lp-motion),box-shadow .16s var(--lp-motion),background-color .16s var(--lp-motion),border-color .16s var(--lp-motion)}
+button:not(:disabled):active{transform:scale(.975)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #7eafff;outline-offset:2px}
+input:focus,select:focus,textarea:focus{border-color:#518ce8}
+#homeStats .card{border-color:#dce7f6}
+.lp-status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:5px}
+.lp-status-dot.is-active{background:#22a46e;animation:lp-pulse 2.5s ease-in-out infinite}
+.lp-status-dot.is-offline{background:#d44e51}
+.lp-status-dot.is-away{background:#e0a229}
+.lp-chart-animate{animation:lp-chart-in .8s var(--lp-motion) both}
+.lp-feedback-success{position:relative;animation:lp-feedback-in .4s var(--lp-motion) both}
+.lp-feedback-success::before{content:"✓";display:inline-grid;place-items:center;width:19px;height:19px;margin-right:7px;border-radius:50%;background:#20a36d;color:white;font-weight:800;animation:lp-check-in .35s var(--lp-motion) both}
+.lp-feedback-error{animation:lp-scan-error .24s ease-in-out}
+.lp-scan-success{animation:lp-scan-success .55s ease-out}
+@keyframes lp-pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,164,110,.28)}55%{box-shadow:0 0 0 7px rgba(34,164,110,0)}}
+@keyframes lp-page-in{from{opacity:.55;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes lp-chart-in{from{opacity:.25;transform:scale(.93) rotate(-8deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes lp-feedback-in{from{opacity:.6;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@keyframes lp-check-in{from{transform:scale(.5)}to{transform:scale(1)}}
+@keyframes lp-scan-success{0%{box-shadow:0 0 0 0 rgba(32,163,109,.55)}70%{box-shadow:0 0 0 7px rgba(32,163,109,0)}100%{box-shadow:none}}
+@keyframes lp-scan-error{0%,100%{box-shadow:none}50%{box-shadow:0 0 0 3px rgba(212,78,81,.4)}}
+@media(hover:hover) and (pointer:fine){.card:hover{transform:translateY(-2px);box-shadow:0 9px 23px rgba(12,43,82,.09);border-color:#cbdcf0}button:not(:disabled):hover{box-shadow:0 4px 12px rgba(18,70,137,.15);transform:translateY(-1px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;transform:none!important}}
+
