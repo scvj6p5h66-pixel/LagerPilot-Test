@@ -1,0 +1,21 @@
+/* Kommscheinvorschläge: Desktop-Tabelle, mobile Karten ohne horizontales Scrollen */
+.lp-pick-orders-table td:last-child{min-width:210px}
+.lp-pick-orders-table td:last-child select{max-width:100%;margin-bottom:7px}
+.lp-pick-orders-table td:last-child button{margin:3px 5px 3px 0}
+@media(max-width:700px){
+ .lp-pick-orders-wrap{overflow:visible;max-width:100%}
+ .lp-pick-orders-table,.lp-pick-orders-table tbody,.lp-pick-orders-table tr,.lp-pick-orders-table td{display:block;width:100%;min-width:0}
+ .lp-pick-orders-table thead{display:none}
+ .lp-pick-orders-table{border:0;background:transparent}
+ .lp-pick-orders-table tr{margin:0 0 13px;padding:15px;border:1px solid #dce6f2;border-radius:15px;background:#fff;box-shadow:0 3px 13px rgba(15,43,78,.06)}
+ .lp-pick-orders-table td{border:0!important;padding:5px 0!important;overflow-wrap:anywhere}
+ .lp-pick-orders-table td::before{content:attr(data-label);display:block;color:#60758e;font-size:12px;font-weight:650;margin-bottom:4px}
+ .lp-pick-orders-table td:first-child{padding-bottom:9px!important;border-bottom:1px solid #e7edf5!important;margin-bottom:6px}
+ .lp-pick-orders-table td:first-child::before{display:none}
+ .lp-pick-orders-table td:first-child b{font-size:19px;color:#143459}
+ .lp-pick-orders-table td:last-child{margin-top:8px}
+ .lp-pick-orders-table td:last-child select{width:100%;max-width:none;margin:0 0 9px;min-height:46px}
+ .lp-pick-orders-table td:last-child button{width:100%;min-height:44px;margin:0 0 7px}
+ .lp-pick-orders-table td:last-child button:last-child{margin-bottom:0}
+}
+
