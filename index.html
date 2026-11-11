@@ -86,13 +86,20 @@ function tab(name){
 }
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.tab)));
 function demoOverview(){if(!simulation)return null;const byCode=new Map(DEMO_ITEMS.map(a=>[a.code,{qty:0,places:0,locations:[]}]));let occupiedCount=0;for(const [hall,count] of [['H4A',22],['H4B',18]])for(let r=1;r<=count;r++)for(let n=1;n<=162;n++){const box=demoBox(`${hall}-${r}-${n}`);if(!box)continue;occupiedCount++;for(const line of box.lines){const entry=byCode.get(line.code);if(entry){entry.qty+=line.qty;entry.places++;entry.locations.push({place:box.place,qty:line.qty});}}}return {byCode,occupiedCount};}
-function renderHomeOccupancy(){
+function homeOccupancyCounts(){
  const counts={free:0,occupied:0,locked:0};
+ // SA-14: Boxen einmal nach Platz gruppieren statt je Platz die gesamte Boxliste zu filtern (vorher Plätze x Boxen Vergleiche).
+ let byPlace=null;
+ if(!simulation){byPlace=new Map();for(const b of state.boxes){if(b.qty>0){const e=byPlace.get(b.place);if(e){if(b.blocked>0)e.blocked=true;}else byPlace.set(b.place,{blocked:b.blocked>0});}}}
  for(const [hall,racks] of [['H4A',22],['H4B',18]])for(let r=1;r<=racks;r++)for(let n=1;n<=162;n++){
   const p=hall+'-'+r+'-'+n;
   if(simulation){const t=simType(p);if(t==='reserved'||t==='mixed')counts.locked++;else if(t==='occupied')counts.occupied++;else counts.free++;}
-  else {const st=state.places[p]?.status,b=occupied(state,p);if(st==='locked'||st==='reserved'||st==='fixed'||b.some(x=>x.blocked>0))counts.locked++;else if(b.length)counts.occupied++;else counts.free++;}
+  else {const st=state.places[p]?.status,e=byPlace.get(p);if(st==='locked'||st==='reserved'||st==='fixed'||e&&e.blocked)counts.locked++;else if(e)counts.occupied++;else counts.free++;}
  }
+ return counts;
+}
+function renderHomeOccupancy(){
+ const counts=homeOccupancyCounts();
  const total=counts.free+counts.occupied+counts.locked;
  const pct=k=>(100*counts[k]/total).toFixed(1).replace('.',',');
  const f=100*counts.free/total,o=100*counts.occupied/total;
@@ -100,7 +107,7 @@ function renderHomeOccupancy(){
  $('homeOccupancy').innerHTML='<div class="sub" style="margin-bottom:12px">'+(simulation?'🧪 Simulierte Lagerauslastung':'Lagerauslastung aus gespeicherten Daten')+' · '+fmt(total)+' Stellplätze · beide Hallen</div><div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:22px"><div role="img" class="lp-chart-animate" aria-label="Frei '+pct('free')+' Prozent, belegt '+pct('occupied')+' Prozent, gesperrt '+pct('locked')+' Prozent" style="width:190px;height:190px;flex:0 0 190px;border-radius:50%;background:'+pie+';box-shadow:inset 0 0 0 1px #0001"></div><div style="min-width:180px;flex:1"><div style="margin-bottom:10px"><span style="color:#2b9b68">●</span> Frei <b style="float:right">'+pct('free')+' %</b><div class="sub">'+fmt(counts.free)+' Stellplätze</div></div><div style="margin-bottom:10px"><span style="color:#3478cc">●</span> Belegt <b style="float:right">'+pct('occupied')+' %</b><div class="sub">'+fmt(counts.occupied)+' Stellplätze</div></div><div><span style="color:#d65b54">●</span> Gesperrt / reserviert <b style="float:right">'+pct('locked')+' %</b><div class="sub">'+fmt(counts.locked)+' Stellplätze</div></div></div></div>';
 }
 function render(){$('simActiveBanner').classList.toggle('hidden',!simulation);const banner=$('storageLockBanner');banner.classList.toggle('hidden',!(storageLocked||pickStorageLocked));if(storageLocked||pickStorageLocked)$('storageLockReason').textContent=[storageLocked?loadError:'',pickStorageLocked?pickStorageError:''].filter(Boolean).join(' ');const legacy=Object.keys(state.places).filter(p=>Number(p.split('-')[2])>162),demo=demoOverview(),arr=demo?DEMO_ITEMS.map(a=>[a,demo.byCode.get(a.code).qty]):state.items.map(a=>[a,qty(a.code)]);$('demoStockHint').classList.toggle('hidden',!demo);$('demoArticleHint').classList.toggle('hidden',!demo);$('homeStats').innerHTML=`<div class="card"><div class="big">${fmt(arr.length)}</div><div class="sub">${demo?'🧪 Demo-Artikel':'Artikel'}</div></div><div class="card"><div class="big">${fmt(Object.keys(state.places).length)}</div><div class="sub">Lagerplätze beider Hallen</div></div><div class="card"><div class="big">${fmt(demo?demo.occupiedCount:state.boxes.filter(b=>b.qty>0).length)}</div><div class="sub">${demo?'🧪 Simuliert belegte Plätze':'Palettenboxen / Bestandspositionen'}</div></div>`;renderHomeOccupancy();const issues=demo?[]:arr.filter(([a,q])=>a.min!==null&&q<a.min);$('homeWarnings').innerHTML=(issues.length?'<div class="warning">⚠ '+issues.length+' Artikel unter Mindestbestand</div>':'')+(legacy.length?'<div class="warning">⚠ '+legacy.length+' alte Stellplätze über Nr. 144 vorhanden. Nicht gelöscht – bitte QR-Codes und Bestände prüfen.</div>':'');const q=$('search').value.toLowerCase();$('stockList').innerHTML=arr.filter(([a])=>(a.name+' '+a.code+' '+(demo?demo.byCode.get(a.code).locations:state.boxes.filter(b=>b.code===a.code)).map(b=>b.place).join(' ')).toLowerCase().includes(q)).map(([a,n])=>`<tr><td><b>${esc(a.name)}</b><div class="sub">${esc(a.code)}${demo?' · 🧪 DEMO':''}</div></td><td>${stockUnits(a,n)}${demo?'<div class="sub">🧪 Testbestand</div>':''}</td><td>${demo?demo.byCode.get(a.code).places:new Set(state.boxes.filter(b=>b.code===a.code&&b.qty>0).map(b=>b.place)).size}</td><td><button class="secondary" data-stock-code="${esc(a.code)}">Orte</button></td></tr>`).join('')||'<tr><td colspan="4">Keine Artikel</td></tr>';
-const sel=state.items.map(a=>[a.code,a.name+' ('+a.code+') · '+a.unit]);['bookArticle','mergeArticle','invArticle'].forEach(k=>options($(k),sel));options($('scanMapPlace'),Object.keys(state.places).sort(natural).map(p=>[p,p]));updateRackOptions();updateBookPackPreview();$('articleRows').innerHTML=(demo?DEMO_ITEMS:state.items).map(a=>`<tr><td><b>${esc(a.name)}</b><div class="sub">${esc(a.code)}${demo?' · 🧪 DEMO':''}</div></td><td>${a.unit}</td><td>${demo?'Testartikel':a.pack+' STK/P · max '+(a.max??'?')}</td><td>${demo?'–':(a.weight??'?')+' kg/P'}</td><td>${demo?'<span class="tag">Nur Ansicht</span>':'<button class="secondary" data-edit="'+esc(a.code)+'">Bearbeiten</button>'}</td></tr>`).join('');renderHistory();$('invHistory').innerHTML=(state.inventoryLogs||[]).slice(0,30).map(h=>`<div class="entry">${esc(h.at)} · ${esc(h.code)} · ${esc(h.place)} · ${esc(h.before)} → ${esc(h.count)}</div>`).join('')||'<p class="muted">Noch keine Inventur.</p>';['cfgShelf','cfgBay','cfgPalletMax','cfgTare'].forEach((k,i)=>{const v=state.config[['shelf','bay','palletMax','tare'][i]];if(document.activeElement!==$(k))$(k).value=v??'';});$('backupSummary').textContent=`Aktueller ECHTER Datenstand: ${fmt(Object.keys(state.places).length)} Lagerplätze, ${fmt(state.items.length)} Artikel, ${fmt(state.boxes.length)} Bestandspositionen. ${upgradeNote}`;renderRack();renderMerge();}
+const sel=state.items.map(a=>[a.code,a.name+' ('+a.code+') · '+a.unit]);['bookArticle','mergeArticle','invArticle'].forEach(k=>options($(k),sel));options($('scanMapPlace'),Object.keys(state.places).sort(natural).map(p=>[p,p]));updateRackOptions();updateBookPackPreview();$('articleRows').innerHTML=(demo?DEMO_ITEMS:state.items).map(a=>`<tr><td><b>${esc(a.name)}</b><div class="sub">${esc(a.code)}${demo?' · 🧪 DEMO':''}</div></td><td>${a.unit}</td><td>${demo?'Testartikel':a.pack+' STK/P · max '+(a.max??'?')}</td><td>${demo?'–':(a.weight??'?')+' kg/P'}</td><td>${demo?'<span class="tag">Nur Ansicht</span>':'<button class="secondary" data-edit="'+esc(a.code)+'">Bearbeiten</button>'}</td></tr>`).join('');renderHistory();$('invHistory').innerHTML=(state.inventoryLogs||[]).slice(0,30).map(h=>`<div class="entry">${esc(h.at)} · ${esc(h.code)} · ${esc(h.place)} · ${esc(h.before)} → ${esc(h.count)}</div>`).join('')||'<p class="muted">Noch keine Inventur.</p>';['cfgShelf','cfgBay','cfgPalletMax','cfgTare'].forEach((k,i)=>{const v=state.config[['shelf','bay','palletMax','tare'][i]];if(document.activeElement!==$(k))$(k).value=v??'';});$('backupSummary').textContent=`Aktueller ECHTER Datenstand: ${fmt(Object.keys(state.places).length)} Lagerplätze, ${fmt(state.items.length)} Artikel, ${fmt(state.boxes.length)} Bestandspositionen. ${upgradeNote}`;renderRack();if($('merge').classList.contains('active'))renderMerge();/* SA-14: Zusammenführvorschläge nur berechnen, wenn der Tab sichtbar ist; beim Öffnen des Tabs ruft tab() renderMerge() ohnehin auf */}
 
 function natural(a,b){return a.localeCompare(b,'de',{numeric:true});}
 $('search').addEventListener('input',render);
@@ -334,7 +341,65 @@ $('bookAction').onchange=()=>$('bookTargetWrap').classList.toggle('hidden',!['mo
 $('bookSubmit').onclick=()=>{try{const act=$('bookAction').value,code=$('bookArticle').value,p=resolve($('bookPlace').value)||$('bookPlace').value.trim(),to=resolve($('bookTarget').value)||$('bookTarget').value.trim(),inputQty=Number($('bookQty').value),note=$('bookNote').value.trim(),a=article(code),n=a&&a.unit==='P'?inputQty/a.pack:inputQty;if(!a||!integer(n)||act!=='correct'&&n<=0||act==='correct'&&n===0)throw Error('Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch den Packinhalt teilbar sein.');if(act==='correct'&&!note)throw Error('Bei Bestandskorrektur ist ein Grund erforderlich.');const copy=structuredClone(state);safePlace(copy,p);if(act==='move')commitTransfer(copy,p,to,code,n);else if(act==='qsMove')commitQSTransfer(copy,p,to,code,n,note);else{const bs=occupied(copy,p).filter(b=>b.code===code);if(bs.length>1)throw Error('Mehrere Boxen dieses Artikels: Buchung nicht eindeutig.');let b=bs[0];if(act==='in'){if(b?.blocked)throw Error('Wareneingang auf QS-gesperrte Palette nicht erlaubt. Erst QS-Freigabe durchführen.');freeFor(copy,p,code);loadCheck(copy,p,code,(b?.qty||0)+n);if(b)b.qty+=n;else copy.boxes.push({id:id(),place:p,code,qty:n,blocked:0});}else{if(!b||b.blocked)throw Error('Kein frei buchbarer Bestand.');if(b.qty+(act==='correct'?n:-n)<0)throw Error('Bestand darf nicht negativ werden.');if(act==='correct'&&n>0)loadCheck(copy,p,code,b.qty+n);b.qty+=act==='correct'?n:-n;if(b.qty===0)copy.boxes=copy.boxes.filter(x=>x.id!==b.id);}history(copy,({in:'Wareneingang',out:'Warenausgang',correct:'Korrektur'})[act]+' · '+code+' · '+n+' '+a.unit+' · '+p+(note?' · '+note:''));}if(!confirm('Buchung verbindlich speichern?'))return;persist(copy);message($('bookMessage'),'✓ Buchung gespeichert.','success');}catch(e){message($('bookMessage'),e.message,'error');}};
 function updateBookPackPreview(){const a=article($('bookArticle').value),n=Number($('bookQty').value),el=$('bookPackPreview');if(!a){el.textContent='Artikel auswählen.';return;}if(!Number.isFinite(n)||!Number.isInteger(n)){el.textContent='Ganze Stückzahl eingeben.';return;}if(a.unit==='P'){const packs=n/a.pack;el.textContent=fmt(n)+' Stück = '+fmt(packs)+' Pack ('+fmt(a.pack)+' Stück/Pack)'+(!Number.isInteger(packs)?' · ⚠ Keine ganze Packmenge – Buchung nicht möglich.':'');el.className=Number.isInteger(packs)?'hint':'warning';}else{el.textContent=fmt(n)+' Stück · Artikel wird in Stück geführt.';el.className='hint';}}
 $('bookQty').addEventListener('input',updateBookPackPreview);$('bookArticle').addEventListener('change',updateBookPackPreview);
-function suggestions(){const out=[];for(const a of state.items){const boxes=state.boxes.filter(b=>b.code===a.code&&b.qty>0&&!b.blocked&&status(b.place)==='free'&&a.max!==null);for(const src of boxes){const targets=boxes.filter(dst=>dst.id!==src.id&&dst.qty>=src.qty&&dst.qty+src.qty<=a.max);if(!targets.length)continue;targets.sort((x,y)=>(x.place.slice(0,3)===src.place.slice(0,3)?0:1)-(y.place.slice(0,3)===src.place.slice(0,3)?0:1)||Math.abs(Number(x.place.split('-')[1])-Number(src.place.split('-')[1]))-Math.abs(Number(y.place.split('-')[1])-Number(src.place.split('-')[1]))||y.qty-x.qty);out.push({a,src,dst:targets[0]});}}return out.sort((x,y)=>x.src.qty-y.src.qty).slice(0,30);}
+function suggestions(){
+ // SA-14: Leistungsoptimierung. Fachlich identisch zur bisherigen Implementierung (siehe tests/legacy/suggestions_legacy.js),
+ // aber ohne paarweisen Vergleich aller Boxen eines Artikels:
+ //  1. Boxen einmal je Artikel gruppieren (Map) statt je Artikel die gesamte Boxliste zu filtern.
+ //  2. Quellboxen global nach (Menge, Erzeugungsreihenfolge) sortieren - das entspricht dem stabilen Sortieren der Ergebnisse.
+ //  3. Je Quelle per binärer Suche in den sortierten Mengen prüfen, ob ein zulässiges Ziel existiert.
+ //  4. Das beste Ziel (gleiche Halle, kleinster Regalabstand, größte Menge, bei Gleichstand die erste Box) nur für die ersten 30 Treffer suchen.
+ const groups=new Map();
+ for(const b of state.boxes){if(b.qty>0&&!b.blocked&&status(b.place)==='free'){let l=groups.get(b.code);if(!l)groups.set(b.code,l=[]);l.push(b);}}
+ const sources=[];let seq=0;
+ for(const a of state.items){
+  if(a.max===null)continue;
+  const list=groups.get(a.code);if(!list||!list.length)continue;
+  const ctx={a,list,sorted:null,sameId:null,rackNaN:false,info:null};
+  for(const src of list)sources.push({src,ctx,seq:seq++});
+ }
+ const ensure=ctx=>{
+  if(ctx.sorted)return ctx;
+  ctx.sorted=ctx.list.map(b=>b.qty).sort((x,y)=>x-y);
+  ctx.info=ctx.list.map(b=>{const rack=Number(b.place.split('-')[1]);if(Number.isNaN(rack))ctx.rackNaN=true;return {b,hall:b.place.slice(0,3),rack};});
+  const ids=new Map();for(const b of ctx.list){const l=ids.get(b.id);if(l)l.push(b);else ids.set(b.id,[b]);}ctx.sameId=ids;
+  return ctx;
+ };
+ const fits=(dst,src,max)=>dst.id!==src.id&&dst.qty>=src.qty&&dst.qty+src.qty<=max;
+ const hasTarget=(src,ctx)=>{
+  const max=ctx.a.max;
+  if(typeof max!=='number'||Number.isNaN(max))return ctx.list.some(d=>fits(d,src,max));
+  ensure(ctx);const q=ctx.sorted,s=src.qty;
+  let lo=0,hi=q.length;while(lo<hi){const m=(lo+hi)>>1;if(q[m]>=s)hi=m;else lo=m+1;}const from=lo;
+  lo=from;hi=q.length;while(lo<hi){const m=(lo+hi)>>1;if(q[m]+s<=max)lo=m+1;else hi=m;}const to=lo;
+  let n=to-from;if(n<=0)return false;
+  for(const d of ctx.sameId.get(src.id)||[])if(d.qty>=s&&d.qty+s<=max)n--;
+  return n>0;
+ };
+ const bestTarget=(src,ctx)=>{
+  ensure(ctx);const max=ctx.a.max;
+  if(ctx.rackNaN){ // ungewöhnliche Altdaten: exakt das bisherige Verhalten (Filtern und Sortieren) beibehalten
+   const targets=ctx.list.filter(d=>fits(d,src,max));
+   targets.sort((x,y)=>(x.place.slice(0,3)===src.place.slice(0,3)?0:1)-(y.place.slice(0,3)===src.place.slice(0,3)?0:1)||Math.abs(Number(x.place.split('-')[1])-Number(src.place.split('-')[1]))-Math.abs(Number(y.place.split('-')[1])-Number(src.place.split('-')[1]))||y.qty-x.qty);
+   return targets[0];
+  }
+  const sh=src.place.slice(0,3),sr=Number(src.place.split('-')[1]);
+  let best=null,bh=0,bd=0;
+  for(const e of ctx.info){
+   if(!fits(e.b,src,max))continue;
+   const h=e.hall===sh?0:1,d=Math.abs(e.rack-sr);
+   if(best===null||h<bh||h===bh&&(d<bd||d===bd&&e.b.qty>best.qty)){best=e.b;bh=h;bd=d;}
+  }
+  return best;
+ };
+ sources.sort((x,y)=>x.src.qty-y.src.qty||x.seq-y.seq);
+ const out=[];
+ for(const s of sources){
+  if(!hasTarget(s.src,s.ctx))continue;
+  out.push({a:s.ctx.a,src:s.src,dst:bestTarget(s.src,s.ctx)});
+  if(out.length===30)break;
+ }
+ return out;
+}
 function renderMerge(){const arr=suggestions();$('mergeList').innerHTML=arr.length?arr.map((x,i)=>`<div class="card" style="margin-top:9px"><b>${esc(x.a.name)}</b><p>${esc(x.src.place)}: ${x.src.qty} ${x.a.unit} → ${esc(x.dst.place)}: ${x.dst.qty} ${x.a.unit}</p><button class="secondary" data-suggestion="${i}">Vorschlag übernehmen</button></div>`).join(''):'<p class="muted">Keine passenden Vorschläge. Für Vorschläge werden Boxbestände und maximale Boxkapazitäten benötigt.</p>';window.currentSuggestions=arr;}
 $('mergeRefresh').onclick=renderMerge;$('mergeList').onclick=e=>{const b=e.target.closest('[data-suggestion]');if(!b)return;const x=window.currentSuggestions[Number(b.dataset.suggestion)];$('mergeFrom').value=x.src.place;$('mergeTo').value=x.dst.place;$('mergeArticle').value=x.a.code;$('mergeQty').value=x.src.qty;mergeGuidedStep=0;guidedStatus();message($('mergeCheck'),'Vorschlag übernommen. Quelle und Ziel vor Ort per QR prüfen.','hint');};
 let mergeGuidedStep=0;
