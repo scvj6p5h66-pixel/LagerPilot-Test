@@ -9,7 +9,7 @@ Mitarbeiter-Testdemo → Max anmelden → Startseite → Button **„Demo-Kommis
 1. Vorbereitung: Palette und Karton wählen (Taragewichte werden angezeigt).
 2. Vier Positionen nacheinander (Halle 4A/4B): Artikelnr., Bezeichnung, Lagerplatz, Soll-/Pick-Menge, Gewicht.
 3. Je Position „Demo-Scan auslösen“ (Platz → Artikel, vorhandene Scan-Logik `resolve()`), Menge bestätigen, Fortschrittsanzeige.
-4. Erwartetes Gesamtgewicht inkl. Palette + Karton; simulierte Waage (Toleranz ±2 kg) mit sichtbarer Abweichung, Treffer und Fehlerfall.
+4. Erwartetes Gesamtgewicht inkl. Palette + Karton; simulierte Waage (Toleranz ±2 %, nicht ±2 kg) mit sichtbarer Abweichung, Treffer und Fehlerfall.
 5. Abschluss und vollständiger Kommissionierschein.
 6. „Demo zurücksetzen / neu starten“.
 Zum Testen (eingeklappt): Fehlscan und falsche Menge.

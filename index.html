@@ -509,7 +509,7 @@ function pickSlipHtml(o){
   const q=pickNumber(it&&it.qty),a=pickNumber(it&&it.actual),w=pickNumber(it&&it.unitWeight),d=q!==null&&a!==null?a-q:null,pw=a!==null&&w!==null?a*w:null;
   if(q===null||a===null)qComplete=false;else{sumQty+=q;sumAct+=a;}
   if(pw===null)wComplete=false;else sumW+=pw;
-  return '<tr'+(d!==null&&d!==0?' class="slip-dev"':'')+'><td class="c">'+(i+1)+'</td><td>'+txt(it&&it.sku)+'</td><td>'+txt(it&&it.name)+'</td><td>'+txt(it&&it.place)+'</td><td class="r">'+num(q)+'</td><td class="r">'+num(a)+'</td><td class="r">'+(d===null?'–':d===0?'0':sgn(d))+'</td><td class="r">'+kg(w)+'</td><td class="r">'+kg(pw)+'</td></tr>';
+  return '<tr'+(d!==null&&d!==0?' class="slip-dev"':'')+'><td class="c">'+(i+1)+'</td><td class="nw">'+txt(it&&it.sku)+'</td><td>'+txt(it&&it.name)+'</td><td class="nw">'+txt(it&&it.place)+'</td><td class="r">'+num(q)+'</td><td class="r">'+num(a)+'</td><td class="r nw">'+kg(w)+'</td><td class="r nw">'+kg(pw)+'</td></tr>';
  }).join('');
  const itemsWeight=wComplete?sumW:null,pw0=pickNumber(p.palletWeight),bw0=pickNumber(p.boxWeight),tara=pw0!==null&&bw0!==null?pw0+bw0:null,calcGross=itemsWeight!==null&&tara!==null?itemsWeight+tara:null;
  const tared=p.scaleMode==='tared';
@@ -521,28 +521,34 @@ function pickSlipHtml(o){
  const statusLabel=finished?'ABGESCHLOSSEN':'VORLÄUFIG – NICHT ABGESCHLOSSEN';
  const legacyWarn=finished&&state!=='pass'?'<div class="slip-alert">Hinweis: Dieser Auftrag ist ohne bestandene Gewichtskontrolle gespeichert (Altdaten). Die Gewichtskontrolle gilt hier als '+(state==='fail'?'nicht bestanden':'nicht geprüft')+'.</div>':'';
  const noItems=items===null||!items.length?'<div class="slip-alert">Für diesen Auftrag sind keine Positionsdaten gespeichert. Es werden keine Werte ergänzt.</div>':'';
+ const tolKg=check.expected!==null&&check.validTolerance?check.expected*check.tolerance/100:null;
+ const tolTxt=check.tolerance===null||check.tolerance===undefined||!check.validTolerance?'–':'± '+num(check.tolerance)+' %'+(tolKg===null?'':' (± '+tolKg.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' kg)');
+ const dateShown=finished?date(o.finishedAt):date(o.startedAt);
+ const remarkParts=[];
+ if(diff.length)remarkParts.push('<p><b>Mengenabweichungen:</b></p>'+devList.replace(/^<ul>/,'<ul>'));else remarkParts.push('<p>Keine Mengenabweichungen.</p>');
+ remarkParts.push(note);
  return '<div class="slip">'+
  '<div class="slip-head"><div class="slip-brand"><span class="ib-brand-symbol"><b>I</b><b>B</b></span><div><div class="slip-brand-name">INTRA<span>BOLD</span></div><div class="slip-brand-sub">LagerPilot · Software Solutions</div></div></div><div class="slip-doc"><div class="slip-title">Kommissionierschein</div><div class="slip-status slip-status-'+(finished?'done':'draft')+'">'+statusLabel+'</div></div></div>'+
  legacyWarn+
  '<div class="slip-meta"><div><span>Auftragsnummer</span><b>'+txt(o.id)+'</b></div><div><span>Abschlussdatum</span><b>'+(finished?date(o.finishedAt):'–')+'</b></div><div><span>Mitarbeiter</span><b>'+txt(o.assignee)+'</b></div><div><span>Scanner / Gerät</span><b>'+txt(comp.device)+'</b></div><div><span>Status</span><b>'+txt(o.status)+'</b></div><div><span>Gestartet</span><b>'+date(o.startedAt)+'</b></div><div><span>Positionen</span><b>'+(items?items.length:'–')+'</b></div><div><span>Ladungsträger</span><b>'+txt(PICK_PACK_LABEL[p.type])+'</b></div></div>'+
  noItems+
- '<table class="slip-table"><thead><tr><th class="c">Pos.</th><th>Artikelnr.</th><th>Bezeichnung</th><th>Lagerplatz</th><th class="r">Soll</th><th class="r">Ist</th><th class="r">Abw.</th><th class="r">kg/Stk.</th><th class="r">Gewicht</th></tr></thead><tbody>'+rows+'</tbody>'+(list.length?'<tfoot><tr><td colspan="4">Summe ('+list.length+' Positionen)</td><td class="r">'+(qComplete?num(sumQty):'–')+'</td><td class="r">'+(qComplete?num(sumAct):'–')+'</td><td class="r">'+(qComplete?sgn(sumAct-sumQty).replace('+0','0'):'–')+'</td><td></td><td class="r">'+kg(itemsWeight)+'</td></tr></tfoot>':'')+'</table>'+
- '<div class="slip-cols"><div class="slip-box"><div class="slip-h">Mengenabweichungen</div>'+devList+'</div><div class="slip-box"><div class="slip-h">Bemerkungen</div>'+note+'</div></div>'+
+ '<table class="slip-table"><thead><tr><th class="c">Pos.</th><th>Artikelnr.</th><th>Bezeichnung</th><th>Lagerplatz</th><th class="r">Soll</th><th class="r">Ist</th><th class="r">kg/Stk.</th><th class="r">Gewicht</th></tr></thead><tbody>'+rows+'</tbody>'+(list.length?'<tfoot><tr><td colspan="4">Summe ('+list.length+' Positionen) · Stückzahl / Warengewicht</td><td class="r">'+(qComplete?num(sumQty):'–')+'</td><td class="r">'+(qComplete?num(sumAct):'–')+'</td><td></td><td class="r nw">'+kg(itemsWeight)+'</td></tr></tfoot>':'')+'</table>'+
  '<div class="slip-end">'+
- '<div class="slip-box slip-weight"><div class="slip-h">Gewichtskontrolle</div><table class="slip-kv"><tbody>'+
+ '<div class="slip-cols">'+
+ '<div class="slip-box slip-weight"><div class="slip-h"><svg class="slip-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>Gewichtskontrolle</div><div class="slip-bd"><table class="slip-kv"><tbody>'+
  '<tr><td>Warengewicht (Netto, berechnet)</td><td class="r">'+kg(itemsWeight)+'</td></tr>'+
  '<tr><td>Palettengewicht ('+txt(PICK_PACK_LABEL[p.type]&&PICK_PACK_LABEL[p.type].split(' + ')[0])+')</td><td class="r">'+kg(p.palletWeight)+'</td></tr>'+
  '<tr><td>Boxgewicht</td><td class="r">'+kg(p.boxWeight)+'</td></tr>'+
- '<tr><td>Tara (Palette + Box)</td><td class="r">'+kg(tara)+'</td></tr>'+
- '<tr><td>Berechnetes Bruttogewicht (Ware + Tara)</td><td class="r"><b>'+kg(calcGross)+'</b></td></tr>'+
- '<tr><td>Waageneinstellung</td><td class="r">'+(tared?'Palette und Box tariert (Nettogewicht)':'Nicht tariert (Bruttogewicht)')+'</td></tr>'+
- '<tr><td>Erwarteter Waagenwert</td><td class="r">'+kg(check.expected)+'</td></tr>'+
- '<tr><td>Tatsächlich gewogen ('+(tared?'Nettogewicht':'Bruttogewicht')+')</td><td class="r"><b>'+kg(check.measured)+'</b></td></tr>'+
+ '<tr><td>Berechnetes Bruttogewicht (Ware + Palette + Box)</td><td class="r"><b>'+kg(calcGross)+'</b></td></tr>'+
+ (tared?'<tr><td>Waage tariert – erwarteter Waagenwert (Netto)</td><td class="r">'+kg(check.expected)+'</td></tr>':'')+
+ '<tr><td>Tatsächlich gewogenes Gewicht ('+(tared?'Nettogewicht, tariert':'Bruttogewicht')+')</td><td class="r"><b>'+kg(check.measured)+'</b></td></tr>'+
  '<tr><td>Differenz</td><td class="r">'+(check.delta===null?'–':sgn(Math.round(check.delta*1000)/1000)+' kg'+(check.percent===null?'':' ('+check.percent.toLocaleString('de-DE',{maximumFractionDigits:2})+' %)'))+'</td></tr>'+
- '<tr><td>Zulässige Abweichung (Testwert)</td><td class="r">'+(check.tolerance===null||check.tolerance===undefined?'–':num(check.tolerance)+' %')+'</td></tr>'+
- '</tbody></table><div class="slip-result slip-result-'+state+'">Gewichtskontrolle: '+stateText+'</div></div>'+
+ '<tr><td>Zulässige Toleranz</td><td class="r">'+tolTxt+'</td></tr>'+
+ '</tbody></table><div class="slip-result slip-result-'+state+'">Gewichtskontrolle: '+stateText+'</div></div></div>'+
+ '<div class="slip-box slip-remarks"><div class="slip-h"><svg class="slip-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Bemerkungen</div><div class="slip-bd">'+remarkParts.join('')+'</div></div>'+
+ '</div>'+
  '<div class="slip-sign"><div><span>Kommissionierer: '+txt(o.assignee)+'</span><i>Datum / Unterschrift</i></div><div><span>Kontrolle / Freigabe</span><i>Datum / Unterschrift</i></div></div>'+
- '<div class="slip-foot">Auftrag '+txt(o.id)+' · LagerPilot-Test · Der Ausdruck löst keine Bestandsbuchung aus. Gewichte sind Richtwerte und vor produktiver Nutzung zu prüfen.</div></div>'+
+ '<div class="slip-foot"><span>IntraBold LagerPilot – Kommissionierschein · LagerPilot-Test · Der Ausdruck löst keine Bestandsbuchung aus. Gewichte sind Richtwerte und vor produktiver Nutzung zu prüfen.</span><span class="nw">'+txt(o.id)+' | '+dateShown+'</span></div></div>'+
  '</div>';
 }
 function pickPrintReceipt(o){
