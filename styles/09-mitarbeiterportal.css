@@ -26,3 +26,6 @@
 .portal-more summary{cursor:pointer;display:flex;align-items:center;padding:0 4px}
 .portal-more p{margin:6px 4px 0}
 @media(min-width:640px){.portal-tile{min-height:190px}}
+
+/* SA-16a: Verwaltungshinweis im Bestandshinweis im Portal ausblenden */
+html.portal .adm-only{display:none}

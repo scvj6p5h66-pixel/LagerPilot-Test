@@ -65,6 +65,7 @@ const vis=(p,sel)=>p.evaluate(s=>{const e=document.querySelector(s);if(!e)return
  await p.locator('[data-portal-go]').count();await p.locator('#portalBack').click();await p.locator('[data-portal-go="stock"]').click();await p.waitForTimeout(200);
  await p.fill('#search','Testschraube');await p.waitForTimeout(200);
  R('4 Artikelbestand: Suche findet Artikel und Bestand',(await p.locator('#stockList').innerText()).includes('Testschraube'));
+ await p.evaluate(()=>document.getElementById('demoStockHint').classList.remove('hidden'));R('4 Bestandshinweis im Portal ohne Verweis auf den ausgeblendeten „Regale“-Umschalter',!(await p.locator('#demoStockHint').innerText()).includes('Regale')&&(await p.locator('#demoStockHint').innerText()).includes('TESTBESTÄNDE'));
  R('4 Artikelbestand: keine Stammdaten-Bearbeitung (kein Bearbeiten-Knopf sichtbar)',await p.locator('#stock [data-edit]').count()===0);
  await p.locator('#portalBack').click();await p.locator('[data-portal-go="scan"]').click();await p.fill('#scanInput','H4B-1-5');await p.locator('#scanLookup').click();await p.waitForTimeout(300);
  R('4 Scanner: Lagerplatz-Eingabe navigiert zur Regalansicht mit Platzdetails',await active(p)==='racks'&&(await p.locator('#placeDetail').innerText()).includes('H4B-1-5'));
@@ -98,6 +99,7 @@ const vis=(p,sel)=>p.evaluate(s=>{const e=document.querySelector(s);if(!e)return
 // 6 Verwaltungsoberfläche unverändert
 {const h=await open(b,ADMIN);const p=h.p;
  R('6 Verwaltung: kein Portal-Modus, Navigation sichtbar',!(await p.evaluate(()=>document.documentElement.classList.contains('portal')))&&await vis(p,'#nav')&&await vis(p,'#subnav'));
+ await p.evaluate(()=>document.getElementById('demoStockHint').classList.remove('hidden'));R('6 Verwaltung: Bestandshinweis unverändert mit „Regale“-Verweis',(await p.locator('#demoStockHint').innerText()).includes('Über „Regale“ ein- und ausschalten.'));
  R('6 Verwaltung: Portal-Elemente nicht sichtbar',!(await vis(p,'#portalBar'))&&!(await vis(p,'#portalHome'))&&!(await vis(p,'#portalLogin')));
  const miss=[];for(const t of ['home','scan','stock','merge','book','racks','articles','more','pickAdmin','picking']){await p.evaluate(t=>tab(t),t);const id=await active(p);if(id!==t)miss.push(t+'→'+id)}
  R('6 Verwaltung: alle 10 Bereiche öffnen wie bisher',miss.length===0,miss.join(','));

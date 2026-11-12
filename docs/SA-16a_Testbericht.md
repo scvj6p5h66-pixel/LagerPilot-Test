@@ -2,7 +2,7 @@
 
 Basis: development 1c7af217d5e6d8d1ae3f83c096d743a3fc67270f. Test: Playwright/Headless-Chromium (Emulation), lokaler Server.
 
-## Neue Portal-Suite `tests/portal/sa16a-mitarbeiterportal.js`: 100 Prüfungen, 100 PASS, 0 FAIL
+## Neue Portal-Suite `tests/portal/sa16a-mitarbeiterportal.js`: 102 Prüfungen, 102 PASS, 0 FAIL
 | Nr. | Anforderung | Ergebnis |
 |---|---|---|
 | 1 | Portal öffnet über eigenen Link und `mitarbeiter.html`; keine PIN-Attrappe | PASS |
@@ -27,3 +27,6 @@ Echte Geräte (iPhone Safari, Android Chrome, iPad), Kamera-/Hardware-Scanner, A
 
 ## Einschränkungen
 Siehe `docs/SA-16a-mitarbeiterportal.md` (keine Synchronisierung, keine echte Authentifizierung, Schutz nur gegen Fehlbedienung).
+
+## Nachtrag: Textkorrektur Bestandshinweis
+Im Portal entfällt im Demo-Bestandshinweis der Satz „Über „Regale“ ein- und ausschalten.“ (Verwaltungs-Umschalter dort nicht sichtbar); die Verwaltung zeigt den Hinweis unverändert. Neue Prüfungen 4 und 6: PASS. Portal-Suite 102/102, SA-15-Suite 81/81 PASS.

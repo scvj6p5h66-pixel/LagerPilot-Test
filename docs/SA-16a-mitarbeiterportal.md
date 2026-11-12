@@ -27,6 +27,5 @@ Umsetzung: `tab()` lässt nur Portal-Bereiche zu; Verwaltungsbereiche sind per C
 - Keine automatische Synchronisierung zwischen Geräten (Daten liegen lokal pro Browser/Adresse).
 - Keine echte Authentifizierung; die Anmeldung ist nur eine Demo-Identifikation (bewusst ohne PIN).
 - Keine serverseitigen Berechtigungen, keine zentrale Datenbank, keine produktive Mehrbenutzerfähigkeit.
-- Der Hinweis „Regale“-Umschalter im Demo-Bestandshinweis verweist auf ein im Portal ausgeblendetes Element.
 - Das Regalraster scrollt bei schmalen Displays waagerecht in seinem eigenen Container (Seite selbst ohne Überlauf); Plätze sind im Portal 44 px hoch.
 - Öffnet ein Mitarbeiter „Meine Aufträge“, erzeugt die bestehende Kommissionierung wie in der Verwaltung die Positionen eines ihm zugewiesenen Auftrags (bestehendes Verhalten, getestet als identisch).
