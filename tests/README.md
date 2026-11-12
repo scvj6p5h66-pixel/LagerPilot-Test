@@ -41,3 +41,14 @@ fehlerhafte/unvollständige Gewichtskontrolle, Mengenabweichung mit/ohne Freigab
 (mehrseitiges A4-PDF über `page.pdf`, benötigt `pdfinfo`/`pdftotext` aus poppler-utils), fehlende optionale Angaben und Altaufträge,
 5-faches Nachdrucken ohne Datenänderung, Maskierung von Sonderzeichen, iPhone-14-/iPad-Pro-11-Emulation, Export/Import.
 Exit-Code 0 = alle Prüfungen bestanden.
+
+## Mitarbeiterportal (SA-16a)
+```
+node tests/portal/sa16a-mitarbeiterportal.js http://localhost:8123/
+```
+Eigenständiger Test (frisches Browserprofil je Test, ändert weder App noch Repository). Prüft: Einstieg über `index.html?portal=mitarbeiter` und
+`mitarbeiter.html`, Demo-Anmeldung Max/Peter/Leon mit vorausgefülltem, wählbarem Gerät, Mitarbeiterwechsel, die vier Kacheln samt Zurück-Navigation,
+Sperre der Verwaltungsbereiche (`tab()`-Wächter, `inert`, keine QS-/Technik-Bedienelemente in Platzdetails; Gegenprobe in der Verwaltung),
+unveränderte Verwaltungsoberfläche, byte-identische Lagerdaten und unveränderte Lagerstruktur (3.564 / 2.916 / 6.480) nach Portalnutzung,
+Aufträge, SA-15-Abschluss und -Druck im Portal, Export/Import, Emulation iPhone 14 / Pixel 7 / iPad Pro 11 (kein Seitenüberlauf, Touch-Ziele ≥ 44 px)
+sowie JavaScript-Fehler. Emulatoren ersetzen keinen Test auf echten Geräten. Exit-Code 0 = alle Prüfungen bestanden.
