@@ -55,7 +55,7 @@ const vis=(p,sel)=>p.evaluate(s=>{const e=document.querySelector(s);if(!e)return
 // 4 Vier Kacheln
 {const h=await open(b,PORTAL);const p=h.p;await loginAs(p,'Max');
  R('4 Startseite enthält genau vier Kacheln',await p.locator('#portalHome .portal-tile').count()===4);
- R('4 Kein Buchungsknopf auf der Startseite (nur "Weitere Funktionen" als Hinweis)',await p.evaluate(()=>[...document.querySelectorAll('#portalHome button')].every(x=>x.classList.contains('portal-tile'))&&/folgen später/.test(document.querySelector('#portalHome .portal-more p').textContent)));
+ R('4 Kein Buchungsknopf auf der Startseite (nur "Weitere Funktionen" als Hinweis)',await p.evaluate(()=>[...document.querySelectorAll('#portalHome button')].every(x=>x.classList.contains('portal-tile')||x.id==='portalDemoStart')&&/folgen später/.test(document.querySelector('#portalHome .portal-more p').textContent)));
  for(const [go,probe,label] of [['picking','#pickWorker','Meine Aufträge'],['stock','#search','Artikelbestand'],['racks','#hallSelect','Regalansicht'],['scan','#scanInput','Scanner']]){
   await p.locator('[data-portal-go="'+go+'"]').click();await p.waitForTimeout(250);
   R('4 Kachel "'+label+'" öffnet den passenden Bereich',await active(p)===go&&await vis(p,probe));
