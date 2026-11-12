@@ -29,3 +29,8 @@
 
 /* SA-16a: Verwaltungshinweis im Bestandshinweis im Portal ausblenden */
 html.portal .adm-only{display:none}
+
+/* SA-16a: Rückweg zur Verwaltung (nur bei Einstieg aus „Mehr“ → Mitarbeiter-Testdemo) */
+#portalAdminBar{display:none}
+.portal.portal-admin #portalAdminBar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0b2040;color:#fff;border-radius:12px;padding:8px 8px 8px 14px;margin-bottom:10px;font-weight:700}
+.portal-adminlink{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:10px;background:#fff;color:#0b2040;font-weight:800;text-decoration:none;white-space:nowrap}

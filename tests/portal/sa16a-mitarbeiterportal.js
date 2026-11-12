@@ -180,5 +180,36 @@ for(const dev of ['iPhone 14','Pixel 7','iPad Pro 11']){const h=await open(b,POR
  if(dev==='iPhone 14'){await p.screenshot({path:path.join(TMP,'home-iphone.png')});}
  await h.ctx.close();}
 
+// 12 Mitarbeiter-Testdemo aus der Verwaltung: Mehr -> Demo -> Portal -> Verwaltung
+{const h=await open(b,ADMIN);const p=h.p;const before=await ls(p);
+ await p.evaluate(()=>tab('more'));
+ R('12 "Mehr" enthält den Eintrag "Mitarbeiter-Testdemo"',(await p.locator('#mtDemoCard h3').innerText())==='Mitarbeiter-Testdemo'&&await vis(p,'#mtDemoOpen'));
+ R('12 Verwaltungsnavigation unverändert (gleiche 8 Tabs + 2 Bereiche)',await p.locator('#subnav [data-tab]').count()>=8&&await p.locator('#nav [data-area]').count()===2);
+ await p.evaluate(()=>sessionStorage.setItem('lagerpilot_portal_user','Peter'));
+ await Promise.all([p.waitForNavigation(),p.locator('#mtDemoOpen').click()]);await p.waitForTimeout(400);
+ R('12 Demo öffnet Portal mit Mitarbeiterauswahl Max/Peter/Leon (auch bei altem Tab-Merker)',await active(p)==='portalLogin'&&await p.locator('[data-portal-name]').count()===3,p.url());
+ R('12 Gut sichtbarer Rückweg "Zur Verwaltung" in der Anmeldung (≥44 px)',await vis(p,'#portalToAdmin')&&(await p.locator('#portalToAdmin').boundingBox()).height>=44);
+ await loginAs(p,'Leon');
+ R('12 Geräteauswahl vorhanden, Anmeldung führt zur Startseite mit 4 Kacheln',await p.locator('#portalDevice').count()===1&&await active(p)==='portalHome'&&await p.locator('.portal-tile').count()===4);
+ R('12 Rückweg auch auf Startseite sichtbar',await vis(p,'#portalToAdmin'));
+ await p.reload();await p.waitForTimeout(400);R('12 Neuladen im Portal behält Demo-Modus, Rückweg und Anmeldung',await active(p)==='portalHome'&&await vis(p,'#portalToAdmin'));
+ await p.locator('[data-portal-go="picking"]').click();R('12 Rückweg auch in Unterbereich sichtbar',await vis(p,'#portalToAdmin'));
+ await p.locator('#portalToAdmin').click();await p.waitForTimeout(500);
+ R('12 "Zur Verwaltung" öffnet normale Verwaltung ohne Portal-Modus',!(await p.evaluate(()=>document.documentElement.classList.contains('portal')))&&await vis(p,'#nav')&&!(await vis(p,'#portalAdminBar')),p.url());
+ await p.evaluate(()=>tab('stock'));R('12 Verwaltung nach Rückkehr bedienbar',await active(p)==='stock');
+ const after=await ls(p);
+ R('12 Lagerdaten nach vollem Wechsel byte-identisch',before[SK]===after[SK]);
+ R('12 Aufträge/Kommissionierdaten unverändert (nur Anmeldung geändert)',(()=>{const b0=JSON.parse(before[PK]),a0=JSON.parse(after[PK]);return JSON.stringify(b0.orders)===JSON.stringify(a0.orders)})());
+ const p2=await h.ctx.newPage();await p2.goto(PORTAL);await p2.waitForTimeout(400);
+ R('12 Separate Portal-Adresse funktioniert weiter, ohne Rückweg zur Verwaltung',await active(p2)==='portalLogin'&&!(await vis(p2,'#portalAdminBar')));
+ await p2.close();
+ for(const dev of ['iPhone 14','Pixel 7','iPad Pro 11']){const m=await open(b,ADMIN,{dev});await m.p.evaluate(()=>tab('more'));
+  const ok1=await m.p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1);
+  await m.p.locator('#mtDemoOpen').tap();await m.p.waitForTimeout(500);
+  const r=await m.p.evaluate(()=>{const small=[];document.querySelectorAll('button,a[href],select').forEach(e=>{if(e.closest('[inert]'))return;const r=e.getBoundingClientRect(),cs=getComputedStyle(e);if(cs.display==='none'||r.width===0)return;if(r.height<43.5||r.width<43.5)small.push(e.id||e.className)});return {over:document.documentElement.scrollWidth>innerWidth+1,small}});
+  R('12 '+dev+': Mehr + Demo-Login mit Rückweg ohne Überlauf, Touch-Ziele ≥44 px',ok1&&!r.over&&r.small.length===0,JSON.stringify(r));
+  R('12 '+dev+': Keine JavaScript-Fehler',m.errs.length===0,m.errs.join('|'));await m.ctx.close();}
+ R('12 Keine JavaScript-Fehler',h.errs.length===0,h.errs.join('|'));await h.ctx.close();}
+
 await b.close();const f=res.filter(r=>!r[1]).length;console.log('GESAMT '+res.length+' Prüfungen / FAIL '+f);process.exit(f?1:0);
 })().catch(e=>{console.log('SCRIPTFEHLER',e.stack.slice(0,900));process.exit(2)});

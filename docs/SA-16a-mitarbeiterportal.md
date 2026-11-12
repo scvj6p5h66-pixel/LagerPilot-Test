@@ -5,6 +5,8 @@
 - `mitarbeiter.html` ist nur ein Direktzugang und leitet auf diesen Link weiter.
 - Ohne den Parameter startet unverändert die Verwaltungsoberfläche.
 
+- **Aus der Verwaltung:** „Mehr“ → „Mitarbeiter-Testdemo öffnen“ lädt dieselbe Seite als `index.html?portal=mitarbeiter&from=verwaltung` im selben Tab (gleicher Speicher, keine Datenänderung). Der Tab-Merker der Demo-Identifikation wird dabei gelöscht, damit die Auswahl Max/Peter/Leon immer erscheint. Mit `from=verwaltung` zeigt das Portal oben eine dunkelblaue Leiste mit dem Rückweg „← Zur Verwaltung“ (Link auf `index.html`, lädt die normale Verwaltung). Die separate Portal-Adresse ohne `from` hat keinen Rückweg.
+
 ## Ablauf
 1. **Demo-Anmeldung:** Max, Peter oder Leon wählen; das bisherige Gerät (Scanner 1/2/3) ist vorausgefüllt und frei wählbar.
 2. **Startseite:** genau vier Kacheln – Meine Aufträge, Artikelbestand, Regalansicht, Scanner – und ein unauffälliger Bereich „Weitere Funktionen“ (nur Hinweis, keine Buchungsschaltflächen; Wareneingang/Ausbuchung/Umlagerung folgen in SA-16d).
