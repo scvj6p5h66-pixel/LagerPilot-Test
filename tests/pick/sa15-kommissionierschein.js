@@ -90,7 +90,19 @@ async function pdf(p,html,name){await p.evaluate(h=>{document.getElementById('pi
  // UI-Abschluss eines langen Auftrags
  await goPick(p);await p.locator('[data-worker-action="finish"]').click();await p.waitForTimeout(600);
  R('4 Langer Auftrag über UI abschließbar',(await order(p,'K-T4')).status==='Abgeschlossen');
+ {const lastPage=pages[pages.length-1];R('4 Letzte Seite: Unterschriften nicht allein (Gewichtskontrolle steht auf derselben Seite)',lastPage.includes('Kontrolle / Freigabe')&&lastPage.includes('Gewichtskontrolle'),lastPage.trim().split('\n').slice(0,3).join(' / '));
+  R('4 Unterschriften genau einmal im Dokument',(r.txt.match(/Kontrolle \/ Freigabe/g)||[]).length===1);}
  R('4 Keine JavaScript-Fehler',h.errs.length===0,h.errs.join('|'));await h.ctx.close();}
+
+// 4b Seitenumbruch-Schleife: bei jeder Positionszahl 1–130 (normale Namen) steht die Unterschrift nie allein auf einer Seite
+{const h=await open(b,pickState([mkOrder('K-T4b',1)]));const p=h.p;const bad=[],gaps=[];let maxPages=0;
+ for(let n=1;n<=130;n+=(n<40?1:3)){const items=mkItems(n);const html=await p.evaluate(([it])=>pickSlipHtml({id:'K-T4b',lines:it.length,assignee:'Max',status:'Abgeschlossen',finishedAt:'2026-11-12T08:41:00.000Z',items:it,packaging:{type:'euro',scaleMode:'gross',palletWeight:25,boxWeight:1.5,measuredWeight:0,tolerancePercent:1}}),[items]);
+  const r=await pdf(p,html,'loop');maxPages=Math.max(maxPages,r.pages);const pg=r.txt.split('\f').filter(z=>z.trim());const last=pg[pg.length-1];
+  if(!(last.includes('Kontrolle / Freigabe')&&last.includes('Gewichtskontrolle')))bad.push(n);
+  const miss=[];for(let i=1;i<=n;i++)if(!r.txt.includes('ART-'+String(i).padStart(4,'0')))miss.push(i);if(miss.length)gaps.push(n);}
+ R('4b Unterschrift nie allein auf einer Seite (1–130 Positionen, Schritt 1/3)',bad.length===0,'Problemfälle: '+bad.join(','));
+ R('4b Alle Positionen in jedem Lauf vollständig im PDF (max. '+maxPages+' Seiten)',gaps.length===0,gaps.join(','));
+ R('4b Keine JavaScript-Fehler',h.errs.length===0,h.errs.join('|'));await h.ctx.close();}
 
 // 5 Fehlende optionale Angaben und Altdaten
 {const legacy={id:'K-OLD',lines:2,assignee:'Max',status:'Abgeschlossen',finishedAt:'2026-10-01T10:00:00.000Z'};

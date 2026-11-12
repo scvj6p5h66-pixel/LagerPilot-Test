@@ -522,6 +522,7 @@ function pickSlipHtml(o){
  noItems+
  '<table class="slip-table"><thead><tr><th class="c">Pos.</th><th>Artikelnr.</th><th>Bezeichnung</th><th>Lagerplatz</th><th class="r">Soll</th><th class="r">Ist</th><th class="r">Abw.</th><th class="r">kg/Stk.</th><th class="r">Gewicht</th></tr></thead><tbody>'+rows+'</tbody>'+(list.length?'<tfoot><tr><td colspan="4">Summe ('+list.length+' Positionen)</td><td class="r">'+(qComplete?num(sumQty):'–')+'</td><td class="r">'+(qComplete?num(sumAct):'–')+'</td><td class="r">'+(qComplete?sgn(sumAct-sumQty).replace('+0','0'):'–')+'</td><td></td><td class="r">'+kg(itemsWeight)+'</td></tr></tfoot>':'')+'</table>'+
  '<div class="slip-cols"><div class="slip-box"><div class="slip-h">Mengenabweichungen</div>'+devList+'</div><div class="slip-box"><div class="slip-h">Bemerkungen</div>'+note+'</div></div>'+
+ '<div class="slip-end">'+
  '<div class="slip-box slip-weight"><div class="slip-h">Gewichtskontrolle</div><table class="slip-kv"><tbody>'+
  '<tr><td>Warengewicht (Netto, berechnet)</td><td class="r">'+kg(itemsWeight)+'</td></tr>'+
  '<tr><td>Palettengewicht ('+txt(PICK_PACK_LABEL[p.type]&&PICK_PACK_LABEL[p.type].split(' + ')[0])+')</td><td class="r">'+kg(p.palletWeight)+'</td></tr>'+
@@ -535,7 +536,7 @@ function pickSlipHtml(o){
  '<tr><td>Zulässige Abweichung (Testwert)</td><td class="r">'+(check.tolerance===null||check.tolerance===undefined?'–':num(check.tolerance)+' %')+'</td></tr>'+
  '</tbody></table><div class="slip-result slip-result-'+state+'">Gewichtskontrolle: '+stateText+'</div></div>'+
  '<div class="slip-sign"><div><span>Kommissionierer: '+txt(o.assignee)+'</span><i>Datum / Unterschrift</i></div><div><span>Kontrolle / Freigabe</span><i>Datum / Unterschrift</i></div></div>'+
- '<div class="slip-foot">Auftrag '+txt(o.id)+' · LagerPilot-Test · Der Ausdruck löst keine Bestandsbuchung aus. Gewichte sind Richtwerte und vor produktiver Nutzung zu prüfen.</div>'+
+ '<div class="slip-foot">Auftrag '+txt(o.id)+' · LagerPilot-Test · Der Ausdruck löst keine Bestandsbuchung aus. Gewichte sind Richtwerte und vor produktiver Nutzung zu prüfen.</div></div>'+
  '</div>';
 }
 function pickPrintReceipt(o){

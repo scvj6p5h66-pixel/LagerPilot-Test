@@ -38,7 +38,8 @@
 .slip-result-pass{color:#11643d;border-color:#11643d;background:#dff5e8}
 .slip-result-fail{color:#b3261e;border-color:#b3261e;background:#fdecea}
 .slip-result-incomplete{color:#8a5200;border-color:#8a5200;background:#fff1d6}
-.slip-sign{display:flex;gap:24px;margin-top:16mm;break-inside:avoid;page-break-inside:avoid}
+.slip-end{break-inside:avoid;page-break-inside:avoid}
+.slip-sign{display:flex;gap:24px;margin-top:9mm;break-inside:avoid;page-break-inside:avoid}
 .slip-sign>div{flex:1;border-top:1px solid #333;padding-top:4px}.slip-sign i{display:block;font-size:7.5pt;color:#5f7891;font-style:normal}
 .slip-foot{margin-top:8px;font-size:7.5pt;color:#5f7891}
 
@@ -71,11 +72,12 @@
  main{display:block!important;padding:0!important;margin:0!important;max-width:none!important;width:auto!important;background:#fff!important}
  body #pickPrint,body #pickPrint *{visibility:visible!important}
  body #pickPrint{display:block!important;position:static!important;width:auto!important;padding:0!important;margin:0!important;background:#fff!important}
+ #pickPrint .slip{width:calc(100% - 2px)}
  #pickPrint .slip-table{font-size:8.5pt}
  #pickPrint .slip-table th,#pickPrint .slip-table td{padding:2px 4px}
  #pickPrint .slip-foot{margin-top:6px;border-top:1px solid #b8c5d1;padding-top:2px}
  #pickPrint .slip-kv td{border:0;border-bottom:1px dotted #b8c5d1;padding:2px 0}
  #pickPrint .slip-kv td.r{text-align:right}
- #pickPrint .slip-sign{margin-top:14mm}
+ #pickPrint .slip-sign{margin-top:8mm}
  .pick-closure{display:none!important}
 }
