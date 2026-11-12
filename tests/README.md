@@ -30,3 +30,14 @@ Absolute Zeiten hängen vom Rechner ab; für Vorher-Nachher-Vergleiche denselben
 
 ## Hinweis zu `tests/legacy/`
 Die Dateien dort sind unveränderte Referenzkopien alter Logik und dürfen nicht in die Anwendung eingebunden werden.
+
+## Kommissionierschein und Auftragsabschluss (SA-15)
+```
+node tests/pick/sa15-kommissionierschein.js http://localhost:8123/index.html
+```
+Eigenständiger Test (frisches Browserprofil, ändert weder App noch Repository). Prüft: Abschluss über Mitarbeiter- und Admin-Oberfläche,
+Abschlussansicht, automatischer Druckaufruf (`window.print` wird im Test ersetzt, es wird nichts gedruckt), Scanner/Gerät, erfolgreiche und
+fehlerhafte/unvollständige Gewichtskontrolle, Mengenabweichung mit/ohne Freigabe, Europalette/kleine Einwegpalette/tariert, 100 Positionen
+(mehrseitiges A4-PDF über `page.pdf`, benötigt `pdfinfo`/`pdftotext` aus poppler-utils), fehlende optionale Angaben und Altaufträge,
+5-faches Nachdrucken ohne Datenänderung, Maskierung von Sonderzeichen, iPhone-14-/iPad-Pro-11-Emulation, Export/Import.
+Exit-Code 0 = alle Prüfungen bestanden.
