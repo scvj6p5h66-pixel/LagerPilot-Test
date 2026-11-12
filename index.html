@@ -532,14 +532,14 @@ function pickSlipHtml(o){
  legacyWarn+
  '<div class="slip-meta"><div><span>Auftragsnummer</span><b>'+txt(o.id)+'</b></div><div><span>Abschlussdatum</span><b>'+(finished?date(o.finishedAt):'–')+'</b></div><div><span>Mitarbeiter</span><b>'+txt(o.assignee)+'</b></div><div><span>Scanner / Gerät</span><b>'+txt(comp.device)+'</b></div><div><span>Status</span><b>'+txt(o.status)+'</b></div><div><span>Gestartet</span><b>'+date(o.startedAt)+'</b></div><div><span>Positionen</span><b>'+(items?items.length:'–')+'</b></div><div><span>Ladungsträger</span><b>'+txt(PICK_PACK_LABEL[p.type])+'</b></div></div>'+
  noItems+
- '<table class="slip-table"><thead><tr><th class="c">Pos.</th><th>Artikelnr.</th><th>Bezeichnung</th><th>Lagerplatz</th><th class="r">Soll</th><th class="r">Ist</th><th class="r">kg/Stk.</th><th class="r">Gewicht</th></tr></thead><tbody>'+rows+'</tbody>'+(list.length?'<tfoot><tr><td colspan="4">Summe ('+list.length+' Positionen) · Stückzahl / Warengewicht</td><td class="r">'+(qComplete?num(sumQty):'–')+'</td><td class="r">'+(qComplete?num(sumAct):'–')+'</td><td></td><td class="r nw">'+kg(itemsWeight)+'</td></tr></tfoot>':'')+'</table>'+
+ '<table class="slip-table"><colgroup><col style="width:6%"><col style="width:13%"><col style="width:33%"><col style="width:13%"><col style="width:7%"><col style="width:7%"><col style="width:10%"><col style="width:11%"></colgroup><thead><tr><th class="c">Pos.</th><th>Artikelnr.</th><th>Bezeichnung</th><th>Lagerplatz</th><th class="r">Soll</th><th class="r">Ist</th><th class="r">kg/Stk.</th><th class="r">Gewicht</th></tr></thead><tbody>'+rows+'</tbody>'+(list.length?'<tfoot><tr><td colspan="4">Summe ('+list.length+' Positionen) · Stückzahl / Warengewicht</td><td class="r">'+(qComplete?num(sumQty):'–')+'</td><td class="r">'+(qComplete?num(sumAct):'–')+'</td><td></td><td class="r nw">'+kg(itemsWeight)+'</td></tr></tfoot>':'')+'</table>'+
  '<div class="slip-end">'+
  '<div class="slip-cols">'+
  '<div class="slip-box slip-weight"><div class="slip-h"><svg class="slip-ico" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>Gewichtskontrolle</div><div class="slip-bd"><table class="slip-kv"><tbody>'+
  '<tr><td>Warengewicht (Netto, berechnet)</td><td class="r">'+kg(itemsWeight)+'</td></tr>'+
  '<tr><td>Palettengewicht ('+txt(PICK_PACK_LABEL[p.type]&&PICK_PACK_LABEL[p.type].split(' + ')[0])+')</td><td class="r">'+kg(p.palletWeight)+'</td></tr>'+
  '<tr><td>Boxgewicht</td><td class="r">'+kg(p.boxWeight)+'</td></tr>'+
- '<tr><td>Berechnetes Bruttogewicht (Ware + Palette + Box)</td><td class="r"><b>'+kg(calcGross)+'</b></td></tr>'+
+ '<tr><td>Berechnetes Bruttogewicht (Soll)</td><td class="r"><b>'+kg(calcGross)+'</b></td></tr>'+
  (tared?'<tr><td>Waage tariert – erwarteter Waagenwert (Netto)</td><td class="r">'+kg(check.expected)+'</td></tr>':'')+
  '<tr><td>Tatsächlich gewogenes Gewicht ('+(tared?'Nettogewicht, tariert':'Bruttogewicht')+')</td><td class="r"><b>'+kg(check.measured)+'</b></td></tr>'+
  '<tr><td>Differenz</td><td class="r">'+(check.delta===null?'–':sgn(Math.round(check.delta*1000)/1000)+' kg'+(check.percent===null?'':' ('+check.percent.toLocaleString('de-DE',{maximumFractionDigits:2})+' %)'))+'</td></tr>'+

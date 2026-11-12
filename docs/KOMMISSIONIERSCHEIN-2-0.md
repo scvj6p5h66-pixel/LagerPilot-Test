@@ -18,3 +18,9 @@ Alle Zahlen stammen aus den Auftragsdaten (Positionen, Palette/Box, gewogener We
 - Seitenzahl („Seite x von y“) kommt aus `@page`-Randboxen (Chrome/Edge). iPhone Safari unterstützt diese nicht; dort fehlt die Seitenzahl, der übrige Schein ist gleich. Nur am echten Gerät prüfbar.
 - Auf echten Geräten (iPhone Safari, AirPrint) nicht getestet; PDF-Tests laufen in Chromium-Emulation.
 - Gemessen: 8 Positionen = 1 Seite, 15 und 30 Positionen = je 2 Seiten. Wenn die Tabelle die Seite füllt, rutscht der Block Gewichtskontrolle/Bemerkungen/Unterschriften als Ganzes auf die nächste Seite (kein Zerreißen).
+
+## Nachbesserung nach iPhone-Befund (AirPrint-Vorschau, Safari, 12.11.2026 21:02)
+Befund: Der Stand 2f7cb89 lief am echten iPhone auf 2 Seiten (Tabelle | Gewichtskontrolle), Bezeichnungen stark umbrochen.
+Ursache (Analyse, nicht am Gerät bewiesen): iOS Safari setzt den Druck sichtbar größer als Chrome (Layoutbreite kleiner als Papierbreite). Dadurch (1) wurden die festen mm-Spaltenbreiten zu breit für die Bezeichnung, (2) wurde der Block Gewichtskontrolle/Bemerkungen/Unterschriften (bewusst ohne Seitenumbruch) höher als der Restplatz und rutschte komplett auf Seite 2. In Chromium lässt sich das über Druckskalierung nachstellen: der alte Stand bricht ab 120 % um, genau wie im Screenshot.
+Maßnahmen: Spaltenbreiten per `<colgroup>` in Prozent; kompaktere Abstände im Druck; kürzere Beschriftung „Berechnetes Bruttogewicht (Soll)“. Ergebnis: 4 Positionen = 1 Seite bis 140 % Skalierung (Test 2b), bei 150 % wieder 2 Seiten.
+Offen: Bestätigung am echten iPhone. Die Seitenzahl aus `@page` fehlt in Safari weiterhin; iOS fügt eigene Kopf-/Fußzeile (URL, Datum, Seite) hinzu – das lässt sich aus der Seite nicht abschalten.

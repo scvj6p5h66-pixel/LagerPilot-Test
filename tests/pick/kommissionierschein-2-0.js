@@ -5,7 +5,7 @@ const {chromium,devices}=require('playwright');const fs=require('fs'),os=require
 const BASE=(process.argv[2]||'http://localhost:8123/').replace(/index\.html.*$/,''),PORTAL=BASE+'index.html?portal=mitarbeiter',TMP=process.env.SLIP_OUT||fs.mkdtempSync(path.join(os.tmpdir(),'slip20-'));fs.mkdirSync(TMP,{recursive:true});
 const res=[];const R=(id,ok,info)=>{res.push(!!ok);console.log((ok?'PASS ':'FAIL ')+id+(info!==undefined&&info!==''?'  | '+String(info).slice(0,240):''))};
 const de=(n,min=2,max=3)=>n.toLocaleString('de-DE',{minimumFractionDigits:min,maximumFractionDigits:max});
-async function pdf(p,html,name,opt={}){await p.evaluate(h=>{document.getElementById('pickPrint').innerHTML=h},html);await p.emulateMedia({media:'print'});const f=path.join(TMP,name+'.pdf');await p.pdf({path:f,format:'A4',printBackground:true,preferCSSPageSize:true});
+async function pdf(p,html,name,opt={}){await p.evaluate(h=>{document.getElementById('pickPrint').innerHTML=h},html);const st=opt.css?await p.addStyleTag({content:opt.css}):null;await p.emulateMedia({media:'print'});const f=path.join(TMP,name+'.pdf');await p.pdf({path:f,format:'A4',printBackground:true,preferCSSPageSize:true,scale:opt.scale||1});if(st)await st.evaluate(e=>e.remove());
  const fonts=await p.evaluate(()=>{const o=[];document.querySelectorAll('#pickPrint .slip *').forEach(e=>{if(e.children.length===0&&e.textContent.trim()){o.push(parseFloat(getComputedStyle(e).fontSize)*0.75)}});return o});
  await p.emulateMedia({media:'screen'});const info=execFileSync('pdfinfo',[f]).toString();const pages=Number(/Pages:\s+(\d+)/.exec(info)[1]);const size=/Page size:\s+([\d.]+) x ([\d.]+)/.exec(info);
  const pt=[];for(let i=1;i<=pages;i++)pt.push(execFileSync('pdftotext',['-f',String(i),'-l',String(i),'-layout',f,'-']).toString());
@@ -42,6 +42,10 @@ const mk=(n,o={})=>{const items=o.items||Array.from({length:n},(_,i)=>({sku:'ART
  execFileSync('pdftoppm',['-r','110','-png','-singlefile',r.f,path.join(TMP,'demo4')]);
  /* 2: Euro-Palette-Variante und weitere Ladungsträger */
  const e=mk(4,{id:'E-4'}); const re=await pdf(p,await p.evaluate(o=>pickSlipHtml(o),e),'euro4');R('2 Vier Positionen, Europalette: 1 Seite',re.pages===1,re.pages);
+ /* 2b: iOS-Safari/AirPrint-Befund (Echtgerät 21:02): Safari druckt sichtbar vergrößert (Layoutbreite kleiner als Papierbreite). Nachgestellt über Druckskalierung; der alte Stand 2f7cb89 brach ab 120 % in 2 Seiten (Tabelle | Gewichtskontrolle). */
+ for(const sc of [1.2,1.3,1.4]){const rs=await pdf(p,await p.evaluate(o=>pickSlipHtml(o),mk(4,{id:'S-4',small:true})),'safari4_'+sc,{scale:sc});
+  R('2b iOS-Skalierung '+Math.round(sc*100)+' %: 4 Positionen = 1 Seite, Tabelle + Gewichtskontrolle + Unterschriften zusammen',rs.pages===1&&rs.pt[0].includes('Artikelnr.')&&rs.pt[0].includes('Gewichtskontrolle')&&rs.pt[0].includes('Unterschrift'),rs.pages)}
+ R('2b Spaltenbreiten über colgroup in Prozent (unabhängig von Layoutbreite)',/<colgroup>(<col style="width:\d+%">){8}<\/colgroup>/.test(await p.evaluate(o=>pickSlipHtml(o),mk(1))));
  /* 3: Seitenumbrüche */
  for(const n of [8,15,30]){const o=mk(n,{id:'N-'+n}),rn=await pdf(p,await p.evaluate(x=>pickSlipHtml(x),o),'n'+n);
   const last=rn.pt[rn.pt.length-1];const heads=rn.pt.every(t=>!t.includes('ART-')||t.includes('Artikelnr.'));
