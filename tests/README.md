@@ -52,3 +52,9 @@ Sperre der Verwaltungsbereiche (`tab()`-Wächter, `inert`, keine QS-/Technik-Bed
 unveränderte Verwaltungsoberfläche, byte-identische Lagerdaten und unveränderte Lagerstruktur (3.564 / 2.916 / 6.480) nach Portalnutzung,
 Aufträge, SA-15-Abschluss und -Druck im Portal, Export/Import, Emulation iPhone 14 / Pixel 7 / iPad Pro 11 (kein Seitenüberlauf, Touch-Ziele ≥ 44 px)
 sowie JavaScript-Fehler. Emulatoren ersetzen keinen Test auf echten Geräten. Exit-Code 0 = alle Prüfungen bestanden.
+
+## Entwicklungstestseite
+```
+node tests/devtest/devtest-build.js
+```
+Baut mit `tools/build-dev-testseite.js` eine getrennte Entwicklungs-Testseite in ein temporäres Verzeichnis, startet einen lokalen Server und prüft: Aufrufbarkeit unter einem Unterpfad, Mitarbeiter-Testdemo, Rückweg, Datentrennung gegenüber anderen Versionen auf demselben Origin (fremde Schlüssel byte-identisch, nur Präfix `lagerpilot_devtest::`), Mobil-Emulation, Quelle unverändert. Siehe `docs/ENTWICKLUNGSTESTSEITE.md`.
