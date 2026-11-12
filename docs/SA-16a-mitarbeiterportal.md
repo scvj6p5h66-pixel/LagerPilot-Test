@@ -5,7 +5,7 @@
 - `mitarbeiter.html` ist nur ein Direktzugang und leitet auf diesen Link weiter.
 - Ohne den Parameter startet unverändert die Verwaltungsoberfläche.
 
-- **Aus der Verwaltung:** „Mehr“ → „Mitarbeiter-Testdemo öffnen“ lädt dieselbe Seite als `index.html?portal=mitarbeiter&from=verwaltung` im selben Tab (gleicher Speicher, keine Datenänderung). Der Tab-Merker der Demo-Identifikation wird dabei gelöscht, damit die Auswahl Max/Peter/Leon immer erscheint. Mit `from=verwaltung` zeigt das Portal oben eine dunkelblaue Leiste mit dem Rückweg „← Zur Verwaltung“ (Link auf `index.html`, lädt die normale Verwaltung). Die separate Portal-Adresse ohne `from` hat keinen Rückweg.
+- **Aus der Verwaltung:** „Mehr“ → „Mitarbeiter-Testdemo öffnen“ lädt dieselbe Seite als `index.html?portal=mitarbeiter&from=verwaltung` im selben Tab (gleicher Speicher, keine Datenänderung). Der Tab-Merker der Demo-Identifikation wird dabei gelöscht, damit die Auswahl Max/Peter/Leon immer erscheint. Mit `from=verwaltung` zeigt die dunkelblaue Kopfzeile des Portals den Rückweg „← Zur Verwaltung“. Ein Klick beendet **ausschließlich die Demo-Mitarbeitersitzung** (nur wenn im Portal angemeldet; eine bestehende Test-Anmeldung der Verwaltung bleibt unberührt), zeigt kurz „Abmeldung erfolgreich“ und leitet nach ca. 1,5 s (oder per Button) zur Verwaltung. Aufträge, Bestände und alle übrigen Daten bleiben unverändert; ein erneuter Demo-Einstieg zeigt wieder die Mitarbeiterauswahl. Die separate Portal-Adresse ohne `from` hat keinen Rückweg.
 
 ## Ablauf
 1. **Demo-Anmeldung:** Max, Peter oder Leon wählen; das bisherige Gerät (Scanner 1/2/3) ist vorausgefüllt und frei wählbar.
@@ -31,3 +31,6 @@ Umsetzung: `tab()` lässt nur Portal-Bereiche zu; Verwaltungsbereiche sind per C
 - Keine serverseitigen Berechtigungen, keine zentrale Datenbank, keine produktive Mehrbenutzerfähigkeit.
 - Das Regalraster scrollt bei schmalen Displays waagerecht in seinem eigenen Container (Seite selbst ohne Überlauf); Plätze sind im Portal 44 px hoch.
 - Öffnet ein Mitarbeiter „Meine Aufträge“, erzeugt die bestehende Kommissionierung wie in der Verwaltung die Positionen eines ihm zugewiesenen Auftrags (bestehendes Verhalten, getestet als identisch).
+
+## Design (nach den freigegebenen Konzeptbildern)
+Dunkelblaue Kopfzeile (Marke, Kontext „Mitarbeiter-Testdemo“ bzw. „Mitarbeiter-Portal · Name“, Rückweg, Benutzer-Chip zum Wechseln), heller Hintergrund, weiße Karten mit dezenter blauer Umrandung. Auswahlkarten für Max/Peter/Leon, Startseite „Hallo <Name>!“ mit vier Karten (Symbolfarben blau/grün/violett/orange), Hinweisfeld „Weitere Funktionen“, Eintrag „Mitarbeiter-Testdemo“ in „Mehr“ im Stil von Designbild 2. Die Bilder wurden als Gestaltungsreferenz genutzt, nicht pixelgenau nachgebaut; bewusst nicht übernommen: erfundene Rollenbezeichnungen unter den Namen, Beispielaufträge/-kunden, Umbau der Verwaltungsnavigation, vollflächig farbige Kacheln (Vorgabe „weiße Funktionskarten“).

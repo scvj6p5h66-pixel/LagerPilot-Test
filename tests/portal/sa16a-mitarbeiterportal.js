@@ -183,7 +183,7 @@ for(const dev of ['iPhone 14','Pixel 7','iPad Pro 11']){const h=await open(b,POR
 // 12 Mitarbeiter-Testdemo aus der Verwaltung: Mehr -> Demo -> Portal -> Verwaltung
 {const h=await open(b,ADMIN);const p=h.p;const before=await ls(p);
  await p.evaluate(()=>tab('more'));
- R('12 "Mehr" enthält den Eintrag "Mitarbeiter-Testdemo"',(await p.locator('#mtDemoCard h3').innerText())==='Mitarbeiter-Testdemo'&&await vis(p,'#mtDemoOpen'));
+ R('12 "Mehr" enthält den Eintrag "Mitarbeiter-Testdemo"',(await p.locator('#mtDemoCard .mt-demo-title').innerText())==='Mitarbeiter-Testdemo'&&await vis(p,'#mtDemoOpen'));
  R('12 Verwaltungsnavigation unverändert (gleiche 8 Tabs + 2 Bereiche)',await p.locator('#subnav [data-tab]').count()>=8&&await p.locator('#nav [data-area]').count()===2);
  await p.evaluate(()=>sessionStorage.setItem('lagerpilot_portal_user','Peter'));
  await Promise.all([p.waitForNavigation(),p.locator('#mtDemoOpen').click()]);await p.waitForTimeout(400);
@@ -194,14 +194,27 @@ for(const dev of ['iPhone 14','Pixel 7','iPad Pro 11']){const h=await open(b,POR
  R('12 Rückweg auch auf Startseite sichtbar',await vis(p,'#portalToAdmin'));
  await p.reload();await p.waitForTimeout(400);R('12 Neuladen im Portal behält Demo-Modus, Rückweg und Anmeldung',await active(p)==='portalHome'&&await vis(p,'#portalToAdmin'));
  await p.locator('[data-portal-go="picking"]').click();R('12 Rückweg auch in Unterbereich sichtbar',await vis(p,'#portalToAdmin'));
- await p.locator('#portalToAdmin').click();await p.waitForTimeout(500);
- R('12 "Zur Verwaltung" öffnet normale Verwaltung ohne Portal-Modus',!(await p.evaluate(()=>document.documentElement.classList.contains('portal')))&&await vis(p,'#nav')&&!(await vis(p,'#portalAdminBar')),p.url());
+ const ordersBefore=JSON.stringify(JSON.parse(await p.evaluate(k=>localStorage.getItem(k),PK)).orders);
+ await p.locator('#portalToAdmin').click();await p.waitForTimeout(300);
+ const bye=await p.evaluate(()=>({sec:document.querySelector('section.active').id,session:pickState.session,marker:sessionStorage.getItem('lagerpilot_portal_user'),txt:document.getElementById('portalBye').innerText,p:pickState.people.find(x=>x.name==='Leon').active}));
+ R('12 Klick auf "Zur Verwaltung": Abmeldung-erfolgreich-Ansicht, Demo-Sitzung beendet',bye.sec==='portalBye'&&bye.session===''&&!bye.marker&&!bye.p&&bye.txt.includes('Abmeldung erfolgreich')&&bye.txt.includes('Verwaltung'),JSON.stringify(bye));
+ R('12 Abmeldung: Aufträge und Lagerdaten unverändert',JSON.stringify(JSON.parse(await p.evaluate(k=>localStorage.getItem(k),PK)).orders)===ordersBefore&&(await ls(p))[SK]===before[SK]);
+ await p.waitForURL(/index\.html$/,{timeout:6000});await p.waitForTimeout(400);
+ R('12 Automatische Rückleitung öffnet normale Verwaltung ohne Portal-Modus',!(await p.evaluate(()=>document.documentElement.classList.contains('portal')))&&await vis(p,'#nav')&&!(await vis(p,'#portalToAdmin')),p.url());
+ await p.evaluate(()=>tab('more'));await Promise.all([p.waitForNavigation(),p.locator('#mtDemoOpen').click()]);await p.waitForTimeout(400);
+ R('12 Erneuter Demo-Einstieg zeigt wieder die Mitarbeiterauswahl',await active(p)==='portalLogin'&&await p.locator('[data-portal-name]').count()===3);
+ await p.evaluate(()=>tab('portalLogin'));await p.locator('#portalToAdmin').click();await p.waitForURL(/index\.html$/,{timeout:6000});await p.waitForTimeout(300);
+ {const h2=await open(b,ADMIN);const q=h2.p;await q.evaluate(()=>tab('picking'));await q.selectOption('#pickEmployee','Peter');await q.fill('#pickDevice','Scanner 2');await q.locator('#pickLogin').click();await q.waitForTimeout(250);
+  await q.evaluate(()=>tab('more'));await Promise.all([q.waitForNavigation(),q.locator('#mtDemoOpen').click()]);await q.waitForTimeout(400);
+  await q.locator('#portalToAdmin').click();await q.waitForURL(/index\.html$/,{timeout:6000});await q.waitForTimeout(300);
+  R('12 Rückweg aus der Auswahl (ohne Demo-Anmeldung) beendet keine bestehende Test-Anmeldung der Verwaltung',await q.evaluate(()=>pickState.session==='Peter'));await h2.ctx.close();}
+
  await p.evaluate(()=>tab('stock'));R('12 Verwaltung nach Rückkehr bedienbar',await active(p)==='stock');
  const after=await ls(p);
  R('12 Lagerdaten nach vollem Wechsel byte-identisch',before[SK]===after[SK]);
  R('12 Aufträge/Kommissionierdaten unverändert (nur Anmeldung geändert)',(()=>{const b0=JSON.parse(before[PK]),a0=JSON.parse(after[PK]);return JSON.stringify(b0.orders)===JSON.stringify(a0.orders)})());
  const p2=await h.ctx.newPage();await p2.goto(PORTAL);await p2.waitForTimeout(400);
- R('12 Separate Portal-Adresse funktioniert weiter, ohne Rückweg zur Verwaltung',await active(p2)==='portalLogin'&&!(await vis(p2,'#portalAdminBar')));
+ R('12 Separate Portal-Adresse funktioniert weiter, ohne Rückweg zur Verwaltung',await active(p2)==='portalLogin'&&!(await vis(p2,'#portalToAdmin')));
  await p2.close();
  for(const dev of ['iPhone 14','Pixel 7','iPad Pro 11']){const m=await open(b,ADMIN,{dev});await m.p.evaluate(()=>tab('more'));
   const ok1=await m.p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1);

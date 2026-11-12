@@ -2,7 +2,7 @@
 
 Basis: development 1c7af217d5e6d8d1ae3f83c096d743a3fc67270f. Test: Playwright/Headless-Chromium (Emulation), lokaler Server.
 
-## Neue Portal-Suite `tests/portal/sa16a-mitarbeiterportal.js`: 122 Prüfungen, 122 PASS, 0 FAIL
+## Neue Portal-Suite `tests/portal/sa16a-mitarbeiterportal.js`: 126 Prüfungen, 126 PASS, 0 FAIL
 | Nr. | Anforderung | Ergebnis |
 |---|---|---|
 | 1 | Portal öffnet über eigenen Link und `mitarbeiter.html`; keine PIN-Attrappe | PASS |
@@ -35,3 +35,7 @@ Im Portal entfällt im Demo-Bestandshinweis der Satz „Über „Regale“ ein- 
 Neu: Eintrag „Mitarbeiter-Testdemo“ in „Mehr“, Rückweg „← Zur Verwaltung“ im Portal (nur bei Einstieg aus der Verwaltung). Neue Prüfungen (Block 12, 20 Stück): Eintrag vorhanden, Navigation unverändert, Auswahl Max/Peter/Leon (auch bei altem Tab-Merker), Geräteauswahl, Rückweg sichtbar (Anmeldung, Startseite, Unterbereich, nach Neuladen), Rückkehr in normale Verwaltung, Lagerdaten byte-identisch, Aufträge unverändert, separate Portal-Adresse unverändert, iPhone 14 / Pixel 7 / iPad Pro 11 (Emulation), keine JS-Fehler: alle PASS.
 Regression erneut: SA-15 81/81, Äquivalenz 85/85, ap1/ap1c/ap2/ap8/ap10/ap15 PASS; Altfehler unverändert (ap9 7, ap11 1, ap12 2, ap13 1, ap14 11, ap16 4, identische Listen).
 Design: Die beiden freigegebenen Designbilder liegen nicht vor; die visuelle Anpassung ist **nicht** umgesetzt und nicht als bestanden gemeldet. Echte Gerätetests weiterhin offen.
+
+## Nachtrag 3: Design und Rückweg (Auftrag mit Designbildern)
+Umgesetzt: Kopfzeile/Karten/Kacheln nach Konzeptbildern (nicht pixelgenau), Eintrag in „Mehr“ als Zeile mit Symbol und Pfeil, Abmeldung-erfolgreich-Ansicht. „Zur Verwaltung“ beendet nur die Demo-Mitarbeitersitzung (getestet, auch dass eine bestehende Verwaltungs-Anmeldung unberührt bleibt). Portal-Suite 126/126 PASS (inkl. Block 12 mit Wechsel Verwaltung → Demo → Portal → Verwaltung, erneutem Einstieg, Mobil-Emulation). Regression unverändert: SA-15 81/81, Äquivalenz 85/85, ap1/ap1c/ap2/ap8/ap10/ap15 PASS, Altfehler identisch (ap9 7, ap11 1, ap12 2, ap13 1, ap14 11, ap16 4).
+Sichtprüfung per Screenshot (Emulation iPhone 14, iPad Pro 11). Echte Geräte (Safari/Android), Kamera/Scanner, AirPrint: weiterhin NICHT getestet.

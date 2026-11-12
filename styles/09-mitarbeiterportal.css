@@ -1,36 +1,73 @@
 /* SA-16a: Mitarbeiterportal. Wirkt nur im Portal-Modus (index.html?portal=mitarbeiter). Schutz vor Fehlbedienung, keine Zugriffssicherheit. */
-#portalBar,#portalLogin,#portalHome{display:none}
+#portalBar,#portalLogin,#portalHome,#portalBye{display:none}
 .portal #portalBar.portal-on{display:flex}
-.portal #portalLogin.active,.portal #portalHome.active{display:block}
+.portal #portalLogin.active,.portal #portalHome.active,.portal #portalBye.active{display:block}
 .portal #nav,.portal #subnav,.portal #simActiveBanner{display:none!important}
 .portal #pickLoginCard,.portal #scanMap,.portal #rackInit,.portal #simulationPanel,.portal #picking>.hint{display:none!important}
-.portal main{max-width:720px}
+.portal main{max-width:760px}
 .portal button,.portal select,.portal input,.portal textarea,.portal summary,.portal .slot{min-height:44px}
 .portal td button{min-height:44px;padding:8px 12px}
 .portal select,.portal input,.portal textarea{font-size:16px}
-.portal-bar{align-items:center;gap:10px;position:sticky;top:0;z-index:5;background:#f2f5fa;padding:8px 0;margin-bottom:8px}
-.portal-bar .portal-who{flex:1;min-width:0;line-height:1.2}
-.portal-bar .portal-who b{display:block;font-size:17px;color:#0b2040}
-.portal-bar .portal-who small{color:#61758a;font-size:13px}
-.portal-bar button{min-width:44px;white-space:nowrap}
-.portal-names{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
-.portal-name{min-height:64px!important;font-size:19px;background:#fff;color:#23436c;border:2px solid #d7e0ec}
-.portal-name.selected{background:#2469e8;color:#fff;border-color:#2469e8}
+
+/* Kopfzeile (dunkelblau): Marke, Kontext, Rückweg zur Verwaltung, Benutzer */
+.portal-hdr-actions{display:none}
+.portal header{flex-wrap:wrap;row-gap:10px}
+.portal .portal-hdr-actions{display:flex;align-items:center;gap:10px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+.portal-adminlink{display:none;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:10px;color:#fff;font-weight:700;text-decoration:none;white-space:nowrap;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
+.portal.portal-admin .portal-adminlink{display:inline-flex}
+.portal-chip{display:none;align-items:center;gap:8px;min-height:44px;padding:4px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;text-align:left}
+.portal-chip.on{display:inline-flex}
+.portal-chip-txt{display:flex;flex-direction:column;line-height:1.15}
+.portal-chip-txt b{font-size:15px}.portal-chip-txt small{font-size:11px;opacity:.8}
+.portal-chip-sw{font-size:12px;opacity:.85;white-space:nowrap}
+
+/* Zurück-Leiste */
+.portal-bar{align-items:center;gap:10px;margin-bottom:10px}
+.portal-bar button{min-width:44px;white-space:nowrap;background:#fff;color:#0b2040;border:1.5px solid #cfe0f7}
+
+/* Einleitung */
+.portal-intro{text-align:center;margin:6px 0 14px}
+.portal-intro h2{margin:6px 0 4px;color:#0b2040}
+.portal-intro p{margin:0}
+.portal-intro-ico{display:inline-flex;color:#2469e8}
+
+/* Mitarbeiterkarten */
+.portal-names{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.portal-name{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:150px!important;padding:14px 8px;font-size:19px;background:#fff;color:#0b2040;border:1.5px solid #cfe0f7;border-radius:16px;box-shadow:0 3px 12px rgba(15,43,78,.07)}
+.portal-name b{font-size:20px}
+.portal-name-ico{display:flex;color:#2469e8}
+.portal-name:nth-child(2) .portal-name-ico{color:#2e9e5b}.portal-name:nth-child(3) .portal-name-ico{color:#f0951f}
+.portal-name-act{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;border-radius:10px;background:#2469e8;color:#fff;font-size:15px;font-weight:700}
+.portal-name.selected{border:2.5px solid #2469e8;background:#edf4ff}
+.portal-name.selected .portal-name-act{background:#0b2d58}
 #portalLoginBtn{width:100%;min-height:56px;font-size:18px;margin-top:16px}
-.portal-demo-note{background:#fff5e8;color:#835010;padding:12px;border-radius:10px;font-size:13px;margin-top:16px}
+.portal-demo-note,.portal-more summary{background:#eaf2ff;color:#1d4d8f;border:1px solid #cfe0f7}
+.portal-demo-note{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:12px;font-size:13px;margin-top:16px}
+.portal-i{display:inline-grid;place-items:center;flex:none;width:22px;height:22px;border-radius:50%;background:#2469e8;color:#fff;font-weight:800;font-size:13px;font-style:normal}
+
+/* Startseite: vier weiße Funktionskarten mit farbigem Symbol */
 .portal-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.portal-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:150px;padding:14px 8px;border-radius:20px;background:#fff;color:#0b2040;border:2px solid #d7e0ec;box-shadow:0 4px 14px rgba(15,43,78,.08);font-size:19px;text-align:center}
+.portal-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:170px;padding:14px 8px;border-radius:18px;background:#fff;color:#0b2040;border:1.5px solid #cfe0f7;box-shadow:0 4px 14px rgba(15,43,78,.08);font-size:19px;text-align:center}
+.portal-tile small{color:#5f7891;font-size:13px;font-weight:400;line-height:1.25;padding:0 4px}
 .portal-tile:active{background:#edf4ff;border-color:#2469e8}
-.portal-ico{display:flex;color:#2469e8}
-.portal-more{margin-top:22px;color:#61758a;font-size:14px}
-.portal-more summary{cursor:pointer;display:flex;align-items:center;padding:0 4px}
-.portal-more p{margin:6px 4px 0}
-@media(min-width:640px){.portal-tile{min-height:190px}}
+.portal-ico{display:flex;align-items:center;justify-content:center;width:68px;height:68px;border-radius:16px;color:#fff;margin-bottom:4px}
+.portal-ico.c1{background:#2469e8}.portal-ico.c2{background:#2e9e5b}.portal-ico.c3{background:#7a55c7}.portal-ico.c4{background:#f0951f}
+.portal-more{margin-top:20px;color:#1d4d8f;font-size:14px}
+.portal-more summary{cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;font-weight:700}
+.portal-more p{margin:8px 4px 0}
+@media(min-width:640px){.portal-tile{min-height:200px}}
 
-/* SA-16a: Verwaltungshinweis im Bestandshinweis im Portal ausblenden */
+/* Abmeldung / Rückkehr */
+.portal-bye{text-align:center;padding:40px 8px}
+.portal-check{display:inline-grid;place-items:center;width:72px;height:72px;border-radius:50%;background:#2e9e5b;color:#fff}
+.portal-adminlink-solid{display:inline-flex!important;background:#2469e8;color:#fff;border-color:#2469e8;margin-top:12px}
+
+/* Verwaltung: Eintrag „Mitarbeiter-Testdemo“ unter „Mehr“ (Designbild 2) */
+.mt-demo-row{display:flex;align-items:center;gap:14px;width:100%;min-height:72px;padding:10px 14px;text-align:left;background:#fff;color:#0b2040;border:1.5px solid #cfe0f7;border-radius:14px}
+.mt-demo-ico{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;background:#eaf2ff;color:#2469e8;flex:none}
+.mt-demo-txt{display:flex;flex-direction:column;flex:1;min-width:0}
+.mt-demo-txt b{font-size:17px}.mt-demo-txt small{color:#5f7891;font-size:13px}
+.mt-demo-go{font-size:30px;color:#2469e8;line-height:1}
+
 html.portal .adm-only{display:none}
-
-/* SA-16a: Rückweg zur Verwaltung (nur bei Einstieg aus „Mehr“ → Mitarbeiter-Testdemo) */
-#portalAdminBar{display:none}
-.portal.portal-admin #portalAdminBar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0b2040;color:#fff;border-radius:12px;padding:8px 8px 8px 14px;margin-bottom:10px;font-weight:700}
-.portal-adminlink{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:10px;background:#fff;color:#0b2040;font-weight:800;text-decoration:none;white-space:nowrap}
+@media(max-width:480px){.portal .portal-hdr-actions{width:100%;justify-content:space-between;flex-wrap:nowrap}.portal-chip-sw{display:none}.portal-chip::after{content:"▾";opacity:.85}.portal-adminlink{padding:0 12px;font-size:15px}.portal-name-act{font-size:14px}}
