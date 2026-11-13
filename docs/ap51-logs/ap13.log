@@ -1,0 +1,89 @@
+PASS 1 Eingabefeld hat maxlength=64
+PASS 1 Tippen/Einfügen von 80 Zeichen wird vom Browser auf 64 gekürzt
+PASS 1 Neuer Artikel, Barcode 63 Zeichen (per Skript am maxlength vorbei): erlaubt  | Artikel gespeichert.
+PASS 1 Neuer Artikel, Barcode 64 Zeichen (per Skript am maxlength vorbei): erlaubt  | Artikel gespeichert.
+PASS 1 Neuer Artikel, Barcode 65 Zeichen (per Skript am maxlength vorbei): abgelehnt  | Barcode darf höchstens 64 Zeichen enthalten.
+PASS 1 Neuer Artikel, Barcode 200 Zeichen (per Skript am maxlength vorbei): abgelehnt  | Barcode darf höchstens 64 Zeichen enthalten.
+PASS 1 Neuer Artikel, Barcode 5000 Zeichen (per Skript am maxlength vorbei): abgelehnt  | Barcode darf höchstens 64 Zeichen enthalten.
+PASS 1 64 Zeichen mit Leerzeichen/Umbruch außen: Trim, erlaubt  | Artikel gespeichert.
+PASS 1 33 Emoji (66 UTF-16-Einheiten): abgelehnt, nichts geändert (Info: Zählung in UTF-16)  | Barcode darf höchstens 64 Zeichen enthalten.
+PASS 1 32 Emoji (64 Einheiten): erlaubt  | Artikel gespeichert.
+PASS 1 A1 bearbeiten, Barcode auf 65: abgelehnt, A1 unverändert  | Barcode darf höchstens 64 Zeichen enthalten.
+PASS 1 A1 Barcode 64: erlaubt, Rest unverändert  | Artikel gespeichert.
+PASS 2 Neuer Artikel, Barcode "bc-two" = A2 (gleich)  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 2 Neuer Artikel, Barcode "BC-TWO" (Großschreibung) abgelehnt  | Barcode ist bereits vergeben (Groß-/Kleinschreibung wird nicht unterschieden).
+PASS 2 Neuer Artikel, Barcode "Bc-Two" abgelehnt  | Barcode ist bereits vergeben (Groß-/Kleinschreibung wird nicht unterschieden).
+PASS 2 Neuer Artikel, Barcode "a3" (= Artikelnummer A3, klein) abgelehnt  | Barcode ist bereits vergeben (Groß-/Kleinschreibung wird nicht unterschieden).
+PASS 2 Neuer Artikel D5 mit Barcode "d5" (Code ≠ Barcode nur durch Case) abgelehnt  | Artikelnummer und Barcode müssen unterschiedlich sein.
+PASS 2 Neuer Artikel D6 mit Barcode "D6" abgelehnt  | Artikelnummer und Barcode müssen unterschiedlich sein.
+PASS 2 Neuer Artikel D7 mit neuem Barcode "unique-7" erlaubt  | Artikel gespeichert.
+PASS 2 A2 ändert eigenen Barcode nur in der Schreibweise (bc-two → BC-TWO): erlaubt (kein Selbstkonflikt)  | Artikel gespeichert.
+PASS 2 A2 will "Bc1" (= A1 BC1) : abgelehnt, nichts geändert  | Barcode ist bereits vergeben (Groß-/Kleinschreibung wird nicht unterschieden).
+PASS 2 Info: Artikelnummer "a1" neben "A1" wird als eigener Artikel angelegt (Artikelnummern case-sensitiv)  | ok=false Artikel +0
+PASS 3 Barcode "__proto__" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Barcode "constructor" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Barcode "prototype" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Barcode "toString" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Barcode "tostring" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Barcode "TOSTRING" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Barcode "hasOwnProperty" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Barcode "HASOWNPROPERTY" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Barcode "__PROTO__" abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 3 Info: nicht gesperrte Objekt-Eigenschaftsnamen als Barcode gespeichert: 
+PASS 3 Folgeprüfung: Scan-/Bestandssuche mit solchen Barcodes ohne JS-Fehler
+PASS 3 Info: Artikelnummer "constructor" abgelehnt  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS 3 Info: Artikelnummer "__proto__" abgelehnt  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS 3 Info: Artikelnummer "toString" abgelehnt  | Diese Artikelnummer ist reserviert und nicht zulässig.
+FAIL 4 Scan bekannter Barcode (neues Formular): Warnung "gehört bereits zu A1"  | Barcode gehört bereits zu L2 und kann für diesen Artikel nicht verwendet werden. | warning
+PASS 4 Scan "bc1" (Case-Variante): ebenfalls Warnung (zu A1 oder L2)  | Barcode gehört bereits zu L2 und kann für diesen Artikel nicht verwendet werden.
+PASS 4 Scan speichert nichts
+PASS 4 Scan beim Bearbeiten A1 mit eigenem (aktuellem) Barcode → Info/Erfolg  | Barcode gehört zum aktuellen Artikel A1. Formulareingaben bleiben unverändert.
+PASS 4 A1 bearbeiten, eigenen Barcode scannen: "gehört zum aktuellen Artikel", Erfolgsfarbe  | Barcode gehört zum aktuellen Artikel A1. Formulareingaben bleiben unverändert. | success lp-feedback-success lp-scan-success
+PASS 4 A3 bearbeiten, Barcode von A2 scannen: Warnung  | Barcode gehört bereits zu A2 und kann für diesen Artikel nicht verwendet werden.
+PASS 4 Scan 65 Zeichen: Warnung "Barcode zu lang"  | Barcode zu lang: maximal 64 Zeichen zulässig.
+PASS 4 ... Feld enthält trotzdem den langen Wert (Speichern wird abgelehnt)  | 65
+PASS 4 ... Speichern abgelehnt, nichts geändert  | Barcode darf höchstens 64 Zeichen enthalten.
+PASS 4 Scan unbekannter Barcode: Hinweis (hint)  | Barcode übernommen. Bitte Artikelangaben prüfen und anschließend speichern. | hint
+PASS 4 Info: Scan eines Artikelnummern-Textes (A1) →   | Dieser Wert ist bereits als Artikelnummer vergeben und kann nicht als Barcode verwendet werden. | warning
+PASS 4 ... Speichern mit "A1" als Barcode von A3 abgelehnt  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS JS-Fehler Teil 1–4
+PASS JS Matrix old
+PASS JS Matrix new
+PASS 5 KEINE bisher zulässige Altdaten-Änderung neu blockiert
+   L1:name                alt: ok  neu: ok
+   L1:barcodeSame         alt: ok  neu: ok
+   L1:barcodeLongOther    alt: abgelehnt  neu: abgelehnt: Barcode darf höchstens 64 Zeichen enthalten.
+   L1:barcodeShort        alt: ok  neu: ok
+   L2:name                alt: ok  neu: ok
+   L2:barcodeSame         alt: ok  neu: ok
+   L2:barcodeBC1          alt: abgelehnt  neu: abgelehnt: Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordne
+   L3:name                alt: ok  neu: ok
+   L3:barcodeSame         alt: ok  neu: ok
+   L4:name                alt: abgelehnt  neu: abgelehnt: Artikelnummer und Barcode müssen unterschiedlich sein.
+   L4:barcodeSame         alt: abgelehnt  neu: abgelehnt: Artikelnummer und Barcode müssen unterschiedlich sein.
+   L5:name                alt: abgelehnt  neu: abgelehnt: Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordne
+   L5:barcodeSame         alt: abgelehnt  neu: abgelehnt: Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordne
+   L6:name                alt: ok  neu: ok
+   L6:barcodeSame         alt: ok  neu: ok
+   L7:name                alt: ok  neu: ok
+   L7:barcodeSame         alt: ok  neu: ok
+   A1:name                alt: ok  neu: ok
+PASS 5/6 Gespeicherte Altartikel: Barcode bleibt beim Namensändern unverändert (inkl. 200 und 65 Zeichen), nur 1 Historie, andere Artikel und Boxen unberührt
+PASS 6 Namensänderung der Altartikel L1,L2,L3,L6,L7 weiter erlaubt  | L1:name=true L2:name=true L3:name=true L6:name=true L7:name=true
+PASS 6 A1 laden und unverändert speichern: Artikel byteweise gleich (Ergebnis: ok)
+PASS 6 A2 laden und unverändert speichern: Artikel byteweise gleich (Ergebnis: ok)
+PASS 6 A3 laden und unverändert speichern: Artikel byteweise gleich (Ergebnis: Artikelnummer oder Barcode ist bereits einem anderen Artikel)
+PASS 6 L1 laden und unverändert speichern: Artikel byteweise gleich (Ergebnis: ok)
+PASS 6 L2 laden und unverändert speichern: Artikel byteweise gleich (Ergebnis: ok)
+PASS 6 L3 laden und unverändert speichern: Artikel byteweise gleich (Ergebnis: ok)
+PASS 6 L7 laden und unverändert speichern: Artikel byteweise gleich (Ergebnis: ok)
+PASS JS 6
+PASS 7 Export enthält alle Artikel inkl. 200- und 65-Zeichen-Barcodes unverändert
+PASS 7 Import des Exports (Altdaten mit langen/ähnlichen/reservierten Barcodes): akzeptiert, Artikel byteweise gleich
+PASS 7 Import mit 300-Zeichen-Barcode und Duplikat-Barcode (Altdaten-Stil): Verhalten (Info)  | importiert=true | 
+PASS 7 Nach Import: valid()
+PASS JS 7
+
+GESAMT 67 / FAIL 1
+ - 4 Scan bekannter Barcode (neues Formular): Warnung "gehört bereits zu A1"
+exit 0

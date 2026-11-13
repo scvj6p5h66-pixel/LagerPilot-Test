@@ -1,0 +1,11 @@
+== A1 entfernt | Dialoge: confirm:ACHTUNG: Diese Sicherung ersetzt die aktuellen lokalen Lager- und gegebenenfalls ; alert:Sicherung importiert.
+
+Die Seite wird jetzt neu geladen. | A1 nach Import: null
+Formular nach Import: |||false|true
+Speichern -> Artikelnummer fehlt. | A1 danach: null | Boxen A1: 0 | Modus: false,true | JS-Fehler: 0
+== A1 geändert | Dialoge: confirm:ACHTUNG: Diese Sicherung ersetzt die aktuellen lokalen Lager- und gegebenenfalls ; alert:Sicherung importiert.
+
+Die Seite wird jetzt neu geladen. | A1 nach Import: {"code":"A1","name":"Importname","barcode":"","unit":"STK","pack":1,"weight":2,"max":100,"min":77}
+Formular nach Import: |||false|true
+Speichern -> Artikelnummer fehlt. | A1 danach: {"code":"A1","name":"Importname","barcode":"","unit":"STK","pack":1,"weight":2,"max":100,"min":77} | Boxen A1: 1 | Modus: false,true | JS-Fehler: 0
+exit 0
