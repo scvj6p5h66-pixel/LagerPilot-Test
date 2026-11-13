@@ -1,0 +1,20 @@
+PASS F1-7 valid() lehnt places:{} mit Box auf H4A-1-1 ab (veralteter Test-Seed)
+PASS F1-7 Fehlerhafter Seed: Sperre aktiv, Quarantäne vorhanden, Daten (Box b1) bleiben erhalten  | {"l":true,"q":true}
+PASS F1-7 Gegenprobe Fachlast 800: Konfiguration übernommen, 6480 Plätze  | {"cfg":800,"places":6480}
+PASS F1-7 Gegenprobe Fachlast 600: Konfiguration übernommen, 6480 Plätze  | {"cfg":600,"places":6480}
+PASS F1-7 Gegenprobe Fachlast null: Konfiguration übernommen, 6480 Plätze  | {"cfg":null,"places":6480}
+PASS F8 Artikel OHNE Gewicht: Erhöhung abgelehnt, Menge unverändert  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS F8 Testprämisse: Artikel MIT Gewicht 2 -> Erhöhung korrekt erlaubt (Test-Seed war falsch)  | ✓ Inventurdifferenz gespeichert.
+PASS F16 sauberer Zustand: "toString" -> reserviert  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS F16 Legacy-Artikel "toString" vorhanden -> Dublettenmeldung statt Reserviert (Test-Zustand)  | Artikelnummer toString existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS F21 Ungültiges Gewicht wird gemeldet  | {"1e999":"Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „1e999“. Zum Entfernen das Feld leer lassen.|gespeichert=nein","ab
+PASS F21 keine JS-Fehler
+PASS F21c Bearbeiten ohne Bestand: ungültiges Gewicht wird abgefangen  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „1e999“. Zum Entfernen das Feld leer lassen.
+PASS F21c Bearbeiten MIT Bestand: Gewicht bleibt erhalten (Schutz greift)  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „1e999“. Zum Entfernen das Feld leer lassen.
+PASS F18 Home: genau 1 Artikel unter Mindestbestand (LM 160<500; OK 120>=100; NM ohne Minimum)
+PASS F18 Home nennt keine Artikelnamen (Testerwartung "LM" war veraltet; Verbesserungsvorschlag)
+PASS F26 Import (Dialog bestätigt): Seite lädt neu, A1 entfernt, Sicherung vor Import vorhanden, Bearbeitungsmodus zurückgesetzt  | {"items":["B1"],"mode":false,"bk":true}
+PASS F26 Import abgebrochen (Dialog abgelehnt): Speicher unverändert (kein Datenverlust)
+PASS F23-25 Bearbeiten-Button >=32px
+
+GESAMT 18 / FAIL 0 / BEFUNDE (bestätigte Programmfehler) 0

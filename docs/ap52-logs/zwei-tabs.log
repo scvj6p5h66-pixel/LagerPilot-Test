@@ -1,0 +1,14 @@
+PASS 1 Tab A speichert Änderung am Artikel  | Artikel gespeichert.
+PASS 1 Tab B bekommt über das Storage-Ereignis einen Hinweis „Daten geändert“ (Banner sichtbar)  | ⚠️ Lagerdaten wurden in einem anderen Tab geändert. Diese Ansicht zeigt möglicherweise veraltete Bestände. Bitte Seite n
+PASS 1 Tab B speichert veraltete Version: wird ABGEWIESEN (kein stilles Überschreiben)  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS 1 Speicher nach B-Versuch byteidentisch mit dem Stand nach Tab A (Änderung von A bleibt erhalten)
+PASS 1 Hinweis zur Anzeige: Tab B zeigt weiterhin die alte Version bis zum Neuladen (nur Anzeige, nicht gespeichert)  | Altartikel
+PASS 1 Nach Neuladen sieht Tab B die Änderung von A (Name „Name von Tab A“, Min 600)
+PASS 1 Danach kann Tab B speichern, ohne die Änderung von A zu verlieren  | Artikel gespeichert.
+PASS 2 Veralteter Tab B ändert anderen Artikel: abgewiesen (grobe Sperre) – Daten von A unverändert  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS 3 Beide legen „DUP-1“ an: B wird abgewiesen, genau ein Artikel „Neu von A“  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS 4 Veralteter Tab B bucht Bestand (persist): abgewiesen, Bestand unverändert  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS 5 Import einer älteren Sicherung im Tab B ersetzt den Stand bewusst (A-Änderung nach Export geht aus dem Hauptstand), aber „vor Import“-Sicherung enthält sie  | before_import vorhanden, 336993 Zeichen
+PASS 6 Keine JavaScript-Fehler
+
+GESAMT 12 Prüfungen / FAIL 0

@@ -1,0 +1,60 @@
+PASS 1 Neues Lager: alle vier Werte null (keine stille 800)  | {"shelf":null,"bay":null,"palletMax":null,"tare":null}
+PASS 1 Eingabefeld Fachlast leer, Hinweistext sichtbar
+PASS 1 Frisches Lager nicht gesperrt/kein Banner
+PASS 1 Alter Warntext "Bekannte Fachlast: 800 kg" steht noch (Info)  | true
+PASS 2 Einlagerung ohne jede Konfiguration abgelehnt, Meldung nennt Fachlast  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 2 Keine Box angelegt, Zustand unverändert
+PASS 2 Nur shelf fehlt -> Einlagerung abgelehnt  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 2 Nur bay fehlt -> Einlagerung abgelehnt  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 2 Nur palletMax fehlt -> Einlagerung abgelehnt  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 2 Nur tare fehlt -> Einlagerung abgelehnt  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 3 Fachlast leer (andere gesetzt) abgelehnt  | Fachlast muss angegeben werden.
+PASS 3 Fachlast 0 abgelehnt  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „0“. Zum Entfernen das Feld leer lassen.
+PASS 3 Fachlast -5 abgelehnt  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld leer lassen.
+PASS 3 Feldlast 0 abgelehnt  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „0“. Zum Entfernen das Feld leer lassen.
+PASS 3 Palette -1 abgelehnt  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine Zahl ab 1 kg sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-1“. Zum Entfernen das Feld leer l
+PASS 3 Leergewicht -1 abgelehnt  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-1“. Zum Entfernen das Feld leer lassen.
+PASS 3 Nach Fehlversuchen weiterhin alles null
+PASS 3 Nur Fachlast speichern: erlaubt (Teilkonfiguration)  | Parameter gespeichert.
+PASS 3 Mit nur Fachlast weiter Einlagerung gesperrt  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 3 Hinweis: Teilkonfiguration zeigt Nutzer, was fehlt? (Meldung nennt alle vier Begriffe, nicht gezielt)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 3 Vollständig mit Leergewicht 0 gespeichert  | Parameter gespeichert.
+PASS 3 Vollständig (800/2000/1000/25) gespeichert  | Parameter gespeichert.
+PASS 3 Persistiert + Historieneintrag "Traglastparameter geändert"  | {"shelf":800,"bay":2000,"palletMax":1000,"tare":25}
+PASS 3 Nach Reload Felder gefüllt
+PASS 3 Dezimal-Leergewicht 25,5 ok
+PASS 4 Einlagerung nach Konfiguration (10×2+25)  | ✓ Buchung gespeichert.
+PASS 4 Gewicht 100×2+25=225 ok (Max 100)  | ✓ Buchung gespeichert.
+PASS 4 Fachlast 100×8+25=825>800 abgelehnt  | Fachlast von 800 kg überschritten.
+PASS 4 96×8+25=793 ok  | ✓ Buchung gespeichert.
+PASS Info Fachlast 100 gesetzt obwohl Boxen 793 kg tragen (keine Prüfung bestehender Boxen)  | akzeptiert=true
+PASS Auswirkung: Ausbuchen aus überlasteter Box weiter möglich  | ✓ Buchung gespeichert.
+PASS Auswirkung: Umlagern mit Überlast-Zielplatz geprüft (abgelehnt erwartet)  | ✓ Buchung gespeichert.
+PASS JS-Fehler Teil 1–4
+FAIL 5 v2.7 mit Fachlast 800 bleibt unverändert  | null
+FAIL 5 v2.7 mit Fachlast 800: Einlagern möglich  | Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch den Packinhalt teilbar sein.
+FAIL 5 v2.7 mit Fachlast 600 bleibt unverändert  | null
+FAIL 5 v2.7 mit Fachlast 600: Einlagern möglich  | Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch den Packinhalt teilbar sein.
+FAIL 5 v2.7 mit Fachlast null bleibt unverändert  | null
+FAIL 5 v2.7 mit Fachlast null: Einlagern gesperrt  | Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch den Packinhalt teilbar sein.
+FAIL 5 Fachlast null: Ausbuchen bestehender Ware weiter möglich  | Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch den Packinhalt teilbar sein.
+PASS 5 v2.6 ohne shelf -> Migration ergänzt Default 800 (Info, bestehende Daten)  | {"shelf":800,"bay":null,"palletMax":null,"tare":null}
+PASS 5 v2.6-Migration: Original unverändert
+PASS 5 Legacy-Hauptschlüssel lädt, Fachlast (Info)  | {"shelf":null,"bay":null,"palletMax":null,"tare":null}
+PASS JS-Fehler Teil 5
+PASS 6 Inventur-Erhöhung ohne Lastdaten (Info: erlaubt/abgelehnt)  | qty=10 Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 6 Startseite/Mehr rendern ohne Fehler bei Null-Config
+PASS 6 Ausbuchen ohne Lastdaten  | ✓ Buchung gespeichert.
+PASS 6 Umlagern ohne Lastdaten (abgelehnt wegen Lastprüfung erwartet)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 6 Startseite zeigt Hinweis auf fehlende Traglastkonfiguration? (Info)  | false
+PASS 6 Frischer Start: Home rendert, keine JS-Fehler
+PASS 6 valid() akzeptiert Zustand mit Fachlast null (Roundtrip)  | true
+
+GESAMT 51 / FAIL 7
+ - 5 v2.7 mit Fachlast 800 bleibt unverändert
+ - 5 v2.7 mit Fachlast 800: Einlagern möglich
+ - 5 v2.7 mit Fachlast 600 bleibt unverändert
+ - 5 v2.7 mit Fachlast 600: Einlagern möglich
+ - 5 v2.7 mit Fachlast null bleibt unverändert
+ - 5 v2.7 mit Fachlast null: Einlagern gesperrt
+ - 5 Fachlast null: Ausbuchen bestehender Ware weiter möglich

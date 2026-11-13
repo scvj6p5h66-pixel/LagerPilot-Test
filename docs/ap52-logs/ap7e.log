@@ -1,0 +1,76 @@
+PASS 1 Max 49 < Box 50: abgelehnt mit Platz/Menge/Max  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 49.
+PASS 6 Abgelehnt: Speicher byteweise unverändert, kein Historieneintrag
+PASS 6 Abgelehnt: Formularwerte bleiben erhalten (aMax=49)
+PASS 6 Abgelehnt: In-Memory-Artikel unverändert
+PASS 1 Max 50 = Boxmenge: erlaubt  | Artikel gespeichert.
+PASS 1 danach Max 49 wieder abgelehnt
+PASS 1 Max zurück auf 100
+PASS 1 Max 29: abgelehnt (beide Boxen zu groß, erste gemeldet)  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 29.
+PASS 1/5 Max 40: abgelehnt wegen Box 50, obwohl zweite Box (30) passt — keine Teiländerung  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 40.
+PASS 1 Max leeren (null) bei Bestand: erlaubt/abgelehnt (Info)  | ok=false max=100 msg=Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.
+FAIL 1 Pack-Artikel: Max 1 < 2 Pack: abgelehnt  | Artikelnummer P1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+FAIL 1 Pack-Artikel: Max 2 = 2 Pack: erlaubt
+FAIL 2 Pack-Artikel: Gewicht 500 (2×500+25=1025>800): abgelehnt  | Artikelnummer P1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 2/3 Gewicht 15,5 → 50×15,5+25 = 800 = Fachlast: erlaubt (Grenze)  | Artikel gespeichert.
+PASS 2 Gewicht 15,6 → 805 > 800: Fachlast abgelehnt mit Platz  | Artikeländerung abgelehnt: Fachlast auf H4A-1-1 überschritten.
+PASS 2 Gewicht blieb 15,5
+PASS 2 Altfall SA-05: Gewicht 500: abgelehnt  | Artikeländerung abgelehnt: Fachlast auf H4A-1-1 überschritten.
+PASS 3 Gewicht 3, Max 60 (alle Limits ok): gespeichert, Historie  | Artikel gespeichert.
+PASS 3 Boxbestände unverändert (50/30/2)
+PASS 3 Nur Name/Barcode/Min ändern bei Bestand: erlaubt  | Artikel gespeichert.
+PASS 8 Einheit ändern bei Bestand weiter gesperrt  | Einheit/Packgröße bei vorhandenem Bestand nicht ohne Migration ändern.
+PASS JS-Fehler Teil 1–3
+PASS 2 nur Palettentragfähigkeit 500 (50×9,5+25=500 ok) (Gewicht 9.5)  | Artikel gespeichert.
+PASS 6  -> nur Palettentragfähigkeit 500 (50×9,5+25=500 ok): gespeichert
+PASS 2 nur Palettentragfähigkeit 500 (Gewicht 9.6)  | Artikeländerung abgelehnt: Palettentragfähigkeit auf H4A-1-1 überschritten.
+PASS 6  -> nur Palettentragfähigkeit 500: unverändert
+PASS 2 nur Feldlast 500 (Gewicht 9.6)  | Artikeländerung abgelehnt: Feldlast auf H4A-1-1 überschritten.
+PASS 6  -> nur Feldlast 500: unverändert
+PASS 2 nur Feldlast 500 (Grenze ok) (Gewicht 9.5)  | Artikel gespeichert.
+PASS 6  -> nur Feldlast 500 (Grenze ok): gespeichert
+PASS 2 Fachlast + Palette beide überschritten -> Fachlast zuerst (Gewicht 9)  | Artikeländerung abgelehnt: Fachlast auf H4A-1-1 überschritten.
+PASS 6  -> Fachlast + Palette beide überschritten -> Fachlast zuerst: unverändert
+PASS 4 tare fehlt: Gewichtsänderung mit Bestand abgelehnt (Lastdaten fehlen)  | Artikelgewicht kann bei vorhandenem Bestand nicht sicher geprüft werden: Lastdaten fehlen.
+PASS 4 tare fehlt: nur Max ändern (Gewicht gleich) -> Verhalten (Info)  | ok=true | Artikel gespeichert.
+PASS 4 tare fehlt: Max-only-Änderung wird nicht durch fehlende Lastdaten blockiert  | ok=true
+PASS 4 tare fehlt: Gewicht löschen (null) bei Bestand (Info)  | ok=false
+FAIL 4/7 tare fehlt: Artikel A2 ohne Bestand: beliebige Änderung erlaubt
+PASS 4 JS-Fehler
+PASS 4 palletMax fehlt: Gewichtsänderung mit Bestand abgelehnt (Lastdaten fehlen)  | Artikelgewicht kann bei vorhandenem Bestand nicht sicher geprüft werden: Lastdaten fehlen.
+PASS 4 palletMax fehlt: nur Max ändern (Gewicht gleich) -> Verhalten (Info)  | ok=true | Artikel gespeichert.
+PASS 4 palletMax fehlt: Max-only-Änderung wird nicht durch fehlende Lastdaten blockiert  | ok=true
+PASS 4 palletMax fehlt: Gewicht löschen (null) bei Bestand (Info)  | ok=false
+FAIL 4/7 palletMax fehlt: Artikel A2 ohne Bestand: beliebige Änderung erlaubt
+PASS 4 JS-Fehler
+PASS 4 bay fehlt: Gewichtsänderung mit Bestand abgelehnt (Lastdaten fehlen)  | Artikelgewicht kann bei vorhandenem Bestand nicht sicher geprüft werden: Lastdaten fehlen.
+PASS 4 bay fehlt: nur Max ändern (Gewicht gleich) -> Verhalten (Info)  | ok=true | Artikel gespeichert.
+PASS 4 bay fehlt: Max-only-Änderung wird nicht durch fehlende Lastdaten blockiert  | ok=true
+PASS 4 bay fehlt: Gewicht löschen (null) bei Bestand (Info)  | ok=false
+FAIL 4/7 bay fehlt: Artikel A2 ohne Bestand: beliebige Änderung erlaubt
+PASS 4 JS-Fehler
+PASS 5 drei Plätze, nur dritte (55) verletzt Max 52: abgelehnt, Platz genannt, nichts geändert  | Artikeländerung abgelehnt: Box auf H4A-5-1 enthält 55 Einheiten, neues Maximum ist 52.
+PASS 5 Gewicht 14,8: Box 55×14,8+25=839>800 abgelehnt (Platz 5-1), 50er-Box allein wäre ok  | Artikeländerung abgelehnt: Fachlast auf H4A-5-1 überschritten.
+FAIL 5 Gewicht 14,5 & Max 60: alle Boxen ok -> erlaubt  | Artikeländerung abgelehnt: Fachlast auf H4A-5-1 überschritten.
+PASS 5 QS-gesperrte Box (55) wird ebenfalls geprüft: Max 54 abgelehnt  | Artikeländerung abgelehnt: Box auf H4A-5-1 enthält 55 Einheiten, neues Maximum ist 54.
+FAIL 7 Artikel mit Box-Menge 0: Änderung erlaubt (leere Box ignoriert)  | Im Bearbeitungsmodus kann die Artikelnummer nicht geändert werden. Bitte „Eingabe leeren“ wählen und den Artikel neu anlegen.
+PASS 5 JS-Fehler
+PASS 8 Wareneingang nutzt neues Gewicht: +10 auf 50er-Box (60×10+25=625 ok)  | ✓ Buchung gespeichert.
+PASS 8 Wareneingang über neues Max 60 abgelehnt  | Boxkapazität überschritten (60 STK).
+PASS 8 Ausbuchen funktioniert
+PASS 8 Umlagerung funktioniert
+PASS 8 Inventur funktioniert  | ✓ Inventurdifferenz gespeichert.
+PASS 8 Neuer Artikel anlegen
+PASS 8 Doppelter Barcode weiter abgelehnt
+PASS 8 JS-Fehler
+FAIL 8 Veralteter Tab kann Artikel nicht speichern  | Artikelnummer A1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschied
+
+GESAMT 65 / FAIL 9
+ - 1 Pack-Artikel: Max 1 < 2 Pack: abgelehnt
+ - 1 Pack-Artikel: Max 2 = 2 Pack: erlaubt
+ - 2 Pack-Artikel: Gewicht 500 (2×500+25=1025>800): abgelehnt
+ - 4/7 tare fehlt: Artikel A2 ohne Bestand: beliebige Änderung erlaubt
+ - 4/7 palletMax fehlt: Artikel A2 ohne Bestand: beliebige Änderung erlaubt
+ - 4/7 bay fehlt: Artikel A2 ohne Bestand: beliebige Änderung erlaubt
+ - 5 Gewicht 14,5 & Max 60: alle Boxen ok -> erlaubt
+ - 7 Artikel mit Box-Menge 0: Änderung erlaubt (leere Box ignoriert)
+ - 8 Veralteter Tab kann Artikel nicht speichern

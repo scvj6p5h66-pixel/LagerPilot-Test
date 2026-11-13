@@ -1,0 +1,91 @@
+PASS 1 Scan "constructor" -> unbekannt, kein Fehler  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen. errs=0
+PASS 1 Scan "__proto__" -> unbekannt, kein Fehler  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen. errs=0
+PASS 1 Scan "toString" -> unbekannt, kein Fehler  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen. errs=0
+PASS 1 Scan "hasOwnProperty" -> unbekannt, kein Fehler  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen. errs=0
+PASS 1 Scan "valueOf" -> unbekannt, kein Fehler  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen. errs=0
+PASS 1 Scan "prototype" -> unbekannt, kein Fehler  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen. errs=0
+PASS 1 Scan "isPrototypeOf" -> unbekannt, kein Fehler  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen. errs=0
+PASS 1 QR-Zuordnung "__proto__": sinnvolle Ablehnung, qrMap unverändert  | Dieser Code ist reserviert und kann nicht zugeordnet werden.
+PASS 1 QR-Zuordnung "constructor": sinnvolle Ablehnung, qrMap unverändert  | Dieser Code ist reserviert und kann nicht zugeordnet werden.
+PASS 1 Normaler QR wird zugeordnet  | QR-Code mit H4A-3-3 verknüpft.
+PASS 1 Normaler QR wird erkannt
+PASS 1 Expliziter Platzcode (klein) erkannt
+PASS 1 Artikelbarcode erkannt
+PASS 1 Code mit Teilwort "constructor" normal behandelt
+PASS 1 Buchen Platz "constructor"  | Unbekannter Lagerplatz: constructor
+PASS 1 Buchen Platz "__proto__"  | Unbekannter Lagerplatz: __proto__
+PASS 1 Buchen Platz "toString"  | Unbekannter Lagerplatz: toString
+PASS 1 Inventur Platz "constructor"  | Unbekannter Lagerplatz: constructor
+PASS 1 Inventur Platz "__proto__"  | Unbekannter Lagerplatz: __proto__
+PASS 1 Sperren Platz "constructor"
+PASS 1 Pick-Scan Platz "constructor" ohne Funktionstext  | Falscher Lagerplatz! Erwartet: H4B-1-1. Erkannt: constructor. Bitte Lagerplatz-QR scannen.
+PASS 1 Pick-Scan Platz "__proto__" ohne Funktionstext  | Falscher Lagerplatz! Erwartet: H4B-1-1. Erkannt: __proto__. Bitte Lagerplatz-QR scannen.
+PASS 1 Pick-Scan korrekter Platz
+PASS 1 JS-Fehler Scanner
+PASS Import cfg shelf string -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import cfg negative -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import cfg leer {} -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import cfg Teil (nur shelf) -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import cfg tare string -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import cfg true -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import cfg Array -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import cfg gültig Zahlen -> angenommen  | msg= locked=false errs=0
+PASS Import cfg gültig nulls -> angenommen  | msg= locked=false errs=0
+PASS Import cfg 0-Werte -> angenommen  | msg= locked=false errs=0
+PASS Import cfg shelf null -> angenommen  | msg= locked=false errs=0
+PASS Import min "abc" -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import min 1.5 -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import min -1 -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import min 5 -> angenommen  | msg= locked=false errs=0
+PASS Import min 0 -> angenommen  | msg= locked=false errs=0
+PASS Import min null -> angenommen  | msg= locked=false errs=0
+PASS Import min undefined -> angenommen  | msg= locked=false errs=0
+PASS Import min "5" -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import Duplikat gleicher Platz+Artikel -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import Zwei Artikel gleicher Platz (Mischpalette) -> angenommen  | msg= locked=false errs=0
+PASS Import Gleicher Artikel verschiedene Plätze -> angenommen  | msg= locked=false errs=0
+PASS Import Teilgesperrte Box -> angenommen  | msg= locked=false errs=0
+PASS Import history 3000 -> angenommen  | msg= locked=false errs=0
+PASS Import history 3001 -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import history 50000 -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import inventoryLogs 10000 -> angenommen  | msg= locked=false errs=0
+PASS Import inventoryLogs 10001 -> abgelehnt  | msg=Ungültiges Backupformat. locked=false errs=0
+PASS Import Schema 26 gültig -> angenommen  | msg= locked=false errs=0
+PASS Import Schema 26 mit history 3500 -> angenommen  | msg= locked=false errs=0
+PASS Import Schema 26 mit config-Teil -> angenommen  | msg= locked=false errs=0
+PASS Import Schema 26 Duplikat-Boxen -> angenommen  | msg= locked=false errs=0
+PASS Import Schema 26 qrMap __proto__ -> angenommen  | msg= locked=false errs=0
+PASS Import Legacy 2.5 (minStock 5.5/"10") -> angenommen  | msg= locked=false errs=0
+PASS Import Legacy 2.5 (minStock ok) -> angenommen  | msg= locked=false errs=0
+PASS Import Legacy 2.5 history 3500 -> angenommen  | msg= locked=false errs=0
+PASS Import Reales Backup ap1_good.json -> angenommen  | msg= locked=false errs=0
+PASS Import Reales Backup ap1_n.json -> angenommen  | msg= locked=false errs=0
+PASS Laden v2.7 history 3000 -> nicht gesperrt  | {"locked":false,"err":"","items":0,"boxes":0} errs=0
+PASS Laden v2.7 history 3001 (alter Stand?) -> gesperrt  | {"locked":true,"err":"Aktueller Datenstand ungültig","items":0,"boxes":0} errs=0
+PASS Laden v2.7 inventoryLogs 10001 -> gesperrt  | {"locked":true,"err":"Aktueller Datenstand ungültig","items":0,"boxes":0} errs=0
+PASS Laden v2.7 config ohne Schlüssel (palletMax fehlt) -> gesperrt  | {"locked":true,"err":"Aktueller Datenstand ungültig","items":0,"boxes":0} errs=0
+PASS Laden v2.6-Speicher (config vollständig) -> nicht gesperrt  | {"locked":false,"err":"","items":0,"boxes":0} errs=0
+PASS Laden v2.6-Speicher history 3500 -> nicht gesperrt  | {"locked":false,"err":"","items":0,"boxes":0} errs=0
+PASS Laden v2.6-Speicher Duplikat-Boxen -> nicht gesperrt  | {"locked":false,"err":"","items":1,"boxes":1} errs=0
+PASS Laden Legacy lagerpilot_demo_v1 minStock 5.5 -> nicht gesperrt  | {"locked":false,"err":"","items":1,"boxes":0} errs=0
+PASS Laden Legacy lagerpilot_demo_v1 history 3500 -> nicht gesperrt  | {"locked":false,"err":"","items":0,"boxes":0} errs=0
+PASS Laden v2.7 qrMap mit "toString" -> gesperrt  | {"locked":true,"err":"Aktueller Datenstand ungültig","items":0,"boxes":0} errs=0
+PASS Laden v2.7 min als String -> gesperrt  | {"locked":true,"err":"Aktueller Datenstand ungültig","items":0,"boxes":0} errs=0
+PASS R in A
+PASS R in A2 weiterer Platz
+PASS R Umlagerung auf Platz mit gleichem Artikel (Zusammenführung, keine Duplikat-Box)  | ✓ Buchung gespeichert.
+PASS R in auf bestehende Box (addiert)
+PASS R out
+PASS R correct +
+PASS R QS-Umlagerung ganze Palette  | ✓ Buchung gespeichert.
+PASS R Wareneingang auf QS-Platz weiter abgelehnt
+PASS R Inventur mit Differenz  | ✓ Inventurdifferenz gespeichert.
+PASS R Inventur auf leerem Platz
+PASS R Inventur auf 0
+PASS R 10000 Protokolle: App lädt (nicht gesperrt)
+PASS R Inventur bei 10000 Protokollen weiterhin möglich (Grenze wird gekappt)  | ✓ Inventurdifferenz gespeichert. | logs=10000
+PASS R Buchung bei 3000 Historieneinträgen
+PASS R JS-Fehler Laufzeit
+
+GESAMT 88 / FAIL 0
+exit 0
