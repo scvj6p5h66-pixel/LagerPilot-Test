@@ -11,3 +11,20 @@
 
 /* AP5.2: Touch-Ziel des Bearbeiten-Buttons im Artikelstamm (nur Touch/kleine Bildschirme, Desktop unverändert) */
 @media(pointer:coarse),(max-width:700px){#articleRows button[data-edit]{min-height:44px;min-width:44px;padding:8px 14px}}
+
+/* AP5.3b – Artikelstamm als Karten auf schmalen Smartphones (<= 600 px); Desktop unverändert. Benötigt :has() (iOS >= 15.4). */
+.art-stock{display:none}
+@media (max-width:600px){
+  table:has(#articleRows) thead{display:none}
+  table:has(#articleRows),#articleRows{display:block;width:100%;min-width:0}
+  #articleRows tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:2px;align-items:center;padding:10px 12px;border-bottom:1px solid #dbe4ef}
+  #articleRows td{display:block;padding:0;border:0;min-width:0;overflow-wrap:anywhere}
+  #articleRows td:nth-child(1){grid-column:1;grid-row:1}
+  #articleRows td:nth-child(2),#articleRows td:nth-child(3),#articleRows td:nth-child(4){grid-column:1;font-size:.85em;color:#5b7088}
+  #articleRows td:nth-child(2){grid-row:2}
+  #articleRows td:nth-child(3){grid-row:3}
+  #articleRows td:nth-child(4){grid-row:4}
+  #articleRows td:nth-child(5){grid-column:2;grid-row:1/span 4;align-self:center}
+  #articleRows td:nth-child(5) button{min-height:44px;min-width:44px}
+  .art-stock{display:block;font-weight:600}
+}

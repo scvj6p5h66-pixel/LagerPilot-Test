@@ -1,0 +1,1134 @@
+PASS de-DE #pick-pallet-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE #pick-pallet-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE #pick-pallet-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE #pick-pallet-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 25
+PASS de-DE #pick-pallet-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE #pick-pallet-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS de-DE #pick-pallet-weight: Leeren + Abbrechen -> Wert 25 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Palettengewicht (25 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert
+PASS de-DE #pick-pallet-weight: nach Abbruch zeigt Feld wieder 25  | 25
+PASS de-DE #pick-pallet-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-DE #pick-pallet-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS de-DE #pick-pallet-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-DE #pick-pallet-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-DE #pick-box-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE #pick-box-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE #pick-box-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE #pick-box-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS de-DE #pick-box-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--
+PASS de-DE #pick-box-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS de-DE #pick-box-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS de-DE #pick-box-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.
+PASS de-DE #pick-box-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „ab
+PASS de-DE #pick-box-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS de-DE #pick-box-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5
+PASS de-DE #pick-box-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1.5
+PASS de-DE #pick-box-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 
+PASS de-DE #pick-box-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS de-DE #pick-box-weight: Leeren + Abbrechen -> Wert 1.5 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Boxgewicht (1.5 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert.
+PASS de-DE #pick-box-weight: nach Abbruch zeigt Feld wieder 1.5  | 1.5
+PASS de-DE #pick-box-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-DE #pick-box-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS de-DE #pick-box-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-DE #pick-box-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-DE #pick-measured-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE #pick-measured-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE #pick-measured-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE #pick-measured-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 40
+PASS de-DE #pick-measured-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE #pick-measured-weight: Leeren + Abbrechen -> Wert 40 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Gemessenes Gewicht (40 kg) wird entfernt.
+Abbrechen behält den Wert.
+PASS de-DE #pick-measured-weight: nach Abbruch zeigt Feld wieder 40  | 40
+PASS de-DE #pick-measured-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-DE #pick-measured-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-DE #pick-measured-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-DE #pick-tolerance: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE #pick-tolerance: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE #pick-tolerance: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE #pick-tolerance: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e99
+PASS de-DE #pick-tolerance: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“.
+PASS de-DE #pick-tolerance: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“.
+PASS de-DE #pick-tolerance: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,
+PASS de-DE #pick-tolerance: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.23
+PASS de-DE #pick-tolerance: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“
+PASS de-DE #pick-tolerance: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“.
+PASS de-DE #pick-tolerance: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“.
+PASS de-DE #pick-tolerance: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS de-DE #pick-tolerance: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“
+PASS de-DE #pick-tolerance: Leeren + Abbrechen -> Wert 1 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Toleranz (1 %) wird entfernt.
+Abbrechen behält den Wert.
+PASS de-DE #pick-tolerance: nach Abbruch zeigt Feld wieder 1  | 1
+PASS de-DE #pick-tolerance: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-DE #pick-tolerance: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-DE #pick-tolerance: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-DE #pick-weight-0: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE #pick-weight-0: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE #pick-weight-0: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE #pick-weight-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS de-DE #pick-weight-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE #pick-weight-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS de-DE #pick-actual-0: Feld ist type=text mit inputmode  | text/numeric
+PASS de-DE #pick-actual-0: Stückzahl "1,5" abgewiesen, Wert bleibt 20  | 20
+PASS de-DE #pick-actual-0: Stückzahl "1.5" abgewiesen  | 20
+PASS de-DE #pick-actual-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e999“. Zum Entfernen das F
+PASS de-DE #pick-actual-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“. Zum Entfernen das Feld
+PASS de-DE #pick-actual-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“. Zum Entfernen das Feld
+PASS de-DE #pick-actual-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,5“. Zum Entfernen das F
+PASS de-DE #pick-actual-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.234,5“. Zum Entfernen das
+PASS de-DE #pick-actual-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“. Zum Entfernen das Fel
+PASS de-DE #pick-actual-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“. Zum Entfernen das Feld
+PASS de-DE #pick-actual-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld
+PASS de-DE #pick-actual-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 20
+PASS de-DE #pick-actual-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“. Zum Entfernen das Fel
+PASS de-DE #pick-actual-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS de-DE Toleranz 150 abgewiesen (0–100 %)
+PASS de-DE Toleranz "0,5" -> 0,5 (nicht 5)
+PASS de-DE Scanner-Eingabefeld unverändert type=text  | text
+PASS de-DE keine JS-Fehler
+PASS de-DE iPhone #pick-pallet-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE iPhone #pick-pallet-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE iPhone #pick-pallet-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE iPhone #pick-pallet-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 25
+PASS de-DE iPhone #pick-pallet-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-DE iPhone #pick-pallet-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS de-DE iPhone #pick-pallet-weight: Leeren + Abbrechen -> Wert 25 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Palettengewicht (25 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert
+PASS de-DE iPhone #pick-pallet-weight: nach Abbruch zeigt Feld wieder 25  | 25
+PASS de-DE iPhone #pick-pallet-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-DE iPhone #pick-pallet-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS de-DE iPhone #pick-pallet-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-DE iPhone #pick-pallet-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-DE iPhone #pick-box-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE iPhone #pick-box-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE iPhone #pick-box-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE iPhone #pick-box-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS de-DE iPhone #pick-box-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--
+PASS de-DE iPhone #pick-box-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS de-DE iPhone #pick-box-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS de-DE iPhone #pick-box-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.
+PASS de-DE iPhone #pick-box-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „ab
+PASS de-DE iPhone #pick-box-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS de-DE iPhone #pick-box-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5
+PASS de-DE iPhone #pick-box-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1.5
+PASS de-DE iPhone #pick-box-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 
+PASS de-DE iPhone #pick-box-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS de-DE iPhone #pick-box-weight: Leeren + Abbrechen -> Wert 1.5 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Boxgewicht (1.5 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert.
+PASS de-DE iPhone #pick-box-weight: nach Abbruch zeigt Feld wieder 1.5  | 1.5
+PASS de-DE iPhone #pick-box-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-DE iPhone #pick-box-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS de-DE iPhone #pick-box-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-DE iPhone #pick-box-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-DE iPhone #pick-measured-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE iPhone #pick-measured-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE iPhone #pick-measured-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE iPhone #pick-measured-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 40
+PASS de-DE iPhone #pick-measured-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-DE iPhone #pick-measured-weight: Leeren + Abbrechen -> Wert 40 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Gemessenes Gewicht (40 kg) wird entfernt.
+Abbrechen behält den Wert.
+PASS de-DE iPhone #pick-measured-weight: nach Abbruch zeigt Feld wieder 40  | 40
+PASS de-DE iPhone #pick-measured-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-DE iPhone #pick-measured-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-DE iPhone #pick-measured-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-DE iPhone #pick-tolerance: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE iPhone #pick-tolerance: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE iPhone #pick-tolerance: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE iPhone #pick-tolerance: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e99
+PASS de-DE iPhone #pick-tolerance: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“.
+PASS de-DE iPhone #pick-tolerance: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“.
+PASS de-DE iPhone #pick-tolerance: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,
+PASS de-DE iPhone #pick-tolerance: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.23
+PASS de-DE iPhone #pick-tolerance: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“
+PASS de-DE iPhone #pick-tolerance: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“.
+PASS de-DE iPhone #pick-tolerance: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“.
+PASS de-DE iPhone #pick-tolerance: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS de-DE iPhone #pick-tolerance: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“
+PASS de-DE iPhone #pick-tolerance: Leeren + Abbrechen -> Wert 1 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Toleranz (1 %) wird entfernt.
+Abbrechen behält den Wert.
+PASS de-DE iPhone #pick-tolerance: nach Abbruch zeigt Feld wieder 1  | 1
+PASS de-DE iPhone #pick-tolerance: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-DE iPhone #pick-tolerance: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-DE iPhone #pick-tolerance: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-DE iPhone #pick-weight-0: Feld ist type=text mit inputmode  | text/decimal
+PASS de-DE iPhone #pick-weight-0: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-DE iPhone #pick-weight-0: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-DE iPhone #pick-weight-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS de-DE iPhone #pick-weight-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-DE iPhone #pick-weight-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS de-DE iPhone #pick-actual-0: Feld ist type=text mit inputmode  | text/numeric
+PASS de-DE iPhone #pick-actual-0: Stückzahl "1,5" abgewiesen, Wert bleibt 20  | 20
+PASS de-DE iPhone #pick-actual-0: Stückzahl "1.5" abgewiesen  | 20
+PASS de-DE iPhone #pick-actual-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e999“. Zum Entfernen das F
+PASS de-DE iPhone #pick-actual-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“. Zum Entfernen das Feld
+PASS de-DE iPhone #pick-actual-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“. Zum Entfernen das Feld
+PASS de-DE iPhone #pick-actual-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,5“. Zum Entfernen das F
+PASS de-DE iPhone #pick-actual-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.234,5“. Zum Entfernen das
+PASS de-DE iPhone #pick-actual-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“. Zum Entfernen das Fel
+PASS de-DE iPhone #pick-actual-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“. Zum Entfernen das Feld
+PASS de-DE iPhone #pick-actual-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld
+PASS de-DE iPhone #pick-actual-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 20
+PASS de-DE iPhone #pick-actual-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“. Zum Entfernen das Fel
+PASS de-DE iPhone #pick-actual-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS de-DE iPhone Toleranz 150 abgewiesen (0–100 %)
+PASS de-DE iPhone Toleranz "0,5" -> 0,5 (nicht 5)
+PASS de-DE iPhone Scanner-Eingabefeld unverändert type=text  | text
+PASS de-DE iPhone keine JS-Fehler
+PASS de-CH #pick-pallet-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH #pick-pallet-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH #pick-pallet-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH #pick-pallet-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 25
+PASS de-CH #pick-pallet-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH #pick-pallet-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS de-CH #pick-pallet-weight: Leeren + Abbrechen -> Wert 25 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Palettengewicht (25 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert
+PASS de-CH #pick-pallet-weight: nach Abbruch zeigt Feld wieder 25  | 25
+PASS de-CH #pick-pallet-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-CH #pick-pallet-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS de-CH #pick-pallet-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-CH #pick-pallet-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-CH #pick-box-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH #pick-box-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH #pick-box-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH #pick-box-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS de-CH #pick-box-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--
+PASS de-CH #pick-box-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS de-CH #pick-box-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS de-CH #pick-box-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.
+PASS de-CH #pick-box-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „ab
+PASS de-CH #pick-box-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS de-CH #pick-box-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5
+PASS de-CH #pick-box-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1.5
+PASS de-CH #pick-box-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 
+PASS de-CH #pick-box-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS de-CH #pick-box-weight: Leeren + Abbrechen -> Wert 1.5 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Boxgewicht (1.5 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert.
+PASS de-CH #pick-box-weight: nach Abbruch zeigt Feld wieder 1.5  | 1.5
+PASS de-CH #pick-box-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-CH #pick-box-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS de-CH #pick-box-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-CH #pick-box-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-CH #pick-measured-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH #pick-measured-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH #pick-measured-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH #pick-measured-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 40
+PASS de-CH #pick-measured-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH #pick-measured-weight: Leeren + Abbrechen -> Wert 40 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Gemessenes Gewicht (40 kg) wird entfernt.
+Abbrechen behält den Wert.
+PASS de-CH #pick-measured-weight: nach Abbruch zeigt Feld wieder 40  | 40
+PASS de-CH #pick-measured-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-CH #pick-measured-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-CH #pick-measured-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-CH #pick-tolerance: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH #pick-tolerance: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH #pick-tolerance: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH #pick-tolerance: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e99
+PASS de-CH #pick-tolerance: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“.
+PASS de-CH #pick-tolerance: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“.
+PASS de-CH #pick-tolerance: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,
+PASS de-CH #pick-tolerance: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.23
+PASS de-CH #pick-tolerance: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“
+PASS de-CH #pick-tolerance: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“.
+PASS de-CH #pick-tolerance: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“.
+PASS de-CH #pick-tolerance: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS de-CH #pick-tolerance: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“
+PASS de-CH #pick-tolerance: Leeren + Abbrechen -> Wert 1 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Toleranz (1 %) wird entfernt.
+Abbrechen behält den Wert.
+PASS de-CH #pick-tolerance: nach Abbruch zeigt Feld wieder 1  | 1
+PASS de-CH #pick-tolerance: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-CH #pick-tolerance: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-CH #pick-tolerance: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-CH #pick-weight-0: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH #pick-weight-0: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH #pick-weight-0: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH #pick-weight-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS de-CH #pick-weight-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH #pick-weight-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS de-CH #pick-actual-0: Feld ist type=text mit inputmode  | text/numeric
+PASS de-CH #pick-actual-0: Stückzahl "1,5" abgewiesen, Wert bleibt 20  | 20
+PASS de-CH #pick-actual-0: Stückzahl "1.5" abgewiesen  | 20
+PASS de-CH #pick-actual-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e999“. Zum Entfernen das F
+PASS de-CH #pick-actual-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“. Zum Entfernen das Feld
+PASS de-CH #pick-actual-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“. Zum Entfernen das Feld
+PASS de-CH #pick-actual-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,5“. Zum Entfernen das F
+PASS de-CH #pick-actual-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.234,5“. Zum Entfernen das
+PASS de-CH #pick-actual-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“. Zum Entfernen das Fel
+PASS de-CH #pick-actual-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“. Zum Entfernen das Feld
+PASS de-CH #pick-actual-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld
+PASS de-CH #pick-actual-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 20
+PASS de-CH #pick-actual-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“. Zum Entfernen das Fel
+PASS de-CH #pick-actual-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS de-CH Toleranz 150 abgewiesen (0–100 %)
+PASS de-CH Toleranz "0,5" -> 0,5 (nicht 5)
+PASS de-CH Scanner-Eingabefeld unverändert type=text  | text
+PASS de-CH keine JS-Fehler
+PASS de-CH iPhone #pick-pallet-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH iPhone #pick-pallet-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH iPhone #pick-pallet-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH iPhone #pick-pallet-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 25
+PASS de-CH iPhone #pick-pallet-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS de-CH iPhone #pick-pallet-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS de-CH iPhone #pick-pallet-weight: Leeren + Abbrechen -> Wert 25 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Palettengewicht (25 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert
+PASS de-CH iPhone #pick-pallet-weight: nach Abbruch zeigt Feld wieder 25  | 25
+PASS de-CH iPhone #pick-pallet-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-CH iPhone #pick-pallet-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS de-CH iPhone #pick-pallet-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-CH iPhone #pick-pallet-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-CH iPhone #pick-box-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH iPhone #pick-box-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH iPhone #pick-box-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH iPhone #pick-box-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS de-CH iPhone #pick-box-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--
+PASS de-CH iPhone #pick-box-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS de-CH iPhone #pick-box-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS de-CH iPhone #pick-box-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.
+PASS de-CH iPhone #pick-box-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „ab
+PASS de-CH iPhone #pick-box-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS de-CH iPhone #pick-box-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5
+PASS de-CH iPhone #pick-box-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1.5
+PASS de-CH iPhone #pick-box-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 
+PASS de-CH iPhone #pick-box-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS de-CH iPhone #pick-box-weight: Leeren + Abbrechen -> Wert 1.5 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Boxgewicht (1.5 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert.
+PASS de-CH iPhone #pick-box-weight: nach Abbruch zeigt Feld wieder 1.5  | 1.5
+PASS de-CH iPhone #pick-box-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-CH iPhone #pick-box-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS de-CH iPhone #pick-box-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-CH iPhone #pick-box-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-CH iPhone #pick-measured-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH iPhone #pick-measured-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH iPhone #pick-measured-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH iPhone #pick-measured-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 40
+PASS de-CH iPhone #pick-measured-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS de-CH iPhone #pick-measured-weight: Leeren + Abbrechen -> Wert 40 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Gemessenes Gewicht (40 kg) wird entfernt.
+Abbrechen behält den Wert.
+PASS de-CH iPhone #pick-measured-weight: nach Abbruch zeigt Feld wieder 40  | 40
+PASS de-CH iPhone #pick-measured-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-CH iPhone #pick-measured-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-CH iPhone #pick-measured-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-CH iPhone #pick-tolerance: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH iPhone #pick-tolerance: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH iPhone #pick-tolerance: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH iPhone #pick-tolerance: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e99
+PASS de-CH iPhone #pick-tolerance: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“.
+PASS de-CH iPhone #pick-tolerance: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“.
+PASS de-CH iPhone #pick-tolerance: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,
+PASS de-CH iPhone #pick-tolerance: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.23
+PASS de-CH iPhone #pick-tolerance: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“
+PASS de-CH iPhone #pick-tolerance: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“.
+PASS de-CH iPhone #pick-tolerance: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“.
+PASS de-CH iPhone #pick-tolerance: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS de-CH iPhone #pick-tolerance: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“
+PASS de-CH iPhone #pick-tolerance: Leeren + Abbrechen -> Wert 1 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Toleranz (1 %) wird entfernt.
+Abbrechen behält den Wert.
+PASS de-CH iPhone #pick-tolerance: nach Abbruch zeigt Feld wieder 1  | 1
+PASS de-CH iPhone #pick-tolerance: Leeren + Bestätigen entfernt den Wert  | null
+PASS de-CH iPhone #pick-tolerance: bereits leeres Feld leeren -> keine Rückfrage
+PASS de-CH iPhone #pick-tolerance: Neueingabe in leeres Feld ohne Rückfrage
+PASS de-CH iPhone #pick-weight-0: Feld ist type=text mit inputmode  | text/decimal
+PASS de-CH iPhone #pick-weight-0: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS de-CH iPhone #pick-weight-0: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS de-CH iPhone #pick-weight-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS de-CH iPhone #pick-weight-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS de-CH iPhone #pick-weight-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS de-CH iPhone #pick-actual-0: Feld ist type=text mit inputmode  | text/numeric
+PASS de-CH iPhone #pick-actual-0: Stückzahl "1,5" abgewiesen, Wert bleibt 20  | 20
+PASS de-CH iPhone #pick-actual-0: Stückzahl "1.5" abgewiesen  | 20
+PASS de-CH iPhone #pick-actual-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e999“. Zum Entfernen das F
+PASS de-CH iPhone #pick-actual-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“. Zum Entfernen das Feld
+PASS de-CH iPhone #pick-actual-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“. Zum Entfernen das Feld
+PASS de-CH iPhone #pick-actual-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,5“. Zum Entfernen das F
+PASS de-CH iPhone #pick-actual-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.234,5“. Zum Entfernen das
+PASS de-CH iPhone #pick-actual-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“. Zum Entfernen das Fel
+PASS de-CH iPhone #pick-actual-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“. Zum Entfernen das Feld
+PASS de-CH iPhone #pick-actual-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld
+PASS de-CH iPhone #pick-actual-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 20
+PASS de-CH iPhone #pick-actual-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“. Zum Entfernen das Fel
+PASS de-CH iPhone #pick-actual-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS de-CH iPhone Toleranz 150 abgewiesen (0–100 %)
+PASS de-CH iPhone Toleranz "0,5" -> 0,5 (nicht 5)
+PASS de-CH iPhone Scanner-Eingabefeld unverändert type=text  | text
+PASS de-CH iPhone keine JS-Fehler
+PASS en-US #pick-pallet-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US #pick-pallet-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US #pick-pallet-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US #pick-pallet-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 25
+PASS en-US #pick-pallet-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US #pick-pallet-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS en-US #pick-pallet-weight: Leeren + Abbrechen -> Wert 25 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Palettengewicht (25 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert
+PASS en-US #pick-pallet-weight: nach Abbruch zeigt Feld wieder 25  | 25
+PASS en-US #pick-pallet-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS en-US #pick-pallet-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS en-US #pick-pallet-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS en-US #pick-pallet-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS en-US #pick-box-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US #pick-box-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US #pick-box-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US #pick-box-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS en-US #pick-box-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--
+PASS en-US #pick-box-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS en-US #pick-box-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS en-US #pick-box-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.
+PASS en-US #pick-box-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „ab
+PASS en-US #pick-box-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS en-US #pick-box-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5
+PASS en-US #pick-box-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1.5
+PASS en-US #pick-box-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 
+PASS en-US #pick-box-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS en-US #pick-box-weight: Leeren + Abbrechen -> Wert 1.5 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Boxgewicht (1.5 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert.
+PASS en-US #pick-box-weight: nach Abbruch zeigt Feld wieder 1.5  | 1.5
+PASS en-US #pick-box-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS en-US #pick-box-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS en-US #pick-box-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS en-US #pick-box-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS en-US #pick-measured-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US #pick-measured-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US #pick-measured-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US #pick-measured-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 40
+PASS en-US #pick-measured-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US #pick-measured-weight: Leeren + Abbrechen -> Wert 40 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Gemessenes Gewicht (40 kg) wird entfernt.
+Abbrechen behält den Wert.
+PASS en-US #pick-measured-weight: nach Abbruch zeigt Feld wieder 40  | 40
+PASS en-US #pick-measured-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS en-US #pick-measured-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS en-US #pick-measured-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS en-US #pick-tolerance: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US #pick-tolerance: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US #pick-tolerance: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US #pick-tolerance: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e99
+PASS en-US #pick-tolerance: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“.
+PASS en-US #pick-tolerance: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“.
+PASS en-US #pick-tolerance: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,
+PASS en-US #pick-tolerance: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.23
+PASS en-US #pick-tolerance: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“
+PASS en-US #pick-tolerance: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“.
+PASS en-US #pick-tolerance: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“.
+PASS en-US #pick-tolerance: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS en-US #pick-tolerance: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“
+PASS en-US #pick-tolerance: Leeren + Abbrechen -> Wert 1 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Toleranz (1 %) wird entfernt.
+Abbrechen behält den Wert.
+PASS en-US #pick-tolerance: nach Abbruch zeigt Feld wieder 1  | 1
+PASS en-US #pick-tolerance: Leeren + Bestätigen entfernt den Wert  | null
+PASS en-US #pick-tolerance: bereits leeres Feld leeren -> keine Rückfrage
+PASS en-US #pick-tolerance: Neueingabe in leeres Feld ohne Rückfrage
+PASS en-US #pick-weight-0: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US #pick-weight-0: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US #pick-weight-0: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US #pick-weight-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS en-US #pick-weight-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US #pick-weight-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS en-US #pick-actual-0: Feld ist type=text mit inputmode  | text/numeric
+PASS en-US #pick-actual-0: Stückzahl "1,5" abgewiesen, Wert bleibt 20  | 20
+PASS en-US #pick-actual-0: Stückzahl "1.5" abgewiesen  | 20
+PASS en-US #pick-actual-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e999“. Zum Entfernen das F
+PASS en-US #pick-actual-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“. Zum Entfernen das Feld
+PASS en-US #pick-actual-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“. Zum Entfernen das Feld
+PASS en-US #pick-actual-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,5“. Zum Entfernen das F
+PASS en-US #pick-actual-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.234,5“. Zum Entfernen das
+PASS en-US #pick-actual-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“. Zum Entfernen das Fel
+PASS en-US #pick-actual-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“. Zum Entfernen das Feld
+PASS en-US #pick-actual-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld
+PASS en-US #pick-actual-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 20
+PASS en-US #pick-actual-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“. Zum Entfernen das Fel
+PASS en-US #pick-actual-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS en-US Toleranz 150 abgewiesen (0–100 %)
+PASS en-US Toleranz "0,5" -> 0,5 (nicht 5)
+PASS en-US Scanner-Eingabefeld unverändert type=text  | text
+PASS en-US keine JS-Fehler
+PASS en-US iPhone #pick-pallet-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US iPhone #pick-pallet-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US iPhone #pick-pallet-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US iPhone #pick-pallet-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 25
+PASS en-US iPhone #pick-pallet-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS en-US iPhone #pick-pallet-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS en-US iPhone #pick-pallet-weight: Leeren + Abbrechen -> Wert 25 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Palettengewicht (25 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert
+PASS en-US iPhone #pick-pallet-weight: nach Abbruch zeigt Feld wieder 25  | 25
+PASS en-US iPhone #pick-pallet-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS en-US iPhone #pick-pallet-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS en-US iPhone #pick-pallet-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS en-US iPhone #pick-pallet-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS en-US iPhone #pick-box-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US iPhone #pick-box-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US iPhone #pick-box-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US iPhone #pick-box-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS en-US iPhone #pick-box-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--
+PASS en-US iPhone #pick-box-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS en-US iPhone #pick-box-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS en-US iPhone #pick-box-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.
+PASS en-US iPhone #pick-box-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „ab
+PASS en-US iPhone #pick-box-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS en-US iPhone #pick-box-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5
+PASS en-US iPhone #pick-box-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1.5
+PASS en-US iPhone #pick-box-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 
+PASS en-US iPhone #pick-box-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS en-US iPhone #pick-box-weight: Leeren + Abbrechen -> Wert 1.5 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Boxgewicht (1.5 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert.
+PASS en-US iPhone #pick-box-weight: nach Abbruch zeigt Feld wieder 1.5  | 1.5
+PASS en-US iPhone #pick-box-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS en-US iPhone #pick-box-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS en-US iPhone #pick-box-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS en-US iPhone #pick-box-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS en-US iPhone #pick-measured-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US iPhone #pick-measured-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US iPhone #pick-measured-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US iPhone #pick-measured-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 40
+PASS en-US iPhone #pick-measured-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS en-US iPhone #pick-measured-weight: Leeren + Abbrechen -> Wert 40 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Gemessenes Gewicht (40 kg) wird entfernt.
+Abbrechen behält den Wert.
+PASS en-US iPhone #pick-measured-weight: nach Abbruch zeigt Feld wieder 40  | 40
+PASS en-US iPhone #pick-measured-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS en-US iPhone #pick-measured-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS en-US iPhone #pick-measured-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS en-US iPhone #pick-tolerance: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US iPhone #pick-tolerance: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US iPhone #pick-tolerance: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US iPhone #pick-tolerance: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e99
+PASS en-US iPhone #pick-tolerance: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“.
+PASS en-US iPhone #pick-tolerance: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“.
+PASS en-US iPhone #pick-tolerance: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,
+PASS en-US iPhone #pick-tolerance: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.23
+PASS en-US iPhone #pick-tolerance: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“
+PASS en-US iPhone #pick-tolerance: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“.
+PASS en-US iPhone #pick-tolerance: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“.
+PASS en-US iPhone #pick-tolerance: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS en-US iPhone #pick-tolerance: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“
+PASS en-US iPhone #pick-tolerance: Leeren + Abbrechen -> Wert 1 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Toleranz (1 %) wird entfernt.
+Abbrechen behält den Wert.
+PASS en-US iPhone #pick-tolerance: nach Abbruch zeigt Feld wieder 1  | 1
+PASS en-US iPhone #pick-tolerance: Leeren + Bestätigen entfernt den Wert  | null
+PASS en-US iPhone #pick-tolerance: bereits leeres Feld leeren -> keine Rückfrage
+PASS en-US iPhone #pick-tolerance: Neueingabe in leeres Feld ohne Rückfrage
+PASS en-US iPhone #pick-weight-0: Feld ist type=text mit inputmode  | text/decimal
+PASS en-US iPhone #pick-weight-0: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS en-US iPhone #pick-weight-0: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS en-US iPhone #pick-weight-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS en-US iPhone #pick-weight-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS en-US iPhone #pick-weight-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS en-US iPhone #pick-actual-0: Feld ist type=text mit inputmode  | text/numeric
+PASS en-US iPhone #pick-actual-0: Stückzahl "1,5" abgewiesen, Wert bleibt 20  | 20
+PASS en-US iPhone #pick-actual-0: Stückzahl "1.5" abgewiesen  | 20
+PASS en-US iPhone #pick-actual-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e999“. Zum Entfernen das F
+PASS en-US iPhone #pick-actual-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“. Zum Entfernen das Feld
+PASS en-US iPhone #pick-actual-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“. Zum Entfernen das Feld
+PASS en-US iPhone #pick-actual-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,5“. Zum Entfernen das F
+PASS en-US iPhone #pick-actual-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.234,5“. Zum Entfernen das
+PASS en-US iPhone #pick-actual-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“. Zum Entfernen das Fel
+PASS en-US iPhone #pick-actual-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“. Zum Entfernen das Feld
+PASS en-US iPhone #pick-actual-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld
+PASS en-US iPhone #pick-actual-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 20
+PASS en-US iPhone #pick-actual-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“. Zum Entfernen das Fel
+PASS en-US iPhone #pick-actual-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS en-US iPhone Toleranz 150 abgewiesen (0–100 %)
+PASS en-US iPhone Toleranz "0,5" -> 0,5 (nicht 5)
+PASS en-US iPhone Scanner-Eingabefeld unverändert type=text  | text
+PASS en-US iPhone keine JS-Fehler
+PASS fr-FR #pick-pallet-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR #pick-pallet-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR #pick-pallet-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR #pick-pallet-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 25
+PASS fr-FR #pick-pallet-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR #pick-pallet-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS fr-FR #pick-pallet-weight: Leeren + Abbrechen -> Wert 25 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Palettengewicht (25 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert
+PASS fr-FR #pick-pallet-weight: nach Abbruch zeigt Feld wieder 25  | 25
+PASS fr-FR #pick-pallet-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS fr-FR #pick-pallet-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS fr-FR #pick-pallet-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS fr-FR #pick-pallet-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS fr-FR #pick-box-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR #pick-box-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR #pick-box-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR #pick-box-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS fr-FR #pick-box-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--
+PASS fr-FR #pick-box-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS fr-FR #pick-box-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS fr-FR #pick-box-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.
+PASS fr-FR #pick-box-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „ab
+PASS fr-FR #pick-box-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS fr-FR #pick-box-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5
+PASS fr-FR #pick-box-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1.5
+PASS fr-FR #pick-box-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 
+PASS fr-FR #pick-box-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS fr-FR #pick-box-weight: Leeren + Abbrechen -> Wert 1.5 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Boxgewicht (1.5 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert.
+PASS fr-FR #pick-box-weight: nach Abbruch zeigt Feld wieder 1.5  | 1.5
+PASS fr-FR #pick-box-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS fr-FR #pick-box-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS fr-FR #pick-box-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS fr-FR #pick-box-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS fr-FR #pick-measured-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR #pick-measured-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR #pick-measured-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR #pick-measured-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 40
+PASS fr-FR #pick-measured-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR #pick-measured-weight: Leeren + Abbrechen -> Wert 40 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Gemessenes Gewicht (40 kg) wird entfernt.
+Abbrechen behält den Wert.
+PASS fr-FR #pick-measured-weight: nach Abbruch zeigt Feld wieder 40  | 40
+PASS fr-FR #pick-measured-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS fr-FR #pick-measured-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS fr-FR #pick-measured-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS fr-FR #pick-tolerance: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR #pick-tolerance: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR #pick-tolerance: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR #pick-tolerance: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e99
+PASS fr-FR #pick-tolerance: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“.
+PASS fr-FR #pick-tolerance: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“.
+PASS fr-FR #pick-tolerance: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,
+PASS fr-FR #pick-tolerance: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.23
+PASS fr-FR #pick-tolerance: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“
+PASS fr-FR #pick-tolerance: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“.
+PASS fr-FR #pick-tolerance: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“.
+PASS fr-FR #pick-tolerance: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS fr-FR #pick-tolerance: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“
+PASS fr-FR #pick-tolerance: Leeren + Abbrechen -> Wert 1 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Toleranz (1 %) wird entfernt.
+Abbrechen behält den Wert.
+PASS fr-FR #pick-tolerance: nach Abbruch zeigt Feld wieder 1  | 1
+PASS fr-FR #pick-tolerance: Leeren + Bestätigen entfernt den Wert  | null
+PASS fr-FR #pick-tolerance: bereits leeres Feld leeren -> keine Rückfrage
+PASS fr-FR #pick-tolerance: Neueingabe in leeres Feld ohne Rückfrage
+PASS fr-FR #pick-weight-0: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR #pick-weight-0: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR #pick-weight-0: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR #pick-weight-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS fr-FR #pick-weight-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR #pick-weight-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS fr-FR #pick-actual-0: Feld ist type=text mit inputmode  | text/numeric
+PASS fr-FR #pick-actual-0: Stückzahl "1,5" abgewiesen, Wert bleibt 20  | 20
+PASS fr-FR #pick-actual-0: Stückzahl "1.5" abgewiesen  | 20
+PASS fr-FR #pick-actual-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e999“. Zum Entfernen das F
+PASS fr-FR #pick-actual-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“. Zum Entfernen das Feld
+PASS fr-FR #pick-actual-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“. Zum Entfernen das Feld
+PASS fr-FR #pick-actual-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,5“. Zum Entfernen das F
+PASS fr-FR #pick-actual-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.234,5“. Zum Entfernen das
+PASS fr-FR #pick-actual-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“. Zum Entfernen das Fel
+PASS fr-FR #pick-actual-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“. Zum Entfernen das Feld
+PASS fr-FR #pick-actual-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld
+PASS fr-FR #pick-actual-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 20
+PASS fr-FR #pick-actual-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“. Zum Entfernen das Fel
+PASS fr-FR #pick-actual-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS fr-FR Toleranz 150 abgewiesen (0–100 %)
+PASS fr-FR Toleranz "0,5" -> 0,5 (nicht 5)
+PASS fr-FR Scanner-Eingabefeld unverändert type=text  | text
+PASS fr-FR keine JS-Fehler
+PASS fr-FR iPhone #pick-pallet-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR iPhone #pick-pallet-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR iPhone #pick-pallet-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR iPhone #pick-pallet-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 25
+PASS fr-FR iPhone #pick-pallet-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben
+PASS fr-FR iPhone #pick-pallet-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS fr-FR iPhone #pick-pallet-weight: Leeren + Abbrechen -> Wert 25 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Palettengewicht (25 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert
+PASS fr-FR iPhone #pick-pallet-weight: nach Abbruch zeigt Feld wieder 25  | 25
+PASS fr-FR iPhone #pick-pallet-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS fr-FR iPhone #pick-pallet-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS fr-FR iPhone #pick-pallet-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS fr-FR iPhone #pick-pallet-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS fr-FR iPhone #pick-box-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR iPhone #pick-box-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR iPhone #pick-box-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR iPhone #pick-box-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS fr-FR iPhone #pick-box-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--
+PASS fr-FR iPhone #pick-box-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e
+PASS fr-FR iPhone #pick-box-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS fr-FR iPhone #pick-box-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.
+PASS fr-FR iPhone #pick-box-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „ab
+PASS fr-FR iPhone #pick-box-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,
+PASS fr-FR iPhone #pick-box-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5
+PASS fr-FR iPhone #pick-box-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1.5
+PASS fr-FR iPhone #pick-box-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 
+PASS fr-FR iPhone #pick-box-weight: Abbruch lässt auch den Messwert 40 unverändert
+PASS fr-FR iPhone #pick-box-weight: Leeren + Abbrechen -> Wert 1.5 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Boxgewicht (1.5 kg) wird entfernt.
+Das gemessene Gewicht (40 kg) wird dabei ebenfalls zurückgesetzt.
+Abbrechen behält den Wert.
+PASS fr-FR iPhone #pick-box-weight: nach Abbruch zeigt Feld wieder 1.5  | 1.5
+PASS fr-FR iPhone #pick-box-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS fr-FR iPhone #pick-box-weight: Hinweis auf Rücksetzen des Messwerts + Messwert zurückgesetzt
+PASS fr-FR iPhone #pick-box-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS fr-FR iPhone #pick-box-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS fr-FR iPhone #pick-measured-weight: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR iPhone #pick-measured-weight: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR iPhone #pick-measured-weight: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR iPhone #pick-measured-weight: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: nach Ablehnung zeigt Feld den gespeicherten Wert  | 40
+PASS fr-FR iPhone #pick-measured-weight: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Gemessenes Gewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingege
+PASS fr-FR iPhone #pick-measured-weight: Leeren + Abbrechen -> Wert 40 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Gemessenes Gewicht (40 kg) wird entfernt.
+Abbrechen behält den Wert.
+PASS fr-FR iPhone #pick-measured-weight: nach Abbruch zeigt Feld wieder 40  | 40
+PASS fr-FR iPhone #pick-measured-weight: Leeren + Bestätigen entfernt den Wert  | null
+PASS fr-FR iPhone #pick-measured-weight: bereits leeres Feld leeren -> keine Rückfrage
+PASS fr-FR iPhone #pick-measured-weight: Neueingabe in leeres Feld ohne Rückfrage
+PASS fr-FR iPhone #pick-tolerance: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR iPhone #pick-tolerance: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR iPhone #pick-tolerance: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR iPhone #pick-tolerance: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e99
+PASS fr-FR iPhone #pick-tolerance: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“.
+PASS fr-FR iPhone #pick-tolerance: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“.
+PASS fr-FR iPhone #pick-tolerance: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,
+PASS fr-FR iPhone #pick-tolerance: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.23
+PASS fr-FR iPhone #pick-tolerance: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“
+PASS fr-FR iPhone #pick-tolerance: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“.
+PASS fr-FR iPhone #pick-tolerance: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“.
+PASS fr-FR iPhone #pick-tolerance: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS fr-FR iPhone #pick-tolerance: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“
+PASS fr-FR iPhone #pick-tolerance: Leeren + Abbrechen -> Wert 1 bleibt, Bestätigung gezeigt, Speicher byte-gleich  | confirm:Gespeicherten Wert entfernen?
+• Toleranz (1 %) wird entfernt.
+Abbrechen behält den Wert.
+PASS fr-FR iPhone #pick-tolerance: nach Abbruch zeigt Feld wieder 1  | 1
+PASS fr-FR iPhone #pick-tolerance: Leeren + Bestätigen entfernt den Wert  | null
+PASS fr-FR iPhone #pick-tolerance: bereits leeres Feld leeren -> keine Rückfrage
+PASS fr-FR iPhone #pick-tolerance: Neueingabe in leeres Feld ohne Rückfrage
+PASS fr-FR iPhone #pick-weight-0: Feld ist type=text mit inputmode  | text/decimal
+PASS fr-FR iPhone #pick-weight-0: "1,5" wird als 1,5 gespeichert (nicht 15)  | 1.5
+PASS fr-FR iPhone #pick-weight-0: "1.5" wird als 1,5 gespeichert  | 1.5
+PASS fr-FR iPhone #pick-weight-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 1
+PASS fr-FR iPhone #pick-weight-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Stückgewicht muss eine Zahl ab 0 sein (nur Ziffern mit Dezimalpunkt oder -komma; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „
+PASS fr-FR iPhone #pick-weight-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS fr-FR iPhone #pick-actual-0: Feld ist type=text mit inputmode  | text/numeric
+PASS fr-FR iPhone #pick-actual-0: Stückzahl "1,5" abgewiesen, Wert bleibt 20  | 20
+PASS fr-FR iPhone #pick-actual-0: Stückzahl "1.5" abgewiesen  | 20
+PASS fr-FR iPhone #pick-actual-0: "1e999" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e999“. Zum Entfernen das F
+PASS fr-FR iPhone #pick-actual-0: "--" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „--“. Zum Entfernen das Feld
+PASS fr-FR iPhone #pick-actual-0: "1e" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1e“. Zum Entfernen das Feld
+PASS fr-FR iPhone #pick-actual-0: "1,5,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,5,5“. Zum Entfernen das F
+PASS fr-FR iPhone #pick-actual-0: "1.234,5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.234,5“. Zum Entfernen das
+PASS fr-FR iPhone #pick-actual-0: "abc" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „abc“. Zum Entfernen das Fel
+PASS fr-FR iPhone #pick-actual-0: "1," abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1,“. Zum Entfernen das Feld
+PASS fr-FR iPhone #pick-actual-0: "-5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-5“. Zum Entfernen das Feld
+PASS fr-FR iPhone #pick-actual-0: nach Ablehnung zeigt Feld den gespeicherten Wert  | 20
+PASS fr-FR iPhone #pick-actual-0: " 1 5" abgewiesen, Speicher byte-gleich, Warnung  | alert:Ungültige Eingabe: Istmenge muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1 5“. Zum Entfernen das Fel
+PASS fr-FR iPhone #pick-actual-0: Leeren abgewiesen (Pflichtfeld je Position)
+PASS fr-FR iPhone Toleranz 150 abgewiesen (0–100 %)
+PASS fr-FR iPhone Toleranz "0,5" -> 0,5 (nicht 5)
+PASS fr-FR iPhone Scanner-Eingabefeld unverändert type=text  | text
+PASS fr-FR iPhone keine JS-Fehler
+PASS de-DE #bookQty: type=text  | text
+PASS de-DE #bookQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde nichts gespeichert.
+PASS de-DE #bookQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts gespeichert.
+PASS de-DE #bookQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde nichts gespeichert.
+PASS de-DE #bookQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts gespeichert.
+PASS de-DE #bookQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde nichts gespeichert.
+PASS de-DE #bookQty: "-3" nicht still akzeptiert
+PASS de-DE #mergeQty: type=text  | text
+PASS de-DE #mergeQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde nichts ges
+PASS de-DE #mergeQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts ges
+PASS de-DE #mergeQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde nichts ges
+PASS de-DE #mergeQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts ges
+PASS de-DE #mergeQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde nichts ges
+PASS de-DE #mergeQty: "-3" nicht still akzeptiert
+PASS de-DE #invQty: type=text  | text
+PASS de-DE #invQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-DE #invQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-DE #invQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-DE #invQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-DE #invQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-DE #invQty: "-3" nicht still akzeptiert
+PASS de-DE #aPack: type=text  | text
+PASS de-DE #aPack: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde 
+PASS de-DE #aPack: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde 
+PASS de-DE #aPack: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde 
+PASS de-DE #aPack: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde 
+PASS de-DE #aPack: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde 
+PASS de-DE #aPack: "-3" nicht still akzeptiert
+PASS de-DE #invQty: "30" wird gültig verarbeitet  | Soll: 30 Stück (30 STK) · Gezählt: 30 Stück (30 STK) · Differenz: 0 Stück · Keine Abweichung. Die Zählung kann protokolliert werden.
+PASS de-DE Artikel anlegen: Pack "12" und Gewicht "1,5" -> 12 / 1,5  | {"code":"N1","name":"Neu","barcode":"","unit":"P","pack":12,"weight":1.5,"max":50,"min":null}
+PASS de-DE Bestandskorrektur "-3" weiterhin möglich  | 27 ✓ Buchung gespeichert.
+PASS de-DE Mengenfelder: keine JS-Fehler
+PASS de-CH #bookQty: type=text  | text
+PASS de-CH #bookQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde nichts gespeichert.
+PASS de-CH #bookQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts gespeichert.
+PASS de-CH #bookQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde nichts gespeichert.
+PASS de-CH #bookQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts gespeichert.
+PASS de-CH #bookQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde nichts gespeichert.
+PASS de-CH #bookQty: "-3" nicht still akzeptiert
+PASS de-CH #mergeQty: type=text  | text
+PASS de-CH #mergeQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde nichts ges
+PASS de-CH #mergeQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts ges
+PASS de-CH #mergeQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde nichts ges
+PASS de-CH #mergeQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts ges
+PASS de-CH #mergeQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde nichts ges
+PASS de-CH #mergeQty: "-3" nicht still akzeptiert
+PASS de-CH #invQty: type=text  | text
+PASS de-CH #invQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-CH #invQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-CH #invQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-CH #invQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-CH #invQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS de-CH #invQty: "-3" nicht still akzeptiert
+PASS de-CH #aPack: type=text  | text
+PASS de-CH #aPack: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde 
+PASS de-CH #aPack: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde 
+PASS de-CH #aPack: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde 
+PASS de-CH #aPack: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde 
+PASS de-CH #aPack: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde 
+PASS de-CH #aPack: "-3" nicht still akzeptiert
+PASS de-CH #invQty: "30" wird gültig verarbeitet  | Soll: 30 Stück (30 STK) · Gezählt: 30 Stück (30 STK) · Differenz: 0 Stück · Keine Abweichung. Die Zählung kann protokolliert werden.
+PASS de-CH Artikel anlegen: Pack "12" und Gewicht "1,5" -> 12 / 1,5  | {"code":"N1","name":"Neu","barcode":"","unit":"P","pack":12,"weight":1.5,"max":50,"min":null}
+PASS de-CH Bestandskorrektur "-3" weiterhin möglich  | 27 ✓ Buchung gespeichert.
+PASS de-CH Mengenfelder: keine JS-Fehler
+PASS en-US #bookQty: type=text  | text
+PASS en-US #bookQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde nichts gespeichert.
+PASS en-US #bookQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts gespeichert.
+PASS en-US #bookQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde nichts gespeichert.
+PASS en-US #bookQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts gespeichert.
+PASS en-US #bookQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde nichts gespeichert.
+PASS en-US #bookQty: "-3" nicht still akzeptiert
+PASS en-US #mergeQty: type=text  | text
+PASS en-US #mergeQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde nichts ges
+PASS en-US #mergeQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts ges
+PASS en-US #mergeQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde nichts ges
+PASS en-US #mergeQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts ges
+PASS en-US #mergeQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde nichts ges
+PASS en-US #mergeQty: "-3" nicht still akzeptiert
+PASS en-US #invQty: type=text  | text
+PASS en-US #invQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS en-US #invQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS en-US #invQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS en-US #invQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS en-US #invQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS en-US #invQty: "-3" nicht still akzeptiert
+PASS en-US #aPack: type=text  | text
+PASS en-US #aPack: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde 
+PASS en-US #aPack: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde 
+PASS en-US #aPack: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde 
+PASS en-US #aPack: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde 
+PASS en-US #aPack: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde 
+PASS en-US #aPack: "-3" nicht still akzeptiert
+PASS en-US #invQty: "30" wird gültig verarbeitet  | Soll: 30 Stück (30 STK) · Gezählt: 30 Stück (30 STK) · Differenz: 0 Stück · Keine Abweichung. Die Zählung kann protokolliert werden.
+PASS en-US Artikel anlegen: Pack "12" und Gewicht "1,5" -> 12 / 1,5  | {"code":"N1","name":"Neu","barcode":"","unit":"P","pack":12,"weight":1.5,"max":50,"min":null}
+PASS en-US Bestandskorrektur "-3" weiterhin möglich  | 27 ✓ Buchung gespeichert.
+PASS en-US Mengenfelder: keine JS-Fehler
+PASS fr-FR #bookQty: type=text  | text
+PASS fr-FR #bookQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde nichts gespeichert.
+PASS fr-FR #bookQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts gespeichert.
+PASS fr-FR #bookQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde nichts gespeichert.
+PASS fr-FR #bookQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts gespeichert.
+PASS fr-FR #bookQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde nichts gespeichert.
+PASS fr-FR #bookQty: "-3" nicht still akzeptiert
+PASS fr-FR #mergeQty: type=text  | text
+PASS fr-FR #mergeQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde nichts ges
+PASS fr-FR #mergeQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts ges
+PASS fr-FR #mergeQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde nichts ges
+PASS fr-FR #mergeQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts ges
+PASS fr-FR #mergeQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde nichts ges
+PASS fr-FR #mergeQty: "-3" nicht still akzeptiert
+PASS fr-FR #invQty: type=text  | text
+PASS fr-FR #invQty: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS fr-FR #invQty: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS fr-FR #invQty: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS fr-FR #invQty: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS fr-FR #invQty: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: 
+PASS fr-FR #invQty: "-3" nicht still akzeptiert
+PASS fr-FR #aPack: type=text  | text
+PASS fr-FR #aPack: "1,5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1,5“. Es wurde 
+PASS fr-FR #aPack: "1.5" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde 
+PASS fr-FR #aPack: "1e2" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1e2“. Es wurde 
+PASS fr-FR #aPack: "abc" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde 
+PASS fr-FR #aPack: "--3" abgewiesen mit verständlicher Meldung, nichts gespeichert  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „--3“. Es wurde 
+PASS fr-FR #aPack: "-3" nicht still akzeptiert
+PASS fr-FR #invQty: "30" wird gültig verarbeitet  | Soll: 30 Stück (30 STK) · Gezählt: 30 Stück (30 STK) · Differenz: 0 Stück · Keine Abweichung. Die Zählung kann protokolliert werden.
+PASS fr-FR Artikel anlegen: Pack "12" und Gewicht "1,5" -> 12 / 1,5  | {"code":"N1","name":"Neu","barcode":"","unit":"P","pack":12,"weight":1.5,"max":50,"min":null}
+PASS fr-FR Bestandskorrektur "-3" weiterhin möglich  | 27 ✓ Buchung gespeichert.
+PASS fr-FR Mengenfelder: keine JS-Fehler
+PASS S3 shelf→300: Warnung zeigt betroffene Plätze H4A-1-1  | confirm:Achtung: 1 vorhandene Box liegt über der neuen Traglast. / • H4A-1-1 (S1, 300 STK): 625 kg – überschreitet Fachlast 300 kg /  / Es wird nichts verändert oder umge
+PASS S3 shelf→300: Abbruch -> alte Konfiguration und gesamter Speicher byte-gleich  | Nicht gespeichert: Die bisherigen Lastparameter bleiben unverändert.
+PASS S3 shelf→300: Bestätigung speichert nur den Parameter  | Parameter gespeichert.
+PASS S3 shelf→300: Boxen, QR, Plätze, Artikel unverändert
+PASS S3 shelf→300: valid() weiterhin ok
+PASS S3 shelf→100: Warnung zeigt betroffene Plätze H4A-1-1,H4A-1-3  | confirm:Achtung: 2 vorhandene Boxen liegen über der neuen Traglast. / • H4A-1-1 (S1, 300 STK): 625 kg – überschreitet Fachlast 100 kg / • H4A-1-3 (S1, 100 STK): 225 kg – 
+PASS S3 shelf→100: Abbruch -> alte Konfiguration und gesamter Speicher byte-gleich  | Nicht gespeichert: Die bisherigen Lastparameter bleiben unverändert.
+PASS S3 shelf→100: Bestätigung speichert nur den Parameter  | Parameter gespeichert.
+PASS S3 shelf→100: Boxen, QR, Plätze, Artikel unverändert
+PASS S3 shelf→100: valid() weiterhin ok
+PASS S3 bay→300: Warnung zeigt betroffene Plätze H4A-1-1  | confirm:Achtung: 1 vorhandene Box liegt über der neuen Traglast. / • H4A-1-1 (S1, 300 STK): 625 kg – überschreitet Feldlast 300 kg /  / Es wird nichts verändert oder umge
+PASS S3 bay→300: Abbruch -> alte Konfiguration und gesamter Speicher byte-gleich  | Nicht gespeichert: Die bisherigen Lastparameter bleiben unverändert.
+PASS S3 bay→300: Bestätigung speichert nur den Parameter  | Parameter gespeichert.
+PASS S3 bay→300: Boxen, QR, Plätze, Artikel unverändert
+PASS S3 bay→300: valid() weiterhin ok
+PASS S3 palletMax→300: Warnung zeigt betroffene Plätze H4A-1-1  | confirm:Achtung: 1 vorhandene Box liegt über der neuen Traglast. / • H4A-1-1 (S1, 300 STK): 625 kg – überschreitet Palettentragfähigkeit 300 kg /  / Es wird nichts veränd
+PASS S3 palletMax→300: Abbruch -> alte Konfiguration und gesamter Speicher byte-gleich  | Nicht gespeichert: Die bisherigen Lastparameter bleiben unverändert.
+PASS S3 palletMax→300: Bestätigung speichert nur den Parameter  | Parameter gespeichert.
+PASS S3 palletMax→300: Boxen, QR, Plätze, Artikel unverändert
+PASS S3 palletMax→300: valid() weiterhin ok
+PASS S3 tare→500: Warnung zeigt betroffene Plätze H4A-1-1  | confirm:Achtung: 1 vorhandene Box liegt über der neuen Traglast. / • H4A-1-1 (S1, 300 STK): 1.100 kg – überschreitet Fachlast 800 kg und Palettentragfähigkeit 1000 kg /  
+PASS S3 tare→500: Abbruch -> alte Konfiguration und gesamter Speicher byte-gleich  | Nicht gespeichert: Die bisherigen Lastparameter bleiben unverändert.
+PASS S3 tare→500: Bestätigung speichert nur den Parameter  | Parameter gespeichert.
+PASS S3 tare→500: Boxen, QR, Plätze, Artikel unverändert
+PASS S3 tare→500: valid() weiterhin ok
+PASS S3 Absenken ohne Überschreitung: keine Warnung, gespeichert  | Parameter gespeichert.
+PASS S3 Erhöhen: keine Warnung
+PASS S3 bereits überlastete Box, anderer Parameter geändert: keine zusätzliche Warnung  | Parameter gespeichert.
+PASS S3 viele Boxen: Liste auf 5 begrenzt, „weitere“ genannt  | confirm:Achtung: 7 vorhandene Boxen liegen über der neuen Traglast. / • H4A-1-1 (S1, 300 STK): 625 k
+PASS S4 320 px: alle Bearbeiten-Buttons vollständig sichtbar, 99×44 (≥44), keine Überlappung, kein Seitenüberlauf  | Zeile 178 px
+PASS S4 320 px: Kopfzeile ausgeblendet, Bestand je Karte sichtbar  | Bestand: 84 Stück (7 Pack) / Bestand: 5 Stück
+PASS S4 320 px: Bearbeiten öffnet Formular, Daten unverändert, keine JS-Fehler
+PASS S4 360 px: alle Bearbeiten-Buttons vollständig sichtbar, 99×44 (≥44), keine Überlappung, kein Seitenüberlauf  | Zeile 147 px
+PASS S4 360 px: Kopfzeile ausgeblendet, Bestand je Karte sichtbar  | Bestand: 84 Stück (7 Pack) / Bestand: 5 Stück
+PASS S4 360 px: Bearbeiten öffnet Formular, Daten unverändert, keine JS-Fehler
+PASS S4 375 px: alle Bearbeiten-Buttons vollständig sichtbar, 99×44 (≥44), keine Überlappung, kein Seitenüberlauf  | Zeile 147 px
+PASS S4 375 px: Kopfzeile ausgeblendet, Bestand je Karte sichtbar  | Bestand: 84 Stück (7 Pack) / Bestand: 5 Stück
+PASS S4 375 px: Bearbeiten öffnet Formular, Daten unverändert, keine JS-Fehler
+PASS S4 390 px: alle Bearbeiten-Buttons vollständig sichtbar, 99×44 (≥44), keine Überlappung, kein Seitenüberlauf  | Zeile 147 px
+PASS S4 390 px: Kopfzeile ausgeblendet, Bestand je Karte sichtbar  | Bestand: 84 Stück (7 Pack) / Bestand: 5 Stück
+PASS S4 390 px: Bearbeiten öffnet Formular, Daten unverändert, keine JS-Fehler
+PASS S4 414 px: alle Bearbeiten-Buttons vollständig sichtbar, 99×44 (≥44), keine Überlappung, kein Seitenüberlauf  | Zeile 147 px
+PASS S4 414 px: Kopfzeile ausgeblendet, Bestand je Karte sichtbar  | Bestand: 84 Stück (7 Pack) / Bestand: 5 Stück
+PASS S4 414 px: Bearbeiten öffnet Formular, Daten unverändert, keine JS-Fehler
+PASS S4 430 px: alle Bearbeiten-Buttons vollständig sichtbar, 99×44 (≥44), keine Überlappung, kein Seitenüberlauf  | Zeile 131 px
+PASS S4 430 px: Kopfzeile ausgeblendet, Bestand je Karte sichtbar  | Bestand: 84 Stück (7 Pack) / Bestand: 5 Stück
+PASS S4 430 px: Bearbeiten öffnet Formular, Daten unverändert, keine JS-Fehler
+PASS S4 600 px: alle Bearbeiten-Buttons vollständig sichtbar, 99×44 (≥44), keine Überlappung, kein Seitenüberlauf  | Zeile 115 px
+PASS S4 600 px: Kopfzeile ausgeblendet, Bestand je Karte sichtbar  | Bestand: 84 Stück (7 Pack) / Bestand: 5 Stück
+PASS S4 600 px: Bearbeiten öffnet Formular, Daten unverändert, keine JS-Fehler
+PASS S4 Bestand aus Boxen: ART-1 7 Pack = 84 Stück, ART-2 5 Stück  | Bestand: 84 Stück (7 Pack) / Bestand: 5 Stück
+PASS S4 601 px: Tabelle mit Kopfzeile, Bestandszeile nicht sichtbar  | table-header-group [false]
+PASS S4 601 px Desktop identisch zum Ausgangsstand (Zeile 82=82, Button 99×44=99×44, Spalten 209,62,76,70,117 = 209,62,76,70,117)
+PASS S4 768 px: Tabelle mit Kopfzeile, Bestandszeile nicht sichtbar  | table-header-group [false]
+PASS S4 768 px Desktop identisch zum Ausgangsstand (Zeile 66=66, Button 87×30=87×30, Spalten 348,62,117,70,105 = 348,62,117,70,105)
+PASS S4 1100 px: Tabelle mit Kopfzeile, Bestandszeile nicht sichtbar  | table-header-group [false]
+PASS S4 1100 px Desktop identisch zum Ausgangsstand (Zeile 50=50, Button 87×30=87×30, Spalten 543,81,178,93,139 = 543,81,178,93,139)
+PASS S4 1400 px: Tabelle mit Kopfzeile, Bestandszeile nicht sichtbar  | table-header-group [false]
+PASS S4 1400 px Desktop identisch zum Ausgangsstand (Zeile 50=50, Button 87×30=87×30, Spalten 543,81,178,93,139 = 543,81,178,93,139)
+
+GESAMT 1051 / FAIL 0
+exit 0
