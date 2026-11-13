@@ -1,0 +1,58 @@
+PASS iPhone 14: hasTouch/UA emuliert  | Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) Apple
+PASS iPhone 14: kein horizontaler Überlauf (Artikeltab)
+PASS iPhone 14: Bearbeiten-Button Tap-Ziel >=32px  | {"x":261.25,"y":310,"width":99.453125,"height":44}
+PASS iPhone 14: Hinweis sichtbar nach Tap  | Bearbeitungsmodus: Artikel A1. Die Artikelnummer ist gesperrt. Mit „Eingabe leeren“ zurück zur Neuanlage.
+PASS iPhone 14: Formular befüllt, Nummer schreibgeschützt  | [true,"A1","Art1","3","100"]
+PASS iPhone 14: Tippen in Nummernfeld ändert nichts
+PASS iPhone 14: Bearbeitung speichert (Min 600)  | Artikel gespeichert.
+PASS iPhone 14: Modus nach Speichern beendet
+PASS iPhone 14: Neuanlage "a1" abgelehnt, Speicher unverändert  | Artikelnummer A1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS iPhone 14: Fehlermeldung sichtbar
+PASS iPhone 14: Neuanlage Min 500 / Box-Max 100 gespeichert  | Artikel gespeichert.
+PASS iPhone 14: Eingabe leeren beendet Modus
+PASS iPhone 14: Altartikel LM 500->600 speichert  | Artikel gespeichert.
+PASS iPhone 14: kein horizontaler Überlauf am Ende
+PASS iPhone 14: valid() & keine JS-Fehler
+PASS iPad Pro 11: hasTouch/UA emuliert  | Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/60
+PASS iPad Pro 11: kein horizontaler Überlauf (Artikeltab)
+PASS iPad Pro 11: Bearbeiten-Button Tap-Ziel >=32px  | {"x":631,"y":918,"width":99.453125,"height":44}
+PASS iPad Pro 11: Hinweis sichtbar nach Tap  | Bearbeitungsmodus: Artikel A1. Die Artikelnummer ist gesperrt. Mit „Eingabe leeren“ zurück zur Neuanlage.
+PASS iPad Pro 11: Formular befüllt, Nummer schreibgeschützt  | [true,"A1","Art1","3","100"]
+PASS iPad Pro 11: Tippen in Nummernfeld ändert nichts
+PASS iPad Pro 11: Bearbeitung speichert (Min 600)  | Artikel gespeichert.
+PASS iPad Pro 11: Modus nach Speichern beendet
+PASS iPad Pro 11: Neuanlage "a1" abgelehnt, Speicher unverändert  | Artikelnummer A1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS iPad Pro 11: Fehlermeldung sichtbar
+PASS iPad Pro 11: Neuanlage Min 500 / Box-Max 100 gespeichert  | Artikel gespeichert.
+PASS iPad Pro 11: Eingabe leeren beendet Modus
+PASS iPad Pro 11: Altartikel LM 500->600 speichert  | Artikel gespeichert.
+PASS iPad Pro 11: kein horizontaler Überlauf am Ende
+PASS iPad Pro 11: valid() & keine JS-Fehler
+PASS iPad Pro 11 landscape: hasTouch/UA emuliert  | Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/60
+PASS iPad Pro 11 landscape: kein horizontaler Überlauf (Artikeltab)
+PASS iPad Pro 11 landscape: Bearbeiten-Button Tap-Ziel >=32px  | {"x":882.03125,"y":790,"width":99.453125,"height":44}
+PASS iPad Pro 11 landscape: Hinweis sichtbar nach Tap  | Bearbeitungsmodus: Artikel A1. Die Artikelnummer ist gesperrt. Mit „Eingabe leeren“ zurück zur Neuanlage.
+PASS iPad Pro 11 landscape: Formular befüllt, Nummer schreibgeschützt  | [true,"A1","Art1","3","100"]
+PASS iPad Pro 11 landscape: Tippen in Nummernfeld ändert nichts
+PASS iPad Pro 11 landscape: Bearbeitung speichert (Min 600)  | Artikel gespeichert.
+PASS iPad Pro 11 landscape: Modus nach Speichern beendet
+PASS iPad Pro 11 landscape: Neuanlage "a1" abgelehnt, Speicher unverändert  | Artikelnummer A1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS iPad Pro 11 landscape: Fehlermeldung sichtbar
+PASS iPad Pro 11 landscape: Neuanlage Min 500 / Box-Max 100 gespeichert  | Artikel gespeichert.
+PASS iPad Pro 11 landscape: Eingabe leeren beendet Modus
+PASS iPad Pro 11 landscape: Altartikel LM 500->600 speichert  | Artikel gespeichert.
+PASS iPad Pro 11 landscape: kein horizontaler Überlauf am Ende
+PASS iPad Pro 11 landscape: valid() & keine JS-Fehler
+PASS Scan von Artikelcode öffnet kein Artikelformular  | ||false|true
+PASS Durchlauf aller Tabs (14) ändert Artikelformular nicht  | portalLogin,portalBye,portalHome,pickAdmin,picking,home,stock,scan,merge,book,racks,articles,inventory,more
+PASS data-edit-Buttons nur im Artikeltab  | articles
+PASS Quelltext: aCode.readOnly nur in Bearbeitungspfad/Clear  | 2
+PASS Modus bleibt beim Tabwechsel  | A1|Art1|true|false
+INFO nach Import ohne A1: Formular=A1|Art1|true|false A1 vorhanden=true Meldung=
+FAIL Edit-Modus + A1 per Import entfernt: Speichern legt A1 NICHT neu an  | Artikel gespeichert.
+INFO Meldung: Artikel gespeichert. | Modus danach: ||false|true
+PASS Reload beendet Modus (Nummer wieder editierbar, Hinweis aus)  | ||false|true
+PASS Zwei Tabs: veralteter Tab überschreibt A3 nicht  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS Desktop JS-Fehler
+GESAMT 54 / FAIL 1
+exit 0

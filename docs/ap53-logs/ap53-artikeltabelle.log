@@ -1,0 +1,24 @@
+BEFUND Ist 320 px: Bearbeiten-Button liegt ohne seitliches Wischen außerhalb des Bildschirms  | Button 99x44
+PASS Ist 320 px: Button durch Scrollen der Tabelle erreichbar, Seite ohne Überlauf, Funktion ok
+PASS Vorschlag 320 px: alle Bearbeiten-Buttons sichtbar, 99x44 (>=44), keine Überlappung, kein Seitenüberlauf, Funktion ok  | Zeilenhöhe 148
+BEFUND Ist 360 px: Bearbeiten-Button liegt ohne seitliches Wischen außerhalb des Bildschirms  | Button 99x44
+PASS Ist 360 px: Button durch Scrollen der Tabelle erreichbar, Seite ohne Überlauf, Funktion ok
+PASS Vorschlag 360 px: alle Bearbeiten-Buttons sichtbar, 99x44 (>=44), keine Überlappung, kein Seitenüberlauf, Funktion ok  | Zeilenhöhe 132
+BEFUND Ist 375 px: Bearbeiten-Button liegt ohne seitliches Wischen außerhalb des Bildschirms  | Button 99x44
+PASS Ist 375 px: Button durch Scrollen der Tabelle erreichbar, Seite ohne Überlauf, Funktion ok
+PASS Vorschlag 375 px: alle Bearbeiten-Buttons sichtbar, 99x44 (>=44), keine Überlappung, kein Seitenüberlauf, Funktion ok  | Zeilenhöhe 132
+BEFUND Ist 390 px: Bearbeiten-Button liegt ohne seitliches Wischen außerhalb des Bildschirms  | Button 99x44
+PASS Ist 390 px: Button durch Scrollen der Tabelle erreichbar, Seite ohne Überlauf, Funktion ok
+PASS Vorschlag 390 px: alle Bearbeiten-Buttons sichtbar, 99x44 (>=44), keine Überlappung, kein Seitenüberlauf, Funktion ok  | Zeilenhöhe 132
+BEFUND Ist 414 px: Bearbeiten-Button liegt ohne seitliches Wischen außerhalb des Bildschirms  | Button 99x44
+PASS Ist 414 px: Button durch Scrollen der Tabelle erreichbar, Seite ohne Überlauf, Funktion ok
+PASS Vorschlag 414 px: alle Bearbeiten-Buttons sichtbar, 99x44 (>=44), keine Überlappung, kein Seitenüberlauf, Funktion ok  | Zeilenhöhe 132
+BEFUND Ist 430 px: Bearbeiten-Button liegt ohne seitliches Wischen außerhalb des Bildschirms  | Button 99x44
+PASS Ist 430 px: Button durch Scrollen der Tabelle erreichbar, Seite ohne Überlauf, Funktion ok
+PASS Vorschlag 430 px: alle Bearbeiten-Buttons sichtbar, 99x44 (>=44), keine Überlappung, kein Seitenüberlauf, Funktion ok  | Zeilenhöhe 116
+PASS Vorschlag 601 px (Desktop/Tablet): Darstellung unverändert (Zeilenhöhe 82 = 82, Button 99x44 = 99x44)
+PASS Vorschlag 768 px (Desktop/Tablet): Darstellung unverändert (Zeilenhöhe 66 = 66, Button 87x30 = 87x30)
+PASS Vorschlag 1100 px (Desktop/Tablet): Darstellung unverändert (Zeilenhöhe 50 = 50, Button 87x30 = 87x30)
+PASS Vorschlag 1400 px (Desktop/Tablet): Darstellung unverändert (Zeilenhöhe 50 = 50, Button 87x30 = 87x30)
+
+GESAMT 16 / FAIL 0 / BEFUNDE 6

@@ -1,0 +1,33 @@
+PASS Vorschlagsberechnung shelf→300: überschreitende Boxen H4A-1-1  | H4A-1-1
+PASS shelf auf 300 abgesenkt: Parameter wird gespeichert  | Parameter gespeichert.
+BEFUND shelf→300: KEINE Warnung, obwohl 1 vorhandene Box(en) die neue Grenze überschreiten  | Meldung: "Parameter gespeichert."
+PASS   Boxen/Bestände/QR/Plätze byteweise unverändert
+PASS   Zustand bleibt gültig (valid)
+PASS   Ausbuchen aus überladener Box bleibt möglich (300→290)
+PASS   Erhöhung der überladenen Box (+1) wird gesperrt (Fachlast-Meldung)  | Fachlast von 300 kg überschritten.
+PASS   Neue Box mit 425 kg (> 300) wird gesperrt
+PASS   Neue Box mit 225 kg (< 300) bleibt möglich
+PASS   Artikel-Namensänderung trotz überladener Box möglich (Gewicht/Max unverändert)
+PASS   Gewichtserhöhung des Artikels mit überladener Box wird abgelehnt  | Artikeländerung abgelehnt: Fachlast auf H4A-1-1 überschritten.
+PASS   keine JS-Fehler
+PASS Vorschlagsberechnung shelf→100: überschreitende Boxen H4A-1-1,H4A-1-3  | H4A-1-1,H4A-1-3
+PASS shelf auf 100 abgesenkt: Parameter wird gespeichert  | Parameter gespeichert.
+BEFUND shelf→100: KEINE Warnung, obwohl 2 vorhandene Box(en) die neue Grenze überschreiten  | Meldung: "Parameter gespeichert."
+PASS   Boxen/Bestände/QR/Plätze byteweise unverändert
+PASS   Zustand bleibt gültig (valid)
+PASS   keine JS-Fehler
+PASS Vorschlagsberechnung bay→300: überschreitende Boxen H4A-1-1  | H4A-1-1
+PASS bay auf 300 abgesenkt: Parameter wird gespeichert  | Parameter gespeichert.
+BEFUND bay→300: KEINE Warnung, obwohl 1 vorhandene Box(en) die neue Grenze überschreiten  | Meldung: "Parameter gespeichert."
+PASS   Boxen/Bestände/QR/Plätze byteweise unverändert
+PASS   Zustand bleibt gültig (valid)
+PASS   keine JS-Fehler
+PASS Vorschlagsberechnung palletMax→300: überschreitende Boxen H4A-1-1  | H4A-1-1
+PASS palletMax auf 300 abgesenkt: Parameter wird gespeichert  | Parameter gespeichert.
+BEFUND palletMax→300: KEINE Warnung, obwohl 1 vorhandene Box(en) die neue Grenze überschreiten  | Meldung: "Parameter gespeichert."
+PASS   Boxen/Bestände/QR/Plätze byteweise unverändert
+PASS   Zustand bleibt gültig (valid)
+PASS   keine JS-Fehler
+BEFUND Startseite weist nach dem Absenken nicht auf überladene Boxen hin
+
+GESAMT 26 / FAIL 0 / BEFUNDE 5

@@ -1,0 +1,65 @@
+PASS 1 tare fehlt: Max 100→90 (Boxen 50/30) erlaubt  | Artikel gespeichert.
+PASS 1 tare fehlt: Max 40 < 50 weiter abgelehnt, Speicher unverändert  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 40.
+PASS 1 tare fehlt: Gewichtsänderung weiter abgelehnt (Lastdaten fehlen)  | Artikelgewicht kann bei vorhandenem Bestand nicht sicher geprüft werden: Lastdaten fehlen.
+PASS 1 tare fehlt: Name/Min ändern erlaubt  | Artikel gespeichert.
+PASS 1 JS-Fehler
+PASS 1 palletMax fehlt: Max 100→90 (Boxen 50/30) erlaubt  | Artikel gespeichert.
+PASS 1 palletMax fehlt: Max 40 < 50 weiter abgelehnt, Speicher unverändert  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 40.
+PASS 1 palletMax fehlt: Gewichtsänderung weiter abgelehnt (Lastdaten fehlen)  | Artikelgewicht kann bei vorhandenem Bestand nicht sicher geprüft werden: Lastdaten fehlen.
+PASS 1 palletMax fehlt: Name/Min ändern erlaubt  | Artikel gespeichert.
+PASS 1 JS-Fehler
+PASS 1 bay fehlt: Max 100→90 (Boxen 50/30) erlaubt  | Artikel gespeichert.
+PASS 1 bay fehlt: Max 40 < 50 weiter abgelehnt, Speicher unverändert  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 40.
+PASS 1 bay fehlt: Gewichtsänderung weiter abgelehnt (Lastdaten fehlen)  | Artikelgewicht kann bei vorhandenem Bestand nicht sicher geprüft werden: Lastdaten fehlen.
+PASS 1 bay fehlt: Name/Min ändern erlaubt  | Artikel gespeichert.
+PASS 1 JS-Fehler
+PASS 1 shelf fehlt: Max 100→90 (Boxen 50/30) erlaubt  | Artikel gespeichert.
+PASS 1 shelf fehlt: Max 40 < 50 weiter abgelehnt, Speicher unverändert  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 40.
+PASS 1 shelf fehlt: Gewichtsänderung weiter abgelehnt (Lastdaten fehlen)  | Artikelgewicht kann bei vorhandenem Bestand nicht sicher geprüft werden: Lastdaten fehlen.
+PASS 1 shelf fehlt: Name/Min ändern erlaubt  | Artikel gespeichert.
+PASS 1 JS-Fehler
+PASS 1 alle fehlt: Max 100→90 (Boxen 50/30) erlaubt  | Artikel gespeichert.
+PASS 1 alle fehlt: Max 40 < 50 weiter abgelehnt, Speicher unverändert  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 40.
+PASS 1 alle fehlt: Gewichtsänderung weiter abgelehnt (Lastdaten fehlen)  | Artikelgewicht kann bei vorhandenem Bestand nicht sicher geprüft werden: Lastdaten fehlen.
+PASS 1 alle fehlt: Name/Min ändern erlaubt  | Artikel gespeichert.
+PASS 1 JS-Fehler
+PASS 2 Gewicht leeren bei Bestand abgelehnt, deutsche Meldung  | Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.
+PASS 2 Max leeren bei Bestand abgelehnt, deutsche Meldung  | Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.
+PASS 2 beides leeren bei Bestand abgelehnt, deutsche Meldung  | Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.
+PASS 2 Formular behält Eingabe
+PASS 2 Gewicht 0 bei Bestand (Info)  | ok=true Artikel gespeichert.
+PASS 2 JS
+PASS 4 Artikel ohne Box: Gewicht+Max löschen erlaubt  | Artikel gespeichert.
+PASS 4 Artikel nur mit Menge-0-Box: löschen erlaubt  | Artikel gespeichert.
+PASS 4 Artikel ohne Bestand: Gewicht 999/Max 1 erlaubt  | Artikel gespeichert.
+PASS 4 Neuer Artikel ohne Gewicht/Max anlegbar  | Artikel gespeichert.
+PASS 4 JS
+PASS 2c Legacy null/null mit Bestand: nur Name ändern (nichts gelöscht) erlaubt  | Artikel gespeichert.
+PASS 2c Legacy null/null: Werte erstmals setzen (gültig) erlaubt  | Artikel gespeichert.
+PASS 2c JS
+PASS 2c Legacy Gewicht null, nur Max 90 ändern (Info)  | ok=false Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.
+PASS 2c Legacy Gewicht null→500: Fachlast abgelehnt  | Artikeländerung abgelehnt: Fachlast auf H4A-1-1 überschritten.
+PASS 3 Fachlast ok (Gew. 15.5)  | Artikel gespeichert.
+PASS 3 Fachlast + (Gew. 15.6)  | Artikeländerung abgelehnt: Fachlast auf H4A-1-1 überschritten.
+PASS 3 Palette ok (Gew. 9.5)  | Artikel gespeichert.
+PASS 3 Palette + (Gew. 9.6)  | Artikeländerung abgelehnt: Palettentragfähigkeit auf H4A-1-1 überschritten.
+PASS 3 Feld ok (Gew. 9.5)  | Artikel gespeichert.
+PASS 3 Feld + (Gew. 9.6)  | Artikeländerung abgelehnt: Feldlast auf H4A-1-1 überschritten.
+PASS 3b Bereits überlastete Box, Gewicht gleich, Max senken erlaubt (keine Blockade)  | Artikel gespeichert.
+PASS 3b Überlastete Box, Gewicht erhöhen abgelehnt  | Artikeländerung abgelehnt: Fachlast auf H4A-1-1 überschritten.
+PASS 3b Überlastete Box, Gewicht senken in Limit erlaubt  | Artikel gespeichert.
+PASS 5 Name/Barcode/Min+Max 52: abgelehnt, nichts davon gespeichert  | Artikeländerung abgelehnt: Box auf H4A-5-1 enthält 55 Einheiten, neues Maximum ist 52.
+PASS 5 Gewicht 14,5 (55×14,5+25>800): abgelehnt, nichts gespeichert  | Artikeländerung abgelehnt: Fachlast auf H4A-5-1 überschritten.
+PASS 5 Historie unverändert
+PASS 5 Gewicht 14, Max 60 mit QS-Box: erlaubt; Boxen/QS unverändert  | Artikel gespeichert.
+PASS 5 JS
+PASS 8 Wareneingang +10
+PASS 8 über Max abgelehnt
+PASS 8 Ausbuchen
+PASS 8 Umlagerung
+PASS 8 Doppelter Barcode abgelehnt
+PASS 8 Einheit bei Bestand gesperrt
+PASS 8 JS
+
+GESAMT 62 / FAIL 0
+exit 0

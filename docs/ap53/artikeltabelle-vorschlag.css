@@ -1,0 +1,15 @@
+/* AP5.3 – VORSCHLAG (nicht in der Anwendung eingebunden): Artikelstamm als Karten unter 600 px.
+   Reine CSS-Lösung ohne Änderung am HTML/JS. Desktop (>600 px) bleibt unverändert.
+   Benötigt :has() (iOS Safari >= 15.4, Chrome >= 105); ältere Browser behalten die bisherige scrollbare Tabelle. */
+@media (max-width:600px){
+  table:has(#articleRows) thead{display:none}
+  table:has(#articleRows),#articleRows{display:block;width:100%;min-width:0}
+  #articleRows tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:2px;align-items:center;padding:10px 12px;border-bottom:1px solid #dbe4ef}
+  #articleRows td{display:block;padding:0;border:0;min-width:0;overflow-wrap:anywhere}
+  #articleRows td:nth-child(1){grid-column:1;grid-row:1}
+  #articleRows td:nth-child(2){grid-column:1;grid-row:2;font-size:.85em;color:#5b7088}
+  #articleRows td:nth-child(3){grid-column:1;grid-row:3;font-size:.85em;color:#5b7088}
+  #articleRows td:nth-child(4){grid-column:1;grid-row:4;font-size:.85em;color:#5b7088}
+  #articleRows td:nth-child(5){grid-column:2;grid-row:1/span 4;align-self:center}
+  #articleRows td:nth-child(5) button{min-height:44px;min-width:44px}
+}

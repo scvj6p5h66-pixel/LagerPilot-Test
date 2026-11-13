@@ -1,0 +1,382 @@
+BEFUND de-DE #pick-pallet-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE #pick-pallet-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE #pick-pallet-weight: ungültig "1e999" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-pallet-weight: ungültig "--" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-pallet-weight: ungültig "1e" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-pallet-weight: negativ "-5" abgewiesen, Wert 25 bleibt  | gespeichert=25
+BEFUND de-DE #pick-pallet-weight: Leeren löscht vorhandenen Wert 25 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-DE #pick-box-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE #pick-box-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE #pick-box-weight: ungültig "1e999" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-box-weight: ungültig "--" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-box-weight: ungültig "1e" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-box-weight: negativ "-5" abgewiesen, Wert 1.5 bleibt  | gespeichert=1.5
+BEFUND de-DE #pick-box-weight: Leeren löscht vorhandenen Wert 1.5 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-DE #pick-measured-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE #pick-measured-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE #pick-measured-weight: ungültig "1e999" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-measured-weight: ungültig "--" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-measured-weight: ungültig "1e" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-measured-weight: negativ "-5" abgewiesen, Wert 40 bleibt  | gespeichert=40
+BEFUND de-DE #pick-measured-weight: Leeren löscht vorhandenen Wert 40 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-DE #pick-tolerance: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE #pick-tolerance: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE #pick-tolerance: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-tolerance: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-tolerance: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE #pick-tolerance: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+BEFUND de-DE #pick-tolerance: Leeren löscht vorhandenen Wert 1 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-DE #pick-weight-0: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE #pick-weight-0: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE #pick-weight-0: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-DE #pick-weight-0: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-DE #pick-weight-0: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-DE #pick-weight-0: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+PASS de-DE #pick-weight-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=1
+BEFUND de-DE #pick-actual-0: getipptes "1,5" wird still als 15 gespeichert (Stückzahl)  | gespeichert=15
+PASS de-DE #pick-actual-0: Stückzahl "1.5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS de-DE #pick-actual-0: ungültig "1e999" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-DE #pick-actual-0: ungültig "--" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-DE #pick-actual-0: ungültig "1e" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-DE #pick-actual-0: negativ "-5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS de-DE #pick-actual-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=20
+PASS de-DE Scanner-Eingabefeld ist type=text (nicht von Zahlenlogik betroffen)  | {"type":"text","inputmode":""}
+BEFUND de-DE #bookQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-DE #invQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-DE #mergeQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-DE #aPack: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+PASS de-DE (navigator.language=de-DE) keine JS-Fehler
+BEFUND de-DE (iPhone 14) #pick-pallet-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE (iPhone 14) #pick-pallet-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE (iPhone 14) #pick-pallet-weight: ungültig "1e999" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-pallet-weight: ungültig "--" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-pallet-weight: ungültig "1e" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-pallet-weight: negativ "-5" abgewiesen, Wert 25 bleibt  | gespeichert=25
+BEFUND de-DE (iPhone 14) #pick-pallet-weight: Leeren löscht vorhandenen Wert 25 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-DE (iPhone 14) #pick-box-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE (iPhone 14) #pick-box-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE (iPhone 14) #pick-box-weight: ungültig "1e999" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-box-weight: ungültig "--" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-box-weight: ungültig "1e" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-box-weight: negativ "-5" abgewiesen, Wert 1.5 bleibt  | gespeichert=1.5
+BEFUND de-DE (iPhone 14) #pick-box-weight: Leeren löscht vorhandenen Wert 1.5 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-DE (iPhone 14) #pick-measured-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE (iPhone 14) #pick-measured-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE (iPhone 14) #pick-measured-weight: ungültig "1e999" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-measured-weight: ungültig "--" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-measured-weight: ungültig "1e" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-measured-weight: negativ "-5" abgewiesen, Wert 40 bleibt  | gespeichert=40
+BEFUND de-DE (iPhone 14) #pick-measured-weight: Leeren löscht vorhandenen Wert 40 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-DE (iPhone 14) #pick-tolerance: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE (iPhone 14) #pick-tolerance: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE (iPhone 14) #pick-tolerance: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-tolerance: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-tolerance: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-DE (iPhone 14) #pick-tolerance: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+BEFUND de-DE (iPhone 14) #pick-tolerance: Leeren löscht vorhandenen Wert 1 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-DE (iPhone 14) #pick-weight-0: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-DE (iPhone 14) #pick-weight-0: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-DE (iPhone 14) #pick-weight-0: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-DE (iPhone 14) #pick-weight-0: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-DE (iPhone 14) #pick-weight-0: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-DE (iPhone 14) #pick-weight-0: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+PASS de-DE (iPhone 14) #pick-weight-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=1
+BEFUND de-DE (iPhone 14) #pick-actual-0: getipptes "1,5" wird still als 15 gespeichert (Stückzahl)  | gespeichert=15
+PASS de-DE (iPhone 14) #pick-actual-0: Stückzahl "1.5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS de-DE (iPhone 14) #pick-actual-0: ungültig "1e999" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-DE (iPhone 14) #pick-actual-0: ungültig "--" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-DE (iPhone 14) #pick-actual-0: ungültig "1e" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-DE (iPhone 14) #pick-actual-0: negativ "-5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS de-DE (iPhone 14) #pick-actual-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=20
+PASS de-DE (iPhone 14) Scanner-Eingabefeld ist type=text (nicht von Zahlenlogik betroffen)  | {"type":"text","inputmode":""}
+BEFUND de-DE (iPhone 14) #bookQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-DE (iPhone 14) #invQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-DE (iPhone 14) #mergeQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-DE (iPhone 14) #aPack: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-CH #pick-pallet-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH #pick-pallet-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH #pick-pallet-weight: ungültig "1e999" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-pallet-weight: ungültig "--" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-pallet-weight: ungültig "1e" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-pallet-weight: negativ "-5" abgewiesen, Wert 25 bleibt  | gespeichert=25
+BEFUND de-CH #pick-pallet-weight: Leeren löscht vorhandenen Wert 25 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-CH #pick-box-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH #pick-box-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH #pick-box-weight: ungültig "1e999" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-box-weight: ungültig "--" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-box-weight: ungültig "1e" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-box-weight: negativ "-5" abgewiesen, Wert 1.5 bleibt  | gespeichert=1.5
+BEFUND de-CH #pick-box-weight: Leeren löscht vorhandenen Wert 1.5 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-CH #pick-measured-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH #pick-measured-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH #pick-measured-weight: ungültig "1e999" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-measured-weight: ungültig "--" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-measured-weight: ungültig "1e" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-measured-weight: negativ "-5" abgewiesen, Wert 40 bleibt  | gespeichert=40
+BEFUND de-CH #pick-measured-weight: Leeren löscht vorhandenen Wert 40 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-CH #pick-tolerance: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH #pick-tolerance: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH #pick-tolerance: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-tolerance: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-tolerance: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH #pick-tolerance: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+BEFUND de-CH #pick-tolerance: Leeren löscht vorhandenen Wert 1 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-CH #pick-weight-0: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH #pick-weight-0: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH #pick-weight-0: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-CH #pick-weight-0: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-CH #pick-weight-0: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-CH #pick-weight-0: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+PASS de-CH #pick-weight-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=1
+BEFUND de-CH #pick-actual-0: getipptes "1,5" wird still als 15 gespeichert (Stückzahl)  | gespeichert=15
+PASS de-CH #pick-actual-0: Stückzahl "1.5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS de-CH #pick-actual-0: ungültig "1e999" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-CH #pick-actual-0: ungültig "--" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-CH #pick-actual-0: ungültig "1e" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-CH #pick-actual-0: negativ "-5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS de-CH #pick-actual-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=20
+PASS de-CH Scanner-Eingabefeld ist type=text (nicht von Zahlenlogik betroffen)  | {"type":"text","inputmode":""}
+BEFUND de-CH #bookQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-CH #invQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-CH #mergeQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-CH #aPack: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+PASS de-CH (navigator.language=de-CH) keine JS-Fehler
+BEFUND de-CH (iPhone 14) #pick-pallet-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH (iPhone 14) #pick-pallet-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH (iPhone 14) #pick-pallet-weight: ungültig "1e999" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-pallet-weight: ungültig "--" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-pallet-weight: ungültig "1e" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-pallet-weight: negativ "-5" abgewiesen, Wert 25 bleibt  | gespeichert=25
+BEFUND de-CH (iPhone 14) #pick-pallet-weight: Leeren löscht vorhandenen Wert 25 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-CH (iPhone 14) #pick-box-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH (iPhone 14) #pick-box-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH (iPhone 14) #pick-box-weight: ungültig "1e999" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-box-weight: ungültig "--" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-box-weight: ungültig "1e" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-box-weight: negativ "-5" abgewiesen, Wert 1.5 bleibt  | gespeichert=1.5
+BEFUND de-CH (iPhone 14) #pick-box-weight: Leeren löscht vorhandenen Wert 1.5 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-CH (iPhone 14) #pick-measured-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH (iPhone 14) #pick-measured-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH (iPhone 14) #pick-measured-weight: ungültig "1e999" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-measured-weight: ungültig "--" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-measured-weight: ungültig "1e" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-measured-weight: negativ "-5" abgewiesen, Wert 40 bleibt  | gespeichert=40
+BEFUND de-CH (iPhone 14) #pick-measured-weight: Leeren löscht vorhandenen Wert 40 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-CH (iPhone 14) #pick-tolerance: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH (iPhone 14) #pick-tolerance: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH (iPhone 14) #pick-tolerance: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-tolerance: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-tolerance: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS de-CH (iPhone 14) #pick-tolerance: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+BEFUND de-CH (iPhone 14) #pick-tolerance: Leeren löscht vorhandenen Wert 1 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND de-CH (iPhone 14) #pick-weight-0: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS de-CH (iPhone 14) #pick-weight-0: "1.5" -> 1.5  | gespeichert=1.5
+PASS de-CH (iPhone 14) #pick-weight-0: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-CH (iPhone 14) #pick-weight-0: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-CH (iPhone 14) #pick-weight-0: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS de-CH (iPhone 14) #pick-weight-0: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+PASS de-CH (iPhone 14) #pick-weight-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=1
+BEFUND de-CH (iPhone 14) #pick-actual-0: getipptes "1,5" wird still als 15 gespeichert (Stückzahl)  | gespeichert=15
+PASS de-CH (iPhone 14) #pick-actual-0: Stückzahl "1.5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS de-CH (iPhone 14) #pick-actual-0: ungültig "1e999" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-CH (iPhone 14) #pick-actual-0: ungültig "--" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-CH (iPhone 14) #pick-actual-0: ungültig "1e" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS de-CH (iPhone 14) #pick-actual-0: negativ "-5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS de-CH (iPhone 14) #pick-actual-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=20
+PASS de-CH (iPhone 14) Scanner-Eingabefeld ist type=text (nicht von Zahlenlogik betroffen)  | {"type":"text","inputmode":""}
+BEFUND de-CH (iPhone 14) #bookQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-CH (iPhone 14) #invQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-CH (iPhone 14) #mergeQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND de-CH (iPhone 14) #aPack: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND en-US #pick-pallet-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US #pick-pallet-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US #pick-pallet-weight: ungültig "1e999" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-pallet-weight: ungültig "--" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-pallet-weight: ungültig "1e" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-pallet-weight: negativ "-5" abgewiesen, Wert 25 bleibt  | gespeichert=25
+BEFUND en-US #pick-pallet-weight: Leeren löscht vorhandenen Wert 25 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND en-US #pick-box-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US #pick-box-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US #pick-box-weight: ungültig "1e999" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-box-weight: ungültig "--" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-box-weight: ungültig "1e" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-box-weight: negativ "-5" abgewiesen, Wert 1.5 bleibt  | gespeichert=1.5
+BEFUND en-US #pick-box-weight: Leeren löscht vorhandenen Wert 1.5 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND en-US #pick-measured-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US #pick-measured-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US #pick-measured-weight: ungültig "1e999" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-measured-weight: ungültig "--" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-measured-weight: ungültig "1e" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-measured-weight: negativ "-5" abgewiesen, Wert 40 bleibt  | gespeichert=40
+BEFUND en-US #pick-measured-weight: Leeren löscht vorhandenen Wert 40 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND en-US #pick-tolerance: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US #pick-tolerance: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US #pick-tolerance: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-tolerance: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-tolerance: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US #pick-tolerance: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+BEFUND en-US #pick-tolerance: Leeren löscht vorhandenen Wert 1 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND en-US #pick-weight-0: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US #pick-weight-0: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US #pick-weight-0: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS en-US #pick-weight-0: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS en-US #pick-weight-0: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS en-US #pick-weight-0: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+PASS en-US #pick-weight-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=1
+BEFUND en-US #pick-actual-0: getipptes "1,5" wird still als 15 gespeichert (Stückzahl)  | gespeichert=15
+PASS en-US #pick-actual-0: Stückzahl "1.5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS en-US #pick-actual-0: ungültig "1e999" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS en-US #pick-actual-0: ungültig "--" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS en-US #pick-actual-0: ungültig "1e" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS en-US #pick-actual-0: negativ "-5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS en-US #pick-actual-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=20
+PASS en-US Scanner-Eingabefeld ist type=text (nicht von Zahlenlogik betroffen)  | {"type":"text","inputmode":""}
+BEFUND en-US #bookQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND en-US #invQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND en-US #mergeQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND en-US #aPack: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+PASS en-US (navigator.language=en-US) keine JS-Fehler
+BEFUND en-US (iPhone 14) #pick-pallet-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US (iPhone 14) #pick-pallet-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US (iPhone 14) #pick-pallet-weight: ungültig "1e999" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-pallet-weight: ungültig "--" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-pallet-weight: ungültig "1e" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-pallet-weight: negativ "-5" abgewiesen, Wert 25 bleibt  | gespeichert=25
+BEFUND en-US (iPhone 14) #pick-pallet-weight: Leeren löscht vorhandenen Wert 25 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND en-US (iPhone 14) #pick-box-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US (iPhone 14) #pick-box-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US (iPhone 14) #pick-box-weight: ungültig "1e999" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-box-weight: ungültig "--" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-box-weight: ungültig "1e" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-box-weight: negativ "-5" abgewiesen, Wert 1.5 bleibt  | gespeichert=1.5
+BEFUND en-US (iPhone 14) #pick-box-weight: Leeren löscht vorhandenen Wert 1.5 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND en-US (iPhone 14) #pick-measured-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US (iPhone 14) #pick-measured-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US (iPhone 14) #pick-measured-weight: ungültig "1e999" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-measured-weight: ungültig "--" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-measured-weight: ungültig "1e" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-measured-weight: negativ "-5" abgewiesen, Wert 40 bleibt  | gespeichert=40
+BEFUND en-US (iPhone 14) #pick-measured-weight: Leeren löscht vorhandenen Wert 40 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND en-US (iPhone 14) #pick-tolerance: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US (iPhone 14) #pick-tolerance: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US (iPhone 14) #pick-tolerance: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-tolerance: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-tolerance: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS en-US (iPhone 14) #pick-tolerance: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+BEFUND en-US (iPhone 14) #pick-tolerance: Leeren löscht vorhandenen Wert 1 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND en-US (iPhone 14) #pick-weight-0: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS en-US (iPhone 14) #pick-weight-0: "1.5" -> 1.5  | gespeichert=1.5
+PASS en-US (iPhone 14) #pick-weight-0: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS en-US (iPhone 14) #pick-weight-0: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS en-US (iPhone 14) #pick-weight-0: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS en-US (iPhone 14) #pick-weight-0: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+PASS en-US (iPhone 14) #pick-weight-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=1
+BEFUND en-US (iPhone 14) #pick-actual-0: getipptes "1,5" wird still als 15 gespeichert (Stückzahl)  | gespeichert=15
+PASS en-US (iPhone 14) #pick-actual-0: Stückzahl "1.5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS en-US (iPhone 14) #pick-actual-0: ungültig "1e999" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS en-US (iPhone 14) #pick-actual-0: ungültig "--" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS en-US (iPhone 14) #pick-actual-0: ungültig "1e" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS en-US (iPhone 14) #pick-actual-0: negativ "-5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS en-US (iPhone 14) #pick-actual-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=20
+PASS en-US (iPhone 14) Scanner-Eingabefeld ist type=text (nicht von Zahlenlogik betroffen)  | {"type":"text","inputmode":""}
+BEFUND en-US (iPhone 14) #bookQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND en-US (iPhone 14) #invQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND en-US (iPhone 14) #mergeQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND en-US (iPhone 14) #aPack: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND fr-FR #pick-pallet-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR #pick-pallet-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR #pick-pallet-weight: ungültig "1e999" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-pallet-weight: ungültig "--" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-pallet-weight: ungültig "1e" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-pallet-weight: negativ "-5" abgewiesen, Wert 25 bleibt  | gespeichert=25
+BEFUND fr-FR #pick-pallet-weight: Leeren löscht vorhandenen Wert 25 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND fr-FR #pick-box-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR #pick-box-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR #pick-box-weight: ungültig "1e999" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-box-weight: ungültig "--" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-box-weight: ungültig "1e" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-box-weight: negativ "-5" abgewiesen, Wert 1.5 bleibt  | gespeichert=1.5
+BEFUND fr-FR #pick-box-weight: Leeren löscht vorhandenen Wert 1.5 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND fr-FR #pick-measured-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR #pick-measured-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR #pick-measured-weight: ungültig "1e999" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-measured-weight: ungültig "--" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-measured-weight: ungültig "1e" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-measured-weight: negativ "-5" abgewiesen, Wert 40 bleibt  | gespeichert=40
+BEFUND fr-FR #pick-measured-weight: Leeren löscht vorhandenen Wert 40 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND fr-FR #pick-tolerance: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR #pick-tolerance: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR #pick-tolerance: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-tolerance: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-tolerance: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR #pick-tolerance: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+BEFUND fr-FR #pick-tolerance: Leeren löscht vorhandenen Wert 1 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND fr-FR #pick-weight-0: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR #pick-weight-0: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR #pick-weight-0: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS fr-FR #pick-weight-0: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS fr-FR #pick-weight-0: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS fr-FR #pick-weight-0: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+PASS fr-FR #pick-weight-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=1
+BEFUND fr-FR #pick-actual-0: getipptes "1,5" wird still als 15 gespeichert (Stückzahl)  | gespeichert=15
+PASS fr-FR #pick-actual-0: Stückzahl "1.5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS fr-FR #pick-actual-0: ungültig "1e999" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS fr-FR #pick-actual-0: ungültig "--" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS fr-FR #pick-actual-0: ungültig "1e" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS fr-FR #pick-actual-0: negativ "-5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS fr-FR #pick-actual-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=20
+PASS fr-FR Scanner-Eingabefeld ist type=text (nicht von Zahlenlogik betroffen)  | {"type":"text","inputmode":""}
+BEFUND fr-FR #bookQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND fr-FR #invQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND fr-FR #mergeQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND fr-FR #aPack: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+PASS fr-FR (navigator.language=fr-FR) keine JS-Fehler
+BEFUND fr-FR (iPhone 14) #pick-pallet-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR (iPhone 14) #pick-pallet-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR (iPhone 14) #pick-pallet-weight: ungültig "1e999" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-pallet-weight: ungültig "--" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-pallet-weight: ungültig "1e" -> Wert 25 bleibt (+Warnung)  | gespeichert=25 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-pallet-weight: negativ "-5" abgewiesen, Wert 25 bleibt  | gespeichert=25
+BEFUND fr-FR (iPhone 14) #pick-pallet-weight: Leeren löscht vorhandenen Wert 25 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND fr-FR (iPhone 14) #pick-box-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR (iPhone 14) #pick-box-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR (iPhone 14) #pick-box-weight: ungültig "1e999" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-box-weight: ungültig "--" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-box-weight: ungültig "1e" -> Wert 1.5 bleibt (+Warnung)  | gespeichert=1.5 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-box-weight: negativ "-5" abgewiesen, Wert 1.5 bleibt  | gespeichert=1.5
+BEFUND fr-FR (iPhone 14) #pick-box-weight: Leeren löscht vorhandenen Wert 1.5 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND fr-FR (iPhone 14) #pick-measured-weight: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR (iPhone 14) #pick-measured-weight: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR (iPhone 14) #pick-measured-weight: ungültig "1e999" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-measured-weight: ungültig "--" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-measured-weight: ungültig "1e" -> Wert 40 bleibt (+Warnung)  | gespeichert=40 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-measured-weight: negativ "-5" abgewiesen, Wert 40 bleibt  | gespeichert=40
+BEFUND fr-FR (iPhone 14) #pick-measured-weight: Leeren löscht vorhandenen Wert 40 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND fr-FR (iPhone 14) #pick-tolerance: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR (iPhone 14) #pick-tolerance: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR (iPhone 14) #pick-tolerance: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-tolerance: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-tolerance: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte einen gültigen Zahlenwert
+PASS fr-FR (iPhone 14) #pick-tolerance: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+BEFUND fr-FR (iPhone 14) #pick-tolerance: Leeren löscht vorhandenen Wert 1 ohne Rückfrage (bewusst zugelassen; Messwert/Palette: gekoppelter Messwert wird zurückgesetzt)  | gespeichert=null
+BEFUND fr-FR (iPhone 14) #pick-weight-0: getipptes "1,5" wird still als 15 gespeichert (Faktor 10)  | Feldwert="15" gespeichert=15
+PASS fr-FR (iPhone 14) #pick-weight-0: "1.5" -> 1.5  | gespeichert=1.5
+PASS fr-FR (iPhone 14) #pick-weight-0: ungültig "1e999" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS fr-FR (iPhone 14) #pick-weight-0: ungültig "--" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS fr-FR (iPhone 14) #pick-weight-0: ungültig "1e" -> Wert 1 bleibt (+Warnung)  | gespeichert=1 dlg=Ungültige Eingabe: Bitte eine gültige Gewichtsanga
+PASS fr-FR (iPhone 14) #pick-weight-0: negativ "-5" abgewiesen, Wert 1 bleibt  | gespeichert=1
+PASS fr-FR (iPhone 14) #pick-weight-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=1
+BEFUND fr-FR (iPhone 14) #pick-actual-0: getipptes "1,5" wird still als 15 gespeichert (Stückzahl)  | gespeichert=15
+PASS fr-FR (iPhone 14) #pick-actual-0: Stückzahl "1.5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS fr-FR (iPhone 14) #pick-actual-0: ungültig "1e999" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS fr-FR (iPhone 14) #pick-actual-0: ungültig "--" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS fr-FR (iPhone 14) #pick-actual-0: ungültig "1e" -> Wert 20 bleibt (+Warnung)  | gespeichert=20 dlg=Ungültige Eingabe: Bitte eine gültige ganze Istmen
+PASS fr-FR (iPhone 14) #pick-actual-0: negativ "-5" abgewiesen, Wert 20 bleibt  | gespeichert=20
+PASS fr-FR (iPhone 14) #pick-actual-0: Leeren eines vorhandenen Werts wird abgewiesen  | gespeichert=20
+PASS fr-FR (iPhone 14) Scanner-Eingabefeld ist type=text (nicht von Zahlenlogik betroffen)  | {"type":"text","inputmode":""}
+BEFUND fr-FR (iPhone 14) #bookQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND fr-FR (iPhone 14) #invQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND fr-FR (iPhone 14) #mergeQty: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+BEFUND fr-FR (iPhone 14) #aPack: getipptes "1,5" steht im Feld als 15 (Stückzahl, wird so gebucht/geprüft)  | Feldwert="15"
+
+GESAMT 268 / FAIL 0 / BEFUNDE 112
