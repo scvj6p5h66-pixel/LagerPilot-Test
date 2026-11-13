@@ -1,0 +1,55 @@
+PASS 1 Migrationseintrag als neuester Verlaufseintrag vorhanden  | Migration: Konfiguration ergänzt: palletMax, tare; Historie auf 3.000 Einträge begrenzt; Inventurprotokolle auf 10.000 Einträge begrenzt; 2 ungültige Mindestbestände zurückgesetzt; 2 reservierte QR-Zuordnungen entfernt; 3 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt 
+PASS 1 dokumentiert: Konfiguration ergänzt (palletMax, tare)
+PASS 1 dokumentiert: Historie begrenzt
+PASS 1 dokumentiert: Inventurprotokolle begrenzt
+PASS 1 dokumentiert: 2 Mindestbestände zurückgesetzt
+PASS 1 dokumentiert: 2 QR-Zuordnungen entfernt
+PASS 2 dokumentiert: 3 überzählige Boxen zusammengeführt (b1+b2+b3 -> 1, b4+b5 -> 1 = 3 entfernt)  | 3 doppelte Box(en) zusammengeführt
+PASS 2 Mengen: A1 am Platz = 9, A2 = 2; Gesamtzahl Boxen 2 (+KEEP-frei)  | [["A1",9],["A2",2]]
+PASS 1 Verlauf auf 3000 inkl. Migrationseintrag, Originaleinträge h0.. folgen
+PASS 1 Protokolle 10000, Config ergänzt gespeichert
+PASS 4 Import-Hinweis (Alert) enthält Migrationsprotokoll  | Sicherung importiert.  Migration: Konfiguration ergänzt: palletMax, tare; Historie auf 3.000 Einträge begrenzt; Inventur
+PASS keine JS-Fehler
+PASS 5 Sauberes Schema 26: kein Migrationseintrag  | hist=10
+PASS 5 Sauberes Schema 26: Artikel/Boxen/Config/QR/Platz/Logs/Historie unverändert (Schema 27 gesetzt)
+PASS 5 Hinweis ohne Migration: kein Migrationstext im Alert  | Sicherung importiert.  Die Seite wird jetzt neu geladen.
+PASS 5 Schema 27: Import unverändert, kein Migrationseintrag
+PASS 2/Datenverlust: zusammengeführte Box mit gesperrter Menge behält QS-Grund/-Person des gesperrten Teils  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":8,"blocked":3,"qsReason":"Beschädigt","qsBy":"Max","qsSince":"2026-01-01T00:00:00Z"}
+PASS 2/Datenverlust: zwei gesperrte Teile mit verschiedenen QS-Gründen -> beide Gründe erhalten oder dokumentiert  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":8,"blocked":5,"qsReason":"Grund1 | Grund2","qsBy":"Max | Eva"}
+PASS 3 Warnung Artikel-Max überschritten (6+6>10)  | erwartet 1, erhalten 1 | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: 1 zusammengeführte Box(en) überschreiten Artikelkapazität, Fachlast,
+PASS 3 Warnung Fachlast überschritten (6+6 × 100 kg)  | erwartet 1, erhalten 1 | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: 1 zusammengeführte Box(en) überschreiten Artikelkapazität, Fachlast,
+PASS 3 Warnung Zusammenführung im Limit -> keine Warnung  | erwartet 0, erhalten 0 | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt)
+PASS 3 Warnung zwei überschrittene Boxen -> Zähler 2  | erwartet 2, erhalten 2 | Migration: 2 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: 2 zusammengeführte Box(en) überschreiten Artikelkapazität, Fachlast,
+PASS 3 Warnung nicht zusammengeführte Box über Max -> keine Warnung (Info)  | erwartet 0, erhalten 0 | (kein Eintrag)
+PASS 3 Warnung Palettentragfähigkeit überschritten (nur palletMax 500)  | erwartet 1, erhalten 1 | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: 1 zusammengeführte Box(en) überschreiten Artikelkapazität, Fachlast,
+PASS 3 Warnung Feldlast überschritten (nur bay 500)  | erwartet 1, erhalten 1 | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: 1 zusammengeführte Box(en) überschreiten Artikelkapazität, Fachlast,
+FAIL 3 Warnung Gewicht überschritten, aber tare fehlt (null)  | erwartet 1, erhalten 0 | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: Lastprüfung bei 1 zusammengeführten Box(en) nicht vollständig möglic
+PASS 3 Warnung Warnung nur bei Artikel mit weight=null: Max nicht überschritten  | erwartet 0, erhalten 0 | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: Lastprüfung bei 1 zusammengeführten Box(en) nicht vollständig möglic
+PASS 3 Warnung Artikel ohne Max (null) nach Merge -> Info  | erwartet 0, erhalten 0 | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt)
+PASS 3/4 Warnung erscheint im Import-Alert  | Sicherung importiert.  Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: 1 zusammengeführte Box(en) überschreiten Arti
+PASS 3 Verlauf zeigt Migrationseintrag im UI
+PASS 6 history Objekt: sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS 6 history String: sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS 6 history null: (Info) sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS 6 inventoryLogs Objekt: sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS 6 inventoryLogs String: sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS 6 places []: sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung unvollständig oder Lagerplätze ungültig.
+PASS 6 places String: sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung unvollständig oder Lagerplätze ungültig.
+PASS 6 places null: sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung unvollständig oder Lagerplätze ungültig.
+PASS 6 places Zahl: sauber behandelt, ohne JS-Fehler/Rohtext  | changed=false msg=Alte Sicherung unvollständig oder Lagerplätze ungültig.
+PASS 6 places {} leer: (Info) sauber behandelt, ohne JS-Fehler/Rohtext  | changed=true msg= places=6480 hist=0
+PASS 4 Laden v2.6: upgradeNote enthält Übernahme + Migrationsprotokoll + Warnung  | Daten aus Version 2.6 übernommen; alte Version bleibt unverändert. Migration: Konfiguration ergänzt: bay, palletMax, tare; Historie auf 3.000 Einträge begrenzt; 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit 
+FAIL 4 Laden v2.6: Hinweis im UI sichtbar  | vis=false mig=false
+PASS 5 Laden v2.6: Original-Schlüssel unverändert, 1 zusammengeführte Box (12)
+PASS Laden: keine JS-Fehler, nicht gesperrt
+PASS 4/5 Laden sauberes v2.6: Hinweis nur "übernommen", kein Migrationseintrag, Bestand gleich  | Daten aus Version 2.6 übernommen; alte Version bleibt unverändert.
+PASS 6 Laden v2.6 mit places []: Sperre/Quarantäne, Original unverändert, kein JS-Fehler  | locked=true
+PASS 6 Laden v2.6 mit ungültiger Historie: Sperre, Original unverändert
+PASS Info Legacy: Laden dokumentiert Bereinigung (Migrationseintrag/Hinweis)?  | note="Daten aus LagerPilot 2.5 übernommen; Original bleibt unverändert. Migration: Historie auf 3.000 Einträge inklusive Migrationshinweisen begrenzt; 1 ungültige Mindestbestände zurückgesetzt" hist0="Migration: Historie auf 3.000 Einträge inklusive Migrationshinweisen begrenzt; 1 ungültige Mindestbestände zurückgesetzt" ; min zurückgesetzt/Historie gekappt ohne Protokoll: false
+FAIL 5 Legacy: Hauptschlüssel unverändert, Menge 3/gesperrt 1 korrekt
+
+GESAMT 49 / FAIL 3
+ - 3 Warnung Gewicht überschritten, aber tare fehlt (null)
+ - 4 Laden v2.6: Hinweis im UI sichtbar
+ - 5 Legacy: Hauptschlüssel unverändert, Menge 3/gesperrt 1 korrekt
+exit 0

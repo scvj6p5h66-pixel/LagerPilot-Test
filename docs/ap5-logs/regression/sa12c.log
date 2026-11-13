@@ -1,0 +1,46 @@
+PASS 1 Neuanlage eines neuen Artikels: gespeichert  | Artikel gespeichert.
+PASS 1 Neuanlage: bestehende Artikel, Boxen, Plätze, QR-Zuordnungen und Konfiguration unverändert
+PASS 1 Formular nach Speichern leer, Neuanlage-Modus (Artikelnummer editierbar)
+PASS 4 Mindestbestand 500 > max. Boxmenge 100 bei Neuanlage zulässig (kein Fehler, Werte gespeichert)
+PASS 4 Beispiel Mindestbestand 500 / Box 100: Meldung „gespeichert“, keine Mindestbestand-Fehlermeldung  | Artikel gespeichert.
+PASS 4 Mindestbestand 0 bleibt zulässig  | Artikel gespeichert.
+PASS 4 Weiterhin geprüft: negativer Mindestbestand abgewiesen  | Mindestbestand muss eine ganze Zahl ab 0 sein.
+PASS 4 Weiterhin geprüft: Mindestbestand mit Dezimalstellen abgewiesen  | Mindestbestand muss eine ganze Zahl ab 0 sein.
+PASS 4 Weiterhin geprüft: maximale Boxmenge 0 abgewiesen  | Maximale Boxmenge muss eine positive ganze Zahl sein.
+PASS 4 Weiterhin geprüft: fehlende Bezeichnung  | Artikelbezeichnung fehlt.
+PASS 4 Weiterhin geprüft: fehlende Artikelnummer  | Artikelnummer fehlt.
+PASS 4 Weiterhin geprüft: Stück pro Pack 0  | Stück pro Pack muss eine positive ganze Zahl sein.
+PASS 2 Neuanlage mit vorhandener Artikelnummer (exakt) abgewiesen, verständliche Meldung  | Artikelnummer ALT-1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 2 … Daten und Speicher unverändert (exakt)
+PASS 2 Neuanlage mit vorhandener Artikelnummer (Kleinschreibung) abgewiesen, verständliche Meldung  | Artikelnummer ALT-1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 2 … Daten und Speicher unverändert (Kleinschreibung)
+PASS 2 Neuanlage mit vorhandener Artikelnummer (Leerzeichen am Ende) abgewiesen, verständliche Meldung  | Artikelnummer ALT-1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 2 … Daten und Speicher unverändert (Leerzeichen am Ende)
+PASS 2 Neuanlage mit vorhandener Artikelnummer (gemischte Schreibweise) abgewiesen, verständliche Meldung  | Artikelnummer ALT-1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 2 … Daten und Speicher unverändert (gemischte Schreibweise)
+PASS 2 Neuanlage mit vorhandener Artikelnummer (vorher neu angelegter Artikel) abgewiesen, verständliche Meldung  | Artikelnummer NEU-1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 2 … Daten und Speicher unverändert (vorher neu angelegter Artikel)
+PASS 3 Bearbeitungsmodus: Hinweis sichtbar, Artikelnummer gesperrt, Felder gefüllt
+PASS 3 Bearbeitung bestehender Artikel: Name und Mindestbestand (800 > Box 100) gespeichert  | Artikel gespeichert.
+PASS 3 Bearbeitung: Barcode, Einheit, Gewicht, Box- und Platzdaten unverändert, kein Duplikat
+PASS 3 Nach erfolgreichem Bearbeiten wieder Neuanlage-Modus
+PASS 3 Bearbeitungsmodus ALT-2, Nummer auf ALT-1 manipuliert: abgewiesen, ALT-1 nicht überschrieben  | Im Bearbeitungsmodus kann die Artikelnummer nicht geändert werden. Bitte „Eingabe leeren“ wählen und den Artikel neu anlegen.
+PASS 5 Speicherlogik: gelöschter Artikel wird beim Speichern nicht neu angelegt  | Der zu bearbeitende Artikel existiert nicht mehr. Bitte „Eingabe leeren“ wählen.
+PASS 5 Einheit mit Bestand ändern (STK→P): abgelehnt, Artikel und Boxen unverändert  | Einheit/Packgröße bei vorhandenem Bestand nicht ohne Migration ändern.
+PASS 5 Packgröße mit Bestand ändern: abgelehnt, Artikel und Boxen unverändert  | Einheit/Packgröße bei vorhandenem Bestand nicht ohne Migration ändern.
+PASS 5 max. Boxmenge unter Bestand (80 > 50): abgelehnt, Artikel und Boxen unverändert  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 80 Einheiten, neues Maximum ist 50.
+PASS 5 Gewicht und Max bei Bestand löschen: abgelehnt, Artikel und Boxen unverändert  | Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.
+PASS 2 Barcode eines vorhandenen Artikels als Artikelnummer: abgewiesen, Daten unverändert  | Artikelnummer kollidiert mit einem vorhandenen Barcode.
+PASS 2 Artikelnummer = Lagerplatz: abgewiesen, Daten unverändert  | Artikelnummer oder Barcode kollidiert mit einem Lagerplatz-QR-Code.
+PASS 2 Barcode bereits vergeben: abgewiesen, Daten unverändert  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 7 Wiederholtes Bearbeiten (5×): immer gespeichert, Artikelanzahl konstant, keine Duplikate
+PASS 7 Wiederholtes Speichern: Bestände/Boxen/Plätze identisch zum Ausgangszustand
+PASS 7 Doppelklick auf „Artikel speichern“ legt genau einen Artikel an  | 1
+PASS 6 Export enthält Artikel, Boxen, Plätze unverändert (inkl. Altartikel mit Mindestbestand > Boxmenge)
+PASS 6 Import der Sicherung: Artikel, Boxen, Plätze, QR identisch zum Export
+PASS 6 Export → Import → Export: Daten identisch
+PASS 2 Nach dem Import: Duplikat-Schutz weiterhin aktiv  | Artikelnummer ALT-1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 8 Keine JavaScript-Fehler
+
+GESAMT 43 Prüfungen / FAIL 0
+exit 0

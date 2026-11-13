@@ -1,0 +1,17 @@
+PASS Beide Stände laden den Referenzbestand ohne Fehler
+PASS Export alt/neu: Artikel, Boxen, Plätze, Konfiguration identisch  | schema,places,items,boxes,history,inventoryLogs,qrMap,config,legacyOrders,_pick
+PASS Export alt/neu: gesamte Datei identisch (ohne Zeitstempel)
+PASS Import (Export von 8fde636) in neuen Stand: Artikel/Boxen/Plätze/Konfiguration unverändert
+PASS Import in neuen Stand: Sonderzeichen-Artikel korrekt
+PASS Import in neuen Stand: Altartikel Min 500 / Max 100 unverändert
+PASS Import in neuen Stand: gesperrte Teilmenge, Platzstatus erhalten
+PASS Rückrichtung: Export des neuen Stands in alten Stand importierbar, Bestand unverändert
+PASS Rundlauf Export→Import im neuen Stand: unverändert
+PASS valid() nach Import bestanden, 6.480 Plätze
+PASS CSV-Export alt/neu identisch  | 7 Zeilen
+PASS Beschädigte Importdatei: Bestand unverändert
+PASS Kommissionier-Speicher nach Lagerbuchung unverändert  | null
+PASS Wareneingang +1 auf bestehende Box wirkt (40→41)
+PASS Keine JavaScript-Fehler (alle Seiten)  | ;;;;
+GESAMT 15 / FAIL 0
+exit 0

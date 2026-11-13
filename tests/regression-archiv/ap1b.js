@@ -1,0 +1,10 @@
+const {open}=require('./lib');
+(async()=>{const h=await open();const {p,ev}=h;
+await p.evaluate(()=>localStorage.setItem('lagerpilot_pick_demo_v1','{bad'));await p.reload();await p.waitForTimeout(600);
+const st=()=>p.evaluate(()=>{const e=document.getElementById('storageLockBanner');return {hidden:e.classList.contains('hidden'),reason:document.getElementById('storageLockReason').textContent.slice(0,80),btn:!!document.getElementById('storageRawDownload')}});
+console.log('nach Laden',JSON.stringify(await st()),'dlg',JSON.stringify(await h.dlg()),'locked',await ev(()=>pickStorageLocked));
+await ev(()=>render());console.log('nach render()',JSON.stringify(await st()));
+await h.go('picking');console.log('Kommissionierbereich: Banner',JSON.stringify(await st()),'| Text im Bereich:',await p.evaluate(()=>/beschädigt|gesperrt/i.test(document.getElementById('picking').innerText)));
+await h.go('pickAdmin');console.log('Admin: sichtbarer Hinweis',await p.evaluate(()=>/beschädigt|gesperrt/i.test(document.getElementById('pickAdmin').innerText)));
+console.log('Roster-UI zeigt Standarddaten:',await p.evaluate(()=>document.getElementById('pickOrders').innerText.slice(0,60).replace(/\s+/g,' ')));
+await p.screenshot({path:'ap1_lock.png'});await h.b.close();})();

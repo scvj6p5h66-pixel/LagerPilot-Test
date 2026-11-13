@@ -1,0 +1,87 @@
+PASS Leerer Zustand (alt = neu)  | Treffer: 0
+PASS Leerer Zustand Erwartung fachlich  | Treffer neu=0
+PASS Artikel ohne Boxen (alt = neu)  | Treffer: 0
+PASS Artikel ohne Boxen Erwartung fachlich  | Treffer neu=0
+PASS Boxen ohne Maximalmenge (max=null) (alt = neu)  | Treffer: 0
+PASS Boxen ohne Maximalmenge (max=null) Erwartung fachlich  | Treffer neu=0
+PASS Einzelne Box (alt = neu)  | Treffer: 0
+PASS Einzelne Box Erwartung fachlich  | Treffer neu=0
+PASS Zulässig: zwei Boxen 10+20<=100 (alt = neu)  | Treffer: 1
+PASS Zulässig: zwei Boxen 10+20<=100 Erwartung fachlich  | Treffer neu=1
+PASS Grenze: Summe == Max (50+50) (alt = neu)  | Treffer: 2
+PASS Grenze: Summe == Max (50+50) Erwartung fachlich  | Treffer neu=2
+PASS Grenze: Summe == Max+1 unzulässig (alt = neu)  | Treffer: 0
+PASS Grenze: Summe == Max+1 unzulässig Erwartung fachlich  | Treffer neu=0
+PASS Gleiche Mengen (dst.qty == src.qty zulässig) (alt = neu)  | Treffer: 2
+PASS Gleiche Mengen (dst.qty == src.qty zulässig) Erwartung fachlich  | Treffer neu=2
+PASS Kleinere Zielmenge ausgeschlossen (nur größere/gleiche Ziele) (alt = neu)  | Treffer: 1
+PASS Kleinere Zielmenge ausgeschlossen (nur größere/gleiche Ziele) Erwartung fachlich  | Treffer neu=1
+PASS Alle Boxen über Max/2: keine Vorschläge (alt = neu)  | Treffer: 0
+PASS Alle Boxen über Max/2: keine Vorschläge Erwartung fachlich  | Treffer neu=0
+PASS Gesperrte Boxen ausgeschlossen (blocked) (alt = neu)  | Treffer: 0
+PASS Gesperrte Boxen ausgeschlossen (blocked) Erwartung fachlich  | Treffer neu=0
+PASS Teilweise gesperrt (blocked>0) ausgeschlossen (alt = neu)  | Treffer: 0
+PASS Teilweise gesperrt (blocked>0) ausgeschlossen Erwartung fachlich  | Treffer neu=0
+PASS Menge 0 ausgeschlossen (alt = neu)  | Treffer: 0
+PASS Menge 0 ausgeschlossen Erwartung fachlich  | Treffer neu=0
+PASS Platzstatus locked ausgeschlossen (alt = neu)  | Treffer: 0
+PASS Platzstatus locked ausgeschlossen Erwartung fachlich  | Treffer neu=0
+PASS Platzstatus reserved ausgeschlossen (alt = neu)  | Treffer: 0
+PASS Platzstatus reserved ausgeschlossen Erwartung fachlich  | Treffer neu=0
+PASS Platzstatus fixed ausgeschlossen (alt = neu)  | Treffer: 0
+PASS Platzstatus fixed ausgeschlossen Erwartung fachlich  | Treffer neu=0
+PASS Unterschiedliche Artikel werden nie vermischt (alt = neu)  | Treffer: 0
+PASS Unterschiedliche Artikel werden nie vermischt Erwartung fachlich  | Treffer neu=0
+PASS Zwei Artikel, jeweils zusammenführbar, verschachtelt (alt = neu)  | Treffer: 2
+PASS Zwei Artikel, jeweils zusammenführbar, verschachtelt Erwartung fachlich  | Treffer neu=2
+PASS Unterschiedliche Maximalmengen je Artikel (alt = neu)  | Treffer: 2
+PASS Unterschiedliche Maximalmengen je Artikel Erwartung fachlich  | Treffer neu=2
+PASS Zielwahl: gleiche Halle vor anderer Halle (alt = neu)  | Treffer: 3
+PASS Zielwahl: kleinster Regalabstand (alt = neu)  | Treffer: 4
+PASS Zielwahl: bei gleichem Abstand größere Menge (alt = neu)  | Treffer: 2
+PASS Gleichstand komplett: erste Box in Reihenfolge gewinnt (alt = neu)  | Treffer: 4
+PASS Gleichstand Reihenfolge umgekehrt (alt = neu)  | Treffer: 4
+PASS Gleiche Menge bei allen: Reihenfolge der Quellen stabil (alt = neu)  | Treffer: 6
+PASS Gleiche Menge bei allen: Reihenfolge der Quellen stabil Erwartung fachlich  | Treffer neu=6
+PASS Mehr als 30 mögliche Vorschläge: nur 30, sortiert nach Quellmenge (alt = neu)  | Treffer: 30
+PASS Mehr als 30 mögliche Vorschläge: nur 30, sortiert nach Quellmenge Erwartung fachlich  | Treffer neu=30
+PASS Mehrere Artikel, Gleichstand der Quellmenge: Artikelreihenfolge entscheidet (alt = neu)  | Treffer: 6
+PASS Mehrere Artikel, Gleichstand der Quellmenge: Artikelreihenfolge entscheidet Erwartung fachlich  | Treffer neu=6
+PASS Altdaten: max undefined (alt = neu)  | Treffer: 0
+PASS Altdaten: max undefined Erwartung fachlich  | Treffer neu=0
+PASS Altdaten: max als Text (alt = neu)  | Treffer: 1
+PASS Altdaten: doppelte Box-IDs (alt = neu)  | Treffer: 3
+PASS Altdaten: Nachkommamengen (alt = neu)  | Treffer: 1
+PASS Altdaten: Plätze ohne Regalnummer (NaN-Fall) (alt = neu)  | Treffer: 3
+PASS Altdaten: Artikel doppelt in Artikelliste (alt = neu)  | Treffer: 2
+PASS Altdaten: Boxen mit unbekanntem Artikel (alt = neu)  | Treffer: 0
+PASS Altdaten: Boxen mit unbekanntem Artikel Erwartung fachlich  | Treffer neu=0
+PASS Altdaten: Box an nicht vorhandenem Platz (status undefined) (alt = neu)  | Treffer: 0
+PASS Altdaten: Max 1 (alt = neu)  | Treffer: 0
+PASS Altdaten: Max 1 Erwartung fachlich  | Treffer neu=0
+PASS Sehr große Mengen (alt = neu)  | Treffer: 1
+PASS 300 Zufallsdatensätze: Ergebnis identisch zur bisherigen Implementierung  | 300 Fälle
+PASS Großer Bestand 500 Boxen (worst): identisch zur bisherigen Implementierung  | Treffer 30 (inkl. Referenzlauf 0 s)
+PASS Großer Bestand 2000 Boxen (worst): identisch zur bisherigen Implementierung  | Treffer 30 (inkl. Referenzlauf 6 s)
+PASS Großer Bestand 2000 Boxen (multi): identisch zur bisherigen Implementierung  | Treffer 30 (inkl. Referenzlauf 0 s)
+PASS Großer Bestand 6480 Boxen (worst): identisch zur bisherigen Implementierung  | Treffer 30 (inkl. Referenzlauf 81 s)
+PASS Großer Bestand 6480 Boxen (multi): identisch zur bisherigen Implementierung  | Treffer 30 (inkl. Referenzlauf 1 s)
+PASS Großer Bestand 6480 Boxen (many): identisch zur bisherigen Implementierung  | Treffer 30 (inkl. Referenzlauf 1 s)
+PASS Großer Bestand 10000 Boxen (worst): identisch zur bisherigen Implementierung  | Treffer 30 (inkl. Referenzlauf 86 s)
+PASS Großer Bestand 10000 Boxen (many): identisch zur bisherigen Implementierung  | Treffer 30 (inkl. Referenzlauf 1 s)
+PASS Belegungszählung Startseite: 200 Zufallsdatensätze identisch zur bisherigen Implementierung  | 200 Fälle
+PASS Belegungszählung 0 Boxen (worst) identisch  | {"free":6480,"occupied":0,"locked":0}
+PASS Belegungszählung 500 Boxen (worst) identisch  | {"free":5980,"occupied":500,"locked":0}
+PASS Belegungszählung 6480 Boxen (worst) identisch  | {"free":0,"occupied":6480,"locked":0}
+PASS Belegungszählung 10000 Boxen (many) identisch  | {"free":1431,"occupied":5049,"locked":0}
+PASS Belegungszählung: Box mit Menge 0 zählt nicht als belegt, gesperrte Box zählt als gesperrt  | {"free":6478,"occupied":1,"locked":1}
+PASS Anzeigeoperationen (Tabwechsel, render, renderMerge, Aktualisieren): gespeicherte Daten unverändert
+PASS Anzeigeoperationen: Arbeitszustand unverändert
+PASS Merge-Tab nach Buchung in anderem Tab: Liste entspricht aktuellem Bestand  | H4B-3-9: 1 STK → H4B-3-144: 61 STK
+PASS Merge-Tab aktiv: Liste nach Umlagerung sofort aktuell  | H4A-5-155: 1 STK → H4A-5-73: 54 STK
+PASS "Vorschlag übernehmen" füllt Quelle/Ziel/Artikel/Menge korrekt  | true
+PASS Umlagerung: Gesamtbestand je Artikel bleibt erhalten
+PASS Zustand nach allen Aktionen gültig (valid) und Platzanzahl 6.480
+PASS Keine JavaScript-Fehler
+GESAMT 85 / FAIL 0
+exit 0

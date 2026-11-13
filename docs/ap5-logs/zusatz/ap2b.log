@@ -1,0 +1,17 @@
+lock constructor: Lagerplatz existiert nicht.
+lock __proto__: Lagerplatz existiert nicht.
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.evaluate: TypeError: Cannot read properties of undefined (reading 'text')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:22)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at ev (/tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/t/lib.js:9:16)
+    at /tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/t/ap2b.js:7:256 {
+  log: []
+}
+
+Node.js v22.23.4
+exit 1

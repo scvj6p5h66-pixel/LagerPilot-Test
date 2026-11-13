@@ -1,0 +1,22 @@
+PASS iPhone 14 (CPU 4x, 6480 Boxen): Wareneingang per Tap: Menge +3 (29→32) in 0.98 s  | ✓ Buchung gespeichert.
+PASS iPhone 14 (CPU 4x, 6480 Boxen): Buchung unter 3 s (Zielwert für Bedienbarkeit)  | 0.98 s
+PASS iPhone 14 (CPU 4x, 6480 Boxen): Zusammenführ-Tab zeigt Vorschläge (30) nach 0.50 s
+PASS iPhone 14 (CPU 4x, 6480 Boxen): Öffnen des Tabs unter 3 s  | 0.50 s
+PASS iPhone 14 (CPU 4x, 6480 Boxen): "Vorschlag übernehmen" füllt Felder per Tap
+PASS iPhone 14 (CPU 4x, 6480 Boxen): Zusammenführen per Tap: Zielmenge 61+1, Quellbox leer, in 1.08 s
+PASS iPhone 14 (CPU 4x, 6480 Boxen): Umlagerung unter 3 s  | 1.08 s
+PASS iPhone 14 (CPU 4x, 6480 Boxen): Zustand gültig (valid) und gespeichert
+PASS iPhone 14 (CPU 4x, 6480 Boxen): kein horizontaler Seitenüberlauf
+PASS iPhone 14 (CPU 4x, 6480 Boxen): Tabwechsel per Tap ohne JavaScript-Fehler
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): Wareneingang per Tap: Menge +3 (29→32) in 0.81 s  | ✓ Buchung gespeichert.
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): Buchung unter 3 s (Zielwert für Bedienbarkeit)  | 0.81 s
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): Zusammenführ-Tab zeigt Vorschläge (30) nach 0.31 s
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): Öffnen des Tabs unter 3 s  | 0.31 s
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): "Vorschlag übernehmen" füllt Felder per Tap
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): Zusammenführen per Tap: Zielmenge 61+1, Quellbox leer, in 0.87 s
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): Umlagerung unter 3 s  | 0.87 s
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): Zustand gültig (valid) und gespeichert
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): kein horizontaler Seitenüberlauf
+PASS iPad Pro 11 (CPU 4x, 6480 Boxen): Tabwechsel per Tap ohne JavaScript-Fehler
+GESAMT 20 / FAIL 0
+exit 0

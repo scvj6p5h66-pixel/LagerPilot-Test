@@ -1,0 +1,12 @@
+const {open}=require('./lib');
+const setf=(p,id,v)=>p.evaluate(([id,v])=>{const e=document.getElementById(id);e.value=v;e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))},[id,v]);
+(async()=>{const h=await open();
+await h.p.evaluate(()=>{transaction(s=>{Object.assign(s.config,{shelf:800,bay:2000,palletMax:1000,tare:25});s.items.push({code:'A1',name:'Art1',barcode:'BC1',unit:'STK',pack:1,weight:2,max:100,min:3});s.boxes.push({id:'b1',place:'H4A-1-1',code:'A1',qty:50,blocked:0},{id:'b4',place:'H4A-5-1',code:'A1',qty:55,blocked:0})})});
+await h.go('articles');
+for(const [k,x] of Object.entries({aName:'Art1',aCode:'A1',aBarcode:'BC1',aUnit:'STK',aPack:'1',aWeight:'14.09',aMax:'60',aMin:'3'}))await setf(h.p,k,x);
+await h.p.evaluate(()=>aSave.click());
+console.log('14.09 (55*14.09+25=799.95):',await h.p.evaluate(()=>aMessage.textContent.trim()), await h.p.evaluate(()=>state.items[0].weight));
+for(const [k,x] of Object.entries({aWeight:'14.1'}))await setf(h.p,k,x);
+await h.p.evaluate(()=>aSave.click());
+console.log('14.1 (800.5):',await h.p.evaluate(()=>aMessage.textContent.trim()));
+await h.b.close()})();

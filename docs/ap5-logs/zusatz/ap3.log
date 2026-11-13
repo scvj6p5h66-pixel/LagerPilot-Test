@@ -1,0 +1,63 @@
+PASS 1 Sperre "constructor": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "__proto__": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "toString": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "hasOwnProperty": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "valueOf": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "prototype": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "isPrototypeOf": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "   ": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "H4A-999-1": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "H4A-1-163": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "H4C-1-1": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "H4A-0-1": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "H4A-1-1-1": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "null": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "undefined": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Sperre "<b>x</b>": Fehlermeldung, keine Änderung  | msg=Lagerplatz existiert nicht. places=6480 hist=0
+PASS 1 Prototyp von state.places unverändert
+PASS 4 Sperre H4A-5-5 locked
+PASS 4  -> Status+Historie  | Lagerplatz H4A-5-5 → locked · Defekt
+PASS 4 Sperre per Kleinschreibung h4b-2-2 reserved  | reserved
+PASS 4 Sperre fixed
+PASS 4 Freigeben
+PASS 4 Sperre per zugeordnetem QR
+PASS 1 Plätze weiter 6480
+PASS 1 Buchen auf "constructor" abgelehnt
+PASS 4 Buchung auf normalen Platz
+PASS 4 Buchung auf gesperrten Platz abgelehnt  | Lagerplatz gesperrt oder reserviert: H4A-7-7
+PASS 2 QR "__proto__": verständlich abgelehnt, Daten unverändert  | msg=Dieser Code ist reserviert und kann nicht zugeordnet werden. changed=false
+PASS 2 QR "constructor": verständlich abgelehnt, Daten unverändert  | msg=Dieser Code ist reserviert und kann nicht zugeordnet werden. changed=false
+PASS 2 QR "prototype": verständlich abgelehnt, Daten unverändert  | msg=Dieser Code ist reserviert und kann nicht zugeordnet werden. changed=false
+PASS 2 QR "toString": verständlich abgelehnt, Daten unverändert  | msg=Dieser Code ist reserviert und kann nicht zugeordnet werden. changed=false
+PASS 2 QR "hasOwnProperty": verständlich abgelehnt, Daten unverändert  | msg=Dieser Code ist reserviert und kann nicht zugeordnet werden. changed=false
+PASS 2 QR "valueOf": (Info, nicht in Sperrliste) verständlich abgelehnt, Daten unverändert  | msg=QR-Code mit H4A-8-8 verknüpft. changed=true
+PASS 2 Info valueOf als eigener Schlüssel: Zuordnung funktioniert und wird korrekt aufgelöst
+PASS 2 QR "isPrototypeOf": (Info, nicht in Sperrliste) verständlich abgelehnt, Daten unverändert  | msg=QR-Code mit H4A-8-8 verknüpft. changed=true
+PASS 2 Info isPrototypeOf als eigener Schlüssel: Zuordnung funktioniert und wird korrekt aufgelöst
+PASS 2 Normaler QR weiter ok
+PASS 2 Normaler QR wird erkannt
+PASS 2 Doppelte Zuordnung weiter abgelehnt
+PASS 2/1 JS-Fehler
+PASS 3 Inventur bei 10000 Protokollen: gebucht, Länge ≤ 10000  | msg=✓ Inventurdifferenz gespeichert. len=10000
+PASS 3  -> neuester Eintrag zuerst, ältester verdrängt (nur bei 10000)
+PASS 3  -> weitere Inventur direkt danach ok  | ✓ Inventurdifferenz gespeichert.
+PASS 3  -> nicht gesperrt, Reload ok
+PASS 3 Inventur bei 9999 Protokollen: gebucht, Länge ≤ 10000  | msg=✓ Inventurdifferenz gespeichert. len=10000
+PASS 3  -> neuester Eintrag zuerst, ältester verdrängt (nur bei 10000)
+PASS 3  -> weitere Inventur direkt danach ok  | ✓ Inventurdifferenz gespeichert.
+PASS 3  -> nicht gesperrt, Reload ok
+FAIL 3 Inventur bei 9500 Protokollen: gebucht, Länge ≤ 10000  | msg=✓ Inventurdifferenz gespeichert. len=9501
+PASS 3  -> neuester Eintrag zuerst, ältester verdrängt (nur bei 10000)
+FAIL 3  -> weitere Inventur direkt danach ok  | ✓ Inventurdifferenz gespeichert.
+PASS 3  -> nicht gesperrt, Reload ok
+PASS 4 Inventur Differenz +
+PASS 4 Inventur Differenz −
+PASS 4 Inventur auf 0
+PASS 4 Inventur: Protokoll zeigt Einträge
+PASS 3/4 JS-Fehler
+
+GESAMT 58 / FAIL 2
+ - 3 Inventur bei 9500 Protokollen: gebucht, Länge ≤ 10000
+ - 3  -> weitere Inventur direkt danach ok
+exit 0

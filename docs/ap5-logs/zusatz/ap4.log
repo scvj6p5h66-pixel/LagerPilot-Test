@@ -1,0 +1,62 @@
+FAIL 1 Schema 26, 3500 Historie -> importiert, auf 3000 gekappt, neueste behalten  | len=3000 msg=
+PASS 1 keine JS-Fehler
+PASS 1 Schema 26, genau 3000 -> unverändert 3000
+PASS 1 Schema 26, 50000 Historie -> 3000
+PASS 1 Schema 26 inventoryLogs 10500 -> 10000
+PASS 2 Config nur shelf -> ergänzt/übernommen  | {"shelf":500,"bay":null,"palletMax":null,"tare":null} msg=
+PASS 2 Config leer {} -> ergänzt/übernommen  | {"shelf":800,"bay":null,"palletMax":null,"tare":null} msg=
+PASS 2 Config fehlend (undefined) -> ergänzt/übernommen  | {"shelf":800,"bay":null,"palletMax":null,"tare":null} msg=
+PASS 2 Config teilweise -> ergänzt/übernommen  | {"shelf":900,"bay":2000,"palletMax":null,"tare":20} msg=
+PASS 2 Config voll -> ergänzt/übernommen  | {"shelf":700,"bay":1500,"palletMax":900,"tare":25} msg=
+PASS 2 Ungültige Config-WERTE (shelf "abc"): entweder bereinigt oder sauber abgelehnt (kein Absturz, keine Halbdaten)  | changed=false cfg=null msg=Importdaten ungültig.
+PASS 2 Ungültige Config-WERTE (negativ): entweder bereinigt oder sauber abgelehnt (kein Absturz, keine Halbdaten)  | changed=false cfg=null msg=Importdaten ungültig.
+PASS 2 Ungültige Config-WERTE (Array): entweder bereinigt oder sauber abgelehnt (kein Absturz, keine Halbdaten)  | changed=true cfg={"shelf":800,"bay":null,"palletMax":null,"tare":null} msg=
+PASS 2 Ungültige Config-WERTE (String): entweder bereinigt oder sauber abgelehnt (kein Absturz, keine Halbdaten)  | changed=true cfg={"shelf":800,"bay":null,"palletMax":null,"tare":null} msg=
+PASS 2 Ungültige Config-WERTE (null): entweder bereinigt oder sauber abgelehnt (kein Absturz, keine Halbdaten)  | changed=true cfg={"shelf":800,"bay":null,"palletMax":null,"tare":null} msg=
+PASS 3 Duplikat-Boxen zusammengeführt (Summe 5, eine Box, id der ersten)  | [{"id":"b1","place":"H4A-1-1","code":"A1","qty":5,"blocked":0}]
+PASS 3 Hinweis an Nutzer über Zusammenführung (Meldung/Historie)  | msg= hist0=Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: Lastprüfung bei 1 zusammengeführten Box(en) nicht vollständig möglich, Lastdaten fehlen
+PASS 3/7 Drei Duplikate: Summe 22, gesperrt 6, qs-Felder der ersten Box erhalten  | [{"id":"b1","place":"H4A-1-1","code":"A1","qty":22,"blocked":6,"qsReason":"QS","qsBy":"Max"}]
+PASS 7 Gesamtmengen je Artikel vor/nach gleich (A1=7, A2=3), Mischpalette/anderer Platz unberührt  | [["H4A-1-1","A1",3],["H4A-1-1","A2",3],["H4A-1-2","A1",4]]
+PASS 7 Duplikat mit Menge 0  | [{"id":"b1","place":"H4A-1-1","code":"A1","qty":3,"blocked":0}]
+PASS 9 Duplikate mit ungültigen Mengen (negative Menge) -> Abbruch, Daten unverändert, deutsche Meldung, kein JS-Fehler  | msg=Doppelte Boxen enthalten ungültige Mengen; bitte Originaldaten prüfen.
+PASS 9 Duplikate mit ungültigen Mengen (Dezimal) -> Abbruch, Daten unverändert, deutsche Meldung, kein JS-Fehler  | msg=Doppelte Boxen enthalten ungültige Mengen; bitte Originaldaten prüfen.
+PASS 9 Duplikate mit ungültigen Mengen (String-Menge) -> Abbruch, Daten unverändert, deutsche Meldung, kein JS-Fehler  | msg=Doppelte Boxen enthalten ungültige Mengen; bitte Originaldaten prüfen.
+PASS 9 Duplikate mit ungültigen Mengen (blocked>qty) -> Abbruch, Daten unverändert, deutsche Meldung, kein JS-Fehler  | msg=Doppelte Boxen enthalten ungültige Mengen; bitte Originaldaten prüfen.
+PASS 9 Duplikate mit ungültigen Mengen (Überlauf) -> Abbruch, Daten unverändert, deutsche Meldung, kein JS-Fehler  | msg=Doppelte Boxen überschreiten den sicheren Zahlenbereich.
+PASS 9 Nicht sicher migrierbar (history Objekt) -> abgelehnt/Fehlermeldung, Bestand unverändert  | msg=Alte Sicherung: Verlauf oder Inventurprotokolle ungültig. changed=false errs=
+PASS 9 Nicht sicher migrierbar (items kein Array) -> abgelehnt/Fehlermeldung, Bestand unverändert  | msg=Alte Sicherung unvollständig oder Lagerplätze ungültig. changed=false errs=
+PASS 9 Nicht sicher migrierbar (places Array) -> abgelehnt/Fehlermeldung, Bestand unverändert  | msg=Alte Sicherung unvollständig oder Lagerplätze ungültig. changed=false errs=
+PASS 9 Nicht sicher migrierbar (Box mit unbekanntem Artikel) -> abgelehnt/Fehlermeldung, Bestand unverändert  | msg=Importdaten ungültig. changed=false errs=
+PASS 9 Nicht sicher migrierbar (Box auf ungültigem Platz) -> abgelehnt/Fehlermeldung, Bestand unverändert  | msg=Ungültiger Lagerplatz in Box: Z-9 changed=false errs=
+PASS 9 Nicht sicher migrierbar (qrMap ungültiger Platz) -> abgelehnt/Fehlermeldung, Bestand unverändert  | msg=Ungültige QR-Zuordnung. changed=false errs=
+PASS 4 Reservierte QR-Schlüssel entfernt, normale bleiben  | {"__proto__x":"H4A-1-3","QR1":"H4A-2-1"}
+PASS 4 JSON-Literal "__proto__" im qrMap der Datei
+PASS 5 Legacy minStock: 5.5/"10"/-2/fehlend/null -> null; 7 und 0 bleiben  | {"L1":null,"L2":null,"L3":7,"L4":null,"L5":null,"L6":null,"L7":0}
+FAIL 5 Legacy Historie 3500 -> ≤3000 inkl. Migrationseintrag  | len=3000
+PASS 7 Legacy Gesamt/gesperrte Menge korrekt (5/2 und 4/0)  | [["H4A-1-1",5,2],["H4A-1-2",4,0]]
+PASS 6 Schema 27 mit 3001 Historie weiter abgelehnt (keine stille Aufweichung)  | Ungültiges Backupformat.
+PASS 6 Schema 27 mit leerer Config weiter abgelehnt  | Ungültiges Backupformat.
+PASS 6 Schema 27 mit Duplikat-Boxen weiter abgelehnt  | Ungültiges Backupformat.
+PASS Info Kapazität: Merge ergibt 12 > Max 10 / 3600 kg > Fachlast 800 -> Import ohne Warnung?  | changed=true qty=12 msg=""
+PASS 7 Nach Merge: Ausbuchen aus überfüllter Box möglich (Reparatur)
+PASS 6 Laden v2.6-Speicher mit 3500 Historie -> geladen, nicht gesperrt, 3000  | locked=false hist=3000 err=
+PASS 8 Originalschlüssel lagerpilot_v2_6 byteweise unverändert
+PASS 6 Hinweis zur Übernahme (upgradeNote)  | Daten aus Version 2.6 übernommen; alte Version bleibt unverändert. Migration: Historie auf 3.000 Einträge begrenzt
+PASS 6 Laden v2.6 mit Teil-Config -> ergänzt  | {"shelf":600,"bay":null,"palletMax":null,"tare":null}
+PASS 6/7 Laden v2.6 mit Duplikat -> zusammengeführt (5, gesperrt 1)  | [["H4A-1-1","A1",5,1]]
+PASS 8 Original unverändert (2 Boxen weiterhin in v2.6-Schlüssel)
+PASS 6 Neuer v2.7-Schlüssel enthält 1 Box
+PASS 6 Hinweis über Zusammenführung bei Laden  | note=Daten aus Version 2.6 übernommen; alte Version bleibt unverändert. Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt); WARNUNG: Lastprüfung bei 1 zusammengeführten Box(en) nicht vollständig möglich, Lastdaten fehlen
+PASS 6 Laden v2.6 mit toString-QR -> entfernt  | ["QR1"]
+PASS 9 Laden v2.6 mit ungültigen Duplikaten -> Sperre, Originaldaten unverändert, Quarantäne, kein JS-Fehler  | locked=true err=Doppelte Boxen enthalten ungültige Mengen; bitte Originaldaten prüfen. keys=lagerpilot_v2_6,lagerpilot_v2_7_quarantine
+PASS 9 Sperr-Grund deutsch/verständlich  | Doppelte Boxen enthalten ungültige Mengen; bitte Originaldaten prüfen.
+PASS 9 Kein v2.7-Schlüssel mit Halbdaten geschrieben  | null
+PASS 9 Sperr-Banner sichtbar
+PASS 5/6 Laden Legacy-Hauptschlüssel: kein Sperrzustand, min null, Historie ≤3000, Menge 3/gesperrt 1  | {"l":false,"min":[null],"h":3000,"b":[["H4A-1-1","L1",3,1]],"err":""}
+PASS 8 Hauptschlüssel lagerpilot_demo_v1 unverändert
+PASS 6 Aktueller v2.7-Speicher mit 3001 Historie bleibt gesperrt (Strenge erhalten)
+
+GESAMT 57 / FAIL 2
+ - 1 Schema 26, 3500 Historie -> importiert, auf 3000 gekappt, neueste behalten
+ - 5 Legacy Historie 3500 -> ≤3000 inkl. Migrationseintrag
+exit 0

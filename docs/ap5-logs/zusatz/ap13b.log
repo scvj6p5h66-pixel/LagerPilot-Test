@@ -1,0 +1,10 @@
+Anlegen __proto__ → Diese Artikelnummer ist reserviert und nicht zulässig.
+Anlegen toString → Diese Artikelnummer ist reserviert und nicht zulässig.
+Anlegen valueOf → Diese Artikelnummer ist reserviert und nicht zulässig.
+Items: X1
+Wareneingang __proto__ → Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch de | select value 
+Wareneingang toString → Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch de | select value 
+Boxen: []
+valid: true Prototype ok: true
+Fehler: keine
+exit 0

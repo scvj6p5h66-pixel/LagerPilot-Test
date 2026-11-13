@@ -1,0 +1,14 @@
+A) handgebaut: locked= true boxes= 0 shelf= null keys= [ 'lagerpilot_v2_7_quarantine', 'lagerpilot_v2_7' ]
+PASS 5 v2.7 Fachlast 800 nach Reload unverändert, nicht gesperrt
+PASS 5 Byte-identisch gespeichert (kein stilles Umschreiben beim Laden)
+PASS 5 Fachlast 800: Einlagern möglich  | ✓ Buchung gespeichert.
+PASS 5 v2.7 Fachlast 600 nach Reload unverändert, nicht gesperrt
+PASS 5 Byte-identisch gespeichert (kein stilles Umschreiben beim Laden)
+PASS 5 Fachlast 600: Einlagern möglich  | ✓ Buchung gespeichert.
+PASS 5 v2.7 Fachlast null nach Reload unverändert, nicht gesperrt
+PASS 5 Byte-identisch gespeichert (kein stilles Umschreiben beim Laden)
+PASS 5 Fachlast null: Einlagern gesperrt  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 5 Fachlast null: Ausbuchen möglich  | ✓ Buchung gespeichert.
+C) Legacy main-key: locked= false boxes= 0 cfg= {"shelf":null,"bay":null,"palletMax":null,"tare":null}
+[]
+exit 0

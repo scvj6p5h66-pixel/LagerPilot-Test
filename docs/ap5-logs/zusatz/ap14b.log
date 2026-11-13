@@ -1,0 +1,19 @@
+Artikelnummer __proto__              → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer toString               → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer TOSTRING               → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer valueOf                → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer constructor            → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer hasOwnProperty         → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer __defineGetter__       → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer __lookupSetter__       → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer prototype              → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer isPrototypeOf          → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer propertyIsEnumerable   → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer toLocaleString         → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer __defineSetter__       → Diese Artikelnummer ist reserviert und nicht zulässig.
+Artikelnummer __lookupGetter__       → Diese Artikelnummer ist reserviert und nicht zulässig.
+Items danach: 0
+Home-Warnungen: "⚠ 1 Artikel unter Mindestbestand"
+Bestand enthält M1 / Mindest: true
+Fehler: keine
+exit 0

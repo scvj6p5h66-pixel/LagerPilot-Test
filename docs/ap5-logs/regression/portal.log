@@ -1,0 +1,128 @@
+PASS 1 Portal öffnet direkt über index.html?portal=mitarbeiter mit Anmeldeansicht
+PASS 1 Verwaltungsnavigation nicht sichtbar
+PASS 1 Hinweis "Demo-Identifikation, keine echte Anmeldung" sichtbar
+PASS 1 Keine PIN-/Passwortfelder in der Anmeldung
+PASS 1 mitarbeiter.html leitet zum Portal weiter  | http://localhost:8123/index.html?portal=mitarbeiter
+PASS 1 Keine JavaScript-Fehler
+PASS 2 "Weiter" erst nach Namenswahl aktiv
+PASS 2 Max: Gerät vorausgefüllt (Scanner 1)
+PASS 2 Max: Anmeldung → Startseite, Sitzung, Anzeige  | {"sec":"portalHome","session":"Max","who":"Max","dev":"Scanner 1"}
+PASS 3 Max: Wechseln führt zur Anmeldung, Sitzung beendet
+PASS 2 Peter: Gerät vorausgefüllt (Scanner 2)
+PASS 2 Peter: Anmeldung → Startseite, Sitzung, Anzeige  | {"sec":"portalHome","session":"Peter","who":"Peter","dev":"Scanner 2"}
+PASS 3 Peter: Wechseln führt zur Anmeldung, Sitzung beendet
+PASS 2 Leon: Gerät vorausgefüllt (Scanner 3)
+PASS 2 Leon: Anmeldung → Startseite, Sitzung, Anzeige  | {"sec":"portalHome","session":"Leon","who":"Leon","dev":"Scanner 3"}
+PASS 3 Leon: Wechseln führt zur Anmeldung, Sitzung beendet
+PASS 3 Gerät frei wählbar: Max mit Scanner 3
+PASS 3 Mitarbeiterwechsel Max → Peter
+PASS 3 Nach Neuladen im selben Tab bleibt die Demo-Identifikation erhalten
+PASS 3 Neuer Tab zeigt wieder die Anmeldung
+PASS 2 Keine JavaScript-Fehler
+PASS 4 Startseite enthält genau vier Kacheln
+PASS 4 Kein Buchungsknopf auf der Startseite (nur "Weitere Funktionen" als Hinweis)
+PASS 4 Kachel "Meine Aufträge" öffnet den passenden Bereich
+PASS 4 "Meine Aufträge": Zurück-Knopf zur Startseite vorhanden und funktioniert
+PASS 4 Kachel "Artikelbestand" öffnet den passenden Bereich
+PASS 4 "Artikelbestand": Zurück-Knopf zur Startseite vorhanden und funktioniert
+PASS 4 Kachel "Regalansicht" öffnet den passenden Bereich
+PASS 4 "Regalansicht": Zurück-Knopf zur Startseite vorhanden und funktioniert
+PASS 4 Kachel "Scanner" öffnet den passenden Bereich
+PASS 4 "Scanner": Zurück-Knopf zur Startseite vorhanden und funktioniert
+PASS 4 Meine Aufträge zeigt den Auftrag von Max (K-9001), ohne zweite Anmeldemaske
+PASS 4 Artikelbestand: Suche findet Artikel und Bestand
+PASS 4 Bestandshinweis im Portal ohne Verweis auf den ausgeblendeten „Regale“-Umschalter
+PASS 4 Artikelbestand: keine Stammdaten-Bearbeitung (kein Bearbeiten-Knopf sichtbar)
+PASS 4 Scanner: Lagerplatz-Eingabe navigiert zur Regalansicht mit Platzdetails
+PASS 4 Scanner: Artikelbarcode wird erkannt
+PASS 4 Keine JavaScript-Fehler
+PASS 5 Ohne Anmeldung führt jeder Bereichswechsel zur Anmeldung  | portalLogin
+PASS 5 tab() verweigert alle Verwaltungsbereiche (Benutzer-/Auftragsverwaltung, Artikelstamm, Import/Export/Reset, Inventur, Buchen, Anbruchsboxen)
+PASS 5 Programmatischer Klick auf alle versteckten Navigationsknöpfe erreicht keinen Verwaltungsbereich
+PASS 5 Verwaltungsbereiche sind gesperrt (inert) und nicht sichtbar
+PASS 5 Anmeldemaske der Verwaltung, QR-Zuordnung, Platz-Initialisierung und Simulation sind im Portal nicht bedienbar
+PASS 5 Platzdetails im Portal: keine QS-/Technik-Bedienelemente (9 Plätze geprüft)
+PASS 5 Kontrolle: Verwaltungsansicht zeigt die QS-/Technik-Bedienelemente weiterhin  | H4B-3-3
+PASS 6 Verwaltung: kein Portal-Modus, Navigation sichtbar
+PASS 6 Verwaltung: Bestandshinweis unverändert mit „Regale“-Verweis
+PASS 6 Verwaltung: Portal-Elemente nicht sichtbar
+PASS 6 Verwaltung: alle 10 Bereiche öffnen wie bisher
+PASS 6 Verwaltung: Inventurbereich öffnet
+PASS 6 Verwaltung: Test-Anmeldung funktioniert wie bisher (Refactoring ohne Verhaltensänderung)
+PASS 6 Verwaltung: Abmelden funktioniert wie bisher
+PASS 6 Verwaltung: Auftragsverwaltung zeigt Aufträge
+PASS 6 Keine JavaScript-Fehler
+PASS 7 Portal öffnen ohne Anmeldung schreibt nichts in den Speicher (alle Schlüssel byte-identisch)
+PASS 7 Lagerdaten (lagerpilot_v2_7) nach Portalnutzung, Suche, Scan, Regalansicht, Anmeldewechsel byte-identisch
+PASS 7 Artikel, Boxen, QR-Zuordnungen, Historie unverändert
+PASS 7 Lagerstruktur: 4A 22 Regale/3.564, 4B 18 Regale/2.916, gesamt 6.480 Plätze  | {"a":3564,"b":2916,"total":6480,"rA":22,"rB":18}
+PASS 7 Lagerplatzkennungen und Platzstatus unverändert
+PASS 8 Bestehende Aufträge (inkl. abgeschlossener, Positionen, Gewichte) unverändert erhalten
+PASS 7 Nur Anmeldedaten (people/session) der Kommissionierung geändert, nichts sonst
+PASS 7 Reiner Wechsel Portal ↔ Verwaltung verändert Lagerdaten nicht
+PASS 7 Keine JavaScript-Fehler
+PASS 9 SA-15: Abschluss-Button aktiv (Gewichtskontrolle bestanden)
+PASS 9 SA-15: Auftrag abgeschlossen, Gerät festgehalten  | {"at":"2026-11-13T11:35:39.499Z","assignee":"Max","device":"Scanner 1"}
+PASS 9 SA-15: Abschlussansicht und automatischer Druckaufruf
+PASS 9 SA-15: Schein enthält Auftrag, Mitarbeiter, Scanner, BESTANDEN
+PASS 9 SA-15: Nachdruck möglich ohne Datenänderung
+PASS 9 Keine JavaScript-Fehler
+PASS 10 Export nach Portalnutzung: Lagerdaten identisch zum Export davor
+PASS 10 Export nach Portalnutzung: Aufträge identisch
+PASS 10 Import des Exports: Lagerdaten und Aufträge wiederhergestellt
+PASS 10 Portal arbeitet nach Import mit den importierten Daten (Auftrag K-9001 sichtbar)
+PASS 10 Keine JavaScript-Fehler
+PASS 8 Auftragsverhalten (Positionserzeugung K-1043 für Peter) im Portal identisch zur Verwaltung
+PASS 11 iPhone 14: Anmeldung ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPhone 14: Anmeldung per Tap funktioniert (Leon/Scanner 3)
+PASS 11 iPhone 14: Startseite ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPhone 14: vier Kacheln, groß (≥100 px hoch) und vollständig im Bildschirm  | [[159,193,true,424.5],[159,193,true,424.5],[159,170,true,608],[159,170,true,608]]
+PASS 11 iPhone 14: "picking" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPhone 14: "stock" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPhone 14: "racks" ohne Seitenüberlauf (Regalraster scrollt im eigenen Container), Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPhone 14: "scan" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPhone 14: Keine JavaScript-Fehler
+PASS 11 Pixel 7: Anmeldung ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 Pixel 7: Anmeldung per Tap funktioniert (Leon/Scanner 3)
+PASS 11 Pixel 7: Startseite ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 Pixel 7: vier Kacheln, groß (≥100 px hoch) und vollständig im Bildschirm  | [[170,170,true,401.5],[170,170,true,401.5],[170,170,true,585],[170,170,true,585]]
+PASS 11 Pixel 7: "picking" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 Pixel 7: "stock" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 Pixel 7: "racks" ohne Seitenüberlauf (Regalraster scrollt im eigenen Container), Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 Pixel 7: "scan" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 Pixel 7: Keine JavaScript-Fehler
+PASS 11 iPad Pro 11: Anmeldung ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPad Pro 11: Anmeldung per Tap funktioniert (Leon/Scanner 3)
+PASS 11 iPad Pro 11: Startseite ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPad Pro 11: vier Kacheln, groß (≥100 px hoch) und vollständig im Bildschirm  | [[340,153,true,338.25],[340,153,true,338.25],[340,153,true,505.5],[340,153,true,505.5]]
+PASS 11 iPad Pro 11: "picking" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPad Pro 11: "stock" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPad Pro 11: "racks" ohne Seitenüberlauf (Regalraster scrollt im eigenen Container), Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPad Pro 11: "scan" ohne Seitenüberlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 11 iPad Pro 11: Keine JavaScript-Fehler
+PASS 12 "Mehr" enthält den Eintrag "Mitarbeiter-Testdemo"
+PASS 12 Verwaltungsnavigation unverändert (gleiche 8 Tabs + 2 Bereiche)
+PASS 12 Demo öffnet Portal mit Mitarbeiterauswahl Max/Peter/Leon (auch bei altem Tab-Merker)  | http://localhost:8123/index.html?portal=mitarbeiter&from=verwaltung
+PASS 12 Gut sichtbarer Rückweg "Zur Verwaltung" in der Anmeldung (≥44 px)
+PASS 12 Geräteauswahl vorhanden, Anmeldung führt zur Startseite mit 4 Kacheln
+PASS 12 Rückweg auch auf Startseite sichtbar
+PASS 12 Neuladen im Portal behält Demo-Modus, Rückweg und Anmeldung
+PASS 12 Rückweg auch in Unterbereich sichtbar
+PASS 12 Klick auf "Zur Verwaltung": Abmeldung-erfolgreich-Ansicht, Demo-Sitzung beendet  | {"sec":"portalBye","session":"","marker":null,"txt":"Abmeldung erfolgreich\n\nSie werden zur Verwaltung zurückgeleitet.\n\n← Zurück zur Verwaltung","p":false}
+PASS 12 Abmeldung: Aufträge und Lagerdaten unverändert
+PASS 12 Automatische Rückleitung öffnet normale Verwaltung ohne Portal-Modus  | http://localhost:8123/index.html
+PASS 12 Erneuter Demo-Einstieg zeigt wieder die Mitarbeiterauswahl
+PASS 12 Rückweg aus der Auswahl (ohne Demo-Anmeldung) beendet keine bestehende Test-Anmeldung der Verwaltung
+PASS 12 Verwaltung nach Rückkehr bedienbar
+PASS 12 Lagerdaten nach vollem Wechsel byte-identisch
+PASS 12 Aufträge/Kommissionierdaten unverändert (nur Anmeldung geändert)
+PASS 12 Separate Portal-Adresse funktioniert weiter, ohne Rückweg zur Verwaltung
+PASS 12 iPhone 14: Mehr + Demo-Login mit Rückweg ohne Überlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 12 iPhone 14: Keine JavaScript-Fehler
+PASS 12 Pixel 7: Mehr + Demo-Login mit Rückweg ohne Überlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 12 Pixel 7: Keine JavaScript-Fehler
+PASS 12 iPad Pro 11: Mehr + Demo-Login mit Rückweg ohne Überlauf, Touch-Ziele ≥44 px  | {"over":false,"small":[]}
+PASS 12 iPad Pro 11: Keine JavaScript-Fehler
+PASS 12 Keine JavaScript-Fehler
+GESAMT 126 Prüfungen / FAIL 0
+exit 0

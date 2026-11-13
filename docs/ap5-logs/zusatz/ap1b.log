@@ -1,0 +1,6 @@
+nach Laden {"hidden":false,"reason":"Kommissionierdaten sind beschädigt. Speichern ist gesperrt. Bitte Rohdaten siche","btn":true} dlg [] locked true
+nach render() {"hidden":false,"reason":"Kommissionierdaten sind beschädigt. Speichern ist gesperrt. Bitte Rohdaten siche","btn":true}
+Kommissionierbereich: Banner {"hidden":false,"reason":"Kommissionierdaten sind beschädigt. Speichern ist gesperrt. Bitte Rohdaten siche","btn":true} | Text im Bereich: false
+Admin: sichtbarer Hinweis false
+Roster-UI zeigt Standarddaten: K-1042 3 Offen Kein Mitarbeiter verfügbar Zuteilen K-1043 8 
+exit 0

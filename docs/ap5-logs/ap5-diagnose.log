@@ -1,0 +1,21 @@
+PASS F1-7 valid() lehnt places:{} mit Box auf H4A-1-1 ab (veralteter Test-Seed)
+PASS F1-7 Fehlerhafter Seed: Sperre aktiv, Quarantäne vorhanden, Daten (Box b1) bleiben erhalten  | {"l":true,"q":true}
+PASS F1-7 Gegenprobe Fachlast 800: Konfiguration übernommen, 6480 Plätze  | {"cfg":800,"places":6480}
+PASS F1-7 Gegenprobe Fachlast 600: Konfiguration übernommen, 6480 Plätze  | {"cfg":600,"places":6480}
+PASS F1-7 Gegenprobe Fachlast null: Konfiguration übernommen, 6480 Plätze  | {"cfg":null,"places":6480}
+PASS F8 Artikel OHNE Gewicht: Erhöhung abgelehnt, Menge unverändert  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS F8 Testprämisse: Artikel MIT Gewicht 2 -> Erhöhung korrekt erlaubt (Test-Seed war falsch)  | ✓ Inventurdifferenz gespeichert.
+PASS F16 sauberer Zustand: "toString" -> reserviert  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS F16 Legacy-Artikel "toString" vorhanden -> Dublettenmeldung statt Reserviert (Test-Zustand)  | Artikelnummer toString existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+BEFUND F21 Ungültiges Gewicht wird still verworfen, Artikel ohne Gewicht gespeichert (Meldung "Artikel gespeichert.")  | {"1e999":"Artikel gespeichert.|gespeichert=null","abc":"Artikel gespeichert.|gespeichert=null","Infinity":"Artikel gespeichert.|gespeichert=null","1,5":"Artikel gespeichert.|gespeichert=null"}
+BEFUND F21b Unrealistisch großes Gewicht 1e308 kg wird akzeptiert (keine Obergrenze)  | Artikel gespeichert.
+PASS F21 keine JS-Fehler
+BEFUND F21c Bearbeiten OHNE Bestand: vorhandenes Gewicht 2 wird durch ungültige Eingabe still auf null gesetzt  | weight=null | Artikel gespeichert.
+PASS F21c Bearbeiten MIT Bestand: Gewicht bleibt erhalten (Schutz greift)  | Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.
+PASS F18 Home: genau 1 Artikel unter Mindestbestand (LM 160<500; OK 120>=100; NM ohne Minimum)
+PASS F18 Home nennt keine Artikelnamen (Testerwartung "LM" war veraltet; Verbesserungsvorschlag)
+PASS F26 Import (Dialog bestätigt): Seite lädt neu, A1 entfernt, Sicherung vor Import vorhanden, Bearbeitungsmodus zurückgesetzt  | {"items":["B1"],"mode":false,"bk":true}
+PASS F26 Import abgebrochen (Dialog abgelehnt): Speicher unverändert (kein Datenverlust)
+BEFUND F23-25 Bearbeiten-Button 87x30 px (<32 px; empfohlen 44 px)
+
+GESAMT 15 / FAIL 0 / BEFUNDE (bestätigte Programmfehler) 4

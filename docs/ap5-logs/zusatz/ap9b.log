@@ -1,0 +1,5 @@
+keys [ 'lagerpilot_v2_7' ]
+schema,places,items,boxes,history,inventoryLogs,qrMap,config,legacyOrders
+after reload shelf 600 locked false boxes 1
+[]
+exit 0

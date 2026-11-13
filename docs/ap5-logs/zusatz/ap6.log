@@ -1,0 +1,58 @@
+PASS A frei + gesperrt(QS) -> QS-Felder bleiben  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":8,"blocked":3,"qsReason":"Beschädigt","qsBy":"Max","qsSince":"2026-01-01T10:00:00Z"}
+PASS A Migrationseintrag nennt Zusammenführung inkl. QS-Hinweis  | Migration: 1 doppelte Box(en) zusammengeführt; QS-Angaben gesperrter Boxen zusammengeführt (mehrere Werte mit | getrennt)
+PASS A gesperrt(QS) + gesperrt(QS) verschiedene Angaben -> zusammengeführt  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":8,"blocked":5,"qsReason":"Grund1 | Grund2","qsBy":"Max | Eva","qsSince":"2026-01-01T10:00:00Z | 2026-02-02T11:00:00Z"}
+PASS A gleiche Angaben -> keine Duplikate  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":8,"blocked":5,"qsReason":"Gleich","qsBy":"Max","qsSince":"2026-01-01T10:00:00Z"}
+PASS A drei Boxen (frei, QS1, QS2)  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":11,"blocked":6,"qsReason":"R1 | R2","qsBy":"M | E","qsSince":"2026-01-01T10:00:00Z | 2026-02-02T11:00:00Z"}
+PASS A vier Boxen, dritte wiederholt R1 (Dedupe über bereits verkettete Werte)  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":4,"blocked":3,"qsReason":"R1 | R2","qsBy":"M | E","qsSince":"2026-01-01T10:00:00Z | 2026-02-02T11:00:00Z"}
+PASS A frei + frei: keine QS-Felder erfunden  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":8,"blocked":0}
+PASS A freigegebene Altfelder (blocked 0, qsReason "Alt") werden NICHT übernommen  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":8,"blocked":3,"qsReason":"Aktuell","qsBy":"Max","qsSince":"2026-01-01T10:00:00Z"}
+PASS A erste gesperrt ohne QS-Felder, zweite mit -> Felder der zweiten  | {"id":"b1","place":"H4A-1-1","code":"A1","qty":8,"blocked":8,"qsReason":"X","qsBy":"Y","qsSince":"2026-02-02T11:00:00Z"}
+PASS A nicht zusammengeführte QS-Box bleibt unverändert  | [["H4A-1-1",5,5,"Solo"],["H4A-1-2",3,0,null]]
+PASS A keine Migrationszeile bei nicht zusammengeführten Boxen
+PASS A Gesamt A1: 18 (vorher 5+3+4+6), gesperrt 3; A2: 16, gesperrt 7  | [["H4A-1-1","A1",8,3],["H4A-1-2","A2",7,7],["H4A-1-3","A1",10,0],["H4A-1-4","A2",9,0]]
+PASS B-Betrieb: Zustand nach Migration gültig, nicht gesperrt
+PASS B Platzdetail zeigt Menge 10, QS-gesperrt 5 und beide QS-Gründe  | ← Zurück zur Regalübersicht H4A-1-1 Status: free Art A1 10 STK 10 STK · Box-ID b1 · QS-gesperrt: 5 QS-Grund: Grund <img src=x onerror=window.__xss=1> | Zweiter QS-Sperre verwalten QS-Bedienung (Test) Name und Rolle gelten nur auf 
+PASS B kein XSS durch QS-Grund
+PASS B Ausbuchen aus (teil)gesperrter Box abgelehnt  | Kein frei buchbarer Bestand.
+PASS B Wareneingang auf gesperrte Box abgelehnt
+PASS B Umlagerung aus gesperrter Box abgelehnt
+PASS B Normale (freie) Box anderswo bucht weiter
+PASS B Inventur auf gesperrter Box -> manuelle Klärung, keine Änderung  | Daten haben sich geändert – erneut zählen.
+PASS B Freigabe als Mitarbeiter abgelehnt  | ["alert:Freigabe nur durch QS / Lagerleitung."]
+PASS B Freigabe als QS: gesperrt 0, Menge 10, Freigeber gesetzt, Historie  | {"qty":10,"blocked":0,"r":"","rb":"Anna","h":"QS-Freigabe · A1 · H4A-1-1 · durch Anna"}
+PASS B Danach Ausbuchen möglich
+PASS B Neu sperren nach Freigabe: gesperrt = Menge, neuer Grund, Person, Zeitstempel  | [8,"Neuer Grund","Anna","string"]
+PASS B Export des migrierten Standes ist gültiges Schema 27
+PASS B Re-Import des Exports: unverändert, kein neuer Migrationseintrag
+PASS B keine JS-Fehler
+PASS B inventoryLogs Objekt: abgelehnt, deutsche Meldung, Daten unverändert, kein JS-Fehler  | Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS B inventoryLogs String: abgelehnt, deutsche Meldung, Daten unverändert, kein JS-Fehler  | Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS B inventoryLogs Zahl: abgelehnt, deutsche Meldung, Daten unverändert, kein JS-Fehler  | Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS B inventoryLogs true: abgelehnt, deutsche Meldung, Daten unverändert, kein JS-Fehler  | Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS B inventoryLogs null: wie fehlend behandelt
+FAIL B history null: wie fehlend behandelt  | msg=Alte Sicherung: Verlauf oder Inventurprotokolle ungültig.
+PASS B inventoryLogs mit ungültigem Eintrag -> abgelehnt (valid) ohne JS-Fehler  | Importdaten ungültig.
+PASS C Artikel-Max (12>10)  | über=1/1 fehlend=0/0
+PASS C Fachlast (12×100+25>800)  | über=1/1 fehlend=0/0
+PASS C nur Palettentragfähigkeit (12×50+25=625>500, Fachlast 5000)  | über=1/1 fehlend=0/0
+PASS C nur Feldlast (625>500)  | über=1/1 fehlend=0/0
+PASS C im Limit, volle Lastdaten -> keine Warnung  | über=0/0 fehlend=0/0
+PASS C tare fehlt -> Hinweis fehlende Lastdaten  | über=0/0 fehlend=1/1
+PASS C Artikelgewicht fehlt -> Hinweis fehlende Lastdaten  | über=0/0 fehlend=1/1
+PASS C palletMax/bay fehlen (Default-Config) -> Hinweis fehlende Lastdaten  | über=0/0 fehlend=1/1
+PASS C Max überschritten UND tare fehlt -> beide Warnungen  | über=1/1 fehlend=1/1
+PASS C zwei Boxen: eine über Max, eine im Limit -> 1  | über=1/1 fehlend=0/0
+PASS C nicht zusammengeführte Box über Limit -> keine Warnung  | über=0/0 fehlend=0/0
+PASS C Warnung im Import-Alert und Historie
+PASS D Laden Legacy: genau 1 Migrationseintrag, enthält Mindestbestände (2) und Historie  | Migration: Historie auf 3.000 Einträge inklusive Migrationshinweisen begrenzt; 2 ungültige Mindestbestände zurückgesetzt
+PASS D Laden Legacy: Reihenfolge Migration, dann "Kopie der Daten"; Länge 3000  | Migration: Historie auf 3.000 Einträge inklusive Migrationshinweisen begrenzt; 2 ungültige Mindestbestände zurückgesetzt // Kopie der Daten aus LagerPilot 2.5 übernommen; alte Daten unverändert n=3000
+PASS D Laden Legacy: upgradeNote nennt Übernahme + Bereinigung  | Daten aus LagerPilot 2.5 übernommen; Original bleibt unverändert. Migration: Historie auf 3.000 Einträge inklusive Migrationshinweisen begrenzt; 2 ungültige Mindestbestände zurückgesetzt
+PASS D Laden Legacy: min [null,null,4]; Menge 4/gesperrt 1; Original unverändert; nicht gesperrt; keine Fehler
+PASS D Legacy sauber: kein Migrationseintrag, Hinweis nur Übernahme  | note=Daten aus LagerPilot 2.5 übernommen; Original bleibt unverändert. n=3
+PASS D Legacy Historie genau 2999: nicht gekappt, kein Hinweis  | n=3000 mig=0
+PASS D Legacy Historie 3000: Hinweis gekappt (Info)  | n=3000 mig=1 Migration: Historie auf 3.000 Einträge inklusive Migrationshinweisen begrenzt
+PASS D Import Legacy: 1 Migrationseintrag, Alert nennt Bereinigung, Bestand korrekt  | Sicherung importiert.  Migration: Historie auf 3.000 Einträge inklusive Migrationshinweisen begrenzt; 2 ungültige Mindestbestände zurückgesetzt  Die Seite wird 
+
+GESAMT 54 / FAIL 1
+ - B history null: wie fehlend behandelt
+exit 0

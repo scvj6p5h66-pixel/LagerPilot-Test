@@ -1,0 +1,8 @@
+Legacy: locked= false boxes= [["H4A-1-1",4,1]] cfg= {"shelf":null,"bay":null,"palletMax":null,"tare":null}
+Legacy Hinweis: Daten aus LagerPilot 2.5 übernommen; Original bleibt unverändert.
+Legacy Historie0: Kopie der Daten aus LagerPilot 2.5 übernommen; alte Daten unverändert
+Original unverändert: true
+v2.6 ohne shelf: locked= false cfg= {"shelf":800,"bay":null,"palletMax":null,"tare":null} boxes= 1
+Hinweis: Daten aus Version 2.6 übernommen; alte Version bleibt unverändert. Migration: Konfiguration ergänzt: shelf | Hist0: Migration: Konfiguration ergänzt: shelf
+[]
+exit 0

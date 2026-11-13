@@ -1,0 +1,81 @@
+PASS T1 Neuanlage Mindestbestand 500 / Box-Max 100 wird gespeichert  | Artikel gespeichert.
+PASS T1 Nur dieser Artikel neu, 1 Historie, Boxen/andere Artikel unverändert
+PASS T1 Neuanlage Min 1000 / Max 1  | Artikel gespeichert.
+PASS T1 Neuanlage Min 0 / Max 100  | Artikel gespeichert.
+PASS T1 Neuanlage Min 100 / Max 100  | Artikel gespeichert.
+PASS T1 Neuanlage Min 500 / Max leer  | Artikel gespeichert.
+PASS T1 Zahlenprüfung weiterhin einzeln: Min −1  | Mindestbestand muss eine ganze Zahl ab 0 sein.
+PASS T1 Zahlenprüfung weiterhin einzeln: Min 1,5  | Mindestbestand muss eine ganze Zahl ab 0 sein.
+PASS T1 Zahlenprüfung weiterhin einzeln: Max 0  | Maximale Boxmenge muss eine positive ganze Zahl sein.
+PASS T1 Zahlenprüfung weiterhin einzeln: Max 1,5  | Maximale Boxmenge muss eine positive ganze Zahl sein.
+PASS T1 Zahlenprüfung weiterhin einzeln: Max −2  | Maximale Boxmenge muss eine positive ganze Zahl sein.
+PASS T1 Mindestbestand-Warnung nach Gesamtbestand: 160 < 500 → Warnung  | ⚠ 6 Artikel unter Mindestbestand
+PASS T1 Box-Maximum 100 pro Box weiter durchgesetzt (+1 auf volle Box abgelehnt)  | Boxkapazität überschritten (100 STK).
+PASS T1 Weitere Box darf wieder 100 aufnehmen  | ✓ Buchung gespeichert.
+PASS T1 Gesamtbestand 560 ≥ 500 → N500 nicht mehr in der Warnung (Gesamtbestand-Berechnung)  | ⚠ 5 Artikel unter Mindestbestand
+PASS T2 Altartikel LM (Min 500 / Max 100): Mindestbestand 600 gespeichert  | Artikel gespeichert.
+PASS T2 LM: Name/Barcode/Gewicht/Max unverändert, Boxen (100/60) und andere Artikel unverändert
+PASS T2 LM: Max 150 (Boxen 100/60 ≤ 150, Min 600 bleibt) gespeichert  | Artikel gespeichert.
+PASS T2 LM: Max 80 < Box 100 weiterhin durch Boxprüfung abgelehnt (SA-05)  | Artikeländerung abgelehnt: Box auf H4A-1-2 enthält 100 Einheiten, neues Maximum ist 80.
+PASS T2 LP (Pack, Min 100 / Max 20): Min 250 gespeichert  | Artikel gespeichert.
+PASS T3 Neuanlage mit vorhandener Nummer A3: abgelehnt mit verständlicher Meldung  | Artikelnummer A3 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T3 Speicher byteweise unverändert, A3 unverändert (Name Art3), keine Historie
+PASS T3 Formular behält Eingaben (zum Korrigieren)
+PASS T4 Neuanlage ""a3"": abgelehnt, nichts geändert  | Artikelnummer A3 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T4 Neuanlage ""A3 "": abgelehnt, nichts geändert  | Artikelnummer A3 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T4 Neuanlage ""  a3"": abgelehnt, nichts geändert  | Artikelnummer A3 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T4 Neuanlage ""Ab1"": abgelehnt, nichts geändert  | Artikelnummer ab1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T4 Neuanlage ""AB1"": abgelehnt, nichts geändert  | Artikelnummer ab1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T4 Neuanlage ""aB1"": abgelehnt, nichts geändert  | Artikelnummer ab1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T4 Neuanlage ""Toststring"": erlaubt  | Artikel gespeichert.
+PASS T5 Bearbeitungsmodus sichtbar (Hinweis) und Artikelnummer gesperrt
+PASS T5 Reguläre Bearbeitung A1 gespeichert (Name, Barcode, Gewicht, Max, Min)  | Artikel gespeichert.
+PASS T5 Bestand A1 (50) und andere Artikel unverändert, genau 1 Historie
+PASS T5 Nach Speichern: Bearbeitungsmodus beendet (Hinweis weg, Nummer frei, Formular leer)
+PASS T5 Danach "A1" im Neuanlage-Modus: abgelehnt (kein stilles Überschreiben)  | Artikelnummer A1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T6 Bearbeitungsmodus A2, Nummer per Skript auf A3 geändert: abgelehnt, A2 und A3 unverändert  | Im Bearbeitungsmodus kann die Artikelnummer nicht geändert werden. Bitte „Eingabe leeren“ wählen und den Artikel neu anlegen.
+PASS T6 Bearbeitungsmodus + neue Nummer: legt KEINEN Artikel an  | Im Bearbeitungsmodus kann die Artikelnummer nicht geändert werden. Bitte „Eingabe leeren“ wählen und den Artikel neu anlegen.
+PASS T6 Bearbeitungsmodus A2, Nummer "a2" (nur Schreibweise): abgelehnt  | Im Bearbeitungsmodus kann die Artikelnummer nicht geändert werden. Bitte „Eingabe leeren“ wählen und den Artikel neu anlegen.
+PASS T6 Modus per "Eingabe leeren" beendet, dann A2 eintippen: abgelehnt  | Artikelnummer A2 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS T6 Artikel im Bearbeitungsmodus inzwischen entfernt: Speichern legt ihn NICHT neu an (Meldung)  | Der zu bearbeitende Artikel existiert nicht mehr. Bitte „Eingabe leeren“ wählen.
+PASS T6 Wechsel A1 → A3: Formular zeigt A3, Hinweis nennt A3
+PASS T6 Speichern ändert nur A3, A1 unverändert  | Artikel gespeichert.
+PASS T6 Dreifachklick Speichern: genau 1 Historieneintrag, kein doppelter Artikel
+PASS T6 Veralteter Tab im Bearbeitungsmodus: nichts gespeichert  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS JS T1–T6
+PASS T7 Altartikel CCCCCCCCCC noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel CCCCCCCCCC name: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 Altartikel toString noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel toString name: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 Altartikel LN noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel LN weight: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 Altartikel LM noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel LM min: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 Altartikel ab1 noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel ab1 name: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 Altartikel AB1 noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel AB1 name: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 Altartikel LB noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel LB name: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 Altartikel LP noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel LP min: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 Altartikel A1 noop: gespeichert, andere Artikel/Boxen unberührt, Artikel byteweise gleich  | Artikel gespeichert.
+PASS T7 Altartikel A1 name: gespeichert, andere Artikel/Boxen unberührt  | Artikel gespeichert.
+PASS T7 SA-12b bleibt: neue Nummer 65 Zeichen abgelehnt  | Artikelnummer darf höchstens 64 Zeichen enthalten.
+PASS T7 SA-12b bleibt: Bezeichnung 151 abgelehnt  | Artikelbezeichnung darf höchstens 150 Zeichen enthalten.
+PASS T7 SA-12b bleibt: reservierte Nummer "__proto__" in leerem Lager abgelehnt  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS T7 SA-12b bleibt: reservierte Nummer "toString" in leerem Lager abgelehnt  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS T7 SA-12b bleibt: reservierte Nummer "valueOf" in leerem Lager abgelehnt  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS T7 SA-12b bleibt: reservierte Nummer "constructor" in leerem Lager abgelehnt  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS T7 SA-12 bleibt: Barcode Case-Duplikat abgelehnt  | Barcode ist bereits vergeben (Groß-/Kleinschreibung wird nicht unterschieden).
+PASS T7 SA-12 bleibt: reservierter Barcode abgelehnt  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS T7 SA-13 bleibt: Einzelmeldung "Artikelnummer fehlt."  | Artikelnummer fehlt.
+PASS T7 Scan im Bearbeitungsmodus setzt nur den Barcode
+PASS T7 ... und Speichern übernimmt ihn  | Artikel gespeichert.
+PASS T7 Export/Import: Artikel und Boxen byteweise gleich
+PASS T7 Nach Import: Altartikel LM weiter bearbeitbar  | Artikel gespeichert.
+PASS T7 valid() nach allen Aktionen
+PASS JS T7
+
+GESAMT 78 / FAIL 0
+exit 0

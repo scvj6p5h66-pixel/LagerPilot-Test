@@ -1,0 +1,5 @@
+Altbox überlastet (Fachlast 100), Zählung 40 (<50) => ✓ Inventurdifferenz gespeichert. | qty 40
+Altbox überlastet, Zählung 30 (125→85 ok) => ✓ Inventurdifferenz gespeichert. | qty 30
+Lastdaten fehlen, Zählung 40 (<50) => ✓ Inventurdifferenz gespeichert. | qty 40
+Lastdaten fehlen, Zählung 0 => ✓ Inventurdifferenz gespeichert. | qty (Box weg)
+exit 0
