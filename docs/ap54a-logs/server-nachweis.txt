@@ -1,0 +1,15 @@
+Port 8123 Verzeichnis wt_ap53 Commit 95529eb: served=acfa43c0953ccaaee3e45ba07275a2092103e65791a2e6d073366dcf7476bfb9 commit=acfa43c0953ccaaee3e45ba07275a2092103e65791a2e6d073366dcf7476bfb9 IDENTISCH bytes=178243 readQty=5 art-stock=1 GrossKlein=1
+Port 8124 Verzeichnis old_e03c6dd Commit e03c6dd: served=2d94fc712bfc2aa3876a2a02465dd6d1e1f7b12862d8770136a2217b405884e6 commit=2d94fc712bfc2aa3876a2a02465dd6d1e1f7b12862d8770136a2217b405884e6 IDENTISCH bytes=142909 readQty=0 art-stock=0 GrossKlein=0
+Port 8130 Verzeichnis base0 Commit 1c01db1: served=77ad6cdf7c344d203a0cbc9f0249808bcccea3dec274fa0d6070ee1bec3f72b3 commit=77ad6cdf7c344d203a0cbc9f0249808bcccea3dec274fa0d6070ee1bec3f72b3 IDENTISCH bytes=174628 readQty=0 art-stock=0 GrossKlein=1
+8123 -> /tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/wt_ap53
+8124 -> /tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/old_e03c6dd
+8130 -> /tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/base0
+8123 styles geprüft vs 95529eb
+8124 styles geprüft vs e03c6dd
+8130 styles geprüft vs 1c01db1
+95529eb83cae58e19156048f177072909d7e9dfa
+e03c6dd38f27e1956c203c9843feadf44237a4bb
+1c01db1aec8f4146350870bca3dcd6a5c588e1ff
+95529eb83cae58e19156048f177072909d7e9dfa
+ index.html | 271 +++++++++++++++++++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 229 insertions(+), 42 deletions(-)

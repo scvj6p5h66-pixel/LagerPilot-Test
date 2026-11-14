@@ -36,7 +36,7 @@ Kategorien: **A** veraltete Testerwartung, **B** fehlerhafte Testdaten, **C** An
 | 18 | ap14: „Home zeigt Mindestbestand-Warnung für LM“ | A | Die Startseite zeigt nur „⚠ n Artikel unter Mindestbestand“, keine Namen. Die Rechnung selbst stimmt. | Prüfung vergleicht die angezeigte Anzahl mit einer unabhängigen Berechnung aus dem Speicher (Artikel mit Minimum und Gesamtbestand unter Minimum) und verlangt, dass LM darunter liegt. | bestanden |
 | 26 | ap16: „Edit-Modus + A1 per Import entfernt“ | D | Der Import fragt per `confirm()` nach; ohne Dialog-Handler lehnt Playwright ab, der Import lief nie. | Dialog bestätigen, auf Neuladen warten, zusätzlich prüfen, dass der Import wirklich lief (A1 weg, Sicherung vor Import vorhanden). | 55/0 |
 
-Summe: ap9 7 + ap11 1 + ap12 2 + ap13 1 + ap14 9 + ap16 1 = **21**. Begründete Ausnahme zu „nicht abschwächen“: bei #11 akzeptiert die Erwartung A1 **oder** L2, weil die Seed-Daten zwei berechtigte Besitzer enthalten; alle anderen Korrekturen haben Prüfungen gleich streng oder strenger gemacht.
+Summe: ap9 7 + ap11 1 + ap12 2 + ap13 1 + ap14 9 + ap16 1 = **21**. **KORREKTUR (AP5.4a):** Die frühere Begründung zu #11 („Erwartung A1 oder L2, zwei berechtigte Besitzer“) war unzutreffend und ist ersetzt: siehe `docs/AP5-4a-Abschlusspruefung.md`, Abschnitt 1. Die Erwartung wird jetzt exakt aus dem Speicher abgeleitet. Alle anderen Korrekturen haben Prüfungen gleich streng oder strenger gemacht; alle anderen Korrekturen haben Prüfungen gleich streng oder strenger gemacht.
 
 ## 3 Zusätzlich: die 9 Fehler in `tests/ap5/ap7-edit-modus.js`
 

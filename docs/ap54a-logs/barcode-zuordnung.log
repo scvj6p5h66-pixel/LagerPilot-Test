@@ -1,0 +1,37 @@
+PASS 1 Neuanlage mit exakt gleicher Barcode BC1 wird abgelehnt, Speicher byte-gleich  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 1 Neuanlage mit Schreibweise bc1 wird abgelehnt, Speicher byte-gleich  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 1 Neuanlage mit Schreibweise Bc1 wird abgelehnt, Speicher byte-gleich  | Barcode ist bereits vergeben (Groß-/Kleinschreibung wird nicht unterschieden).
+PASS 1 Bestehenden Artikel A1 auf Barcode "bc1" (Barcode von L2) ändern: abgelehnt  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 1 Legacy-Artikel L2 (Barcode "bc1") bleibt ohne Barcodeänderung speicherbar, Barcode unverändert (keine Auto-Korrektur)  | Artikel gespeichert.
+PASS 1 JS-Fehler
+BEFUND 1 Import einer Sicherung, in der zwei Artikel exakt denselben Barcode "BC1" haben: wird ANGENOMMEN (Dublette kann über Import in den Bestand gelangen)  | [["A1","BC1"],["L2","BC1"]]
+PASS 1 Import mit Schreibweise-Dublette BC1/bc1 wird angenommen (Altdaten bleiben ladbar, bewusst nicht auto-korrigiert)  | [["A1","BC1"],["L2","bc1"]]
+PASS 2 Reihenfolge [A1, L2] Scanner-Tab: "BC1" -> nur A1 (eindeutig, unabhängig von der Reihenfolge)  | Artikel erkannt: Art Eins · 0 STK · 0 STK
+PASS 2 Reihenfolge [A1, L2] Scanner-Tab: "bc1" -> nur L2 (eindeutig)  | Artikel erkannt: Art Zwei (Legacy) · 0 STK · 0 STK
+PASS 2 Reihenfolge [A1, L2] Scanner-Tab: "Bc1" -> unbekannter Code (keine Raterei)  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen.
+PASS 2 Reihenfolge [A1, L2] Artikelformular, Scan "BC1": Warnung nennt genau einen Artikel  | Barcode gehört bereits zu A1 und kann für diesen Artikel nicht verwendet werden.
+PASS 2 Reihenfolge [A1, L2] Artikelformular, Scan "bc1": Warnung nennt genau einen Artikel  | Barcode gehört bereits zu A1 und kann für diesen Artikel nicht verwendet werden.
+PASS 2 Reihenfolge [A1, L2] Inventur-Artikelscan "BC1": wählt A1 (exakter Treffer)  | gewählt=A1
+PASS 2 Reihenfolge [A1, L2] Inventur-Artikelscan "bc1": wählt L2 (exakter Treffer)  | gewählt=L2
+PASS 2 Reihenfolge [A1, L2] JS-Fehler
+PASS 2 Reihenfolge [L2, A1] Scanner-Tab: "BC1" -> nur A1 (eindeutig, unabhängig von der Reihenfolge)  | Artikel erkannt: Art Eins · 0 STK · 0 STK
+PASS 2 Reihenfolge [L2, A1] Scanner-Tab: "bc1" -> nur L2 (eindeutig)  | Artikel erkannt: Art Zwei (Legacy) · 0 STK · 0 STK
+PASS 2 Reihenfolge [L2, A1] Scanner-Tab: "Bc1" -> unbekannter Code (keine Raterei)  | Unbekannter Code. Bei einem Lagerplatz-QR bitte einmalig zuordnen.
+PASS 2 Reihenfolge [L2, A1] Artikelformular, Scan "BC1": Warnung nennt genau einen Artikel  | Barcode gehört bereits zu L2 und kann für diesen Artikel nicht verwendet werden.
+PASS 2 Reihenfolge [L2, A1] Artikelformular, Scan "bc1": Warnung nennt genau einen Artikel  | Barcode gehört bereits zu L2 und kann für diesen Artikel nicht verwendet werden.
+PASS 2 Reihenfolge [L2, A1] Inventur-Artikelscan "BC1": wählt A1 (exakter Treffer)  | gewählt=A1
+PASS 2 Reihenfolge [L2, A1] Inventur-Artikelscan "bc1": wählt L2 (exakter Treffer)  | gewählt=L2
+PASS 2 Reihenfolge [L2, A1] JS-Fehler
+BEFUND 2 Artikelformular nennt bei Schreibweise-Dublette den ERSTEN Treffer der Artikelliste: Reihenfolge [A1,L2] -> A1, Reihenfolge [L2,A1] -> L2 (der zweite Besitzer wird nicht genannt, nichts wird gespeichert)
+PASS 3 Scanner-Tab: exakt doppelter Barcode wird dem Benutzer gemeldet und nicht zugeordnet ("mehrfach vergeben … Bitte Zuordnung prüfen")  | Code ist mehrfach vergeben oder zugleich Lagerplatz und Artikel. Bitte Zuordnung prüfen.
+BEFUND 3 Inventur-Artikelscan bei exakt doppeltem Barcode: wählt STILL den ersten Treffer (X1), Meldung: "Artikel erkannt: Exakt Eins" – keine Mehrdeutigkeitsanzeige (nur der Name des gewählten Artikels erscheint)
+BEFUND 3 Bestandssuche bei exakt doppeltem Barcode: wählt STILL den ersten Treffer (X1), Meldung: "Artikel gefunden: Exakt Eins"
+PASS 3 Artikelformular: Warnung "gehört bereits zu …" (nennt nur einen der beiden)  | Barcode gehört bereits zu X1 und kann für diesen Artikel nicht verwendet werden.
+PASS 3 JS-Fehler
+PASS 4 Kommissionierung Zeile A1: Scan "BC1" akzeptiert
+PASS 4 Kommissionierung Zeile A1: Scan "bc1" (Barcode des anderen Artikels L2) wird als "Falscher Artikel" abgelehnt  | Falscher Artikel! Erwartet: A1. Erkannt: bc1
+PASS 4 Kommissionierung Zeile L2: Scan "BC1" (Barcode von A1) wird als "Falscher Artikel" abgelehnt  | Falscher Artikel! Erwartet: L2. Erkannt: BC1
+PASS 4 Kommissionierung Zeile L2: Scan "bc1" akzeptiert  | Falscher Artikel! Erwartet: L2. Erkannt: BC1
+PASS 4 JS-Fehler
+
+GESAMT 31 / FAIL 0 / BEFUNDE 4
