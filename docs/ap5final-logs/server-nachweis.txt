@@ -1,0 +1,5 @@
+Port 8123 liefert index.html sha256=b9de7e1d20a88223a92f79e9709762fb4eb841aeba7ae5d97b109d4d3783e48e ; Commit HEAD sha256=b9de7e1d20a88223a92f79e9709762fb4eb841aeba7ae5d97b109d4d3783e48e : IDENTISCH
+Port 8124 liefert index.html sha256=2d94fc712bfc2aa3876a2a02465dd6d1e1f7b12862d8770136a2217b405884e6 ; Commit e03c6dd sha256=2d94fc712bfc2aa3876a2a02465dd6d1e1f7b12862d8770136a2217b405884e6 : IDENTISCH
+Port 8130 liefert index.html sha256=77ad6cdf7c344d203a0cbc9f0249808bcccea3dec274fa0d6070ee1bec3f72b3 ; Commit 1c01db1 sha256=77ad6cdf7c344d203a0cbc9f0249808bcccea3dec274fa0d6070ee1bec3f72b3 : IDENTISCH
+styles auf 8123 geprüft gegen HEAD
+HEAD=53c60f40f910e553bb781944e6e1e46f445c94e2 (53c60f4 erwartet); Arbeitsbaum sauber (index.html/styles): 0 Abweichungen

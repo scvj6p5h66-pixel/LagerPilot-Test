@@ -1,0 +1,245 @@
+PASS 1 Max gültig "1" -> 1  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 Max gültig "50" -> 50  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 Max gültig " 75 " -> 75  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 Max gültig "007" -> 7  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 Min gültig "0" -> 0
+PASS 1 Min gültig "5" -> 5
+PASS 1 Min gültig "500" -> 500
+PASS 1 Min 500 > Max 100 weiterhin erlaubt (SA-12c)
+PASS 2-5 Neuanlage aMax ungültig "abc": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "1e3": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "1e999": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "1E2": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "-1": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "+1": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "1.5": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "1,5": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "1 000": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "0x10": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "NaN": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "Infinity": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "٣": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "--1": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "99999999…(400)": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "9007199254740992": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "1.": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig ".5": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 2-5 Neuanlage aMax ungültig "0": abgelehnt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kei
+PASS 7/8 Bearbeiten A1 aMax "abc": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten A1 aMax "1e999": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten A1 aMax "-1": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten A1 aMax "1.5": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten A1 aMax "99999999…(400)": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten S1 aMax "abc": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten S1 aMax "1e999": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten S1 aMax "-1": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten S1 aMax "1.5": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 7/8 Bearbeiten S1 aMax "99999999…(400)": Wert 100 bleibt, Speicher gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Zi
+PASS 2-5 Neuanlage aMin ungültig "abc": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "1e3": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "1e999": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "1E2": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "-1": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "+1": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "1.5": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "1,5": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "1 000": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "0x10": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "NaN": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "Infinity": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "٣": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "--1": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "99999999…(400)": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "9007199254740992": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig "1.": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 2-5 Neuanlage aMin ungültig ".5": abgelehnt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Expon
+PASS 7/8 Bearbeiten A1 aMin "abc": Wert 5 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten A1 aMin "1e999": Wert 5 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten A1 aMin "-1": Wert 5 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten A1 aMin "1.5": Wert 5 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten A1 aMin "99999999…(400)": Wert 5 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten S1 aMin "abc": Wert 7 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten S1 aMin "1e999": Wert 7 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten S1 aMin "-1": Wert 7 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten S1 aMin "1.5": Wert 7 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 7/8 Bearbeiten S1 aMin "99999999…(400)": Wert 7 bleibt, Speicher gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; 
+PASS 6/8 A1 (ohne Bestand) leere Felder: erst nach Bestätigung entfernt (max, min -> null)  | Gespeicherte Angaben entfernen?
+• Maximale Boxmenge (100) wird entfernt
+• Mindestbestand (
+PASS 6/8 Bestätigung abgelehnt: nichts gespeichert, Speicher gleich
+PASS 8 S1 (mit Bestand): Max entfernen abgelehnt, Speicher gleich  | Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.|error
+PASS 8 S1 (mit Bestand): Mindestbestand entfernen erlaubt nach Bestätigung
+PASS 6 N1 ohne Werte: leer lassen = unbekannt, kein Dialog
+PASS 2 Pack 0 abgelehnt
+PASS 2 Pack 1.5 abgelehnt
+PASS 1 Pack 12 gültig
+PASS 1/5 Konfiguration shelf "800" -> 800  | Parameter gespeichert.|success lp-feedback-success
+PASS 1/5 Konfiguration shelf "800,5" -> 800.5  | Parameter gespeichert.|success lp-feedback-success
+PASS 1/5 Konfiguration bay "2500.25" -> 2500.25  | Parameter gespeichert.|success lp-feedback-success
+PASS 1/5 Konfiguration palletMax "1000" -> 1000  | Parameter gespeichert.|success lp-feedback-success
+PASS 1/5 Konfiguration tare "25,5" -> 25.5  | Parameter gespeichert.|success lp-feedback-success
+PASS 1/5 Konfiguration tare "0" -> 0  | Parameter gespeichert.|success lp-feedback-success
+PASS 1/5 Konfiguration tare "0.1" -> 0.1  | Parameter gespeichert.|success lp-feedback-success
+PASS 2-5 Konfiguration shelf ungültig "abc": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "1e3": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "1e999": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "1E2": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "-1": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "+1": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "1.2.3": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "1,2,3": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "1.500,5": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "0x10": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "NaN": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "Infinity": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "٣": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig ".5": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "5.": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "99999999…(400)": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "9007199254740992": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "0": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration shelf ungültig "0.5": abgelehnt, Speicher gleich  | Ungültiger Wert (shelf): Fachlast muss eine Zahl ab 1 kg sei
+PASS 2-5 Konfiguration bay ungültig "abc": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "1e3": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "1e999": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "1E2": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "-1": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "+1": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "1.2.3": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "1,2,3": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "1.500,5": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "0x10": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "NaN": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "Infinity": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "٣": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig ".5": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "5.": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "99999999…(400)": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "9007199254740992": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "0": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration bay ungültig "0.5": abgelehnt, Speicher gleich  | Ungültiger Wert (bay): Feldlast muss eine Zahl ab 1 kg sein 
+PASS 2-5 Konfiguration palletMax ungültig "abc": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "1e3": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "1e999": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "1E2": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "-1": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "+1": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "1.2.3": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "1,2,3": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "1.500,5": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "0x10": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "NaN": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "Infinity": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "٣": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig ".5": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "5.": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "99999999…(400)": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "9007199254740992": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "0": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration palletMax ungültig "0.5": abgelehnt, Speicher gleich  | Ungültiger Wert (palletMax): Palettentragfähigkeit muss eine
+PASS 2-5 Konfiguration tare ungültig "abc": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "1e3": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "1e999": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "1E2": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "-1": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "+1": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "1.2.3": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "1,2,3": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "1.500,5": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "0x10": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "NaN": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "Infinity": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "٣": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig ".5": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "5.": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "99999999…(400)": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 2-5 Konfiguration tare ungültig "9007199254740992": abgelehnt, Speicher gleich  | Ungültiger Wert (tare): Leergewicht muss eine Zahl ab 0 kg s
+PASS 6 Fachlast leer: Fehler, Speicher gleich
+PASS 6 Feldlast/Leergewicht leer: erst nach Bestätigung entfernt  | Gespeicherte Werte entfernen?
+• Feldlast (2000 kg) wird entfernt
+• Leergewicht (
+PASS 6/8 Konfiguration: Bestätigung abgelehnt -> nichts gespeichert
+PASS 6 Frischer Zustand: Fachlast setzen, übrige Felder leer ohne Dialog
+PASS Speicherlogik: max Infinity abgelehnt, Speicher gleich
+PASS Speicherlogik: max 1.5 abgelehnt, Speicher gleich
+PASS Speicherlogik: max "5" abgelehnt, Speicher gleich
+PASS Speicherlogik: min -1 abgelehnt, Speicher gleich
+PASS Speicherlogik: min NaN abgelehnt, Speicher gleich
+PASS Speicherlogik: config.tare NaN abgelehnt, Speicher gleich
+PASS Speicherlogik: config.shelf Infinity abgelehnt, Speicher gleich
+PASS Speicherlogik: config.bay "9" abgelehnt, Speicher gleich
+PASS Speicherlogik: config.palletMax -3 abgelehnt, Speicher gleich
+PASS Speicherlogik: weight Infinity abgelehnt, Speicher gleich
+PASS Buchung Menge getippt "1e999": abgelehnt, Speicher gleich  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern;
+PASS Buchung Menge getippt "1e": abgelehnt, Speicher gleich  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern;
+PASS Buchung Menge getippt "--": abgelehnt, Speicher gleich  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern;
+PASS Buchung Menge "": abgelehnt, Speicher gleich
+PASS Buchung Menge "0": abgelehnt, Speicher gleich
+PASS Buchung Menge "-5": abgelehnt, Speicher gleich
+PASS Buchung Menge "1.5": abgelehnt, Speicher gleich
+PASS Inventur Menge getippt "1e999": abgelehnt, Speicher gleich  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen m
+PASS Inventur Menge getippt "1e": abgelehnt, Speicher gleich  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen m
+PASS Inventur Menge getippt "--": abgelehnt, Speicher gleich  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen m
+PASS Umlagerung Menge getippt "1e999": abgelehnt, Speicher gleich  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (n
+PASS Umlagerung Menge getippt "1e": abgelehnt, Speicher gleich  | Umlagerungsmenge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (n
+PASS Umlagerung 5 gültig: Prüfung besteht (ohne Buchung)  | Prüfung bestanden: 5 STK von H4A-1-1 nach H4A-1-3. Ziel danach 5 STK.
+PASS Kommissionierung palletWeight getippt "1e999": Wert 25 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffe
+PASS Kommissionierung palletWeight getippt "--": Wert 25 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffe
+PASS Kommissionierung palletWeight getippt "1e": Wert 25 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Palettengewicht muss eine Zahl ab 0 sein (nur Ziffe
+PASS Kommissionierung boxWeight getippt "1e999": Wert 1.5 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mi
+PASS Kommissionierung boxWeight getippt "--": Wert 1.5 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mi
+PASS Kommissionierung boxWeight getippt "1e": Wert 1.5 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Boxgewicht muss eine Zahl ab 0 sein (nur Ziffern mi
+PASS Kommissionierung tolerancePercent getippt "1e999": Wert 1 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit 
+PASS Kommissionierung tolerancePercent getippt "--": Wert 1 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit 
+PASS Kommissionierung tolerancePercent getippt "1e": Wert 1 bleibt, Messwert 40 bleibt, Warnung  | Ungültige Eingabe: Toleranz muss eine Zahl ab 0 sein (nur Ziffern mit 
+PASS Kommissionierung Messwert getippt "1e999": Wert 40 bleibt
+PASS Kommissionierung Messwert getippt "--": Wert 40 bleibt
+PASS Kommissionierung Stückgewicht Pos.1 getippt "1e999": Wert 1 bleibt
+PASS Kommissionierung Stückgewicht Pos.1 getippt "--": Wert 1 bleibt
+PASS Kommissionierung Istmenge Pos.1 getippt "1e999": Wert 2 bleibt
+PASS Kommissionierung Istmenge Pos.1 getippt "--": Wert 2 bleibt
+PASS Kommissionierung Toleranz 150 (außerhalb 0–100): abgelehnt, Messwert bleibt
+PASS Kommissionierung gültige Palette 30: gespeichert, Messwert zurückgesetzt (bestehendes Verhalten)
+PASS Kommissionierung Toleranz 2.5 gültig
+PASS Kommissionierung: keine JS-Fehler
+PASS Layout Desktop 1100: Button unverändert 30 px hoch  | 87x30
+PASS Layout Desktop 1100: Buttons überlappen nicht, kein horizontaler Seitenüberlauf
+PASS Layout Desktop 1100: Bearbeiten öffnet Formular (Funktion erhalten)
+PASS Layout iPhone SE: Bearbeiten-Button >= 44x44 (99x44)
+PASS Layout iPhone SE: Buttons überlappen nicht, kein horizontaler Seitenüberlauf
+PASS Layout iPhone SE: Bearbeiten öffnet Formular (Funktion erhalten)
+PASS Layout iPhone 14: Bearbeiten-Button >= 44x44 (99x44)
+PASS Layout iPhone 14: Buttons überlappen nicht, kein horizontaler Seitenüberlauf
+PASS Layout iPhone 14: Bearbeiten öffnet Formular (Funktion erhalten)
+PASS Layout Pixel 7: Bearbeiten-Button >= 44x44 (99x44)
+PASS Layout Pixel 7: Buttons überlappen nicht, kein horizontaler Seitenüberlauf
+PASS Layout Pixel 7: Bearbeiten öffnet Formular (Funktion erhalten)
+PASS Layout iPad Pro 11: Bearbeiten-Button >= 44x44 (99x44)
+PASS Layout iPad Pro 11: Buttons überlappen nicht, kein horizontaler Seitenüberlauf
+PASS Layout iPad Pro 11: Bearbeiten öffnet Formular (Funktion erhalten)
+PASS Layout iPad Pro 11 quer: Bearbeiten-Button >= 44x44 (99x44)
+PASS Layout iPad Pro 11 quer: Buttons überlappen nicht, kein horizontaler Seitenüberlauf
+PASS Layout iPad Pro 11 quer: Bearbeiten öffnet Formular (Funktion erhalten)
+PASS 9 Export enthält Konfiguration, max/min/Gewichte unverändert
+PASS 9 Import gültig (max 77, min 3, shelf 900,5): übernommen
+PASS 9 Import max "5" (String): abgelehnt, Speicher unverändert
+PASS 9 Import max 1.5: abgelehnt, Speicher unverändert
+PASS 9 Import min -1: abgelehnt, Speicher unverändert
+PASS 9 Import config.tare "x": abgelehnt, Speicher unverändert
+PASS 9 Import config.shelf -5: abgelehnt, Speicher unverändert
+PASS 9 Import Altdaten: Min 500 > Max 100: übernommen
+PASS AP5.1 Gewicht "abc" weiterhin abgelehnt, Speicher gleich
+PASS AP5.1 Gewicht "1e999" weiterhin abgelehnt, Speicher gleich
+PASS AP5.1 Gewicht "Infinity" weiterhin abgelehnt, Speicher gleich
+PASS AP5.1 Gewicht "-1" weiterhin abgelehnt, Speicher gleich
+PASS AP5.1 Gewicht "1.2.3" weiterhin abgelehnt, Speicher gleich
+PASS AP5.1 Gewicht 2,5 gültig
+PASS Integrität: Boxen unverändert
+PASS Integrität: Plätze unverändert
+PASS Integrität: QR-Zuordnung unverändert
+PASS Integrität: Anzahl/Codes der Altartikel erhalten
+PASS Integrität: valid()
+PASS Keine JavaScript-Fehler
+
+GESAMT 238 / FAIL 0
+exit 0

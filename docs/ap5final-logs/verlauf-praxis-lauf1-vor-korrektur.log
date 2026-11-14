@@ -1,0 +1,129 @@
+PASS 0 Lagerstruktur: Halle 4A = 22 Regale / 3.564 Stellplätze  | 22 Regale, 3564
+PASS 0 Lagerstruktur: Halle 4B = 18 Regale / 2.916 Stellplätze  | 18 Regale, 2916
+PASS 0 Lagerstruktur: insgesamt 40 Regale / 6.480 Stellplätze, keine unplausiblen Kennungen  | 6480 Plätze
+PASS 0 Lagerstruktur: je Regal 162 Plätze = 18 Türme × 9 (Nummern 1–162 lückenlos)
+PASS 0 Regalansicht Halle 4A Regal 1 rendert 162 Stellplätze  | {"cells":162,"txt":674}
+PASS 1 Traglast-Konfiguration über Oberfläche gespeichert (Fach 800, Feld 2000, Palette 1000, Leergewicht 25 kg)  | {"shelf":800,"bay":2000,"palletMax":1000,"tare":25}
+PASS 1 Artikel SCH-1001 anlegen: gespeichert, Werte korrekt (Gewicht mit Dezimalkomma, Min/Max, Barcode)  | Artikel gespeichert.
+PASS 1 Artikel KAB-2001 anlegen: gespeichert, Werte korrekt (Gewicht mit Dezimalkomma, Min/Max, Barcode)  | Artikel gespeichert.
+PASS 1 Artikel DIC-3001 anlegen: gespeichert, Werte korrekt (Gewicht mit Dezimalkomma, Min/Max, Barcode)  | Artikel gespeichert.
+PASS 1 Artikel MOT-4001 anlegen: gespeichert, Werte korrekt (Gewicht mit Dezimalkomma, Min/Max, Barcode)  | Artikel gespeichert.
+PASS 1 Artikel STA-9001 anlegen: gespeichert, Werte korrekt (Gewicht mit Dezimalkomma, Min/Max, Barcode)  | Artikel gespeichert.
+PASS 1 Ungültig/Dublette abgewiesen: doppelte Artikelnummer – Speicher byte-gleich  | Artikelnummer SCH-1001 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 1 Ungültig/Dublette abgewiesen: doppelte Artikelnummer, andere Schreibweise – Speicher byte-gleich  | Artikelnummer SCH-1001 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 1 Ungültig/Dublette abgewiesen: doppelter Barcode – Speicher byte-gleich  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 1 Ungültig/Dublette abgewiesen: Barcode = Artikelnummer eines anderen Artikels – Speicher byte-gleich  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 1 Ungültig/Dublette abgewiesen: Artikelnummer = Barcode eines anderen Artikels – Speicher byte-gleich  | Artikelnummer kollidiert mit einem vorhandenen Barcode.
+PASS 1 Ungültig/Dublette abgewiesen: Gewicht negativ – Speicher byte-gleich  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „-1“. Zum Entfernen das Feld leer lassen.
+PASS 1 Ungültig/Dublette abgewiesen: Gewicht Text – Speicher byte-gleich  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „abc“. Zum Entfernen das Feld leer lassen.
+PASS 1 Ungültig/Dublette abgewiesen: Gewicht mit zwei Kommas – Speicher byte-gleich  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „1,2,3“. Zum Entfernen das Feld leer lassen.
+PASS 1 Ungültig/Dublette abgewiesen: Stück pro Pack = 0 – Speicher byte-gleich  | Stück pro Pack muss eine positive ganze Zahl sein.
+PASS 1 Ungültig/Dublette abgewiesen: Stück pro Pack = 2,5 – Speicher byte-gleich  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „2,5“. Es wurde nichts gespeichert.
+PASS 1 Ungültig/Dublette abgewiesen: Boxkapazität = 0 – Speicher byte-gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „0“. Zum Entfernen das Feld leer lassen.
+PASS 1 Ungültig/Dublette abgewiesen: Boxkapazität Text – Speicher byte-gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „viele“. Zum Entfernen das Feld leer lassen.
+PASS 1 Ungültig/Dublette abgewiesen: Mindestbestand negativ – Speicher byte-gleich  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-3“. Zum Entfernen das Feld leer lassen.
+FAIL 1 Ungültig/Dublette abgewiesen: Mindestbestand größer als Boxkapazität – Speicher byte-gleich  | Artikel gespeichert.
+BEFUND[hoch] 1 Ungültige Eingabe wurde GESPEICHERT: Mindestbestand größer als Boxkapazität  | Meldung: Artikel gespeichert.
+PASS 1 Ungültig/Dublette abgewiesen: Name leer – Speicher byte-gleich  | Artikelbezeichnung fehlt.
+PASS 1 Ungültig/Dublette abgewiesen: Artikelnummer leer – Speicher byte-gleich  | Artikelnummer fehlt.
+PASS 1 Ungültig/Dublette abgewiesen: Barcode über 64 Zeichen – Speicher byte-gleich  | Barcode darf höchstens 64 Zeichen enthalten.
+PASS 1 Ungültig/Dublette abgewiesen: Gewicht 1e3 (Exponentenschreibweise) – Speicher byte-gleich  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „1e3“. Zum Entfernen das Feld leer lassen.
+PASS 1 Ungültig/Dublette abgewiesen: Boxkapazität 99999999999999999999 – Speicher byte-gleich  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „99999999999999999999“. Zum Entfernen das Feld leer lassen.
+PASS 1 Barcode-Schreibvariante (ZzBc9 / zzbc9) bei Neuanlage abgewiesen  | Barcode ist bereits vergeben (Groß-/Kleinschreibung wird nicht unterschieden).
+PASS 1 Bearbeiten: Barcode auf bereits vergebenen Barcode ändern abgewiesen  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 1 Artikel bearbeiten (Name, Gewicht 0,45) gespeichert; Artikelnummer/Barcode unverändert  | Artikel gespeichert.
+PASS 2 Wareneingang 3000 Stk Schrauben (Pack à 100 = 30 Pack) auf H4A-3-10: gebucht, Bestand 30 Pack  | ✓ Buchung gespeichert.
+PASS 2 Wareneingang über Boxkapazität (30+20,5 → nicht teilbar bzw. >50) abgewiesen, Bestand unverändert  | Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch den Packinhalt teilbar sein.
+PASS 2 Wareneingang 21 Pack → 51 > Boxkapazität 50: abgewiesen  | Boxkapazität überschritten (50 P).
+PASS 2 Wareneingang KAB 8 (H4A-3-11), DIC 40 Pack (H4B-2-5), MOT 4 (H4B-2-6): Bestände korrekt
+PASS 2 Tragfähigkeit: 9 Stahlträger (9×90+25 kg = 835 kg) > Fachlast 800 kg: abgewiesen (Warnung), nichts gebucht  | Fachlast von 800 kg überschritten.
+PASS 2 Tragfähigkeit: 8 Stahlträger (745 kg) erlaubt  | ✓ Buchung gespeichert.
+PASS 2 Wareneingang auf nicht existierenden Lagerplatz abgewiesen  | Unbekannter Lagerplatz: H4Z-9-9
+PASS 2 Wareneingang Menge 0 abgewiesen, Speicher byte-gleich  | Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch den Packinhalt teilbar sein.
+PASS 2 Wareneingang Menge negativ abgewiesen, Speicher byte-gleich  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „-4“. Es wurde nichts gespeichert.
+PASS 2 Wareneingang Menge Text abgewiesen, Speicher byte-gleich  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „abc“. Es wurde nichts gespeichert.
+PASS 2 Wareneingang Menge 2,5 bei Stückartikel abgewiesen, Speicher byte-gleich  | Menge ist keine gültige Zahl: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „2,5“. Es wurde nichts gespeichert.
+PASS 2 Wareneingang Menge leer abgewiesen, Speicher byte-gleich  | Artikel und gültige Menge eingeben. Bei Packartikeln muss die Stückzahl durch den Packinhalt teilbar sein.
+PASS 2 Wareneingang auf bestehende Box addiert (8+2=10), keine zweite Box  | ✓ Buchung gespeichert.
+PASS 2 Umlagerung 3 Kabeltrommeln H4A-3-11 → H4A-5-20: Quelle 7, Ziel 3, Gesamtbestand 10 unverändert  | ✓ Buchung gespeichert.
+PASS 2 Umlagerung von mehr als vorhanden abgewiesen, Gesamtbestand 10  | Quellbestand reicht nicht.
+PASS 2 Umlagerung auf denselben Platz abgewiesen/ohne Wirkung  | Quelle und Ziel müssen verschieden sein.
+PASS 2 Umlagerung auf ungültigen Zielplatz abgewiesen  | Unbekannter Lagerplatz: H4A-5-99999
+PASS 2 Lagerplatz H4A-7-7 über Oberfläche gesperrt  | Lagerplatzstatus gespeichert.
+PASS 2 Umlagerung auf gesperrten Platz abgewiesen  | Lagerplatz gesperrt oder reserviert: H4A-7-7
+PASS 2 Wareneingang auf gesperrten Platz abgewiesen  | Lagerplatz gesperrt oder reserviert: H4A-7-7
+PASS 2 Ausbuchung 2 Kabeltrommeln: Quelle 5, Gesamt 8  | ✓ Buchung gespeichert.
+PASS 2 Ausbuchung mehr als vorhanden („Bestand darf nicht negativ werden“) abgewiesen  | Bestand darf nicht negativ werden.
+PASS 2 Ausbuchung eines Artikels, der dort nicht lagert, abgewiesen  | Kein frei buchbarer Bestand.
+PASS 2 Bestandskorrektur unter 0 abgewiesen  | Bestand darf nicht negativ werden.
+PASS 2 Bestandskorrektur ohne Begründung abgewiesen  | Bei Bestandskorrektur ist ein Grund erforderlich.
+PASS 2 Bestandskorrektur −1 mit Begründung: Bestand 4; Historie enthält Grund  | ✓ Buchung gespeichert.
+PASS 2 Ausbuchung des Restbestands: Box wird entfernt (keine 0-Box)  | Boxen: 5
+FAIL 2 Umlagerung zur Qualitätsprüfung (DIC 40 Pack ➜ H4B-2-9): Bestand gesperrt/blockiert  | Bitte zuerst deinen Mitarbeiternamen in den Lagerplatzdetails eingeben.
+PASS 2 Ausbuchung aus QS-gesperrter Box abgewiesen („Kein frei buchbarer Bestand“)  | Kein frei buchbarer Bestand.
+FAIL 2 Wareneingang auf QS-gesperrte Palette abgewiesen  | ✓ Buchung gespeichert.
+FAIL 2 Bestandsliste (Suche SCH-1001) zeigt Platz H4A-3-10 und 3.000 Stück/30 Pack  | Schraube M8x40 (Pack à 100)SCH-10013.000 Stück30 Pack · 100 Stück/Pack1Orte
+PASS 2 Startseite zeigt Kennzahlen ohne Fehler  | 6Artikel6.480Lagerplätze beider Hallen6Palettenboxen / Bestandspositionen
+FAIL 2 Startseite: Warnungen/Hinweise zu Mindestbeständen sichtbar (z. B. Kabeltrommel unter Mindestbestand 2)
+FAIL 3 Blindinventur: Sollbestand vor der Zählung nicht sichtbar (weder 30 Pack noch 3.000 Stück im Bereich)  | ← Zurück zu Mehr Blindinventur Der Sollbestand bleibt bis zur Eingabe und Prüfung der Zählmenge verborgen. Die Zählung verändert den Bestand erst nach gesondert
+PASS 3 Inventur Istmenge leer abgewiesen (kein Vergleich, kein Buchen)  | Gültige Stückzahl eingeben. Bei Packartikeln sind nur ganze Pack zulässig.
+PASS 3 Inventur Istmenge negativ abgewiesen (kein Vergleich, kein Buchen)  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „-5“. Es wurde nichts gespeichert.
+PASS 3 Inventur Istmenge Text abgewiesen (kein Vergleich, kein Buchen)  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „zehn“. Es wurde nichts gespeichert.
+PASS 3 Inventur Istmenge Dezimal 3050,5 abgewiesen (kein Vergleich, kein Buchen)  | Gültige Stückzahl eingeben (Inventurmenge ist keine gültige Zahl): Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „3050,5“. Es wurde nichts gespeichert.
+PASS 3 Inventur Istmenge nicht durch Packinhalt teilbar (3050 bei Pack à 100) abgewiesen (kein Vergleich, kein Buchen)  | Gültige Stückzahl eingeben. Bei Packartikeln sind nur ganze Pack zulässig.
+PASS 3 Inventur: nach Zählung 2.800 Stück werden Soll 3.000, Gezählt 2.800, Differenz −200 angezeigt  | Soll: 3.000 Stück (30 P) · Gezählt: 2.800 Stück (28 P) · Differenz: -200 Stück
+PASS 3 Inventur: Änderung der Daten zwischen Vergleich und Buchung → „Daten haben sich geändert“, nichts gebucht  | Daten haben sich geändert – erneut zählen.
+PASS 3 Inventur: Differenz gebucht → Bestand 28 Pack, Protokoll (vorher 30 / gezählt 28), Historie „Blindinventur“  | ✓ Inventurdifferenz gespeichert.
+PASS 3 Inventur ohne Differenz: Hinweis „Keine Abweichung“  | Soll: 2.800 Stück (28 P) · Gezählt: 2.800 Stück (28 P) · Differenz: 0 Stück · Keine Abweichung. Die Zählung kann protokolliert werden.
+PASS 3 Inventur Mehrbestand (4 → 5 Motoren): gebucht, Tragfähigkeitsprüfung bestanden  | ✓ Inventurdifferenz gespeichert.
+PASS 3 Inventur Mehrbestand über Boxkapazität (7 > 6) abgewiesen, Bestand bleibt 5  | Boxkapazität überschritten (6 STK).
+PASS 3 Inventur Zählung 0: Box wird entfernt, Protokoll vorhanden, kein negativer Bestand  | ✓ Inventurdifferenz gespeichert.
+NICHT-DURCHFÜHRBAR 4 Auftrag anlegen / Positionen hinzufügen / Auftrag ändern  | In der Oberfläche gibt es keine Funktion dafür: Die Auftragsliste ist fest (K-1042: 3, K-1043: 8, K-1044: 5 Positionen, Testmodus). Positionen werden aus dem vorhandenen Lagerbestand abgeleitet. Nur Zuteilung, Start/Pause und Abschluss sind möglich.
+PASS 4 Ohne aktive Mitarbeiter: Zuteilung nicht möglich („Kein Mitarbeiter verfügbar“)  | K-1042:1:Kein Mitarbeiter verfügbar | K-1043:1:Kein Mitarbeiter verfügbar | K-1044:1:Kein Mitarbeiter verfügbar
+PASS 4 Mitarbeiter Max und Peter auf „Aktiv“ gestellt (Test)  | {"Max":true,"Peter":true}
+PASS 4 Auftrag K-1042 Max zugeteilt, Status „Zugewiesen“  | Zugewiesen / Max
+PASS 4 Derselbe Mitarbeiter bekommt keinen zweiten offenen Auftrag (K-1044 bleibt unzugeteilt)  | K-1044: 
+PASS 4 Übersicht: 1 offen (K-1043), 0 in Bearbeitung, Zuteilungen sichtbar  | 1Offene Aufträge0In Bearbeitung0Verfügbare Mitarbeiter
+PASS 5 Anmeldung Max an Scanner 1  | [{"name":"Max","device":"Scanner 1","active":true,"lastSeen":1794667170468}]
+PASS 5 Auftrag K-1042 geöffnet: 3 Positionen aus echten Lagerbeständen (Artikel/Plätze/Mengen)  | K-1042 Mitarbeiter: Max · Status: Zugewiesen · Testmodus ➡️ Nächste Position H4A-3-10 · Schraube M8x40 (Pack à 100) Zur Position 1 Artikel und Lagerplätze aus der Regalansicht (Demo). Kataloggewichte:
+PASS 5 Auftrag gestartet (In Bearbeitung, Startzeit gesetzt)  | In Bearbeitung
+PASS 5 Positionen vollständig: Artikel, Name, Lagerplatz, Menge, Stückgewicht aus Stamm  | [["SCH-1001","H4A-3-10",24,0.012],["DIC-3001","H4B-2-5",24,0.018000000000000002],["STA-9001","H4A-1-1",8,90]]
+PASS 5 Falscher Lagerplatz abgewiesen („Falscher Lagerplatz“), Position bleibt offen  | Falscher Lagerplatz! Erwartet: H4A-3-10. Erkannt: H4Z-1-1. Bitte Lagerplatz-QR scannen.
+PASS 5 Richtiger Lagerplatz bestätigt → Artikelbarcode verlangt  | ✓ Lagerplatz H4A-3-10 bestätigt. Jetzt Artikelbarcode scannen.
+PASS 5 Falscher Artikel (Artikelnummer der Position 2) abgewiesen („Falscher Artikel“)  | Falscher Artikel! Erwartet: SCH-1001. Erkannt: DIC-3001
+PASS 5 Unbekannter Barcode abgewiesen  | Falscher Artikel! Erwartet: SCH-1001. Erkannt: 0000000000000
+PASS 5 Nach Fehlscans: keine Position als gescannt/bestätigt markiert
+PASS 5 Richtiger Artikel (Barcode) akzeptiert
+PASS 5 Position 1 als gescannt gespeichert (scannedLines), Auftrag noch nicht abgeschlossen  | [0]
+PASS 5 Entnahmemenge je Position änderbar (Eingabefeld vorhanden)
+PASS 5 Ungültige Entnahmemenge „abc“ abgewiesen, bisheriger Wert bleibt  | actual=24
+PASS 5 Negative Entnahmemenge abgewiesen  | actual=24
+PASS 5 Dezimale Entnahmemenge (1,5 Stück) abgewiesen  | actual=24
+PASS 5 Mehrdeutiger Barcode (gehört zu zwei Artikeln): Scan abgewiesen, nichts als gescannt markiert, Meldung nennt beide Artikel  | Mehrdeutiger Barcode „4012345000011“: passt zu mehreren Artikeln – SCH-1001 (Schraube M8x40 (Pack à 100)), DIC-3001 (Dichtungsring-Set (Pack à 25) v2). Es wurde kein Artikel ausgewählt und nichts gebucht. Bitte die Zuordnung im Artikelstamm klären.
+PASS 5 Bestätigung ohne vorherigen Scan abgewiesen („Bitte zuerst den Artikel scannen“)
+PASS 5 Alle 3 Positionen gescannt und bestätigt  | [0,1,2]
+PASS 5 Abschluss gesperrt, solange Gewichtskontrolle (Palette/Box/Messwert) fehlt
+PASS 5 Erwarteter Waagenwert (Brutto = Ware + Palette + Box) korrekt berechnet und angezeigt  | angezeigt=747,22 kg erwartet=747.220
+PASS 5 Messwert +5 % (Toleranz 1 %) → Abschluss gesperrt
+PASS 5 Messwert +0,99 % (innerhalb Toleranz 1 %) → Abschluss möglich
+PASS 5 Messwert +1,01 % (knapp außerhalb Toleranz) → Abschluss gesperrt
+PASS 5 Waage tariert: Nettogewicht (nur Ware) verglichen → Abschluss möglich  | Ware=720.720
+PASS 5 Ungültiger Messwert „abc“ abgewiesen, bisheriger Wert bleibt  | measured=747.22
+PASS 5 Negatives Palettengewicht abgewiesen  | pallet=25
+PASS 5 Unterbrechung (Seite neu geladen): Anmeldung, Auftrag, bestätigte Positionen und Gewichtswerte bleiben erhalten  | ["Max","In Bearbeitung",3]
+PASS 5 Pausieren möglich; im pausierten Zustand sind Scan/Bestätigung gesperrt
+PASS 5 Vorläufiger Kommissionierschein erzeugt (1 Druckaufruf) und enthält Auftrag, Positionen, Lagerplätze  | Länge 3516
+PASS 5 Auftrag abgeschlossen: Status „Abgeschlossen“, Abschlusszeit, Mitarbeiter und Gerät festgehalten  | {"at":"2026-11-14T14:39:37.672Z","assignee":"Max","device":"Scanner 1"}
+PASS 5 Abschlussbeleg gedruckt (1×) mit Status ABGESCHLOSSEN, Mitarbeiter, Scanner, Gewichtsprüfung  | Länge 3520
+BEFUND[mittel] 5 Kommissionierabschluss bucht KEINEN Lagerbestand aus  | Nach Abschluss von K-1042 ist der Lagerbestand byte-gleich unverändert (Entnahmemengen werden nicht ausgebucht). Entnahme muss separat über „Warenausgang“ gebucht werden – Gefahr von Differenzen zwischen Kommissionierung und Bestand. Im Testmodus laut UI so vorgesehen, für den Praxisbetrieb relevant
+PASS 5 Abgeschlossener Auftrag: Beleg im Admin erneut druckbar
+PASS 5 Manuelle Ausbuchung der kommissionierten Mengen führt zu nicht-negativen Beständen
+FAIL 6 Auftrag K-1043 (8 Positionen) bei nur 4 verfügbaren Artikeln: Auftrag bleibt konsistent (Positionen = Zeilenzahl) und bearbeitbar  | lines=8 items=4 repaired=true | ⚠ Auftragsdaten waren beschädigt und wurden zurückgesetzt. Bitte alle Positionen erneut scannen und bestätigen. K-1043 Mitarbeiter: Leon · Status: In Bearbeitung · Testmodus ➡️ Nächste Position H4A-3-
+BEFUND[hoch] 6 Auftrag mit mehr Positionen als verfügbaren Artikeln wird dauerhaft als „repariert“ markiert  | Reproduktion: Lager mit nur 5 Artikeln mit freiem Bestand; Auftrag K-1043 (8 Positionen) einem Mitarbeiter zuteilen, anmelden, starten. pickEnsureLines erzeugt nur 4 Positionen (≠ 8) und setzt bei jedem Render erneut repaired/leert scannedLines/checkedLines → bereits bestätigte Positionen gehen verl
+PASS 7 Lagerstruktur nach dem gesamten Ablauf unverändert: 6.480 Plätze, QR-Zuordnungen und Lagerplatzkennungen identisch
+PASS 7 Alle Bestände nach dem Ablauf gültig: keine negativen Mengen, gesperrt ≤ Menge, keine 0-Boxen, jede Box verweist auf existierenden Artikel/Platz
+PASS 7 Keine zwei Boxen desselben Artikels auf demselben Platz (Mehrfachboxen)
+PASS 7 Historie vollständig: Wareneingang, Umlagerung, Warenausgang, Korrektur, Blindinventur dokumentiert  | 26 Einträge
+PASS 7 Keine JavaScript-Fehler im gesamten Ablauf
+
+GESAMT Praxistest: PASS 116 / FAIL 7 / BEFUNDE 3 / NICHT-DURCHFÜHRBAR 1

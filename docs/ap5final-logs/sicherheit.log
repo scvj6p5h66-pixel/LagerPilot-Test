@@ -1,0 +1,93 @@
+PASS 1 Export erzeugt Datei mit Schema 27, allen Daten und Kommissionierdaten (_pick)  | lagerpilot-2.7.3-sicherung-2026-11-14.json
+PASS 1 Wiederimport in andere Instanz: Daten byte-gleich zum Export (items, boxes, places, qrMap, config, history, inventoryLogs)
+PASS 1 Wiederimport: Kommissionierdaten identisch, 6.480 Lagerplätze, QR-Zuordnung und Plätze unverändert
+PASS 1 Wiederimport: Bestandssummen je Artikel identisch (A-1 40, A-2 12 (2 gesperrt), A-3 100)
+PASS 1 Vorheriger Stand der Zielinstanz (inkl. ALT-1) wurde vor dem Ersetzen gesichert (Liste + Datei)
+PASS 2 Import Stand 1: importiert; Sicherungsstände ≤ 3, jüngster = vorheriger Stand byte-gleich
+PASS 2 Import Stand 2: importiert; Sicherungsstände ≤ 3, jüngster = vorheriger Stand byte-gleich
+PASS 2 Import Stand 3: importiert; Sicherungsstände ≤ 3, jüngster = vorheriger Stand byte-gleich
+PASS 2 Import Stand 4: importiert; Sicherungsstände ≤ 3, jüngster = vorheriger Stand byte-gleich; ältester entfernt nach ausdrücklichem Hinweis
+PASS 2 Jeder Sicherungsstand trägt Datum/Uhrzeit (ISO) und ist chronologisch geordnet
+PASS 2 Oberfläche zeigt 3 Stände mit Datum, Uhrzeit, Artikelzahl  | 14.11.2026, 16:32:30 Uhr · vor Import · 4 Artikel · 3 Boxen · ca. 267 KBWiederherstellenLöschen
+PASS 2 Wiederherstellung: ohne Bestätigung nichts verändert
+PASS 2 Wiederherstellung älterer Daten: Stand byte-gleich dem gewählten Sicherungsstand; Version 1 vorhanden, Version 3/4 nicht mehr
+PASS 2 Wiederherstellung: aktueller Stand vorher als „vor Wiederherstellung“ gesichert
+PASS 2 Keine JavaScript-Fehler
+PASS 3 Ausnahmeimport (A-3 hat Barcode von A-1): Standard abgelehnt – nichts verändert, keine Sicherung
+PASS 3 Ausnahme bestätigt, normale Importbestätigung abgebrochen: nichts verändert
+PASS 3 Ausnahmeimport bestätigt: durchgeführt, Dublette unverändert vorhanden
+PASS 3 Inventur-Scan des mehrdeutigen Barcodes: keine Auswahl, Meldung nennt A-1 und A-3  | Mehrdeutiger Barcode „BC-1“: passt zu mehreren Artikeln – A-1 (Art 1), A-3 (Art 3). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS 3 Bestandssuche: mehrdeutiger Barcode wird gemeldet, Suchfeld unverändert  | Mehrdeutiger Barcode „BC-1“: passt zu mehreren Artikeln – A-1 (Art 1), A-3 (Art 3). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS 3 Scanner-Tab zeigt Konflikt (A-1, A-3) und verändert nichts  | Code ist mehrfach vergeben oder zugleich Lagerplatz und Artikel. Bitte Zuordnung prüfen. Betroffen: Artikel A-1 (Art 1), A-3 (Art 3).
+PASS 3 Eindeutiger Barcode (BC-2) wird weiter normal erkannt  | Artikel erkannt: Art 2 · 12 P · 120 STK
+PASS 3 Keine JavaScript-Fehler
+PASS 4 Datei „leere Datei“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 4 Datei „nur Leerzeichen“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 4 Datei „Binärmüll“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 4 Datei „abgeschnittenes JSON“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 4 Datei „JSON-String statt Objekt“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Zahl“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „null“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Array“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Schema als Text“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Schema 99“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „items kein Array“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Artikel ohne Nummer“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „doppelte Artikelnummer“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Einheit ungültig“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Pack 0“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Gewicht negativ“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Gewicht NaN-Text“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Box mit negativer Menge“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Box mit Dezimalmenge“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „gesperrt > Menge“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Box auf unbekanntem Platz“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Box mit unbekanntem Artikel“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „doppelte Box-ID“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „Platzstatus ungültig“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „qrMap als Array“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „config negativ“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „history kein Array“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „inventoryLogs ungültig“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „_pick ungültig“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Kommissionierdaten in Sicherung ungültig.
+PASS 4 Datei „_pick Auftrag mit 0 Positionen“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Kommissionierdaten in Sicherung ungültig.
+PASS 4 Datei „_pick Auftrag mit 101 Positionen“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Kommissionierdaten in Sicherung ungültig.
+PASS 4 Datei „_pick negative Entnahmemenge“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Kommissionierdaten in Sicherung ungültig.
+PASS 4 Datei „Prototype-Pollution-Schlüssel“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „riesige Zahl als Menge (1e309)“: nicht importiert, Meldung, Daten und Sicherungen byte-gleich, keine Ausnahme-Rückfrage  | reloaded=false msg=Ungültiges Backupformat.
+PASS 4 Datei „JSON mit UTF-8-BOM (inhaltlich gültig)“: wird importiert, schema 27, alle Artikel, Boxen, Plätze (6.480), QR-Zuordnungen erhalten, vorheriger Stand gesichert  | reloaded=true
+PASS 4 Datei ohne „schema“-Feld: Import erfolgt nur nach Bestätigung und der vorherige Stand ist byte-gleich gesichert (wiederherstellbar)  | reloaded=true
+BEFUND[mittel] 4 Sicherung ohne „schema“-Feld wird als LagerPilot-2.5-Altformat importiert und verwirft Bestandsdaten  | Reproduktion: gültige Export-JSON (Schema 27) öffnen, Schlüssel "schema" löschen, importieren und beide Rückfragen bestätigen → die Rückfragen erwähnen kein Altformat; Ergebnis: 3 von 3 Boxen (gesamter Bestand), 1 QR-Zuordnung(en), Konfiguration (Fachlast etc. zurückgesetzt=true) und Artikelgewichte
+PASS 4 Historie mit 3.001 Einträgen (über Limit 3.000) abgelehnt, Daten byte-gleich  | Ungültiges Backupformat.
+PASS 4 Import ohne Dateiauswahl (Abbruch im Dateidialog): keine Wirkung, keine Fehler
+PASS 5 Veralteter Tab B: Buchung wird abgewiesen („anderen Tab geändert“), Bestand = Stand von Tab A, nichts doppelt/verloren  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS 5 Veralteter Tab zeigt Warnbanner „Lagerdaten in anderem Tab geändert“
+PASS 5 Veralteter Tab: Artikel-/Konfigurationsänderungen (transaction) werden alle abgewiesen  | {"transaction":"Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.","config":"Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bi
+PASS 5 Veralteter Tab: Inventurbuchung abgewiesen, Bestand unverändert  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS 5 Nach Neuladen bucht Tab B korrekt (A-3 = 107); Tab A noch veraltet, überschreibt nichts  | ✓ Buchung gespeichert.
+PASS 5 Tab A (jetzt veraltet) kann B-Buchung nicht überschreiben (Lost-Update verhindert)  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS 5 Kommissionierdaten in anderem Tab geändert: Tab A erhält Warnung („Kommissionierdaten wurden in einem anderen Tab geändert“)  | confirm:Buchung verbindlich speichern?|alert:Kommissionierdaten wurden in einem anderen Tab geändert. Bitte diese Seite neu laden, bevor du weiterarbeitest.
+PASS 5 Keine JavaScript-Fehler
+PASS 6 Buchung bei vollem Speicher: Fehlermeldung, gespeicherter Stand byte-gleich  | quota
+PASS 6 Nach fehlgeschlagener Buchung zeigt auch der Arbeitsspeicher den alten Stand (keine „Geisterbuchung“)  | Menge im Speicher 40
+PASS 6 Inventurbuchung bei vollem Speicher: Fehler, Stand unverändert  | quota
+PASS 6 Artikel anlegen bei vollem Speicher: Fehler, kein Artikel in Speicher/Arbeitsspeicher  | quota
+PASS 6 Nach Freigabe des Speichers funktioniert die Buchung wieder (45)  | ✓ Buchung gespeichert.
+PASS 6 Kommissionierdaten bei vollem Speicher: gespeicherter Stand byte-gleich, Hinweis an Benutzer  | alert:Kommissionierdaten konnten nicht gespeichert werden: quota
+PASS 6 Keine JavaScript-Fehler (außer behandelten Speicherfehlern)
+PASS 7 Historie am Limit (3.000): weitere Buchungen bleiben möglich (4 von 4), Historie ≤ 3.000, jüngste Einträge vorhanden  | ok=4 history=3000 | ✓ Buchung gespeichert.
+PASS 7 Inventurprotokolle am Limit (10.000): Zählungen bleiben möglich, Protokoll ≤ 10.000  | ok=3
+BEFUND[gering] 7 Doppeltipp auf „Buchen“ erzeugt Mehrfachbuchung  | Reproduktion: Wareneingang A-1, Menge 1, auf „Buchen“ zweimal schnell tippen → Bestand +2 statt +1. Hintergrund: Nach erfolgreicher Buchung bleibt das Formular befüllt; jede Bestätigung wird einzeln akzeptiert. Abschwächung: Die Buchung verlangt je Vorgang einen Bestätigungsdialog (confirm); ein ech
+PASS 7 Nach erfolgreicher Buchung ist die Mengeneingabe zurückgesetzt oder erneut buchbar (Verhalten dokumentiert): bookQty="1"
+PASS 7 Nach allen Grenzfällen: Bestände gültig (ganzzahlig, ≥ 0, gesperrt ≤ Menge), Strukturdaten gültig (valid)
+PASS 7 Großer Bestand (2.000 Artikel, 4.000 Boxen, 3.000 Historie, 1021 KB): Tab-Wechsel Bestand/Regale ohne Fehler (532 ms)  | ms=532
+PASS 7 Mehrfach-Importe mit großem Bestand (4 Läufe, 1021 KB je Stand): abgebrochen nach 3 – Sicherheitskopie vor Import konnte nicht gespeichert werden. Import abgebrochen: Failed to execute 'setItem' on 'Storage; Speichernutzung 9999 KB (UTF-16)  | Läufe=3
+BEFUND[mittel] 7 Sicherungsstände + Lagerdaten überschreiten bei sehr großen Beständen das Browser-Speicherkontingent  | Reproduktion: Bestand mit 2.000 Artikeln, 4.000 Boxen, 3.000 Historieneinträgen (1021 KB); nach 3 Importen schlägt das Anlegen des Sicherungsstands fehl ("Sicherheitskopie vor Import konnte nicht gespeichert werden. Import abgebrochen: Failed to execute '"). Der Import bricht dabei sicher ab (keine 
+PASS 8 Auftrag mit beschädigten Daten („Position ohne Lagerplatz“): Abschluss gesperrt, kein JS-Fehler  | finish disabled=true | ⚠ Auftragsdaten waren beschädigt und wurden zurückgesetzt. Bitte alle Positionen erneut scannen und bestätigen. K-1042 M
+PASS 8 Auftrag mit beschädigten Daten („Position mit negativer Menge“): Abschluss gesperrt, kein JS-Fehler  | finish disabled=true | K-1042 Mitarbeiter: Max · Status: In Bearbeitung · Testmodus ➡️ Nächste Position H4A-1-2 · Art 2 Zur Position 2 Artikel 
+PASS 8 Auftrag mit beschädigten Daten („Positionsliste kürzer als Zeilenzahl“): Abschluss gesperrt, kein JS-Fehler  | finish disabled=true | ⚠ Auftragsdaten waren beschädigt und wurden zurückgesetzt. Bitte alle Positionen erneut scannen und bestätigen. K-1042 M
+PASS 8 Auftrag mit beschädigten Daten („Prüfzeilen außerhalb des Bereichs“): Abschluss gesperrt, kein JS-Fehler  | finish disabled=true | K-1042 Mitarbeiter: Max · Status: In Bearbeitung · Testmodus ➡️ Nächste Position H4A-1-2 · Art 2 Zur Position 2 Artikel 
+PASS 8 Auftrag mit beschädigten Daten („Verpackungsdaten fehlen“): Abschluss gesperrt, kein JS-Fehler  | finish disabled=true | K-1042 Mitarbeiter: Max · Status: In Bearbeitung · Testmodus ➡️ Nächste Position H4A-1-2 · Art 2 Zur Position 2 Artikel 
+PASS 8 Auftrag mit beschädigten Daten („Messwert negativ“): Abschluss gesperrt, kein JS-Fehler  | finish disabled=true | K-1042 Mitarbeiter: Max · Status: In Bearbeitung · Testmodus ➡️ Nächste Position H4A-1-2 · Art 2 Zur Position 2 Artikel 
+
+GESAMT Sicherheitstest: PASS 88 / FAIL 0 / BEFUNDE 3 / NICHT-DURCHFÜHRBAR 0

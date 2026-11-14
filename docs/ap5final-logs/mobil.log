@@ -1,0 +1,117 @@
+PASS [320 px (Emulation)] Tab „home“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [320 px (Emulation)] Tab „home“: Text kleiner als 11 px  | z. B. Software Solutions 10px
+PASS [320 px (Emulation)] Tab „book“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [320 px (Emulation)] Tab „stock“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [320 px (Emulation)] Tab „stock“: 6 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30
+PASS [320 px (Emulation)] Tab „racks“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [320 px (Emulation)] Tab „racks“: 162 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. 9 53×31; 8 53×31; 7 53×31; 6 53×31; 5 53×31; 4 53×31
+PASS [320 px (Emulation)] Tab „articles“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [320 px (Emulation)] Tab „scan“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [320 px (Emulation)] Tab „inventory“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [320 px (Emulation)] Tab „merge“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [320 px (Emulation)] Tab „picking“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [320 px (Emulation)] Tab „more“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [320 px (Emulation)] Kamerafeld (Emulation/Mock) passt in die Breite, „Kamera stoppen“ sichtbar  | {"w":262,"vis":true,"stopVis":true,"hs":320}
+PASS [320 px (Emulation)] Mitarbeiteransicht Kommissionierung: kein horizontales Scrollen, nichts abgeschnitten, Inhalt vorhanden  |  
+PASS [320 px (Emulation)] Mengen-/Gewichtsfelder der Kommissionierung: numeric/decimal-Tastatur  | {"mw":"decimal","act":"numeric"}
+PASS [320 px (Emulation)] Kommissionierschein als A4-Druck (PDF-Rendering mit Druck-CSS): 1–2 Seiten, enthält Auftrag, Mitarbeiter, Positionen, Gewichtsangaben; kein abgeschnittener Text (Emulation, kein echter Drucker)  | Seiten=1 Text= IB INTRABOLD Kommissionierschein LagerPilot · Software Solutions VORLÄUFIG – NICHT ABGESCHLOSSEN AUFTRAGSNUMMER ABSCHLUSSDATUM MITARBEITER 
+PASS [320 px (Emulation)] Keine JavaScript-Fehler
+PASS [375 px (Emulation)] Tab „home“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [375 px (Emulation)] Tab „home“: Text kleiner als 11 px  | z. B. Software Solutions 10px
+PASS [375 px (Emulation)] Tab „book“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [375 px (Emulation)] Tab „stock“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [375 px (Emulation)] Tab „stock“: 6 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30
+PASS [375 px (Emulation)] Tab „racks“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [375 px (Emulation)] Tab „racks“: 162 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. 9 53×31; 8 53×31; 7 53×31; 6 53×31; 5 53×31; 4 53×31
+PASS [375 px (Emulation)] Tab „articles“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [375 px (Emulation)] Tab „scan“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [375 px (Emulation)] Tab „inventory“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [375 px (Emulation)] Tab „merge“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [375 px (Emulation)] Tab „picking“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [375 px (Emulation)] Tab „more“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS Zahleneingaben (außer Buchungsmenge) nutzen Mobil-Tastatur (inputmode numeric/decimal)  | {"bookQty":"FEHLT/text","invQty":"numeric/text","aPack":"numeric/text","aWeight":"decimal/text","aMax":"numeric/text","aMin":"numeric/text","cfgShelf":"decimal/text","cfgBay":"decimal/text","cfgPalletMax":"decimal/text","cfgTare":"decimal/text","mergeQty":"num
+BEFUND[gering] Feld „Menge“ im Buchungsformular (bookQty) ohne inputmode: auf dem Smartphone erscheint die Text- statt der Zahlentastatur  | Reproduktion: Tab Buchen öffnen (iPhone/Android), Mengenfeld antippen. Alle anderen Zahlenfelder (Inventur, Artikel, Konfiguration, Umlagerung, Kommissionierung) haben numeric/decimal. Wert: FEHLT/text
+PASS Dezimaleingabe mit Komma (800,5) wird akzeptiert oder klar abgewiesen  | Parameter gespeichert.
+PASS [375 px (Emulation)] Kamerafeld (Emulation/Mock) passt in die Breite, „Kamera stoppen“ sichtbar  | {"w":317,"vis":true,"stopVis":true,"hs":375}
+PASS [375 px (Emulation)] Mitarbeiteransicht Kommissionierung: kein horizontales Scrollen, nichts abgeschnitten, Inhalt vorhanden  |  
+PASS [375 px (Emulation)] Mengen-/Gewichtsfelder der Kommissionierung: numeric/decimal-Tastatur  | {"mw":"decimal","act":"numeric"}
+PASS [375 px (Emulation)] Kommissionierschein als A4-Druck (PDF-Rendering mit Druck-CSS): 1–2 Seiten, enthält Auftrag, Mitarbeiter, Positionen, Gewichtsangaben; kein abgeschnittener Text (Emulation, kein echter Drucker)  | Seiten=1 Text= IB INTRABOLD Kommissionierschein LagerPilot · Software Solutions VORLÄUFIG – NICHT ABGESCHLOSSEN AUFTRAGSNUMMER ABSCHLUSSDATUM MITARBEITER 
+PASS [375 px (Emulation)] Keine JavaScript-Fehler
+PASS [390 px (Emulation)] Tab „home“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [390 px (Emulation)] Tab „home“: Text kleiner als 11 px  | z. B. Software Solutions 10px
+PASS [390 px (Emulation)] Tab „book“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [390 px (Emulation)] Tab „stock“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [390 px (Emulation)] Tab „stock“: 6 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30
+PASS [390 px (Emulation)] Tab „racks“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [390 px (Emulation)] Tab „racks“: 162 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. 9 53×31; 8 53×31; 7 53×31; 6 53×31; 5 53×31; 4 53×31
+PASS [390 px (Emulation)] Tab „articles“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [390 px (Emulation)] Tab „scan“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [390 px (Emulation)] Tab „inventory“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [390 px (Emulation)] Tab „merge“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [390 px (Emulation)] Tab „picking“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [390 px (Emulation)] Tab „more“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [390 px (Emulation)] Kamerafeld (Emulation/Mock) passt in die Breite, „Kamera stoppen“ sichtbar  | {"w":332,"vis":true,"stopVis":true,"hs":390}
+PASS [390 px (Emulation)] Mitarbeiteransicht Kommissionierung: kein horizontales Scrollen, nichts abgeschnitten, Inhalt vorhanden  |  
+PASS [390 px (Emulation)] Mengen-/Gewichtsfelder der Kommissionierung: numeric/decimal-Tastatur  | {"mw":"decimal","act":"numeric"}
+PASS [390 px (Emulation)] Kommissionierschein als A4-Druck (PDF-Rendering mit Druck-CSS): 1–2 Seiten, enthält Auftrag, Mitarbeiter, Positionen, Gewichtsangaben; kein abgeschnittener Text (Emulation, kein echter Drucker)  | Seiten=1 Text= IB INTRABOLD Kommissionierschein LagerPilot · Software Solutions VORLÄUFIG – NICHT ABGESCHLOSSEN AUFTRAGSNUMMER ABSCHLUSSDATUM MITARBEITER 
+PASS [390 px (Emulation)] Keine JavaScript-Fehler
+PASS [430 px (Emulation)] Tab „home“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [430 px (Emulation)] Tab „home“: Text kleiner als 11 px  | z. B. Software Solutions 10px
+PASS [430 px (Emulation)] Tab „book“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [430 px (Emulation)] Tab „stock“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [430 px (Emulation)] Tab „stock“: 6 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30
+PASS [430 px (Emulation)] Tab „racks“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [430 px (Emulation)] Tab „racks“: 162 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. 9 53×31; 8 53×31; 7 53×31; 6 53×31; 5 53×31; 4 53×31
+PASS [430 px (Emulation)] Tab „articles“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [430 px (Emulation)] Tab „scan“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [430 px (Emulation)] Tab „inventory“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [430 px (Emulation)] Tab „merge“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [430 px (Emulation)] Tab „picking“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [430 px (Emulation)] Tab „more“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [430 px (Emulation)] Kamerafeld (Emulation/Mock) passt in die Breite, „Kamera stoppen“ sichtbar  | {"w":372,"vis":true,"stopVis":true,"hs":430}
+PASS [430 px (Emulation)] Mitarbeiteransicht Kommissionierung: kein horizontales Scrollen, nichts abgeschnitten, Inhalt vorhanden  |  
+PASS [430 px (Emulation)] Mengen-/Gewichtsfelder der Kommissionierung: numeric/decimal-Tastatur  | {"mw":"decimal","act":"numeric"}
+PASS [430 px (Emulation)] Kommissionierschein als A4-Druck (PDF-Rendering mit Druck-CSS): 1–2 Seiten, enthält Auftrag, Mitarbeiter, Positionen, Gewichtsangaben; kein abgeschnittener Text (Emulation, kein echter Drucker)  | Seiten=1 Text= IB INTRABOLD Kommissionierschein LagerPilot · Software Solutions VORLÄUFIG – NICHT ABGESCHLOSSEN AUFTRAGSNUMMER ABSCHLUSSDATUM MITARBEITER 
+PASS [430 px (Emulation)] Keine JavaScript-Fehler
+PASS [Tablet 820×1180 (Emulation)] Tab „home“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [Tablet 820×1180 (Emulation)] Tab „home“: Text kleiner als 11 px  | z. B. Software Solutions 10px
+PASS [Tablet 820×1180 (Emulation)] Tab „book“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Tablet 820×1180 (Emulation)] Tab „stock“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [Tablet 820×1180 (Emulation)] Tab „stock“: 6 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30; Orte 46×30
+PASS [Tablet 820×1180 (Emulation)] Tab „racks“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [Tablet 820×1180 (Emulation)] Tab „racks“: 162 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. 9 53×31; 8 53×31; 7 53×31; 6 53×31; 5 53×31; 4 53×31
+PASS [Tablet 820×1180 (Emulation)] Tab „articles“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [Tablet 820×1180 (Emulation)] Tab „articles“: 6 neue(s) Bedienelement(e) kleiner als 40 px (Touch-Ziel; bereits gemeldete wiederholen sich nicht)  | z. B. Bearbeiten 87×30; Bearbeiten 87×30; Bearbeiten 87×30; Bearbeiten 87×30; Bearbeiten 87×30; Bearbeiten 87×30
+PASS [Tablet 820×1180 (Emulation)] Tab „scan“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Tablet 820×1180 (Emulation)] Tab „inventory“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Tablet 820×1180 (Emulation)] Tab „merge“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Tablet 820×1180 (Emulation)] Tab „picking“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Tablet 820×1180 (Emulation)] Tab „more“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Tablet 820×1180 (Emulation)] Kamerafeld (Emulation/Mock) passt in die Breite, „Kamera stoppen“ sichtbar  | {"w":243,"vis":true,"stopVis":true,"hs":820}
+PASS [Tablet 820×1180 (Emulation)] Mitarbeiteransicht Kommissionierung: kein horizontales Scrollen, nichts abgeschnitten, Inhalt vorhanden  |  
+PASS [Tablet 820×1180 (Emulation)] Mengen-/Gewichtsfelder der Kommissionierung: numeric/decimal-Tastatur  | {"mw":"decimal","act":"numeric"}
+PASS [Tablet 820×1180 (Emulation)] Kommissionierschein als A4-Druck (PDF-Rendering mit Druck-CSS): 1–2 Seiten, enthält Auftrag, Mitarbeiter, Positionen, Gewichtsangaben; kein abgeschnittener Text (Emulation, kein echter Drucker)  | Seiten=1 Text= IB INTRABOLD Kommissionierschein LagerPilot · Software Solutions VORLÄUFIG – NICHT ABGESCHLOSSEN AUFTRAGSNUMMER ABSCHLUSSDATUM MITARBEITER 
+PASS [Tablet 820×1180 (Emulation)] Keine JavaScript-Fehler
+PASS [Desktop 1440 (Emulation)] Tab „home“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+BEFUND[gering] [Desktop 1440 (Emulation)] Tab „home“: Text kleiner als 11 px  | z. B. Software Solutions 10px
+PASS [Desktop 1440 (Emulation)] Tab „book“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Tab „stock“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Tab „racks“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Tab „articles“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Tab „scan“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Tab „inventory“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Tab „merge“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Tab „picking“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Tab „more“: kein horizontales Scrollen, nichts rechts außerhalb, nichts abgeschnitten
+PASS [Desktop 1440 (Emulation)] Kamerafeld (Emulation/Mock) passt in die Breite, „Kamera stoppen“ sichtbar  | {"w":337,"vis":true,"stopVis":true,"hs":1440}
+PASS [Desktop 1440 (Emulation)] Mitarbeiteransicht Kommissionierung: kein horizontales Scrollen, nichts abgeschnitten, Inhalt vorhanden  |  
+PASS [Desktop 1440 (Emulation)] Mengen-/Gewichtsfelder der Kommissionierung: numeric/decimal-Tastatur  | {"mw":"decimal","act":"numeric"}
+PASS [Desktop 1440 (Emulation)] Kommissionierschein als A4-Druck (PDF-Rendering mit Druck-CSS): 1–2 Seiten, enthält Auftrag, Mitarbeiter, Positionen, Gewichtsangaben; kein abgeschnittener Text (Emulation, kein echter Drucker)  | Seiten=1 Text= IB INTRABOLD Kommissionierschein LagerPilot · Software Solutions VORLÄUFIG – NICHT ABGESCHLOSSEN AUFTRAGSNUMMER ABSCHLUSSDATUM MITARBEITER 
+PASS [Desktop 1440 (Emulation)] Keine JavaScript-Fehler
+NICHT-DURCHFÜHRBAR Echtgerät: iPhone Safari (Layout, Kamera, AirPrint-Druck)  | Nur Chromium-Emulation verfügbar – kein physisches Gerät. Muss manuell getestet werden.
+NICHT-DURCHFÜHRBAR Echtgerät: Android Chrome (Layout, Kamera, Druck)  | Nur Chromium-Emulation verfügbar – kein physisches Gerät.
+NICHT-DURCHFÜHRBAR Echtgerät: Kamera-Barcode-Scan mit realen Etiketten  | Kamera wird in der Emulation durch einen Mock ersetzt (Html5Qrcode); echte Erkennungsqualität/Fokus nicht prüfbar.
+NICHT-DURCHFÜHRBAR Echtgerät: Handscanner (Tastaturkeil/Enter-Suffix)  | Kein Gerät verfügbar; nur simulierte Eingabe.
+NICHT-DURCHFÜHRBAR Echtgerät: Waage / reale Kommissionierschein-Druckausgabe  | Kein Drucker/keine Waage; nur @media-print-Emulation.
+
+GESAMT Mobiltest: PASS 92 / FAIL 0 / BEFUNDE 18 / NICHT-DURCHFÜHRBAR 5

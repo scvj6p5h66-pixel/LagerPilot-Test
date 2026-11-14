@@ -1,0 +1,62 @@
+PASS 0 Basis-Backup enthält _pick und Lagerdaten
+PASS 0 Intakte Daten: kein Sperr-Banner
+PASS 0 Fehler (Basis)
+PASS 1a Hinweis/Alert beim Laden oder Banner sichtbar  | banner=⛔ Speichern gesperrt – gespeicherte Daten konnten nicht geladen werden. Kommissionierdaten sind beschädigt. Speichern ist gesperrt. Bitte Rohdaten sichern und eine gültige Sicherung importieren. Rohdaten herunterladen Bitte keine Browserdaten löschen. Eine gül dlg=[]
+PASS 1b Quarantäne enthält Original
+PASS 1c Originalschlüssel unverändert
+PASS 1d Speichern gesperrt (Alert) und Original nicht überschrieben  | ["alert:Kommissionierdaten sind beschädigt. Speichern ist gesperrt. Bitte Rohdaten sichern und eine gültige Sicherung importieren."]
+PASS 1e Reset-Button überschreibt nicht
+PASS 1f Lagerdaten bleiben speicherbar  | true
+PASS 1g Anmeldung im Sperrzustand: kein stilles Speichern  | ["alert:Bitte Mitarbeiter und Gerät angeben."] UIsession=
+PASS 1h Banner auch nach Navigation/Render sichtbar  | ⛔ Speichern gesperrt – gespeicherte Daten konnten nicht geladen werden. Kommissionierdaten sind beschädigt. Speichern ist gesperrt. Bitte Rohdaten sichern und eine gültige Sicherung importieren. Rohdaten herunterladen Bitte keine Browserdaten löschen. Eine gül
+PASS 1i Rohdaten-Download enthält Kommissionier-Original + Quarantäne  | lagerpilot_v2_7,lagerpilot_pick_demo_v1,lagerpilot_pick_demo_v1_quarantine
+PASS 1j Quarantäne bleibt beim erneuten Laden das erste Original  | {"orders":[{"id":"K-9","lines"
+PASS 1k Fehler (Sperre)
+PASS 1l Variante orders=5 -> gesperrt  | locked=true
+PASS 1l Variante order lines=101 -> gesperrt  | locked=true
+PASS 1l Variante null -> gesperrt  | locked=true
+PASS 1l Variante array -> gesperrt  | locked=true
+PASS 1l Variante leer "" -> (Info)  | locked=true
+PASS 2a Sperr-Banner Lager  | ⛔ Speichern gesperrt – gespeicherte Daten konnten nicht geladen werden. Unexpected end of JSON input Rohdaten herunterladen Bitte keine Browserdaten löschen. Eine gültige Sicherung kann unter „Mehr“ importiert werden.
+PASS 2b Import im Sperrzustand erfolgreich (Lagerstand ersetzt)  | msg=
+PASS 2c Nach Reload entsperrt, Banner weg
+PASS 2d Quarantäne bleibt erhalten
+PASS 2e Buchung nach Wiederherstellung möglich
+PASS 2f _pick aus Backup übernommen
+PASS 2g Fehler
+PASS 3a Backup ohne _pick wird abgelehnt, nichts verändert  | msg=Zur Wiederherstellung beschädigter Kommissionierdaten ist eine Sicherung mit Kommissionierdaten erforderlich.
+PASS 3b Vollständiges Backup stellt Kommissionierdaten wieder her
+PASS 3c Nach Reload entsperrt, Banner weg
+PASS 3d Quarantäne enthält weiter Original
+PASS 3e Speichern wieder möglich
+PASS 3f Fehler
+PASS 3g Beide beschädigt -> ein Backup stellt beides her
+PASS 4 Fehlerhaftes Backup "trunc" abgelehnt, Daten unverändert  | msg=Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 4 Fehlerhaftes Backup "array" abgelehnt, Daten unverändert  | msg=Ungültiges Backupformat.
+PASS 4 Fehlerhaftes Backup "empty" abgelehnt, Daten unverändert  | msg=Ungültiges Backupformat.
+PASS 4 Fehlerhaftes Backup "schema99" abgelehnt, Daten unverändert  | msg=Ungültiges Backupformat.
+PASS 4 Fehlerhaftes Backup "pick-orders-str" abgelehnt, Daten unverändert  | msg=Kommissionierdaten in Sicherung ungültig.
+PASS 4 Fehlerhaftes Backup "pick-order-status" abgelehnt, Daten unverändert  | msg=Kommissionierdaten in Sicherung ungültig.
+PASS 4 Fehlerhaftes Backup "pick-null" abgelehnt, Daten unverändert  | msg=Kommissionierdaten in Sicherung ungültig.
+PASS 4 Fehlerhaftes Backup "box-neg" abgelehnt, Daten unverändert  | msg=Ungültiges Backupformat.
+PASS 4 Fehlerhaftes Backup "text" abgelehnt, Daten unverändert  | msg=Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 4 Abbruch (Confirm=Nein): nichts verändert, kein before_import geschrieben?  | before_import=nein
+PASS 4 Rollback bei Fehler beim Schreiben von Pick: Lager+Pick wie vorher  | msg=Import fehlgeschlagen; bisherige Daten wurden soweit möglich wiederhergestellt: quota
+PASS 4 Rollback: Speicher im Speicher (state) unverändert
+PASS 4 before_import vorhanden
+PASS 4 Rollback bei Fehler beim Schreiben von Lager  | msg=Import fehlgeschlagen; bisherige Daten wurden soweit möglich wiederhergestellt: quota
+PASS 4 Fehler (JS)
+PASS 5a Normaler Import ersetzt Stand (N2 weg, N1 da)
+PASS 5b Vor-Import-Sicherung wird heruntergeladen (intakter Stand)  | lagerpilot-vor-import-2026-11-14.json
+PASS 5c Kein Banner nach Normalimport
+PASS 5d CSV-Export funktioniert
+PASS 5e (Info) Rohdaten-Button bei intakten Daten sichtbar: false
+PASS 5f Tab B: Stale-Banner nach Änderung in Tab A
+PASS 5g Tab B kann nicht überschreiben  | ["ERR:Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um
+PASS 5g2 Lagerstand enthält "Tab A", nicht "Tab B"
+PASS 5h Pick: Tab B Speichern blockiert  | ["ERR:Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.","Kommission
+PASS 5i JS-Fehler Tab A/B
+PASS 5j Regression: App-eigene Kommissionierdaten (mit Positionen) werden nach Reload nicht als beschädigt gesperrt
+
+GESAMT 59 Prüfungen, 0 FAIL: 
+exit 0
