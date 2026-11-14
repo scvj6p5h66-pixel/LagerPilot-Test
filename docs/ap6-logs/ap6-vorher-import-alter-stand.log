@@ -1,0 +1,9 @@
+FAIL 2 [VORHER] Datei „v27-Sicherung ohne schema (Boxen, QR, Konfiguration vorhanden)“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, kl
+FAIL 2 [VORHER] Datei „nur items/places/history als Objekte (v27-History)“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung
+FAIL 2 [VORHER] Datei „Altformat mit boxes-Schlüssel“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung
+PASS 2 [VORHER] Datei „leeres Objekt“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat.
+PASS 2 [VORHER] Datei „nur Artikel“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat.
+PASS 2 [VORHER] Datei „places ohne items“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat.
+FAIL 2 Gültiges Altformat 2.5 wird weiterhin importiert (Artikel L1, Historie übernommen) und im Dialog ausdrücklich als ALTFORMAT gekennzeichnet  
+PASS 2 Vorheriger Stand wurde vor dem Altformat-Import gesichert
+GESAMT AP6: PASS 4 / FAIL 4 / BEFUNDE 0 / NICHT-DURCHFÜHRBAR 0

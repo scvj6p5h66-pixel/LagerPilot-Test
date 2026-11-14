@@ -1,0 +1,77 @@
+PASS 1 Export erzeugt Datei lagerpilot-2.7.3-sicherung-DATUM.json  | lagerpilot-2.7.3-sicherung-2026-11-14.json
+PASS 1 Export enthält items identisch zum Speicher  | items: 2
+PASS 1 Export enthält boxes identisch zum Speicher  | boxes: 3
+PASS 1 Export enthält places identisch zum Speicher  | places: 6480
+PASS 1 Export enthält qrMap identisch zum Speicher  | qrMap: 1
+PASS 1 Export enthält config identisch zum Speicher  | config: 4
+PASS 1 Export enthält history identisch zum Speicher  | history: 0
+PASS 1 Export enthält inventoryLogs identisch zum Speicher  | inventoryLogs: 0
+PASS 1 Export enthält legacyOrders identisch zum Speicher  | legacyOrders: 0
+PASS 1 Export: Artikel mit Barcodes, Pack- und Stückartikel vollständig
+PASS 1 Export: Boxen (inkl. gesperrter Box) und QR-Zuordnung vollständig
+PASS 1 Export: Kommissionierdaten (_pick) identisch zum Speicher, Aufträge/Verpackung/Toleranz vollständig
+PASS 1 Export: Zeitstempel letzter Sicherung gesetzt
+PASS 1 Export verändert Lager- und Kommissionierdaten nicht (Speicher vor/nach Export byte-gleich)
+PASS 1 Export ohne gespeicherte Kommissionierdaten: _pick mit Standardwerten, kein Fehler  | 3 Aufträge
+PASS 1 CSV-Export: Kopfzeile und eine Zeile je Box  | 4 Zeilen
+PASS 1 CSV: Packartikel 3 Pack = 36 Stück
+PASS 2 Import: Rückfrage erschien und nennt Sicherung vor dem Import  | confirm:ACHTUNG: Diese Sicherung ersetzt die aktuellen lokalen Lager- und gegebenenfalls Kommissionierdaten. Auch neuere Änderungen aus einem anderen Browser-Tab können dabei überschrieben werden. Bit
+PASS 2 Import: Seite wurde neu geladen
+PASS 2 Round-Trip: items identisch zum exportierten Stand
+PASS 2 Round-Trip: boxes identisch zum exportierten Stand
+PASS 2 Round-Trip: places identisch zum exportierten Stand
+PASS 2 Round-Trip: qrMap identisch zum exportierten Stand
+PASS 2 Round-Trip: config identisch zum exportierten Stand
+PASS 2 Round-Trip: history identisch zum exportierten Stand
+PASS 2 Round-Trip: inventoryLogs identisch zum exportierten Stand
+PASS 2 Round-Trip: legacyOrders identisch zum exportierten Stand
+PASS 2 Round-Trip: schema identisch zum exportierten Stand
+PASS 2 Round-Trip: Kommissionierdaten identisch (Aufträge, Verpackung, Toleranz, Personen)
+PASS 2 Round-Trip: zweite Instanz enthält keine Reste der vorherigen Daten (Artikel Y2/Boxen b1Y2)
+PASS 2 Round-Trip: App läuft danach ohne Sperre und ohne JS-Fehler
+PASS 3 Sicherheitskopie lagerpilot_before_import enthält den vorherigen Lagerstand byte-gleich
+PASS 3 Sicherheitskopie enthält die vorherigen Kommissionierdaten byte-gleich
+PASS 3 Datei „vor-import“ wurde heruntergeladen und entspricht dem vorherigen Stand (Lager + _pick)  | lagerpilot-vor-import-2026-11-14.json
+PASS 3 Wiederherstellung: Import der Datei „vor-import“ stellt den Stand vor dem ersten Import wieder her
+PASS 4 Abbruch der Rückfrage: Lager- und Kommissionierdaten byte-gleich
+PASS 4 Abbruch: keine Sicherheitskopie angelegt, kein Download, kein Neuladen  | dl=0 navs=0
+PASS 5 Ungültig „kein JSON (Text)“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 5 Ungültig „abgeschnittene Datei“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 5 Ungültig „leere Datei“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 5 Ungültig „JSON null“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „JSON Array“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „leeres Objekt“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat: Das Feld "schema" fehlt und die Datei entspricht nicht dem erkann
+PASS 5 Ungültig „Schema 99“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „items kein Array“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „Box mit unbekanntem Artikel“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „Box auf ungültigem Platz“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „Box mit negativer Menge“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „Box mit Dezimalmenge 1,5“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „Box mit Textmenge“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „history als Objekt“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „places als Array“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „qrMap mit ungültigem Platz“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „config.shelf negativ“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „config.shelf als Text“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Ungültiges Backupformat.
+PASS 5 Ungültig „_pick: orders als Text“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Kommissionierdaten in Sicherung ungültig.
+PASS 5 Ungültig „_pick: ungültiger Status“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Kommissionierdaten in Sicherung ungültig.
+PASS 5 Ungültig „_pick: Positionsmenge 1,5“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Kommissionierdaten in Sicherung ungültig.
+PASS 5 Ungültig „_pick: session fehlt“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Kommissionierdaten in Sicherung ungültig.
+PASS 5 Ungültig „_pick: null“: abgelehnt mit Fehlermeldung, kein Neuladen/Download/Rückfrage, Speicher byte-gleich, keine Sicherheitskopie  | Kommissionierdaten in Sicherung ungültig.
+PASS 5 Nach allen Fehlversuchen: App entsperrt, keine JS-Fehler
+PASS 6a Sicherheitskopie nicht speicherbar: Import abgebrochen, Meldung, Daten byte-gleich  | Sicherheitskopie vor Import konnte nicht gespeichert werden. Import abgebrochen: Simulierter Speiche
+PASS 6b Schreiben der Lagerdaten schlägt fehl: Meldung, Lagerdaten und Kommissionierdaten byte-gleich (nichts halb importiert)  | Import fehlgeschlagen; bisherige Daten wurden soweit möglich wiederhergestellt: Simulierter Speicherfehler
+PASS 6c Schreiben der Kommissionierdaten schlägt fehl (Lagerdaten bereits geschrieben): Rollback, beide Speicher byte-gleich zum Vorzustand  | Import fehlgeschlagen; bisherige Daten wurden soweit möglich wiederhergestellt: Simulierter Speicherfehler | Lager=true Pick=true
+PASS 7 Erster Import: Sicherheitskopie = Ausgangsstand M7
+PASS 7 Zweiter Import (andere Datei): Sicherheitskopie wird überschrieben und enthält nun den Stand nach dem ersten Import (nur ein Speicherplatz)
+PASS 7 Mehrfachimport: je Import eine Datei „vor-import“; die erste enthält den Ausgangsstand M7, die zweite den Stand nach dem ersten Import  | 2 Dateien
+PASS 7 Nach dem zweiten Import entspricht der Stand genau dem zweiten Export (O7)
+PASS 7 Gleiche Datei zweimal importiert: Lagerstand unverändert identisch (idempotent)
+PASS 7b Beschädigter Lagerspeicher: App gesperrt, Import einer gültigen Sicherung stellt den Betrieb wieder her  | locked=true reloaded=true
+PASS 7b Der beschädigte Rohstand „{kaputt“ bleibt in Sicherheitskopie/Quarantäne erhalten (nicht still gelöscht)  | lagerpilot_pick_demo_v1,lagerpilot_v2_7,lagerpilot_import_backups_v1,lagerpilot_v2_7_quarantine,lagerpilot_before_import
+PASS 8 Import ohne _pick: Lagerdaten ersetzt, vorhandene Kommissionierdaten unverändert
+PASS 9 Veralteter zweiter Tab kann nach Import nichts überschreiben (Meldung, importierter Stand bleibt)  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. B
+PASS JS-Fehler in allen Instanzen: keine
+
+GESAMT 74 / FAIL 0
+exit 0

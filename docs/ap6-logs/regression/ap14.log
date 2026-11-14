@@ -1,0 +1,114 @@
+PASS 1/2 maxlength: aCode=64, aName=150
+PASS 1/2 Tippen: Browser kürzt auf 64 / 150
+PASS 1 Artikelnummer 63 Zeichen (Skript): erlaubt  | Artikel gespeichert.
+PASS 1 Artikelnummer 64 Zeichen (Skript): erlaubt  | Artikel gespeichert.
+PASS 1 Artikelnummer 65 Zeichen (Skript): abgelehnt  | Artikelnummer darf höchstens 64 Zeichen enthalten.
+PASS 1 Artikelnummer 200 Zeichen (Skript): abgelehnt  | Artikelnummer darf höchstens 64 Zeichen enthalten.
+PASS 1 Artikelnummer 5000 Zeichen (Skript): abgelehnt  | Artikelnummer darf höchstens 64 Zeichen enthalten.
+PASS 1 Nur Leerzeichen als Artikelnummer: "Artikelnummer fehlt."  | Artikelnummer fehlt.
+PASS 1 64 Zeichen mit Leerzeichen außen: Trim, erlaubt  | Artikel gespeichert.
+PASS 1 33 Emoji (66 Einheiten) abgelehnt (UTF-16, Info)  | Artikelnummer darf höchstens 64 Zeichen enthalten.
+PASS 2 Bezeichnung 149 Zeichen: erlaubt  | Artikel gespeichert.
+PASS 2 Bezeichnung 150 Zeichen: erlaubt  | Artikel gespeichert.
+PASS 2 Bezeichnung 151 Zeichen: abgelehnt  | Artikelbezeichnung darf höchstens 150 Zeichen enthalten.
+PASS 2 Bezeichnung 5000 Zeichen: abgelehnt  | Artikelbezeichnung darf höchstens 150 Zeichen enthalten.
+PASS 2 Leere Bezeichnung: "Artikelbezeichnung fehlt."  | Artikelbezeichnung fehlt.
+PASS 2 A1 Bezeichnung auf 151 ändern: abgelehnt, A1 unverändert  | Artikelbezeichnung darf höchstens 150 Zeichen enthalten.
+PASS 2 A1 Bezeichnung auf 150: erlaubt, Bestand unverändert  | Artikel gespeichert.
+PASS 3 Neue Artikelnummer "a1" (a1 (klein) neben A1) abgelehnt, nichts geändert  | Artikelnummer A1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 3 Neue Artikelnummer "aB1" (Ab1? (Case-Dup legacy ab1/AB1)) abgelehnt, nichts geändert  | Artikelnummer ab1 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 3 Neue Artikelnummer "bc1" (bc1 (= Barcode von A1)) abgelehnt, nichts geändert  | Artikelnummer kollidiert mit einem vorhandenen Barcode.
+PASS 3 Neue Artikelnummer "BC-TWO" (BC-TWO (= Barcode von A2)) abgelehnt, nichts geändert  | Artikelnummer kollidiert mit einem vorhandenen Barcode.
+PASS 3 Info Umgehung: Artikelnummer mit Zero-Width-Space (sieht aus wie bestehende) wird akzeptiert  | Artikel gespeichert.
+PASS 3 Info Umgehung: "a1"+ZWSP neben A1: akzeptiert (optisch fast gleich)  | Artikel gespeichert.
+PASS 3 Info Umgehung: Vollbreite "Ａ1" neben A1: akzeptiert  | Artikel gespeichert.
+PASS 3 Info: Eingabe der Nummer eines vorhandenen Artikels (A3) im Neu-Modus → abgelehnt  | Artikelnummer A3 existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen. | Name A3 jetzt: Art3
+PASS 4 Alle 13 Object.prototype-Namen (+Großschreibung) als Artikelnummer abgelehnt  | durchgelassen: 
+PASS 4 ... und als Barcode abgelehnt  | durchgelassen: 
+PASS 4 Legacy: Seed enthält Altartikel toString -> Dublettenmeldung kommt vor der Reserviert-Prüfung (Altartikel bleibt unverändert bearbeitbar, gewollt)  | Artikelnummer toString existiert bereits (Groß-/Kleinschreibung wird nicht unterschieden). Zum Ändern den Artikel im Artikelstamm über „Bearbeiten“ öffnen.
+PASS 4 Meldung Artikelnummer reserviert (sauberer Zustand ohne Altartikel toString)  | Diese Artikelnummer ist reserviert und nicht zulässig.
+PASS 4 Meldung Barcode reserviert  | Dieser Barcode ist reserviert und nicht zulässig.
+PASS 4 Info: weitere kritische Wörter als Barcode  | null:ok undefined:ok NaN:ok true:ok length:ok name:ok toJSON:ok then:ok __proto__x:ok Infinity:ok
+PASS 5 Neu: Min 10 > Max 5 → erlaubt (Regel seit SA-12c entfernt)  | Artikel gespeichert.
+PASS 5 Neu: Min 10 / Max 5 wird exakt so gespeichert  | {"min":10,"max":5}
+PASS 5 Neu: Min 5 = Max 5 erlaubt  | Artikel gespeichert.
+PASS 5 Neu: Min 500, Max leer erlaubt  | Artikel gespeichert.
+PASS 5 Neu: Min leer, Max 5 erlaubt  | Artikel gespeichert.
+PASS 5 Neu: Min 0 erlaubt  | Artikel gespeichert.
+PASS 5 FACHLICH: Home-Warnung vergleicht Mindestbestand mit Gesamtbestand aller Boxen, Max gilt je Box  | {"min":500,"max":100,"total":160}
+PASS 5 FACHLICH: Home zählt Artikel unter Mindestbestand (LM: Gesamtbestand 160 < Min 500) – Anzahl entspricht unabhängiger Berechnung ["LM","LP","MM614196","MM272848","MM394513"]  | Guten Tag 👋  Dein Lager. Klare Wege. Sichere Buchungen.  ▦ Lagerplatz scannen ⇄ Anbruchsboxen ＋ Ware buchen Bestand und Hinweise 17 Artikel 6.480 Lagerplätze b
+PASS 5 PRAXISFALL Neu: Mindestbestand 500 gesamt, Box-Max 100 → erlaubt  | Artikel gespeichert.
+PASS 5 PRAXISFALL: Min 500 / Max 100 wird exakt so gespeichert  | {"min":500,"max":100}
+PASS 5 PRAXISFALL Altartikel LM (Min 500, Box-Max 100): Mindestbestand auf 600 erhöhen → erlaubt  | Artikel gespeichert.
+PASS 5 Altartikel LM: Max auf 150 (Min 500 bleibt) → erlaubt  | Artikel gespeichert.
+PASS 5 Altartikel LM: Min 100 / Max 200 (Reparatur) erlaubt  | Artikel gespeichert.
+PASS 5 A2: Min 101 > Max 100 → erlaubt (Regel seit SA-12c entfernt), Min/Max gespeichert, Boxen unverändert  | Artikel gespeichert.
+PASS JS 5
+PASS 6 Artikelnummer leer → passende Einzelmeldung  | Artikelnummer fehlt.
+PASS 6 Bezeichnung leer → passende Einzelmeldung  | Artikelbezeichnung fehlt.
+PASS 6 Pack 0 → passende Einzelmeldung  | Stück pro Pack muss eine positive ganze Zahl sein.
+PASS 6 Pack 1,5 → passende Einzelmeldung  | Stück pro Pack muss eine positive ganze Zahl sein: Stückzahlen müssen ganze Zahlen sein (nur Ziffern; kein Komma, kein Punkt, kein Exponent). Eingegeben: „1.5“. Es wurde nichts gespeichert.
+PASS 6 Pack leer → passende Einzelmeldung  | Stück pro Pack muss eine positive ganze Zahl sein.
+PASS 6 Gewicht −1 → passende Einzelmeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „-1“. Zum Entfernen das Feld leer lassen.
+PASS 6 Gewicht 1e999 → passende Einzelmeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „1e999“. Zum Entfernen das Feld leer lassen.
+PASS 6 Max 0 → passende Einzelmeldung  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „0“. Zum Entfernen das Feld leer lassen.
+PASS 6 Max 1,5 → passende Einzelmeldung  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.5“. Zum Entfernen das Feld leer lassen.
+PASS 6 Max −3 → passende Einzelmeldung  | Maximale Boxmenge muss eine positive ganze Zahl sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-3“. Zum Entfernen das Feld leer lassen.
+PASS 6 Min −1 → passende Einzelmeldung  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „-1“. Zum Entfernen das Feld leer lassen.
+PASS 6 Min 1,5 → passende Einzelmeldung  | Mindestbestand muss eine ganze Zahl ab 0 sein (nur Ziffern; kein Exponent, keine Buchstaben, kein Vorzeichen). Eingegeben: „1.5“. Zum Entfernen das Feld leer lassen.
+PASS 6 Barcode = Artikelnummer → passende Einzelmeldung  | Artikelnummer und Barcode müssen unterschiedlich sein.
+PASS 6 Info Gewicht 1e308 (aus SA-12): abgelehnt  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -komma, z. B. 2.5; kein Exponent, keine Buchstaben). Eingegeben: „1e308“. Zum Entfernen das Feld leer lassen.
+PASS 6 Mehrere Fehler gleichzeitig: erste Meldung "Artikelnummer fehlt."
+PASS JS 6
+PASS JS Matrix old
+PASS JS Matrix new
+   CCCCCCCCCCCC:name    alt: ok   neu: ok
+   CCCCCCCCCCCC:noop    alt: ok   neu: ok
+   CCCCCCCCCCCC:weight  alt: ok   neu: ok
+   toString:name        alt: ok   neu: ok
+   toString:noop        alt: ok   neu: ok
+   toString:weight      alt: ok   neu: ok
+   LN:noop              alt: ok   neu: ok
+   LN:weight            alt: ok   neu: ok
+   LN:name              alt: ok   neu: ok
+   LM:noop              alt: ok   neu: ok
+   LM:name              alt: ok   neu: ok
+   LM:min               alt: ok   neu: ok
+   LM:max               alt: ok   neu: ok
+   ab1:name             alt: ok   neu: ok
+   ab1:noop             alt: ok   neu: ok
+   AB1:name             alt: ok   neu: ok
+   AB1:noop             alt: ok   neu: ok
+   LB:name              alt: ok   neu: ok
+   LB:noop              alt: ok   neu: ok
+   LB:barcode           alt: ok   neu: ok
+   LP:name              alt: ok   neu: ok
+   LP:noop              alt: ok   neu: ok
+   LP:min               alt: ok   neu: ok
+   LP:max               alt: ok   neu: ok
+   A1:noop              alt: ok   neu: ok
+   A1:name              alt: ok   neu: ok
+   A1:weight            alt: ok   neu: ok
+PASS 7 Altdaten: durch SA-12b/13 NEU blockierte bisherige Bearbeitungen
+PASS 7 Altdaten: unverändertes Speichern (noop) lässt jeden Artikel byteweise gleich; andere Artikel/Boxen unberührt
+PASS 8 Scan "a3" (Artikelnummer A3, klein) im Barcode-Feld: Warnung  | Dieser Wert ist bereits als Artikelnummer vergeben und kann nicht als Barcode verwendet werden. | warning
+PASS 8 Scan "A1": Warnung  | Dieser Wert ist bereits als Artikelnummer vergeben und kann nicht als Barcode verwendet werden.
+PASS 8 Eigene Artikelnummer A2 beim Bearbeiten von A2 gescannt: Warnung? (Info)  | Barcode übernommen. Bitte Artikelangaben prüfen und anschließend speichern. | hint
+PASS 8 ... Speichern abgelehnt (Barcode = Artikelnummer), nichts geändert  | Artikelnummer und Barcode müssen unterschiedlich sein.
+PASS 8 Scan Barcode von A1 bei A2: Warnung "gehört bereits zu A1"  | Barcode gehört bereits zu A1 und kann für diesen Artikel nicht verwendet werden.
+PASS 8 Scan reserviertes Wort: Hinweis? (Info)  | Dieser Wert ist bereits als Artikelnummer vergeben und kann nicht als Barcode verwendet werden. | warning
+PASS 8 Eigenen Barcode scannen: grün "gehört zum aktuellen Artikel"  | Barcode gehört zum aktuellen Artikel A2. Formulareingaben bleiben unverändert.
+PASS 8 Leeres Formular, Scan "a2": Warnung (Artikelnummer vergeben)  | Dieser Wert ist bereits als Artikelnummer vergeben und kann nicht als Barcode verwendet werden.
+PASS JS 8
+PASS 9 Export enthält Altartikel unverändert (65-Zeichen-Code, 200-Zeichen-Name, toString, __proto__, Min>Max)
+PASS 9 Import des Exports: Artikel und Boxen byteweise gleich
+PASS 9 Nach Import: valid() und Bearbeiten Altartikel möglich
+PASS 9 Zusammenspiel AP3: Max 40 < Box 50 abgelehnt (Meldung zu Box, nicht Min/Max)  | Artikeländerung abgelehnt: Box auf H4A-1-1 enthält 50 Einheiten, neues Maximum ist 40.
+PASS 9 A1 Max 60, Gewicht gleich: gespeichert, Box 50 unverändert  | Artikel gespeichert.
+PASS 9 Wareneingang/Ausbuchen/Umlagern funktionieren weiter
+PASS 9 Altartikel "toString": Buchen weiter möglich  | ✓ Buchung gespeichert.
+PASS JS 9
+PASS JS Hauptteil
+
+GESAMT 84 / FAIL 0
+exit 0

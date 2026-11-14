@@ -1,0 +1,83 @@
+PASS 1 Abschluss-Button aktiv bei bestandener Gewichtskontrolle
+PASS 1 Status Abgeschlossen, Abschlusszeit gesetzt
+PASS 1 Scanner/Gerät beim Abschluss festgehalten  | {"at":"2026-11-14T17:08:12.704Z","assignee":"Max","device":"Scanner 1"}
+PASS 1 Abschlussansicht sichtbar mit Auftragsnummer
+PASS 1 Gewichtskontrolle in Abschlussansicht: bestanden
+PASS 1 Druckansicht öffnet automatisch (genau 1×)
+PASS 1 Schein enthält Auftrag, Mitarbeiter, Scanner, Datum
+PASS 1 Schein enthält alle Artikel, Lagerplätze, Soll und Ist
+PASS 1 Schein: Ladungsträger Europalette, Bruttogewicht, BESTANDEN
+PASS 1 Lagerdaten (Bestand/Boxen/Plätze) durch Abschluss und Druck unverändert
+PASS 1 Schließen-Button schließt die Abschlussansicht
+PASS 1 Keine JavaScript-Fehler
+PASS 2 Zu hoher Waagenwert: Abschluss-Button gesperrt
+PASS 2 Direkter Aufruf von pickComplete wird abgelehnt, Auftrag unverändert  | {"same":true,"status":"In Bearbeitung"} alert:Abschluss gesperrt: Gewichtskontrolle nicht bestanden oder unvollständig.
+PASS 2 Ablehnung mit klarer Meldung  | alert:Abschluss gesperrt: Gewichtskontrolle nicht bestanden oder unvollständig.
+PASS 2 Vorläufiger Schein zeigt "NICHT BESTANDEN" und "VORLÄUFIG"
+PASS 2 Fehlender Waagenwert: "NICHT GEPRÜFT", nicht "bestanden"
+PASS 2 Fehlende Toleranz: "NICHT GEPRÜFT"
+PASS 2 Admin-Pfad: Abschluss bei nicht bestandener Kontrolle verweigert, Daten unverändert
+PASS 2 Keine Abschlussansicht bei Fehlschlag
+PASS 2 Keine JavaScript-Fehler
+PASS 3 Europalette: Beschriftung und Palettengewicht 25,00 kg
+PASS 3 Kleine Einwegpalette: Beschriftung und Palettengewicht 6,00 kg
+PASS 3 Tariert: Waagenwert = Nettogewicht, Hinweis "tariert"
+PASS 3 Tariert: Gewogenes Gewicht korrekt (3,25 kg)
+PASS 3 Keine JavaScript-Fehler
+PASS 4 100 Positionen: A4 (595×842 pt)  | 594.96x841.92
+PASS 4 100 Positionen: mehrere Seiten (11)
+PASS 4 Tabellenkopf auf jeder Tabellenseite wiederholt  | KKKKKKKKKKK
+PASS 4 Alle 100 Positionen im Ausdruck vorhanden, keine abgeschnitten
+PASS 4 Gewichtskontrolle und Unterschriftsfelder vorhanden
+PASS 4 Navigation/App-Oberfläche nicht im Ausdruck
+PASS 4 Seitennummerierung "Seite x von y" im Ausdruck (Chromium) bzw. Auftragsfuß am Ende  | Seite 1 von 11
+PASS 4 Langer Auftrag über UI abschließbar
+PASS 4 Letzte Seite: Unterschriften nicht allein (Gewichtskontrolle steht auf derselben Seite)  | Pos.    Artikelnr.          Bezeichnung                                Lagerplatz         Soll       Ist        Abw.       kg/Stk.       Gewicht /  99      ART-0099            Sehr lange Artikelbezeichnung mit          H4B-9-39           5          5          
+PASS 4 Unterschriften genau einmal im Dokument
+PASS 4 Keine JavaScript-Fehler
+PASS 4b Unterschrift nie allein auf einer Seite (1–130 Positionen, Schritt 1/3)  | Problemfälle: 
+PASS 4b Alle Positionen in jedem Lauf vollständig im PDF (max. 4 Seiten)
+PASS 4b Keine JavaScript-Fehler
+PASS 5 Altauftrag ohne Positionen/Verpackung: Schein ohne Absturz
+PASS 5 Altauftrag: nichts erfunden (keine Beispielwerte, keine Gewichte)
+PASS 5 Ohne Gerät/Startzeit/Bemerkung: Platzhalter "–" bzw. "Keine Bemerkungen erfasst"  |  I B INTRA BOLD LagerPilot · Software Solutions Kommissionierschein ABGESCHLOSSEN Auftragsnummer K-T5 Abschlussdatum 01.11.2026, 10:00 Mitarbeiter Max Scanner / Gerät – Status Abgeschlossen Gestartet – Positionen 2 Ladungsträger Europalette + große Pappbox Pos
+PASS 5 Altauftrag wird durch Druck nicht verändert
+PASS 5 Keine JavaScript-Fehler
+PASS 6 5× Nachdruck: 5 Druckaufrufe
+PASS 6 5× Nachdruck: Kommissionierdaten byte-identisch
+PASS 6 5× Nachdruck: Lagerbestand byte-identisch
+PASS 6 Nachdruck: Abschlusszeit unverändert
+PASS 6 Keine JavaScript-Fehler
+PASS 7 Mengenabweichung ohne Freigabe: Abschluss verweigert  | alert:Mengenabweichung: Bitte in der Auftragsübersicht begründen und freigeben lassen.
+PASS 7 Mit dokumentierter Freigabe: Abschluss möglich
+PASS 7 Schein zeigt Mengenabweichung, Freigabe, Grund
+PASS 7 Abschlussansicht nennt freigegebene Abweichung
+PASS 7 Keine JavaScript-Fehler
+PASS 8 Bemerkung wird am Auftrag gespeichert
+PASS 8 Schein enthält Bemerkung maskiert (kein aktives HTML)
+PASS 8 Artikelname mit HTML wird maskiert, kein Skript ausgeführt
+PASS 8 Bemerkung leeren entfernt das Feld
+PASS 8 Keine JavaScript-Fehler
+PASS 9 iPhone 14: Abschlussansicht erscheint nach Tap
+PASS 9 iPhone 14: Abschlussansicht passt in die Breite, kein Seitenüberlauf  | {"cw":366,"iw":390,"over":false,"btn":[48,48,48]}
+PASS 9 iPhone 14: Tap-Ziele ≥44 px  | 48,48,48
+PASS 9 iPhone 14: Schein-Vorschau sichtbar (seitlich scrollbar)
+PASS 9 iPhone 14: Erneut drucken per Tap (2. Druckaufruf)
+PASS 9 iPhone 14: Schließen per Tap
+PASS 9 iPhone 14: Keine JavaScript-Fehler
+PASS 9 iPad Pro 11: Abschlussansicht erscheint nach Tap
+PASS 9 iPad Pro 11: Abschlussansicht passt in die Breite, kein Seitenüberlauf  | {"cw":760,"iw":834,"over":false,"btn":[60,60,60]}
+PASS 9 iPad Pro 11: Tap-Ziele ≥44 px  | 60,60,60
+PASS 9 iPad Pro 11: Schein-Vorschau sichtbar (seitlich scrollbar)
+PASS 9 iPad Pro 11: Erneut drucken per Tap (2. Druckaufruf)
+PASS 9 iPad Pro 11: Schließen per Tap
+PASS 9 iPad Pro 11: Keine JavaScript-Fehler
+PASS 9 A4: kurzer Auftrag (6 Pos.) auf 1 Seite  | 1
+PASS 10 Export enthält abgeschlossenen Auftrag mit completion und note
+PASS 10 Import stellt Auftrag, Gerät und Bemerkung unverändert wieder her
+PASS 10 Nachdruck nach Import möglich
+PASS 10 Sicherung im alten Format (ohne completion/note) importierbar
+PASS 10 Keine JavaScript-Fehler  | ;;
+PASS 11 Platzhalter der Vorschau (AU-2026-001458, Max Mustermann, 71,40) kommen nirgends vor
+GESAMT 81 Prüfungen / FAIL 0
+exit 0

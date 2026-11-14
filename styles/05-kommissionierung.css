@@ -90,3 +90,16 @@
  #picking .lp-pick-qty{grid-template-columns:1fr}
  #picking .lp-worker-line{padding:12px}
 }
+
+/* AP6: Auftragseditor, Live-Positionen, Details */
+.lp-take{margin:10px 0;padding:10px;border:2px solid var(--accent,#2b7bd8);border-radius:10px;background:#eef6ff}
+.lp-take input.lp-take-input{font-size:22px;font-weight:700;text-align:center;min-height:48px;width:100%;box-sizing:border-box}
+.lp-take select{width:100%;min-height:44px}
+.lp-line-issue{margin:8px 0}
+.lp-live-line [data-pick-book]{min-height:48px;font-size:17px;width:100%}
+.lp-live-line .lp-correct,.lp-live-line [data-pick-short],.lp-live-line [data-pick-reopen]{width:100%;margin-top:6px}
+.lp-ord-details{margin-top:8px}.lp-ord-details summary{cursor:pointer;padding:8px 0;min-height:32px}
+.lp-ord-lines,.lp-ord-journal{margin:6px 0;padding-left:18px;font-size:13px;overflow-wrap:anywhere}
+#ordCard input,#ordCard select{max-width:100%;box-sizing:border-box}
+#ordLines input[data-ord-qty]{width:100px;min-height:40px}
+#pickOrders button{min-height:40px;margin:2px 2px 2px 0}

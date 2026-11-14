@@ -1,0 +1,48 @@
+PASS 1 Kamera-Callback erreicht
+PASS 1 Artikelnummer, Bezeichnung, Einheit, Pack, Gewicht, Max, Min unverändert  | {"aName":"Mein Neuer","aCode":"N9","aBarcode":"BC1","aUnit":"P","aPack":"12","aWeight":"3","aMax":"20","aMin":"2"}
+PASS 1 Hinweis nennt den Artikel A1, dass der Barcode nicht verwendet werden kann, als Warnung (Eingaben bleiben: siehe Feldprüfung oben)  | Barcode gehört bereits zu A1 und kann für diesen Artikel nicht verwendet werden. | warning
+PASS 1 Scan allein speichert nichts (localStorage byteweise gleich)
+PASS 1 Barcode-Feld = gescannter Code (Info)  | aBarcode=BC1
+PASS 1 Speichern mit fremdem Barcode BC1 abgelehnt, nichts angelegt/geändert  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 1 Formular bleibt nach Ablehnung erhalten
+PASS 1 Hinweis beim Scan warnt NICHT, dass Barcode schon vergeben ist (Info/Verbesserung)  | warnt
+PASS 2 Unbekannter Barcode: nur Barcode-Feld gesetzt, Rest unverändert  | {"aName":"Mein Neuer","aCode":"N9","aBarcode":"NEU-4711","aUnit":"STK","aPack":"1","aWeight":"3","aMax":"20","aMin":"2"}
+PASS 2 Unbekannter Barcode: Hinweis "Barcode übernommen. Bitte Artikelangaben prüfen…" (Klasse hint, keine Warnung)  | Barcode übernommen. Bitte Artikelangaben prüfen und anschließend speichern. | hint
+PASS 2 Speichern legt N9 mit Barcode NEU-4711 an, genau 1 Artikel, 1 Historie, Boxen unverändert  | Artikel gespeichert.
+PASS 2 Formular nach Speichern geleert, danach Scan setzt nur Barcode
+PASS 3 Bearbeiten lädt A1 ins Formular  | {"aName":"Art1","aCode":"A1","aBarcode":"BC1","aUnit":"STK","aPack":"1","aWeight":"2","aMax":"100","aMin":"3"}
+PASS 3 Scan unbekannt beim Bearbeiten: nur Barcode ändert sich (A1/Art1/2/100/3 bleiben)  | {"aName":"Art1","aCode":"A1","aBarcode":"XYZ-1","aUnit":"STK","aPack":"1","aWeight":"2","aMax":"100","aMin":"3"}
+PASS 3 Vor dem Speichern bleibt der gespeicherte Artikel unverändert
+PASS 3 Speichern: A1 hat Barcode XYZ-1, Rest unverändert, Bestand 50 unverändert  | Artikel gespeichert.
+PASS 3/4 A2 bearbeiten, Scan Barcode eines anderen Artikels (XYZ-1 von A1): Code/Name bleiben A2/Art2  | {"aName":"Art2","aCode":"A2","aBarcode":"XYZ-1","aUnit":"STK","aPack":"1","aWeight":"1","aMax":"100","aMin":""} | Barcode gehört bereits zu A1 und kann für diesen Artikel nicht verwendet werden.
+PASS 3/5 ... Speichern abgelehnt, A2 und alles andere unverändert  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 3/4 A2 bearbeiten, Scan Barcode von A3? (leer) -> Artikelnummer A3 eines anderen Artikels: Code/Name bleiben A2/Art2  | {"aName":"Art2","aCode":"A2","aBarcode":"A3","aUnit":"STK","aPack":"1","aWeight":"1","aMax":"100","aMin":""} | Dieser Wert ist bereits als Artikelnummer vergeben und kann nicht als Barcode ve
+PASS 3/5 ... Speichern abgelehnt, A2 und alles andere unverändert  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 3/4 A2 bearbeiten, Scan Artikelnummer von A1: Code/Name bleiben A2/Art2  | {"aName":"Art2","aCode":"A2","aBarcode":"A1","aUnit":"STK","aPack":"1","aWeight":"1","aMax":"100","aMin":""} | Dieser Wert ist bereits als Artikelnummer vergeben und kann nicht als Barcode ve
+PASS 3/5 ... Speichern abgelehnt, A2 und alles andere unverändert  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 3/4 A2 bearbeiten, Scan eigene Artikelnummer A2 (Barcode=Artikelnummer): Code/Name bleiben A2/Art2  | {"aName":"Art2","aCode":"A2","aBarcode":"A2","aUnit":"STK","aPack":"1","aWeight":"1","aMax":"100","aMin":""} | Barcode übernommen. Bitte Artikelangaben prüfen und anschließend speichern.
+PASS 3/5 ... Speichern abgelehnt, A2 und alles andere unverändert  | Artikelnummer und Barcode müssen unterschiedlich sein.
+PASS 4 Eigenen Barcode BC2 erneut scannen + Speichern: ok, A2 unverändert  | Artikel gespeichert.
+PASS 5 Scan "Lagerplatz-QR-Text H4A-1-1": Speichern abgelehnt, nichts geändert  | Artikelnummer oder Barcode kollidiert mit einem Lagerplatz-QR-Code.
+PASS 5 Scan "Leerzeichen/Zeilenumbruch " BC9 \n"": kein Absturz; Ergebnis (gespeichert, Barcode="BC9")
+PASS 5 Scan "sehr lang (5000 Zeichen)": kein Absturz; Ergebnis (abgelehnt: Barcode darf höchstens 64 Zeichen enthalten.)
+PASS 5 Scan "<img onerror=1>": kein Absturz; Ergebnis (gespeichert, Barcode="<img src=x onerror=alert(1)>")
+PASS 5 Scan "constructor": kein Absturz; Ergebnis (abgelehnt: Dieser Barcode ist reserviert und nicht zulässig.)
+PASS 5 Scan "__proto__": kein Absturz; Ergebnis (abgelehnt: Dieser Barcode ist reserviert und nicht zulässig.)
+PASS 5 HTML im Barcode wird nicht ausgeführt (kein Dialog/XSS)
+PASS 5 Zweiter Artikel mit bereits vergebenem DUP-1 abgelehnt, nichts angelegt  | Artikelnummer oder Barcode ist bereits einem anderen Artikel zugeordnet.
+PASS 5 Info: Barcode "dup-1" (andere Schreibweise) wird als eigener Barcode akzeptiert  | ok=false
+PASS 6 Abbrechen (Leeren) setzt alle Felder inkl. Barcode zurück  | {"aName":"","aCode":"","aBarcode":"","aUnit":"P","aPack":"1","aWeight":"","aMax":"","aMin":""}
+PASS 6 Erneutes Scannen nach Abbrechen: nur Barcode gesetzt
+PASS 6 Nochmal scannen überschreibt nur das Barcode-Feld
+PASS 6 Später/doppelter Callback nach Kamerastop ohne Wirkung
+PASS 6 Scan nach "Kamera stoppen" ohne Wirkung
+PASS 6 Handscanner-Eingabe (Tippen + Enter) ins Barcode-Feld: nur Barcode, kein Autospeichern  | {"aName":"H","aCode":"H1","aBarcode":"HW-123","aUnit":"STK","aPack":"1","aWeight":"1","aMax":"5","aMin":""}
+PASS 4 Demo-Katalogtreffer: Formular unverändert (Info: Meldung "Barcode übernommen. Bitte Artikelangaben prüfen und anschließend speic")  | {"aName":"Eigen","aCode":"E1","aBarcode":"01005101","aUnit":"STK","aPack":"1","aWeight":"1","aMax":"5","aMin":""}
+PASS 4 Leeres Formular + bekannter Barcode: Artikel wird nicht automatisch geladen (Funktionsänderung, Info)  | {"aName":"","aCode":"","aBarcode":"BC2","aUnit":"P","aPack":"1","aWeight":"","aMax":"","aMin":""} | Barcode gehört bereits zu A2 und kann für diesen Artikel nicht verwendet werden.
+PASS 7 Inventur-Artikelscan setzt Artikelauswahl weiter  | Artikel erkannt: Art2
+PASS 7 Inventur-Platzscan weiter ok
+PASS JS-Fehler gesamt
+
+GESAMT 45 / FAIL 0
+exit 0

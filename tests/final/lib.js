@@ -15,7 +15,7 @@ async function open(opts={}){let b=null,ctx=opts.ctx;if(!ctx){b=await chromium.l
  const p=await ctx.newPage();p.setDefaultTimeout(20000);const h={b,ctx,p,errs:[],dlg:[],confirm:true,answers:[],downloads:[],navs:0};
  p.on('pageerror',e=>h.errs.push(e.message));p.on('framenavigated',f=>{if(f===p.mainFrame())h.navs++});
  p.on('download',async d=>{try{const f=path.join(TMP,Math.random().toString(36).slice(2)+d.suggestedFilename());await d.saveAs(f);h.downloads.push({name:d.suggestedFilename(),file:f,text:fs.readFileSync(f,'utf8')})}catch(e){h.errs.push('download '+e.message)}});
- p.on('dialog',async d=>{h.dlg.push(d.type()+':'+d.message());if(d.type()!=='confirm'){await d.accept();return}const a=h.answers.length?h.answers.shift():h.confirm;a?await d.accept():await d.dismiss()});
+ p.on('dialog',async d=>{h.dlg.push(d.type()+':'+d.message());if(d.type()==='prompt'&&h.prompts&&h.prompts.length){const a=h.prompts.shift();if(a===null)await d.dismiss();else await d.accept(String(a));return}if(d.type()!=='confirm'){await d.accept();return}const a=h.answers.length?h.answers.shift():h.confirm;a?await d.accept():await d.dismiss()});
  await p.addInitScript(()=>{window.__prints=0;window.print=()=>{window.__prints++;window.__lastPrint=(document.getElementById('pickPrint')||{}).innerHTML};
   window.Html5Qrcode=class{constructor(id){this.id=id}async start(c,o,cb){const e=document.getElementById(this.id);if(e)e.innerHTML='<video style="width:100%"></video>';window.__cb=cb}async stop(){}async clear(){}}});
  await p.goto(BASE);await p.waitForTimeout(350);return h}

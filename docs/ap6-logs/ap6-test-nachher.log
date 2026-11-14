@@ -1,0 +1,135 @@
+PASS 1 [VORHER] K-1043 (8 Positionen) bei nur 3 Artikeln mit Bestand: Positionen bleiben erhalten, Auftrag wird nicht als „repariert“ markiert  | items=3 lines=3 repaired=undefined shortfall=5
+PASS 1 Fehlende Positionen werden verständlich gekennzeichnet („fehlen N Position(en)“)  | ⚠ Dem Auftrag fehlen 5 Position(en): Zum Zeitpunkt der Erstellung waren nicht genug Artikel mit Bestand vorhanden. Vorhandene Positionen bleiben erhalten.K-1043
+PASS 1 [VORHER] Gescannter Fortschritt überlebt wiederholtes Rendern  | [0]
+PASS 1 [VORHER] … und Neuladen (Positionen, Scan, Status unverändert)
+PASS 1 Keine JavaScript-Fehler
+PASS 1 Erstinitialisierung: ohne gespeicherte Kommissionierdaten werden die 3 Demoaufträge erzeugt (nicht überschrieben)
+PASS 1 Bestehende Auftragsdaten werden beim Laden nicht durch Demodaten ersetzt (nur X-1, Mitarbeiter Anna bleibt)
+PASS 1 Auftrag G-20 mit 20 Positionen anlegen  | ✓ Auftrag G-20 mit 20 Positionen angelegt.
+PASS 1 Auftrag G-20: alle 20 Positionen in der Mitarbeiteransicht (12 ms Rendern), Auftrag nicht repariert  | Zeilen=20
+PASS 1 Auftrag G-20: letzte Position bucht, Fortschritt nach Neuladen erhalten (1 bestätigt), 20 Positionen unverändert
+PASS 1 Keine JavaScript-Fehler (n=20)
+PASS 1 Auftrag G-50 mit 50 Positionen anlegen  | ✓ Auftrag G-50 mit 50 Positionen angelegt.
+PASS 1 Auftrag G-50: alle 50 Positionen in der Mitarbeiteransicht (35 ms Rendern), Auftrag nicht repariert  | Zeilen=50
+PASS 1 Auftrag G-50: letzte Position bucht, Fortschritt nach Neuladen erhalten (1 bestätigt), 50 Positionen unverändert
+PASS 1 Keine JavaScript-Fehler (n=50)
+PASS 1 Auftrag G-100 mit 100 Positionen anlegen  | ✓ Auftrag G-100 mit 100 Positionen angelegt.
+PASS 1 Auftrag G-100: alle 100 Positionen in der Mitarbeiteransicht (19 ms Rendern), Auftrag nicht repariert  | Zeilen=100
+PASS 1 Auftrag G-100: letzte Position bucht, Fortschritt nach Neuladen erhalten (1 bestätigt), 100 Positionen unverändert
+PASS 1 101. Position wird abgewiesen (Limit 100)  | Maximal 100 Positionen je Auftrag.
+PASS 1 Keine JavaScript-Fehler (n=100)
+PASS 1 Position ohne Bestand: verständlicher Hinweis, kein Buchen möglich, Auftrag bleibt erhalten  | POSITION 2 / 2 · A-3 Art 3 📍 H4B-4-4 Soll 10 Stk. Gebucht 0 Stk. Rest 10 Stk. ⚠ Aktuell kein frei buchbarer Bestand für diesen Artikel (leer, gesperrt oder Platz reserviert). 📷 Artikel scannen⌨ Hand
+PASS 1 Artikel aus dem Stamm entfernt: Hinweis „nicht mehr im Artikelstamm“, Auftrag bleibt erhalten  | POSITION 2 / 2 · A-3 Art 3 📍 H4B-4-4 Soll 10 Stk. Gebucht 0 Stk. Rest 10 Stk. ⚠ Artikel „A-3“ ist nicht mehr im Artikelstamm. 📷 Artikel scannen⌨ Handscanner w
+PASS 1 Keine JavaScript-Fehler
+PASS 2 [VORHER] Datei „v27-Sicherung ohne schema (Boxen, QR, Konfiguration vorhanden)“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat: Das Feld "schema" fehlt und die Datei entspricht nicht dem erkannten Altformat LagerPilot 2.5 (sie enthält Merkmale des aktuellen Formats, ist aber unvollständig oder beschädigt). Es wurde nichts importiert und nichts verändert.
+PASS 2 [VORHER] Datei „nur items/places/history als Objekte (v27-History)“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat: Das Feld "schema" fehlt und die Datei entspricht nicht dem erkannten Altformat LagerPilot 2.5 (sie enthält Merkmale des aktuellen Formats, ist aber unvollständig oder beschädigt). Es wurde nichts importiert und nichts verändert.
+PASS 2 [VORHER] Datei „Altformat mit boxes-Schlüssel“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat: Das Feld "schema" fehlt und die Datei entspricht nicht dem erkannten Altformat LagerPilot 2.5 (sie enthält Merkmale des aktuellen Formats, ist aber unvollständig oder beschädigt). Es wurde nichts importiert und nichts verändert.
+PASS 2 [VORHER] Datei „leeres Objekt“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat: Das Feld "schema" fehlt und die Datei entspricht nicht dem erkannten Altformat LagerPilot 2.5. Es wurde nichts importiert und nichts verändert.
+PASS 2 [VORHER] Datei „nur Artikel“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat: Das Feld "schema" fehlt und die Datei entspricht nicht dem erkannten Altformat LagerPilot 2.5. Es wurde nichts importiert und nichts verändert.
+PASS 2 [VORHER] Datei „places ohne items“ wird abgelehnt: Daten und Sicherungsstände byte-gleich, klare Meldung  | Ungültiges Backupformat: Das Feld "schema" fehlt und die Datei entspricht nicht dem erkannten Altformat LagerPilot 2.5. Es wurde nichts importiert und nichts verändert.
+PASS 2 Gültiges Altformat 2.5 wird weiterhin importiert (Artikel L1, Historie übernommen) und im Dialog ausdrücklich als ALTFORMAT gekennzeichnet  | confirm:ACHTUNG: Diese Sicherung ersetzt die aktuellen lokal|alert:Sicherung importiert. Die Seite wird jetzt neu gelade
+PASS 2 Vorheriger Stand wurde vor dem Altformat-Import gesichert
+PASS 3 Auftrag anlegen (2 Positionen, Packartikel in Vielfachen von 10)  | ✓ Auftrag T-100 mit 2 Positionen angelegt.
+PASS 3 Doppelte Auftragsnummer (auch Groß-/Kleinschreibung) abgewiesen  | Die Auftragsnummer „t-100“ existiert bereits. Bitte eine andere wählen.
+PASS 3 Ungültige Auftragsnummer „bad id!“ abgewiesen  | Ungültige Auftragsnummer (1–32 Zeichen: Buchstaben, Ziffern, Punkt, Bindestrich, Unterstrich).
+PASS 3 Ungültige Auftragsnummer „aaaaaaaaaaaa“ abgewiesen  | Ungültige Auftragsnummer (1–32 Zeichen: Buchstaben, Ziffern, Punkt, Bindestrich, Unterstrich).
+PASS 3 Ungültige Menge „0“ abgewiesen, keine Position angelegt
+PASS 3 Ungültige Menge „-3“ abgewiesen, keine Position angelegt
+PASS 3 Ungültige Menge „2.5“ abgewiesen, keine Position angelegt
+PASS 3 Ungültige Menge „abc“ abgewiesen, keine Position angelegt
+PASS 3 Ungültige Menge „1e3“ abgewiesen, keine Position angelegt
+PASS 3 Ungültige Menge „“ abgewiesen, keine Position angelegt
+PASS 3 Ungültige Menge „ “ abgewiesen, keine Position angelegt
+PASS 3 Ungültige Menge „99999999999999999999“ abgewiesen, keine Position angelegt
+PASS 3 Packartikel mit 15 Stück (Pack 10) abgewiesen
+PASS 3 Artikel ohne Bestand: kein Anlegen
+PASS 3 Gleicher Artikel zweimal im Auftrag abgewiesen
+PASS 3 Auftrag Mitarbeiter zuweisen (Peter, Status Zugewiesen)
+PASS 3 Auftrag starten
+PASS 3 Auftrag pausieren
+PASS 3 Auftrag fortsetzen
+PASS 3 Fortschrittsanzeige in der Auftragsübersicht („0 / 2 Pos.“, „gebucht 0 / 50 Stk.“)  | K-10423Offen0 / 3 Pos.Mitarbeiter wählenMaxZuteilen✎ Bearbeiten✕ StornierenK-10438Offen0 / 8 Pos.Mitarbeiter wählenMaxZuteilen✎ Bearbeiten✕ StornierenK-10445Offen0 / 5 Pos.Mitarbeiter wählenMaxZuteile
+PASS 3 Laufender Auftrag ist nicht bearbeitbar (Hinweis zuerst pausieren)
+PASS 3 Bearbeiten lädt Auftrag in den Editor (2 Positionen)
+PASS 3 Auftrag ändern: Menge Pos. 1 = 25, Pos. 2 entfernt, A-3 hinzugefügt; Status/Mitarbeiter erhalten  | A-1:25,A-3:7
+PASS 3 Auftrag ohne Entnahme stornieren: Status Storniert, Grund gespeichert, Bestand unverändert
+PASS 3 Stornierter Auftrag ist nicht mehr bearbeitbar/zuteilbar (keine Buttons Bearbeiten/Stornieren/Zuteilen)
+PASS 3 Stornierung mit zu kurzem Grund wird abgewiesen, Auftrag bleibt offen
+PASS 3 Reset der Testdaten bei manuellen Aufträgen gesperrt
+PASS 3 Demoaufträge K-1042…1044 weiterhin vorhanden und unverändert zuteilbar
+PASS 3 Keine JavaScript-Fehler
+PASS 4 Falscher Lagerplatz: kein Buchen möglich, keine Mengeneingabe
+PASS 4 Falscher Artikelbarcode abgewiesen  | ✓ Lagerplatz H4A-1-1 bestätigt. Jetzt Artikelbarcode scannen. | Falscher Artikel! Erwartet: A-1. Erkannt: BC-3
+PASS 4 Richtiger Barcode: Entnahmemenge wird zur Kontrolle angezeigt (Vorgabe = Rest 25), Quelle wählbar  | ✓ Lagerplatz H4A-1-1 bestätigt. Jetzt Artikelbarcode scannen. | 
+PASS 4 Entnahmemenge ist deutlich hervorgehoben (Schrift ≥ 20 px, Höhe ≥ 44 px)  | {"fs":22,"h":50}
+PASS 4 Ungültige/zu große Menge „0“: nichts gebucht, Meldung  | alert:Ungültige Entnahmemenge. Bitte eine ganze Zahl ab 1 eingeben.
+PASS 4 Ungültige/zu große Menge „-1“: nichts gebucht, Meldung  | alert:Ungültige Entnahmemenge. Bitte eine ganze Zahl ab 1 eingeben.
+PASS 4 Ungültige/zu große Menge „1.5“: nichts gebucht, Meldung  | alert:Ungültige Entnahmemenge. Bitte eine ganze Zahl ab 1 eingeben.
+PASS 4 Ungültige/zu große Menge „abc“: nichts gebucht, Meldung  | alert:Ungültige Entnahmemenge. Bitte eine ganze Zahl ab 1 eingeben.
+PASS 4 Ungültige/zu große Menge „“: nichts gebucht, Meldung  | alert:Ungültige Entnahmemenge. Bitte eine ganze Zahl ab 1 eingeben.
+PASS 4 Ungültige/zu große Menge „26“: nichts gebucht, Meldung  | alert:Entnahmemenge (26) größer als der Rest der Position (25 Stk.). Es wurde nichts gebucht.
+PASS 4 Ungültige/zu große Menge „1e2“: nichts gebucht, Meldung  | alert:Ungültige Entnahmemenge. Bitte eine ganze Zahl ab 1 eingeben.
+PASS 4 Teilentnahme 10 mit dreifachem Klick: Bestand H4A-1-1 40 → 30, genau EIN Journaleintrag, Zeile zeigt „Gebucht 10 / Rest 15“  | {"H4A-1-1:A-1":30,"H4A-2-2:A-1":15,"H4A-3-3:A-2":12,"H4B-4-4:A-3":100} J=1
+PASS 4 Buchungseintrag nachvollziehbar: Kennung, Auftrag, Position, Artikel, Menge, Platz, Box, Mitarbeiter, Gerät, Zeit
+PASS 4 Historie erhält Eintrag „Kommissionierung · B-1 …“  | Kommissionierung · B-1 · Pos. 1 · A-1 · −10 Stk. · H4A-1-1 · Max
+PASS 4 Auftragsfortschritt: Ist = 10, Position noch offen, Scan muss erneut erfolgen
+PASS 4 Nach der Buchung ist der Buchen-Button weg (kein erneutes Bestätigen ohne Scan)
+PASS 4 Entnahme aus anderer Box: Rückfrage; Abbruch bucht nichts
+PASS 4 Nach Bestätigung: genau die gewählte Box b2 (H4A-2-2) reduziert 15 → 0 und die leere Box verschwindet; H4A-1-1 unverändert 30  | {"H4A-1-1:A-1":30,"H4A-3-3:A-2":12,"H4B-4-4:A-3":100}
+PASS 4 Position 1 vollständig (25/25): bestätigt, erledigt
+PASS 4 Packartikel: 25 Stück nicht durch Pack 10 teilbar → abgewiesen, nichts gebucht
+PASS 4 Packartikel: 30 Stück = 3 Packs gebucht (12 → 9), Journal in Stück und Packs
+PASS 4 Nicht ausreichender Bestand: Buchung abgewiesen, Bestand nicht negativ, Hinweis „Bestand reicht nicht“  | alert:Bestand reicht nicht: in dieser Box frei 4 STK, benötigt 10. Es wurde nichts gebucht (Teilentnahme: kleinere Menge
+PASS 4 Teilentnahme des vorhandenen Restbestands (4 von 10): Box wird leer und entfernt, Bestand nie negativ
+PASS 4 Position mit Fehlmenge: Anzeige „Gebucht 4 / Rest 6“ und Button „mit Fehlmenge abschließen“  | POSITION 3 / 3 · A-3Art 3📍 H4B-4-4Soll10 Stk.Gebucht4 Stk.Rest6 Stk.⚠ Aktuell kein frei buchbarer Bestand für diesen Artikel (leer, gesperrt oder Platz reserviert).📷 Artikel scannen⌨ Handscanner wäh
+PASS 4 Fehlmenge abschließen: Position erledigt (Ist 4 von 10), kein weiterer Bestandsabzug
+PASS 4 Erwartetes Gesamtgewicht = Warengewicht (Ist × kg/Stk.) + Palette + Box  | {"exp":93.5,"items":[[25,25,2],[30,30,0.5],[10,4,0.5]]}
+PASS 4 Abschluss mit nicht freigegebener Fehlmenge gesperrt  | alert:Mengenabweichung: Bitte in der Auftragsübersicht begründen und freigeben lassen.
+PASS 4 Abschluss nach Freigabe: Status Abgeschlossen; Bestand und Journal unverändert (keine erneute Ausbuchung)  | Abgeschlossen
+PASS 4 Kommissionierschein zeigt gebuchte Entnahmen (Journal), Ist-Mengen und Gewichte
+PASS 4 Keine JavaScript-Fehler
+PASS 4 Entnahme 12 gebucht (40 → 28)
+PASS 4 Eine bestätigte Entnahme ist nicht durch Überschreiben änderbar: keine Mengeneingabe, keine Rückgängig-Schaltfläche, nur „Korrektur“
+PASS 4 Korrektur ohne Bestätigung: nichts gebucht
+PASS 4 Korrektur +2: Bestand 28 → 30 in derselben Box, Original bleibt im Journal, Korrektur referenziert Original, Grund/Person/Zeit dokumentiert  | {"id":"PB-402027db-1039-4d8e-9181-29c9bd2cbc8d","type":"korrektur","order":"C-1","line":0,"sku":"A-1","pieces":2,"delta":2,"unit":"STK","place":"H4A-1-1","boxId":"b1","by":"Max","device":"Scanner 1","at":"2026-11-14T16:29:44.495Z","ref":"PB-63f2cce4-ff12-404c-
+PASS 4 Auftrag aktualisiert: Ist 10 von Soll 12, Position wieder offen
+PASS 4 Korrekturmenge „11“ (über dem Rest) abgewiesen
+PASS 4 Korrekturmenge „0“ (null) abgewiesen
+PASS 4 Korrekturmenge „x“ (Text) abgewiesen
+PASS 4 Korrekturmenge „-2“ (negativ) abgewiesen
+PASS 4 Korrektur mit zu kurzem Grund abgewiesen
+PASS 4 Weitere Korrektur bis zur vollständigen Rückbuchung (10): erlaubt, Bestand 40
+PASS 4 Doppelte Korrektur nach vollständiger Rückbuchung verhindert (Hinweis, nichts gebucht)  | alert:Diese Buchung ist bereits vollständig zurückgebucht. Eine weitere Korrektur ist nicht möglich.
+PASS 4 Keine JavaScript-Fehler
+PASS 4 Leere Box (100 → 0) wird entfernt
+PASS 4 Korrektur in entfernte Box: dieselbe Box-ID und derselbe Lagerplatz werden wiederhergestellt (30 Stk.)  | {"id":"b4","place":"H4B-4-4","code":"A-3","qty":30,"blocked":0}
+PASS 4 Korrektur auf gesperrtem Lagerplatz abgewiesen, nichts verändert  | prompt:KORREKTUR zur Buchung vom 14.11.2026, 17:29:50 100 Stk. A-3 aus H4B-4-4 (Mitarbeiter Max) Bereits zurückgebucht: 
+PASS 4 Mehrdeutiger Barcode (A-1 und A-3): keine Auswahl, kein Buchen, Meldung nennt beide Artikel  | ✓ Lagerplatz H4A-1-1 bestätigt. Jetzt Artikelbarcode scannen. | Mehrdeutiger Barcode „BC-1“: passt zu mehreren Artikeln – A-1 (Art 1), A-3 (Art 3). Es wurde kein Artikel ausgewählt und nichts gebucht. Bitte die Zuordnung im Artikelstamm klären.
+PASS 4 Eindeutige Artikelnummer funktioniert weiterhin  | ✓ Lagerplatz H4A-1-1 bestätigt. Jetzt Artikelbarcode scannen. | 
+PASS 5 Neuladen nach Scan: Auftrag, Scan-Status und Buchungskennung bleiben erhalten
+PASS 5 Neuladen nach Buchung: genau 1 Buchung, Bestand 32, Fortschritt 8/20
+PASS 5 Erneut verarbeitete Bestätigung mit bereits gebuchter Kennung reduziert den Bestand NICHT noch einmal  | J=1
+PASS 5 Simulierter Absturz (Bestand+Journal gespeichert, Auftragsfortschritt veraltet): beim Laden wird der Fortschritt aus dem Journal nachgezogen (Ist 8 im Speicher), Bestand unverändert 32
+PASS 5 Keine JavaScript-Fehler
+PASS 5 Speicher voll beim Schreiben von „Bestand“: Buchung nicht erfolgreich, Bestand und Auftrag gespeichert UND im Speicher unverändert (Bestand 40, Journal 0, Ist 0)  | {"q":40,"j":0,"a":0} | alert:Buchung nicht durchgeführt: quota Bestand und Auftrag sind unverändert.
+PASS 5 Nach dem Fehler: Daten gültig, später wiederholbare Buchung ohne Doppelabzug
+PASS 5 Speicher voll beim Schreiben von „Auftragsdaten“: Buchung nicht erfolgreich, Bestand und Auftrag gespeichert UND im Speicher unverändert (Bestand 40, Journal 0, Ist 0)  | {"q":40,"j":0,"a":0} | alert:Kommissionierdaten konnten nicht gespeichert werden: quota
+PASS 5 Nach dem Fehler: Daten gültig, später wiederholbare Buchung ohne Doppelabzug
+PASS 5 Zwei Tabs: Tab A bucht 10; Tab B (veraltet) kann dieselbe Bestätigung nicht ein zweites Mal buchen (Bestand 30, ein Journaleintrag)  | B-Dialoge: alert:Buchung nicht durchgeführt: Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden. Bestand und Auftrag sind scanB=true
+PASS 5 Tab B zeigt nach Neuladen den gebuchten Stand (Gebucht 10, Rest 20) – kein doppelter Abzug möglich  | POSITION 1 / 1 · A-1Art 1📍 H4A-1-1Soll30 Stk.Gebucht10 Stk.Rest20 Stk.📷 Artikel scannen⌨ Handscanner wählenStückgewich
+PASS 5 Keine JavaScript-Fehler
+PASS 6 Export enthält Buchungsjournal und Kommissionierdaten (Aufträge, Fortschritt)
+PASS 6 Wiederimport: Bestand, Journal, Aufträge und Fortschritt byte-gleich; Buchung wird nicht erneut ausgeführt
+PASS 6 Import mit doppelter Buchungskennung im Journal wird abgelehnt, nichts verändert
+PASS 6 Import mit Journal „Entnahme mit positiver Menge“ abgelehnt
+PASS 6 Export aus AP5-Zeit (ohne Journal) bleibt importierbar
+PASS 6 Lagerstruktur nach Buchungen und Import unverändert: 6.480 Plätze, 4A 3.564, 4B 2.916, je Regal 162
+PASS 6 QR-Zuordnung unverändert (QR-1 → H4A-1-1)
+PASS 6 Blindinventur nach Kommissionierung: Soll (34) stimmt mit gebuchtem Bestand überein, Zählung abweichungsfrei  | Soll: 34 Stück (34 STK) · Gezählt: 34 Stück (34 STK) · Differenz: 0 Stück · Keine Abweichung. Die Zählung kann protokolliert werden.
+PASS 6 Keine JavaScript-Fehler
+PASS 7 [320 px, Emulation] Auftragsverwaltung (Editor, Liste): kein horizontales Scrollen, nichts rechts abgeschnitten  | {"hs":false,"out":[]}
+PASS 7 [320 px, Emulation] Kommissionierung mit Entnahmefeld: kein horizontales Scrollen; Zahlentastatur (inputmode numeric); Buchen-Button ≥ 44 px hoch  | {"m":{"hs":false,"out":[]},"tk":{"im":"numeric","bh":54,"bw":212}}
+PASS 7 Kommissionierschein (A4-PDF-Rendering, Emulation): eine Seite für kleinen Auftrag  | Seiten=1
+NICHT-DURCHFÜHRBAR 7 Echte Geräte (iPhone Safari, Android, AirPrint, Kamera, Handscanner)  | Nur Chromium-Emulation; reale Gerätetests stehen aus.
+
+GESAMT AP6: PASS 132 / FAIL 0 / BEFUNDE 0 / NICHT-DURCHFÜHRBAR 1
