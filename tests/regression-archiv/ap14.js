@@ -30,13 +30,13 @@ x=await newItem('  '+'T'.repeat(64)+'  ','T64');R('1 64 Zeichen mit Leerzeichen 
 x=await newItem('😀'.repeat(33),'E');R('1 33 Emoji (66 Einheiten) abgelehnt (UTF-16, Info)',!ok(x.m),x.m);
 // 2 Namen
 for(const [n,len,exp] of [['149',149,true],['150',150,true],['151',151,false],['5000',5000,false]]){x=await newItem('NM'+len,'n'.repeat(len));
- R('2 Bezeichnung '+n+' Zeichen: '+(exp?'erlaubt':'abgelehnt'),exp?ok(x.m):(!ok(x.m)&&/Bezeichnung darf höchstens 150/.test(x.m)&&x.a.raw===x.b.raw),x.m)}
+ R('2 Bezeichnung '+n+' Zeichen: '+(exp?'erlaubt':'abgelehnt'),exp?ok(x.m):(!ok(x.m)&&/bezeichnung darf höchstens 150/i.test(x.m)&&x.a.raw===x.b.raw),x.m)}
 x=await newItem('NM0','   ');R('2 Leere Bezeichnung: "Artikelbezeichnung fehlt."',!ok(x.m)&&/Artikelbezeichnung fehlt/.test(x.m),x.m);
 await edit(h,'A1');await h.p.evaluate(()=>{aName.value='z'.repeat(151)});b=await snap(h);m=await save(h);R('2 A1 Bezeichnung auf 151 ändern: abgelehnt, A1 unverändert',!ok(m)&&(await snap(h)).raw===b.raw,m);
 await h.p.evaluate(()=>{aName.value='z'.repeat(150)});m=await save(h);R('2 A1 Bezeichnung auf 150: erlaubt, Bestand unverändert',ok(m)&&(await snap(h)).st.boxes.find(q=>q.id==='b1').qty===50,m);
 await edit(h,'A1');await h.p.evaluate(()=>{aName.value='Art1'});await save(h);
 // 3 Duplikate
-for(const [n,code,re] of [['a1 (klein) neben A1','a1',/bereits vergeben/],['Ab1? (Case-Dup legacy ab1/AB1)','aB1',/bereits vergeben/],['bc1 (= Barcode von A1)','bc1',/Barcode/],['BC-TWO (= Barcode von A2)','BC-TWO',/Barcode/]]){x=await newItem(code,'D');R('3 Neue Artikelnummer "'+code+'" ('+n+') abgelehnt, nichts geändert',!ok(x.m)&&x.a.raw===x.b.raw&&re.test(x.m),x.m)}
+for(const [n,code,re] of [['a1 (klein) neben A1','a1',/Artikelnummer A1 existiert bereits/],['Ab1? (Case-Dup legacy ab1/AB1)','aB1',/Artikelnummer ab1 existiert bereits/],['bc1 (= Barcode von A1)','bc1',/Barcode/],['BC-TWO (= Barcode von A2)','BC-TWO',/Barcode/]]){x=await newItem(code,'D');R('3 Neue Artikelnummer "'+code+'" ('+n+') abgelehnt, nichts geändert',!ok(x.m)&&x.a.raw===x.b.raw&&re.test(x.m),x.m)}
 x=await newItem('d1'+'​','Z');R('3 Info Umgehung: Artikelnummer mit Zero-Width-Space (sieht aus wie bestehende) wird '+(ok(x.m)?'akzeptiert':'abgelehnt'),true,x.m);
 x=await newItem('a1​','Z2');R('3 Info Umgehung: "a1"+ZWSP neben A1: '+(ok(x.m)?'akzeptiert (optisch fast gleich)':'abgelehnt'),true,x.m);
 x=await newItem('Ａ1','Z3');R('3 Info Umgehung: Vollbreite "Ａ1" neben A1: '+(ok(x.m)?'akzeptiert':'abgelehnt'),true,x.m);
@@ -48,13 +48,15 @@ for(const nm of names){for(const v of [nm,nm.toUpperCase()]){x=await newItem(v,'
   await fill(h,{aCode:'RB'+Math.floor(Math.random()*1e9),aName:'R',aBarcode:v});b=await snap(h);m=await save(h);if(ok(m))badBc.push(v)}}
 R('4 Alle '+names.length+' Object.prototype-Namen (+Großschreibung) als Artikelnummer abgelehnt',badCode.length===0,'durchgelassen: '+badCode.join(','));
 R('4 ... und als Barcode abgelehnt',badBc.length===0,'durchgelassen: '+badBc.join(','));
-x=await newItem('toString','R');R('4 Meldung Artikelnummer reserviert',/Artikelnummer ist reserviert/.test(x.m),x.m);
+x=await newItem('toString','R');R('4 Legacy: Seed enthält Altartikel toString -> Dublettenmeldung kommt vor der Reserviert-Prüfung (Altartikel bleibt unverändert bearbeitbar, gewollt)',!ok(x.m)&&/Artikelnummer toString existiert bereits/.test(x.m)&&x.a.raw===x.b.raw,x.m);
+{const hc=await require('./lib').open();await fill(hc,{aCode:'toString',aName:'R'});const bc=await snap(hc);const mc=await save(hc);R('4 Meldung Artikelnummer reserviert (sauberer Zustand ohne Altartikel toString)',!ok(mc)&&/Artikelnummer ist reserviert/.test(mc)&&(await snap(hc)).raw===bc.raw,mc);await hc.b.close()}
 await fill(h,{aCode:'RBX',aName:'R',aBarcode:'valueOf'});m=await save(h);R('4 Meldung Barcode reserviert',/Barcode ist reserviert/.test(m),m);
 const extra=[];for(const v of ['null','undefined','NaN','true','length','name','toJSON','then','__proto__x','Infinity']){x=await newItem('X'+v,'R');await fill(h,{aCode:'Y'+v,aName:'R',aBarcode:v});const mm=await save(h);extra.push(v+':'+(ok(mm)?'ok':'x'))}
 R('4 Info: weitere kritische Wörter als Barcode',true,extra.join(' '));
 // 5 Min>Max
-{const hh=await mk('new');const t=async(o,exp,re,lbl)=>{await fill(hh,{aCode:'MM'+Math.floor(Math.random()*1e6),aName:'M',...o});const bb=await snap(hh);const mm=await save(hh);const aa=await snap(hh);R('5 '+lbl,exp?ok(mm):(!ok(mm)&&aa.raw===bb.raw&&(re?re.test(mm):true)),mm)};
- await t({aMin:'10',aMax:'5'},false,/Mindestbestand darf die maximale Boxmenge nicht überschreiten/,'Neu: Min 10 > Max 5 → abgelehnt');
+{const hh=await mk('new');const stored=async c=>hh.p.evaluate(c=>{const a=state.items.find(x=>x.code===c);return a?{min:a.min,max:a.max}:null},c);let lastCode;const t=async(o,exp,re,lbl)=>{lastCode='MM'+Math.floor(Math.random()*1e6);await fill(hh,{aCode:lastCode,aName:'M',...o});const bb=await snap(hh);const mm=await save(hh);const aa=await snap(hh);R('5 '+lbl,exp?ok(mm):(!ok(mm)&&aa.raw===bb.raw&&(re?re.test(mm):true)),mm)};
+ // AP5.4: SA-12c (8fde636) hat die Regel "Mindestbestand <= Box-Max" bewusst entfernt (Mindestbestand = Gesamtbestand, Max = je Box); Erwartungen entsprechend umgekehrt und zusätzlich der gespeicherte Wert geprüft
+ await t({aMin:'10',aMax:'5'},true,0,'Neu: Min 10 > Max 5 → erlaubt (Regel seit SA-12c entfernt)');R('5 Neu: Min 10 / Max 5 wird exakt so gespeichert',JSON.stringify(await stored(lastCode))===JSON.stringify({min:10,max:5}),JSON.stringify(await stored(lastCode)));
  await t({aMin:'5',aMax:'5'},true,0,'Neu: Min 5 = Max 5 erlaubt');
  await t({aMin:'500',aMax:'',aWeight:''},true,0,'Neu: Min 500, Max leer erlaubt');
  await t({aMin:'',aMax:'5'},true,0,'Neu: Min leer, Max 5 erlaubt');
@@ -62,13 +64,13 @@ R('4 Info: weitere kritische Wörter als Barcode',true,extra.join(' '));
  // Fachlich: Mindestbestand = Gesamtbestand, Max = je Box → min>max ist fachlich zulässig
  const sem=await hh.p.evaluate(()=>{const lm=state.items.find(a=>a.code==='LM');const total=state.boxes.filter(b=>b.code==='LM').reduce((s,b)=>s+b.qty,0);return {min:lm.min,max:lm.max,total}});
  R('5 FACHLICH: Home-Warnung vergleicht Mindestbestand mit Gesamtbestand aller Boxen, Max gilt je Box',true,JSON.stringify(sem));
- await hh.go('home');R('5 FACHLICH: Home zeigt Mindestbestand-Warnung für LM (Gesamtbestand 160 < Min 500) – belegt: Min bezieht sich auf Summe',/LM|Legacy Min/.test(await hh.p.evaluate(()=>document.getElementById('home').innerText)));
+ await hh.go('home');{const exp=await hh.p.evaluate(()=>state.items.filter(a=>a.min!==null&&state.boxes.filter(b=>b.code===a.code).reduce((s,b)=>s+b.qty,0)<a.min).map(a=>a.code));const txt=await hh.p.evaluate(()=>document.getElementById('home').innerText);R('5 FACHLICH: Home zählt Artikel unter Mindestbestand (LM: Gesamtbestand 160 < Min 500) – Anzahl entspricht unabhängiger Berechnung '+JSON.stringify(exp),exp.includes('LM')&&txt.includes('⚠ '+exp.length+' Artikel unter Mindestbestand'),txt.replace(/\n/g,' ').slice(0,160))}
  // Praxisfall: Artikel mit Boxkapazität 100 und Mindestbestand 500
- await t({aMin:'500',aMax:'100'},false,0,'PRAXISFALL Neu: Mindestbestand 500 gesamt, Box-Max 100 → abgelehnt?');
+ await t({aMin:'500',aMax:'100'},true,0,'PRAXISFALL Neu: Mindestbestand 500 gesamt, Box-Max 100 → erlaubt');R('5 PRAXISFALL: Min 500 / Max 100 wird exakt so gespeichert',JSON.stringify(await stored(lastCode))===JSON.stringify({min:500,max:100}),JSON.stringify(await stored(lastCode)));
  await edit(hh,'LM');await hh.p.evaluate(()=>{aMin.value='600'});let bb=await snap(hh);let mm=await save(hh);R('5 PRAXISFALL Altartikel LM (Min 500, Box-Max 100): Mindestbestand auf 600 erhöhen → '+(ok(mm)?'erlaubt':'ABGELEHNT'),ok(mm),mm);
  await edit(hh,'LM');await hh.p.evaluate(()=>{aMax.value='150'});mm=await save(hh);R('5 Altartikel LM: Max auf 150 (Min 500 bleibt) → '+(ok(mm)?'erlaubt':'abgelehnt'),ok(mm),mm);
  await edit(hh,'LM');await hh.p.evaluate(()=>{aMin.value='100';aMax.value='200'});mm=await save(hh);R('5 Altartikel LM: Min 100 / Max 200 (Reparatur) erlaubt',ok(mm),mm);
- await edit(hh,'A2');await hh.p.evaluate(()=>{aMin.value='101';aMax.value='100'});bb=await snap(hh);mm=await save(hh);R('5 A2: Min 101 > Max 100 → abgelehnt, nichts geändert',!ok(mm)&&(await snap(hh)).raw===bb.raw,mm);
+ await edit(hh,'A2');await hh.p.evaluate(()=>{aMin.value='101';aMax.value='100'});bb=await snap(hh);mm=await save(hh);R('5 A2: Min 101 > Max 100 → erlaubt (Regel seit SA-12c entfernt), Min/Max gespeichert, Boxen unverändert',ok(mm)&&JSON.stringify(await stored('A2'))===JSON.stringify({min:101,max:100})&&JSON.stringify((await snap(hh)).st.boxes)===JSON.stringify(bb.st.boxes),mm);
  R('JS 5',hh.errs.length===0,hh.errs.join('|'));await hh.b.close()}
 // 6 Meldungen
 {const hh=await mk('new');const msgs=[];const t=async(lbl,o,re)=>{await fill(hh,{aCode:'MS',aName:'M',...o});const mm=await save(hh);msgs.push(lbl+' → '+mm);R('6 '+lbl+' → passende Einzelmeldung',!ok(mm)&&re.test(mm)&&!/Artikelangaben prüfen/.test(mm),mm)};

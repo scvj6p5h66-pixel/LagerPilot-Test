@@ -64,7 +64,8 @@ await cfg(h,FULL);
 R('JS-Fehler Teil 1–4',h.errs.length===0,h.errs.join('|'));await h.b.close();
 // 5 Bestehende Daten
 {const hh=await open();
- const v27=(shelf)=>({schema:27,places:{},items:[A1],boxes:[{id:'b1',place:'H4A-1-1',code:'A1',qty:10,blocked:0}],history:[],inventoryLogs:[],qrMap:{},config:{shelf,bay:2000,palletMax:1000,tare:25},legacyOrders:[]});
+ const places=await hh.p.evaluate(()=>JSON.parse(JSON.stringify(state.places)));// AP5.4: vollständige Platzliste (valid() verlangt für jede Box einen vorhandenen Platz); vorher places:{} -> Speicher wurde zu Recht abgelehnt
+ const v27=(shelf)=>({schema:27,places,items:[A1],boxes:[{id:'b1',place:'H4A-1-1',code:'A1',qty:10,blocked:0}],history:[],inventoryLogs:[],qrMap:{},config:{shelf,bay:2000,palletMax:1000,tare:25},legacyOrders:[]});
  for(const [n,sh,exp] of [['v2.7 mit Fachlast 800',800,800],['v2.7 mit Fachlast 600',600,600],['v2.7 mit Fachlast null',null,null]]){
   await hh.p.evaluate(([k,d])=>{localStorage.clear();localStorage.setItem(k,JSON.stringify(d))},[K,v27(sh)]);await hh.p.reload();await hh.p.waitForTimeout(500);
   const cf=await hh.ev(()=>state.config.shelf);R('5 '+n+' bleibt unverändert',cf===exp&&!(await hh.ev(()=>storageLocked)),cf);

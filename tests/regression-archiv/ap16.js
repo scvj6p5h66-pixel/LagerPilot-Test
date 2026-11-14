@@ -80,8 +80,11 @@ R('Modus bleibt beim Tabwechsel',(await formState()).startsWith('A1|Art1|true|fa
 const exp=await p.evaluate(k=>JSON.parse(localStorage.getItem(k)),K);
 exp.items=exp.items.filter(x=>x.code!=='A1');exp.boxes=exp.boxes.filter(x=>x.code!=='A1');
 fs.writeFileSync('/tmp/imp_noA1.json',JSON.stringify(exp));
-await p.setInputFiles('#jsonImport','/tmp/imp_noA1.json');await p.waitForTimeout(500);
+// AP5.4: Der Import fragt per confirm() nach. Ohne Dialog-Handler lehnt Playwright den Dialog ab -> Import wurde nie ausgeführt (Testfehler #26). Jetzt: bestätigen und auf das Neuladen warten.
+p.on('dialog',d=>d.accept());const navImp=p.waitForNavigation({timeout:5000}).then(()=>true).catch(()=>false);
+await p.setInputFiles('#jsonImport','/tmp/imp_noA1.json');const reloadedImp=await navImp;await p.waitForTimeout(600);
 const afterImp=await formState();const hasA1=(await snap(p)).items.some(x=>x.code==='A1');
+R('Import (Dialog bestätigt) wurde tatsächlich ausgeführt: Seite neu geladen, A1 entfernt, Sicherung vor Import vorhanden',reloadedImp&&!hasA1&&!!(await p.evaluate(()=>localStorage.getItem('lagerpilot_before_import'))),'reload='+reloadedImp+' A1='+hasA1);
 console.log('INFO nach Import ohne A1: Formular='+afterImp+' A1 vorhanden='+hasA1+' Meldung='+(await txt(p,'importMessage')||''));
 await p.evaluate(()=>{tab('articles')});
 await p.locator('#aMin').evaluate(e=>e.value='9').catch(()=>{});

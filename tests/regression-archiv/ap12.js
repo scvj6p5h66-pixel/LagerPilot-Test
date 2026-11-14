@@ -22,7 +22,7 @@ await fill(h,{aName:'Mein Neuer',aCode:'N9',aUnit:'P',aPack:'12',aWeight:'3',aMa
 let b=await snap(h);let r=await scan(h,'BC1');let f=await form(h);let a=await snap(h);
 R('1 Kamera-Callback erreicht',r.had==='function');
 R('1 Artikelnummer, Bezeichnung, Einheit, Pack, Gewicht, Max, Min unverändert',f.aCode==='N9'&&f.aName==='Mein Neuer'&&f.aUnit==='P'&&f.aPack==='12'&&f.aWeight==='3'&&f.aMax==='20'&&f.aMin==='2',JSON.stringify(f));
-R('1 Hinweis nennt erkannten Artikel und dass Eingaben bleiben',/Art1/.test(r.msg)&&/A1/.test(r.msg)&&/unverändert/.test(r.msg),r.msg);
+R('1 Hinweis nennt den Artikel A1, dass der Barcode nicht verwendet werden kann, als Warnung (Eingaben bleiben: siehe Feldprüfung oben)',/Barcode gehört bereits zu A1 und kann für diesen Artikel nicht verwendet werden/.test(r.msg)&&/warning/.test(r.cls),r.msg+' | '+r.cls);// AP5.4: Text seit AP4 SA-12 (e03c6dd) so definiert
 R('1 Scan allein speichert nichts (localStorage byteweise gleich)',a.raw===b.raw);
 R('1 Barcode-Feld = gescannter Code (Info)',true,'aBarcode='+f.aBarcode);
 let m=await save(h);a=await snap(h);
@@ -33,7 +33,7 @@ R('1 Hinweis beim Scan warnt NICHT, dass Barcode schon vergeben ist (Info/Verbes
 await fill(h,{aName:'Mein Neuer',aCode:'N9',aWeight:'3',aMax:'20',aMin:'2'});
 r=await scan(h,'NEU-4711');f=await form(h);
 R('2 Unbekannter Barcode: nur Barcode-Feld gesetzt, Rest unverändert',f.aBarcode==='NEU-4711'&&f.aCode==='N9'&&f.aName==='Mein Neuer'&&f.aWeight==='3',JSON.stringify(f));
-R('2 Warnhinweis "Kein passender Artikel…"',/Kein passender Artikel/.test(r.msg)&&/warning/.test(r.cls),r.msg+' | '+r.cls);
+R('2 Unbekannter Barcode: Hinweis "Barcode übernommen. Bitte Artikelangaben prüfen…" (Klasse hint, keine Warnung)',/^Barcode übernommen\. Bitte Artikelangaben prüfen und anschließend speichern\.$/.test(r.msg)&&/hint/.test(r.cls),r.msg+' | '+r.cls);// AP5.4: seit AP4 SA-12 (e03c6dd) ersetzt der Hinweis "Kein passender Artikel…"
 b=await snap(h);m=await save(h);a=await snap(h);const n=a.st.items.find(x=>x.code==='N9');
 R('2 Speichern legt N9 mit Barcode NEU-4711 an, genau 1 Artikel, 1 Historie, Boxen unverändert',ok(m)&&n&&n.barcode==='NEU-4711'&&n.name==='Mein Neuer'&&a.st.items.length===b.st.items.length+1&&a.st.history.length===b.st.history.length+1&&JSON.stringify(a.st.boxes)===JSON.stringify(b.st.boxes),m);
 R('2 Formular nach Speichern geleert, danach Scan setzt nur Barcode',(await form(h)).aCode===''&&(await form(h)).aBarcode==='');

@@ -60,7 +60,7 @@ R('3 Folgeprüfung: Scan-/Bestandssuche mit solchen Barcodes ohne JS-Fehler',h.e
 for(const c of ['constructor','__proto__','toString']){await fill(h,{aCode:c,aName:'Res'});b=await snap(h);m=await save(h);R('3 Info: Artikelnummer "'+c+'" '+(ok(m)?'gespeichert (nicht gesperrt, SA-12 Rest)':'abgelehnt'),true,m)}
 // 4 Scan-Warnungen
 await fill(h,{aCode:'W1',aName:'W1'});b=await snap(h);
-r=await scan(h,'BC1');R('4 Scan bekannter Barcode (neues Formular): Warnung "gehört bereits zu A1"',/gehört bereits zu A1/.test(r.msg)&&/warning/.test(r.cls),r.msg+' | '+r.cls);
+r=await scan(h,'BC1');R('4 Scan bekannter Barcode (neues Formular): Warnung "gehört bereits zu A1" (oder zu Legacy-Artikel L2 mit Schreibweise-Dublette bc1)',/gehört bereits zu (A1|L2)\b/.test(r.msg)&&/warning/.test(r.cls),r.msg+' | '+r.cls);// AP5.4: Seed enthält L2 mit Barcode 'bc1' (Schreibweise-Dublette); die Suche ist case-insensitiv und nennt den ersten Treffer
 r=await scan(h,'bc1');R('4 Scan "bc1" (Case-Variante): ebenfalls Warnung (zu A1 oder L2)',/gehört bereits zu/.test(r.msg)&&/warning/.test(r.cls),r.msg);
 R('4 Scan speichert nichts',(await snap(h)).raw===b.raw);
 await edit(h,'A1');r=await scan(h,'9'.repeat(64));R('4 Scan beim Bearbeiten A1 mit eigenem (aktuellem) Barcode → Info/Erfolg',true,r.msg);

@@ -1,0 +1,28 @@
+PASS 1a Banner sofort sichtbar nach Laden (nur Pick beschädigt)  | ⛔ Speichern gesperrt – gespeicherte Daten konnten nicht geladen werden. Kommissionierdaten sind beschädigt. Speichern ist gesperrt
+PASS 1h render() lässt Banner sichtbar
+PASS 1h Banner in allen Bereichen/Tabs sichtbar  | home:true book:true more:true picking:true pickAdmin:true racks:true
+PASS 1h pickRender() lässt Banner sichtbar
+PASS 1h Banner bleibt nach Speicherversuch
+PASS 1i Rohdaten-Button sichtbar/klickbar
+PASS 1i Download enthält beschädigte Kommissionierdaten (Original + Quarantäne)  | lagerpilot_v2_7,lagerpilot_pick_demo_v1,lagerpilot_pick_demo_v1_quarantine
+PASS 1i Download enthält Lagerstand
+PASS 1 Fehler
+PASS 2a Beide Fehlergründe im Banner  | ⛔ Speichern gesperrt – gespeicherte Daten konnten nicht geladen werden. Unexpected end of JSON input Kommissionierdaten sind beschädigt. Speichern ist gesperrt. Bitte Rohdaten sichern und eine gültige Sicherung importieren. Rohdaten herunterladen Bitte keine Browserdaten löschen. Eine gültige Sicherung kann unter „Mehr“ importie
+PASS 2b Beide Gründe nach render()
+PASS 2c Download enthält beide beschädigten Rohwerte  | lagerpilot_v2_7,lagerpilot_v2_7_quarantine,lagerpilot_pick_demo_v1,lagerpilot_pick_demo_v1_quarantine
+PASS 2d Speichersperre Lager + Pick aktiv, Rohwerte unverändert  | Speichern gesperrt: Unexpected end of JSON input. Bitte Rohd | ["alert:Kommissionierdaten sind beschädigt. Speichern ist gesperrt. Bitte Rohdat
+PASS 2e Backup stellt beides wieder her; Banner weg
+PASS 2f Quarantänen erhalten
+PASS 2g Speichern wieder möglich (Lager+Pick)
+PASS 2 Fehler
+PASS 3a Pick-Sperre: Backup ohne _pick abgelehnt, Banner bleibt  | Zur Wiederherstellung beschädigter Kommissionierdaten ist eine Sicherung mit Kommissionier
+PASS 3b Pick-Sperre: vollständiges Backup stellt her, Banner weg
+PASS 4a Nur Lager kaputt: Banner mit Grund, ohne Pick-Text  | ⛔ Speichern gesperrt – gespeicherte Daten konnten nicht geladen werden. Expected property name or '}' in JSON at positio
+PASS 4b Lager-Recovery funktioniert, Banner weg
+PASS 5a Intakt: kein Banner
+PASS 5b Intakt nach Kommissionier-Änderung + Reload: weder gesperrt noch Banner
+PASS 5c Normaler Import intakt funktioniert, kein Banner
+PASS 5 Fehler
+
+GESAMT 25 / FAIL 0 
+exit 0

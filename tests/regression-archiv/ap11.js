@@ -7,15 +7,15 @@ const snap=h=>h.p.evaluate(k=>({raw:localStorage.getItem(k),st:JSON.parse(localS
 const FULL={shelf:800,bay:2000,palletMax:1000,tare:25};
 const ITEMS=[{code:'A1',name:'Art1',barcode:'BC1',unit:'STK',pack:1,weight:2,max:100,min:3},{code:'P1',name:'Pack',barcode:'',unit:'P',pack:12,weight:2.5,max:100,min:null}];
 const BOX=[{id:'b1',place:'H4A-1-1',code:'A1',qty:50,blocked:0},{id:'b2',place:'H4A-1-2',code:'A1',qty:30,blocked:0},{id:'b3',place:'H4A-2-1',code:'P1',qty:2,blocked:0}];
-async function mk(cfg=FULL,boxes=BOX){const h=await open();await h.p.evaluate(([cfg,it,bx])=>{transaction(s=>{Object.assign(s.config,cfg);s.items.push(...it);s.boxes.push(...bx)})},[cfg,ITEMS,boxes]);return h}
+async function mk(cfg=FULL,boxes=BOX,items=ITEMS){const h=await open();await h.p.evaluate(([cfg,it,bx])=>{transaction(s=>{Object.assign(s.config,cfg);s.items.push(...it);s.boxes.push(...bx)})},[cfg,items,boxes]);return h}
 async function cnt(h,place,art,qty,confirm=true){await h.go('inventory');await h.p.evaluate(c=>{window.confirm=m=>{window.__dlg.push('confirm:'+m);return c}},confirm);await h.dlg();
  await setf(h.p,'invPlace',place);await setf(h.p,'invArticle',art);await setf(h.p,'invQty',String(qty));await h.p.evaluate(()=>invCompare.click());
  const cmp=await txt(h.p,'invResult');const btn=await h.p.evaluate(()=>({t:invCommit.textContent,hidden:invCommit.classList.contains('hidden'),dis:invCommit.disabled}));
  let res='';if(!btn.hidden){await h.p.evaluate(()=>invCommit.click());await h.dlg();res=await txt(h.p,'invResult')}return {cmp,btn,res}}
 const okRes=r=>/protokolliert|Inventurdifferenz gespeichert/.test(r.res);
 // Szenario-Runner: erwartet pro Zählung ok/abgelehnt, prüft Integrität
-async function scen(name,cfg,cases,boxes=BOX){
- for(const [place,art,q,expOk,why] of cases){const h=await mk(cfg,boxes);const b=await snap(h);const r=await cnt(h,place,art,q);const a=await snap(h);
+async function scen(name,cfg,cases,boxes=BOX,items=ITEMS){
+ for(const [place,art,q,expOk,why] of cases){const h=await mk(cfg,boxes,items);const b=await snap(h);const r=await cnt(h,place,art,q);const a=await snap(h);
   const dl=a.st.inventoryLogs.length-b.st.inventoryLogs.length,dh=a.st.history.length-b.st.history.length;
   if(expOk){const bx=a.st.boxes.find(x=>x.place===place&&x.code===art);const exp=art==='P1'?q/12:q;
    R(name+': Zählung '+q+' → erlaubt'+(why?' ('+why+')':''),okRes(r)&&dl===1&&dh===1&&(exp===0?!bx:bx&&bx.qty===exp)&&a.st.inventoryLogs[0].count===exp,r.res+' | log+'+dl);
@@ -36,7 +36,7 @@ await scen('5 Fachlast',{...FULL,shelf:125},[['H4A-1-1','A1',50,true],['H4A-1-1'
 await scen('5 Palette',{...FULL,palletMax:125},[['H4A-1-1','A1',51,false,'Palette'],['H4A-3-3','A1',50,true,'Grenze']]);
 await scen('5 Feldlast',{...FULL,bay:125},[['H4A-1-1','A1',51,false,'Feldlast'],['H4A-3-3','A1',50,true,'Grenze']]);
 // Artikel ohne Gewicht (weight null) mit Bestand
-await scen('5 Artikel ohne Gewicht',FULL,[['H4A-1-1','A1',50,true,'Diff 0'],['H4A-1-1','A1',51,false,'Erhöhung, Gewicht fehlt'],['H4A-1-1','A1',49,true,'Reduktion']],BOX);
+await scen('5 Artikel ohne Gewicht',FULL,[['H4A-1-1','A1',50,true,'Diff 0'],['H4A-1-1','A1',51,false,'Erhöhung, Gewicht fehlt'],['H4A-1-1','A1',49,true,'Reduktion']],BOX,ITEMS.map(i=>i.code==='A1'?{...i,weight:null}:i));// AP5.4: A1 jetzt wirklich ohne Gewicht (vorher Gewicht 2 trotz Kommentar "weight null")
 // Gewicht-null Variante gesondert
 {const h=await mk();await h.p.evaluate(()=>{transaction(s=>{s.items.find(a=>a.code==='A1').weight=null})});const b=await snap(h);
  let r=await cnt(h,'H4A-1-1','A1',51);R('5 weight=null: Erhöhung abgelehnt',!okRes(r)&&(await snap(h)).raw===b.raw,r.res);

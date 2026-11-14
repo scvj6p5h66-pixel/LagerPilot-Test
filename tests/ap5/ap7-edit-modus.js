@@ -30,7 +30,7 @@ m=await edit(h,{aMax:'40'});R('1/5 Max 40: abgelehnt wegen Box 50, obwohl zweite
 m=await edit(h,{aMax:''});R('1 Max leeren (null) bei Bestand: erlaubt/abgelehnt (Info)',true,'ok='+ok(m)+' max='+art(await snap(h),'A1').max+' msg='+m);
 await edit(h,{aMax:'100'});
 // P-Artikel
-const pe=async o=>{await h.go('articles');for(const [k,x] of Object.entries({aName:'Pack',aCode:'P1',aBarcode:'',aUnit:'P',aPack:'12',aWeight:'2.5',aMax:'100',aMin:'',...o}))await setf(h.p,k,x);await h.p.evaluate(()=>aSave.click());return txt(h.p,'aMessage')};
+const pe=async o=>{await h.go('articles');await h.p.evaluate(()=>{const b=document.querySelector('[data-edit="P1"]');if(b)b.click()});/* AP5.4: erst Bearbeiten öffnen, sonst wird die Neuanlage-Prüfung (Dublette) ausgelöst */for(const [k,x] of Object.entries({aName:'Pack',aCode:'P1',aBarcode:'',aUnit:'P',aPack:'12',aWeight:'2.5',aMax:'100',aMin:'',...o}))await setf(h.p,k,x);await h.p.evaluate(()=>aSave.click());return txt(h.p,'aMessage')};
 m=await pe({aMax:'1'});R('1 Pack-Artikel: Max 1 < 2 Pack: abgelehnt',!ok(m)&&/H4A-2-1/.test(m),m);
 m=await pe({aMax:'2'});R('1 Pack-Artikel: Max 2 = 2 Pack: erlaubt',ok(m));
 m=await pe({aMax:'100',aWeight:'500'});R('2 Pack-Artikel: Gewicht 500 (2×500+25=1025>800): abgelehnt',!ok(m)&&/Fachlast/.test(m),m);
@@ -64,21 +64,23 @@ for(const [n,cfg] of [['tare fehlt',{shelf:800,bay:2000,palletMax:1000,tare:null
  const maxOnly=ok(mm);
  R('4 '+n+': Max-only-Änderung wird nicht durch fehlende Lastdaten blockiert',maxOnly,'ok='+maxOnly);
  mm=await edit(hh,{aWeight:'',aMax:'100'});R('4 '+n+': Gewicht löschen (null) bei Bestand (Info)',true,'ok='+ok(mm));
- await hh.go('articles');for(const [k,x] of Object.entries({aName:'Art2',aCode:'A2',aBarcode:'',aUnit:'STK',aPack:'1',aWeight:'999',aMax:'5',aMin:''}))await setf(hh.p,k,x);await hh.p.evaluate(()=>aSave.click());
- R('4/7 '+n+': Artikel A2 ohne Bestand: beliebige Änderung erlaubt',ok(await txt(hh.p,'aMessage'))&&art(await snap(hh),'A2').weight===999);
+ const m47=await edit(hh,{aCode:'A2',aName:'Art2',aBarcode:'',aUnit:'STK',aPack:'1',aWeight:'999',aMax:'5',aMin:''});/* AP5.4: per Bearbeiten-Modus (sonst Neuanlage-Dublette) */
+ R('4/7 '+n+': Artikel A2 ohne Bestand: beliebige Änderung erlaubt',ok(m47)&&art(await snap(hh),'A2').weight===999,m47);
  R('4 JS-Fehler',hh.errs.length===0,hh.errs.join('|'));await hh.b.close();}
 // 5 mehrere Plätze, dritte Box verletzt
 {const hh=await open();await setup(hh,FULL);await hh.p.evaluate(()=>{transaction(s=>{s.boxes.push({id:'b4',place:'H4A-5-1',code:'A1',qty:55,blocked:0})})});
  const bb=await snap(hh);let mm=await edit(hh,{aMax:'52'});R('5 drei Plätze, nur dritte (55) verletzt Max 52: abgelehnt, Platz genannt, nichts geändert',!ok(mm)&&/H4A-5-1/.test(mm)&&(await snap(hh)).raw===bb.raw,mm);
  mm=await edit(hh,{aWeight:'14.8'});R('5 Gewicht 14,8: Box 55×14,8+25=839>800 abgelehnt (Platz 5-1), 50er-Box allein wäre ok',!ok(mm)&&/H4A-5-1/.test(mm)&&(await snap(hh)).raw===bb.raw,mm);
- mm=await edit(hh,{aWeight:'14.5',aMax:'60'});R('5 Gewicht 14,5 & Max 60: alle Boxen ok -> erlaubt',ok(mm)&&art(await snap(hh),'A1').weight===14.5,mm);
+ // AP5.4: 55×14,5+25 = 822,5 kg > Fachlast 800 -> die App lehnt zu Recht ab (frühere Erwartung "erlaubt" war falsch gerechnet)
+ mm=await edit(hh,{aWeight:'14.5',aMax:'60'});R('5 Gewicht 14,5 (55×14,5+25=822,5>800): abgelehnt (Platz 5-1), nichts geändert',!ok(mm)&&/H4A-5-1/.test(mm)&&(await snap(hh)).raw===bb.raw,mm);
+ mm=await edit(hh,{aWeight:'14',aMax:'60'});R('5 Gewicht 14 & Max 60 (55×14+25=795≤800): alle Boxen ok -> erlaubt',ok(mm)&&art(await snap(hh),'A1').weight===14&&art(await snap(hh),'A1').max===60,mm);
  // blockierte Box
  await hh.p.evaluate(()=>{transaction(s=>{s.boxes.find(b=>b.id==='b4').blocked=55;s.boxes.find(b=>b.id==='b4').qsReason='x'})});
- mm=await edit(hh,{aWeight:'14.5',aMax:'54'});R('5 QS-gesperrte Box (55) wird ebenfalls geprüft: Max 54 abgelehnt',!ok(mm)&&/H4A-5-1/.test(mm),mm);
+ mm=await edit(hh,{aWeight:'14',aMax:'54'});R('5 QS-gesperrte Box (55) wird ebenfalls geprüft: Max 54 abgelehnt',!ok(mm)&&/H4A-5-1/.test(mm),mm);
  // Box mit Menge 0 wird ignoriert
  await hh.p.evaluate(()=>{transaction(s=>{s.boxes.push({id:'z0',place:'H4A-7-7',code:'A2',qty:0,blocked:0})})});
- await hh.go('articles');for(const [k,x] of Object.entries({aName:'Art2',aCode:'A2',aBarcode:'',aUnit:'STK',aPack:'1',aWeight:'999',aMax:'1',aMin:''}))await setf(hh.p,k,x);await hh.p.evaluate(()=>aSave.click());
- R('7 Artikel mit Box-Menge 0: Änderung erlaubt (leere Box ignoriert)',ok(await txt(hh.p,'aMessage')),await txt(hh.p,'aMessage'));
+ const m7=await edit(hh,{aCode:'A2',aName:'Art2',aBarcode:'',aUnit:'STK',aPack:'1',aWeight:'999',aMax:'1',aMin:''});
+ R('7 Artikel mit Box-Menge 0: Änderung erlaubt (leere Box ignoriert)',ok(m7)&&art(await snap(hh),'A2').weight===999,m7);
  R('5 JS-Fehler',hh.errs.length===0,hh.errs.join('|'));await hh.b.close();}
 // 8 Regression Funktionen nach Änderung
 {const hh=await open();await setup(hh,FULL);await edit(hh,{aWeight:'10',aMax:'60'});
@@ -97,7 +99,7 @@ for(const [n,cfg] of [['tare fehlt',{shelf:800,bay:2000,palletMax:1000,tare:null
 // Stale-Tab bei Artikelspeichern
 {const hh=await open();await setup(hh,FULL);const p2=await hh.p.context().newPage();await p2.addInitScript(()=>{window.confirm=()=>true;window.alert=()=>{}});await p2.goto('http://localhost:8123/index.html');await p2.waitForTimeout(500);
  await hh.p.evaluate(()=>{transaction(s=>{history(s,'Tab A')})});
- await p2.evaluate(()=>{tab('articles');aName.value='Art1';aCode.value='A1';aBarcode.value='BC1';aUnit.value='STK';aPack.value='1';aWeight.value='3';aMax.value='100';aMin.value='3';aSave.click()});
+ await p2.evaluate(()=>{tab('articles');document.querySelector('[data-edit="A1"]').click();aName.value='Art1';aCode.value='A1';aBarcode.value='BC1';aUnit.value='STK';aPack.value='1';aWeight.value='3';aMax.value='100';aMin.value='3';aSave.click()});
  R('8 Veralteter Tab kann Artikel nicht speichern',/anderen Tab/.test(await p2.evaluate(()=>aMessage.textContent))&&(await snap(hh)).st.items.find(a=>a.code==='A1').weight===2,await p2.evaluate(()=>aMessage.textContent.slice(0,80)));await hh.b.close();}
 const f=res.filter(x=>!x[1]);console.log('\nGESAMT',res.length,'/ FAIL',f.length);f.forEach(x=>console.log(' -',x[0]));
 })().catch(e=>{console.error('SCRIPTFAIL',e);process.exit(1)});
