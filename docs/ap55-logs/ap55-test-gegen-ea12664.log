@@ -1,0 +1,70 @@
+PASS 1 Import "eindeutige Barcodes": angenommen, Seite neu geladen
+FAIL 1 Import "eindeutige Barcodes": Stand vorher als Sicherungsstand abgelegt (genau 1 Eintrag, byte-gleich)
+PASS 1 Import "eindeutige Barcodes": keine JS-Fehler
+PASS 1 Import "mehrere Artikel ohne Barcode (leer / fehlend)": angenommen, Seite neu geladen
+FAIL 1 Import "mehrere Artikel ohne Barcode (leer / fehlend)": Stand vorher als Sicherungsstand abgelegt (genau 1 Eintrag, byte-gleich)
+PASS 1 Import "mehrere Artikel ohne Barcode (leer / fehlend)": keine JS-Fehler
+FAIL 1 Import "exakte Dublette (A2 hat Barcode von A1)": BLOCKIERT, keine Neuladung
+FAIL 1 Import "exakte Dublette (A2 hat Barcode von A1)": Meldung nennt Barcode und betroffene Artikelnummern
+FAIL 1 Import "exakte Dublette (A2 hat Barcode von A1)": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt
+FAIL 1 Import "exakte Dublette (A2 hat Barcode von A1)": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)
+PASS 1 Import "exakte Dublette (A2 hat Barcode von A1)": keine JS-Fehler
+FAIL 1 Import "Schreibvariante (A2 "bc1" statt BC2)": BLOCKIERT, keine Neuladung
+FAIL 1 Import "Schreibvariante (A2 "bc1" statt BC2)": Meldung nennt Barcode und betroffene Artikelnummern
+FAIL 1 Import "Schreibvariante (A2 "bc1" statt BC2)": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt
+FAIL 1 Import "Schreibvariante (A2 "bc1" statt BC2)": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)
+PASS 1 Import "Schreibvariante (A2 "bc1" statt BC2)": keine JS-Fehler
+FAIL 1 Import "Barcode ist Artikelnummer eines anderen Artikels": BLOCKIERT, keine Neuladung
+FAIL 1 Import "Barcode ist Artikelnummer eines anderen Artikels": Meldung nennt Barcode und betroffene Artikelnummern
+FAIL 1 Import "Barcode ist Artikelnummer eines anderen Artikels": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt
+FAIL 1 Import "Barcode ist Artikelnummer eines anderen Artikels": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)
+PASS 1 Import "Barcode ist Artikelnummer eines anderen Artikels": keine JS-Fehler
+PASS 1 Import "Altformat Schema 26 ohne Dublette": angenommen, Seite neu geladen
+FAIL 1 Import "Altformat Schema 26 ohne Dublette": Stand vorher als Sicherungsstand abgelegt (genau 1 Eintrag, byte-gleich)
+PASS 1 Import "Altformat Schema 26 ohne Dublette": keine JS-Fehler
+FAIL 1 Import "Altformat Schema 26 mit Dublette": BLOCKIERT, keine Neuladung
+FAIL 1 Import "Altformat Schema 26 mit Dublette": Meldung nennt Barcode und betroffene Artikelnummern
+FAIL 1 Import "Altformat Schema 26 mit Dublette": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt
+FAIL 1 Import "Altformat Schema 26 mit Dublette": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)
+PASS 1 Import "Altformat Schema 26 mit Dublette": keine JS-Fehler
+FAIL 1 Import mit 10 Dubletten-Gruppen: blockiert, Meldung nennt Anzahl und „weitere“, Daten unverändert
+FAIL 1 Zielspeicher mit Alt-Dubletten: saubere Datei wird importiert, der alte Stand (mit Dubletten) wird unverändert gesichert, nichts automatisch korrigiert
+PASS 1 Beschädigte Datei "kein JSON": abgelehnt, Daten unverändert, keine Sicherung  | Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 1 Beschädigte Datei "Array statt Objekt": abgelehnt, Daten unverändert, keine Sicherung  | Ungültiges Backupformat.
+PASS 1 Beschädigte Datei "leeres Objekt": abgelehnt, Daten unverändert, keine Sicherung  | Ungültiges Backupformat.
+PASS 1 Beschädigte Datei "Schema 27 ohne Artikelliste": abgelehnt, Daten unverändert, keine Sicherung  | Ungültiges Backupformat.
+FAIL 2 Inventur: Scan "DUP" (zwei Artikel) -> keine Auswahl, Warnung nennt X1 und X2  | Artikel erkannt: Exakt Eins
+FAIL 2 Inventur: Scan "X1" (Artikelnummer von X1 und Barcode von Y1) -> mehrdeutig gemeldet, keine Auswahl  | Artikel erkannt: Exakt Eins
+PASS 2 Inventur: eindeutiger Barcode "UNI" wird normal verarbeitet (U1 gewählt)  | Artikel erkannt: Eindeutig
+FAIL 2 Bestandssuche: Scan "DUP" -> Suchfeld unverändert, Warnung nennt X1 und X2  | Artikel gefunden: Exakt Eins
+PASS 2 Bestandssuche: eindeutiger Barcode normal (Suchfeld U1)  | Artikel gefunden: Eindeutig
+FAIL 2 Artikelformular: Scan "DUP" -> Warnung nennt BEIDE Artikel (nicht nur den ersten)  | Barcode gehört bereits zu X1 und kann für diesen Artikel nicht verwendet werden.
+PASS 2 Artikelformular: freier Barcode normal übernommen (keine Warnung)  | Barcode übernommen. Bitte Artikelangaben prüfen und anschließend speichern.
+FAIL 2 Scanner-Tab: Scan "DUP" -> „mehrfach vergeben“ mit Nennung von X1 und X2  | Code ist mehrfach vergeben oder zugleich Lagerplatz und Artikel. Bitte Zuordnung prüfen.
+PASS 2 Scanner-Tab: eindeutiger Barcode normal  | Artikel erkannt: Eindeutig · 0 STK · 0 STK
+PASS 2 Scans (inkl. mehrdeutige) verändern weder Lager- noch Kommissionier- noch Sicherungsdaten
+PASS 2 keine JS-Fehler
+PASS 2 Schreibvarianten: Inventur "BC1" -> A1 (exakt, eindeutig)
+PASS 2 Schreibvarianten: Inventur "bc1" -> L2
+FAIL 2 Schreibvarianten: Artikelformular "BC1" nennt A1 und L2 (reihenfolgeunabhängig)  | Barcode gehört bereits zu A1 und kann für diesen Artikel nicht verwendet werden.
+FAIL 2 Kommissionierung Zeile X1: Scan "DUP" (passt zu X1 und X2) -> abgelehnt mit Warnung, nichts gebucht
+FAIL 2 Kommissionierung Zeile X2: Scan "DUP" ebenfalls abgelehnt (nie „erster Treffer“)
+PASS 2 Kommissionierung Zeile U1: eindeutiger Barcode "UNI" akzeptiert
+PASS 2 Kommissionierung: Artikelnummer als Scan weiterhin akzeptiert, wenn eindeutig (X1)
+PASS 2 Kommissionierung: Lager- und Sicherungsdaten unverändert (Lager byte-gleich)
+PASS 2 keine JS-Fehler
+PASS 3 Import 1: angenommen
+FAIL 3 Nach Import 1: 1 Sicherungsstand/-stände, jeder mit Datum, neuester = vorheriger Stand byte-gleich
+PASS 3 Import 2: angenommen
+FAIL 3 Nach Import 2: 2 Sicherungsstand/-stände, jeder mit Datum, neuester = vorheriger Stand byte-gleich
+PASS 3 Import 3: angenommen
+FAIL 3 Nach Import 3: 3 Sicherungsstand/-stände, jeder mit Datum, neuester = vorheriger Stand byte-gleich
+FAIL 3 Oberfläche listet 3 Sicherungsstände mit Datum/Uhrzeit, Artikelzahl und Größe
+/tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/wt_ap53/tests/ap55/ap55-barcode-importschutz.js:108
+ const full=await snap(a.p);const oldestId=(await list(a.p))[0].id;
+                                                                ^
+
+TypeError: Cannot read properties of undefined (reading 'id')
+    at /tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/wt_ap53/tests/ap55/ap55-barcode-importschutz.js:108:65
+
+Node.js v22.23.4

@@ -1,0 +1,176 @@
+PASS 1/3 tare fehlt: Zählung 50 → erlaubt (Diff 0)  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 1/3 tare fehlt: Zählung 50 → andere Boxen unverändert
+PASS 1/3 tare fehlt: 50 JS-Fehler
+PASS 1/3 tare fehlt: Zählung 40 → erlaubt (Reduktion)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 tare fehlt: Zählung 40 → andere Boxen unverändert
+PASS 1/3 tare fehlt: 40 JS-Fehler
+PASS 1/3 tare fehlt: Zählung 0 → erlaubt (Zählung 0)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 tare fehlt: Zählung 0 → andere Boxen unverändert
+PASS 1/3 tare fehlt: 0 JS-Fehler
+PASS 1/3 tare fehlt: Zählung 51 → abgelehnt (Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 tare fehlt: 51 JS-Fehler
+PASS 1/3 tare fehlt: Zählung 55 → abgelehnt (Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 tare fehlt: 55 JS-Fehler
+PASS 1/3 tare fehlt: Zählung 1 → abgelehnt (neue Box auf leerem Platz)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 tare fehlt: 1 JS-Fehler
+PASS 1/3 tare fehlt: Zählung 24 → erlaubt (Pack Diff 0)  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 1/3 tare fehlt: Zählung 24 → andere Boxen unverändert
+PASS 1/3 tare fehlt: 24 JS-Fehler
+PASS 1/3 tare fehlt: Zählung 12 → erlaubt (Pack Reduktion)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 tare fehlt: Zählung 12 → andere Boxen unverändert
+PASS 1/3 tare fehlt: 12 JS-Fehler
+PASS 1/3 tare fehlt: Zählung 36 → abgelehnt (Pack Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 tare fehlt: 36 JS-Fehler
+PASS 1/3 alle null: Zählung 50 → erlaubt (Diff 0)  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 1/3 alle null: Zählung 50 → andere Boxen unverändert
+PASS 1/3 alle null: 50 JS-Fehler
+PASS 1/3 alle null: Zählung 40 → erlaubt (Reduktion)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 alle null: Zählung 40 → andere Boxen unverändert
+PASS 1/3 alle null: 40 JS-Fehler
+PASS 1/3 alle null: Zählung 0 → erlaubt (Zählung 0)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 alle null: Zählung 0 → andere Boxen unverändert
+PASS 1/3 alle null: 0 JS-Fehler
+PASS 1/3 alle null: Zählung 51 → abgelehnt (Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 alle null: 51 JS-Fehler
+PASS 1/3 alle null: Zählung 55 → abgelehnt (Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 alle null: 55 JS-Fehler
+PASS 1/3 alle null: Zählung 1 → abgelehnt (neue Box auf leerem Platz)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 alle null: 1 JS-Fehler
+PASS 1/3 alle null: Zählung 24 → erlaubt (Pack Diff 0)  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 1/3 alle null: Zählung 24 → andere Boxen unverändert
+PASS 1/3 alle null: 24 JS-Fehler
+PASS 1/3 alle null: Zählung 12 → erlaubt (Pack Reduktion)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 alle null: Zählung 12 → andere Boxen unverändert
+PASS 1/3 alle null: 12 JS-Fehler
+PASS 1/3 alle null: Zählung 36 → abgelehnt (Pack Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 alle null: 36 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 50 → erlaubt (Diff 0)  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 1/3 bay fehlt: Zählung 50 → andere Boxen unverändert
+PASS 1/3 bay fehlt: 50 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 40 → erlaubt (Reduktion)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 bay fehlt: Zählung 40 → andere Boxen unverändert
+PASS 1/3 bay fehlt: 40 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 0 → erlaubt (Zählung 0)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 bay fehlt: Zählung 0 → andere Boxen unverändert
+PASS 1/3 bay fehlt: 0 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 51 → abgelehnt (Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 bay fehlt: 51 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 55 → abgelehnt (Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 bay fehlt: 55 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 1 → abgelehnt (neue Box auf leerem Platz)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 bay fehlt: 1 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 24 → erlaubt (Pack Diff 0)  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 1/3 bay fehlt: Zählung 24 → andere Boxen unverändert
+PASS 1/3 bay fehlt: 24 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 12 → erlaubt (Pack Reduktion)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 1/3 bay fehlt: Zählung 12 → andere Boxen unverändert
+PASS 1/3 bay fehlt: 12 JS-Fehler
+PASS 1/3 bay fehlt: Zählung 36 → abgelehnt (Pack Erhöhung)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 1/3 bay fehlt: 36 JS-Fehler
+PASS 2/4 überlastet (125>100): Zählung 50 → erlaubt (Diff 0)  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 2/4 überlastet (125>100): Zählung 50 → andere Boxen unverändert
+PASS 2/4 überlastet (125>100): 50 JS-Fehler
+PASS 2/4 überlastet (125>100): Zählung 40 → erlaubt (Reduktion bleibt >100)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 2/4 überlastet (125>100): Zählung 40 → andere Boxen unverändert
+PASS 2/4 überlastet (125>100): 40 JS-Fehler
+PASS 2/4 überlastet (125>100): Zählung 37 → erlaubt (Reduktion unter Grenze)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 2/4 überlastet (125>100): Zählung 37 → andere Boxen unverändert
+PASS 2/4 überlastet (125>100): 37 JS-Fehler
+PASS 2/4 überlastet (125>100): Zählung 0 → erlaubt (0)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 2/4 überlastet (125>100): Zählung 0 → andere Boxen unverändert
+PASS 2/4 überlastet (125>100): 0 JS-Fehler
+PASS 2/4 überlastet (125>100): Zählung 51 → abgelehnt (Erhöhung)  | Fachlast von 100 kg überschritten.
+PASS 2/4 überlastet (125>100): 51 JS-Fehler
+PASS 2/4 überlastet (125>100): Zählung 30 → erlaubt (Diff0 andere Box (85 ok))  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 2/4 überlastet (125>100): Zählung 30 → andere Boxen unverändert
+PASS 2/4 überlastet (125>100): 30 JS-Fehler
+PASS 2/4 überlastet (125>100): Zählung 31 → erlaubt (+1 → 87 ok)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 2/4 überlastet (125>100): Zählung 31 → andere Boxen unverändert
+PASS 2/4 überlastet (125>100): 31 JS-Fehler
+PASS 2/4 überlastet (125>100): Zählung 38 → abgelehnt (→ 101 > 100)  | Fachlast von 100 kg überschritten.
+PASS 2/4 überlastet (125>100): 38 JS-Fehler
+PASS 5 Erhöhung: Zählung 60 → erlaubt  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Erhöhung: Zählung 60 → andere Boxen unverändert
+PASS 5 Erhöhung: 60 JS-Fehler
+PASS 5 Erhöhung: Zählung 100 → erlaubt (Max, 225 kg)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Erhöhung: Zählung 100 → andere Boxen unverändert
+PASS 5 Erhöhung: 100 JS-Fehler
+PASS 5 Erhöhung: Zählung 101 → abgelehnt (über Max)  | Boxkapazität überschritten (100 STK).
+PASS 5 Erhöhung: 101 JS-Fehler
+PASS 5 Erhöhung: Zählung 99 → erlaubt  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Erhöhung: Zählung 99 → andere Boxen unverändert
+PASS 5 Erhöhung: 99 JS-Fehler
+PASS 5 Erhöhung: Zählung 100 → erlaubt (neue Box)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Erhöhung: Zählung 100 → andere Boxen unverändert
+PASS 5 Erhöhung: 100 JS-Fehler
+PASS 5 Erhöhung: Zählung 101 → abgelehnt (neue Box über Max)  | Boxkapazität überschritten (100 STK).
+PASS 5 Erhöhung: 101 JS-Fehler
+PASS 5 Erhöhung: Zählung 36 → erlaubt (Pack 3)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Erhöhung: Zählung 36 → andere Boxen unverändert
+PASS 5 Erhöhung: 36 JS-Fehler
+PASS 5 Erhöhung: Zählung 1224 → abgelehnt (Pack über Max/Last)  | Boxkapazität überschritten (100 P).
+PASS 5 Erhöhung: 1224 JS-Fehler
+PASS 5 Fachlast: Zählung 50 → erlaubt  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 5 Fachlast: Zählung 50 → andere Boxen unverändert
+PASS 5 Fachlast: 50 JS-Fehler
+PASS 5 Fachlast: Zählung 51 → abgelehnt (127>125)  | Fachlast von 125 kg überschritten.
+PASS 5 Fachlast: 51 JS-Fehler
+PASS 5 Fachlast: Zählung 50 → erlaubt (neue Box 125 = Grenze)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Fachlast: Zählung 50 → andere Boxen unverändert
+PASS 5 Fachlast: 50 JS-Fehler
+PASS 5 Fachlast: Zählung 51 → abgelehnt (neue Box 127)  | Fachlast von 125 kg überschritten.
+PASS 5 Fachlast: 51 JS-Fehler
+PASS 5 Palette: Zählung 51 → abgelehnt (Palette)  | Palettentragfähigkeit überschritten.
+PASS 5 Palette: 51 JS-Fehler
+PASS 5 Palette: Zählung 50 → erlaubt (Grenze)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Palette: Zählung 50 → andere Boxen unverändert
+PASS 5 Palette: 50 JS-Fehler
+PASS 5 Feldlast: Zählung 51 → abgelehnt (Feldlast)  | Feldlast überschritten.
+PASS 5 Feldlast: 51 JS-Fehler
+PASS 5 Feldlast: Zählung 50 → erlaubt (Grenze)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Feldlast: Zählung 50 → andere Boxen unverändert
+PASS 5 Feldlast: 50 JS-Fehler
+PASS 5 Artikel ohne Gewicht: Zählung 50 → erlaubt (Diff 0)  | ✓ Zählung ohne Differenz protokolliert. | log+1
+PASS 5 Artikel ohne Gewicht: Zählung 50 → andere Boxen unverändert
+PASS 5 Artikel ohne Gewicht: 50 JS-Fehler
+PASS 5 Artikel ohne Gewicht: Zählung 51 → abgelehnt (Erhöhung, Gewicht fehlt)  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 5 Artikel ohne Gewicht: 51 JS-Fehler
+PASS 5 Artikel ohne Gewicht: Zählung 49 → erlaubt (Reduktion)  | ✓ Inventurdifferenz gespeichert. | log+1
+PASS 5 Artikel ohne Gewicht: Zählung 49 → andere Boxen unverändert
+PASS 5 Artikel ohne Gewicht: 49 JS-Fehler
+PASS 5 weight=null: Erhöhung abgelehnt  | Gewichts-/Traglastdaten unvollständig: Packgewicht, Fachlast, Leergewicht, Palettentragfähigkeit und Feldlast benötigt.
+PASS 4 weight=null: Reduktion erlaubt  | ✓ Inventurdifferenz gespeichert.
+PASS JS
+PASS 5 max=null: Erhöhung abgelehnt  | Boxkapazität fehlt – bitte im Artikelstamm hinterlegen.
+PASS 1 max=null: Diff 0 erlaubt  | ✓ Zählung ohne Differenz protokolliert.
+PASS Sicherheit Platz locked: Erhöhung weiter abgelehnt, nichts gespeichert  | Lagerplatz gesperrt oder reserviert: H4A-1-1
+PASS Info Platz locked: Diff 0 protokollierbar (neues Verhalten)  | ok=false Lagerplatz gesperrt oder reserviert: H4A-1-1 | {"status":"locked","reason":"Test"}
+PASS Info Platz locked: Reduktion buchbar (neues Verhalten)  | ok=false Lagerplatz gesperrt oder reserviert: H4A-1-1
+PASS JS
+PASS Sicherheit Platz reserved: Erhöhung weiter abgelehnt, nichts gespeichert  | Lagerplatz gesperrt oder reserviert: H4A-1-1
+PASS Info Platz reserved: Diff 0 protokollierbar (neues Verhalten)  | ok=false Lagerplatz gesperrt oder reserviert: H4A-1-1 | {"status":"reserved","reason":"Test"}
+PASS Info Platz reserved: Reduktion buchbar (neues Verhalten)  | ok=false Lagerplatz gesperrt oder reserviert: H4A-1-1
+PASS JS
+PASS 6 Reduktion bei fehlenden Lastdaten: Log {before 50,count 40}, Historie "50 → 40", Summe der Boxen −10
+PASS 6 Config unverändert (keine Seiteneffekte)
+PASS 6 valid() nach Buchung
+PASS 6 Nach Reload identisch
+PASS 7 Dreifachklick: genau 1 Eintrag, 1 Historie, Bestand 60
+PASS 7 Erfolgsmeldung bleibt stehen (nicht von Fehler überschrieben)  | ✓ Inventurdifferenz gespeichert.
+PASS 7 Button nach Erfolg versteckt und deaktiviert
+PASS 7 Klick auf deaktivierten Button ohne Wirkung
+PASS 7 Nach neuer Eingabe + Vergleich Button wieder aktiv (nicht dauerhaft gesperrt)
+PASS 7 Zweite Zählung nach der ersten funktioniert (55)
+PASS 7 Fehlerpfad (über Max): nichts gespeichert, Fehlermeldung  | Boxkapazität überschritten (100 STK).
+PASS 7 Fehlerpfad: Button bleibt bedienbar für Korrektur?  | disabled=false
+PASS 7 Abbruch: Button bleibt aktiv, nichts gespeichert
+PASS 7 Nach Abbruch bestätigen: 1 Eintrag mehr
+PASS 7 "Neue Zählung" setzt Formular/Button zurück
+PASS JS 7
+PASS Sicherheit Stale-Tab: Reduktion aus veraltetem Vergleich wird nicht gespeichert  | Lagerdaten wurden in einem anderen Tab geändert. Deine Änderung wurde NICHT gespeichert. Bitte Seite neu laden, um Datenverlust zu vermeiden.
+PASS Sicherheit: Bestand nach Vergleich geändert → Bestätigung abgelehnt (Signatur), Bestand bleibt 70  | Daten haben sich geändert – erneut zählen.
+PASS Sicherheit: Menge nach Vergleich geändert → Button verschwindet (kein Buchen alter Vorschau mit neuem Feld)
+PASS Sicherheit: ... und Klick ohne Vorschau speichert nichts
+
+GESAMT 173 / FAIL 0
+exit 0

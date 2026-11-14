@@ -1,3 +1,4 @@
+// HISTORISCH (AP5.4a): beschreibt das Verhalten des Standes ea12664 (Import ohne Dublettenprüfung, stille Wahl des ersten Treffers). Ab AP5.5 gilt tests/ap55/ap55-barcode-importschutz.js; dieser Test schlägt auf dem neuen Stand absichtlich bei den früheren BEFUND-Stellen an.
 // AP5.4a – Barcode-Zuordnung: Wie kann ein Barcode zu zwei Artikeln gehören, was zeigt die App, wo wird "erster Treffer" gewählt?
 // Aufruf: BASE=http://localhost:8123/index.html node tests/barcode/ap54a-barcode-zuordnung.js
 // PASS/FAIL = geprüfte Erwartung an das Ist-Verhalten; BEFUND = nachgewiesenes Risiko (kein Testfehler, keine Änderung am Anwendungscode).
