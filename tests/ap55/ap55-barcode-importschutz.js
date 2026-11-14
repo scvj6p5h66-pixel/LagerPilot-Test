@@ -1,5 +1,6 @@
 // AP5.5 – Barcode-Sicherheit und Importschutz
 // Aufruf: BASE=http://localhost:8123/index.html node tests/ap55/ap55-barcode-importschutz.js
+// (AP5.5a: Konflikt-Importe sind jetzt per Ausnahmebestätigung möglich, siehe tests/ap55a; hier: ohne Bestätigung blockiert)
 // 1 Import-Dublettenprüfung · 2 mehrdeutige Scans · 3 Sicherungsstände/Wiederherstellung · 4 Zwei-Tab-Schutz
 const {chromium}=require('playwright');const fs=require('fs'),os=require('os'),path=require('path');
 const BASE=process.env.BASE||'http://localhost:8123/index.html',K='lagerpilot_v2_7',PK='lagerpilot_pick_demo_v1',BI='lagerpilot_before_import',BL='lagerpilot_import_backups_v1';
@@ -39,17 +40,17 @@ const cases=[
  ['Altformat Schema 26 mit Dublette',o=>{o.schema=26;o.items.find(x=>x.code==='A2').barcode='BC1'},false,[/BC1/,/A1/,/A2/]],
 ];
 for(const [name,mut,accept,rx] of cases){const src=await app(SEED(),{tag:'s'});const exp=await exportOf(src.p,mut);const f=wr('c'+Math.random().toString(36).slice(2)+'.json',exp);
- const dst=await app([it('Z1','Ziel','ZZ1')],{tag:'d'});const before=await snap(dst.p);const r=await doImport(dst,f);const after=await snap(dst.p);
+ const dst=await app([it('Z1','Ziel','ZZ1')],{tag:'d'});const before=await snap(dst.p);const r=await doImport(dst,f,{confirm:accept});const after=await snap(dst.p);
  if(accept){R('1 Import "'+name+'": angenommen, Seite neu geladen',r.reloaded&&!!JSON.parse(after.k).items.find(x=>x.code==='A1'),r.msg);
   const inList=await list(dst.p);R('1 Import "'+name+'": Stand vorher als Sicherungsstand abgelegt (genau 1 Eintrag, byte-gleich)',inList.length===1&&inList[0].inventory===before.k&&inList[0].picking===before.pk&&after.bi!==null)}
- else{R('1 Import "'+name+'": BLOCKIERT, keine Neuladung',!r.reloaded,r.msg);
-  R('1 Import "'+name+'": Meldung nennt Barcode und betroffene Artikelnummern',rx.every(x=>x.test(r.msg)),r.msg);
+ else{R('1 Import "'+name+'": ohne Ausnahmebestätigung BLOCKIERT (Standard), keine Neuladung, Meldung „nicht bestätigt“',!r.reloaded&&/Ausnahmeimport.*nicht bestätigt/.test(r.msg),r.msg);
+  R('1 Import "'+name+'": Rückfrage nennt Barcode und betroffene Artikelnummern',/^confirm:ACHTUNG: MEHRDEUTIGE BARCODES/.test(r.dlg[0]||'')&&rx.every(x=>x.test(r.dlg[0]||'')),(r.dlg[0]||'').slice(0,200));
   R('1 Import "'+name+'": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt',!r.dlg.some(d=>/ersetzt die aktuellen/.test(d))&&r.dl===0&&after.bi===null&&after.bl===null);
   R('1 Import "'+name+'": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)',same(before,after))}
  R('1 Import "'+name+'": keine JS-Fehler',dst.st.errs.length===0&&src.st.errs.length===0,dst.st.errs.join('|'));await src.b.close();await dst.b.close()}
 // Viele Fälle: Meldung gekürzt
-{const src=await app(SEED());const exp=await exportOf(src.p,o=>{for(let i=0;i<10;i++)o.items.push(it('D'+i+'a','Dup '+i+'a','DUPBC'+i),it('D'+i+'b','Dup '+i+'b','DUPBC'+i))});const dst=await app([it('Z1','Ziel','ZZ1')]);const bf=await snap(dst.p);const r=await doImport(dst,wr('many.json',exp));
- R('1 Import mit 10 Dubletten-Gruppen: blockiert, Meldung nennt Anzahl und „weitere“, Daten unverändert',!r.reloaded&&/10 Fälle/.test(r.msg)&&/und 2 weitere/.test(r.msg)&&same(bf,await snap(dst.p)),r.msg.slice(0,120));await src.b.close();await dst.b.close()}
+{const src=await app(SEED());const exp=await exportOf(src.p,o=>{for(let i=0;i<10;i++)o.items.push(it('D'+i+'a','Dup '+i+'a','DUPBC'+i),it('D'+i+'b','Dup '+i+'b','DUPBC'+i))});const dst=await app([it('Z1','Ziel','ZZ1')]);const bf=await snap(dst.p);const r=await doImport(dst,wr('many.json',exp),{confirm:false});
+ R('1 Import mit 10 Dubletten-Gruppen: ohne Bestätigung blockiert, Rückfrage nennt Anzahl und „weitere“, Daten unverändert',!r.reloaded&&/10 Fälle/.test(r.dlg[0]||'')&&/und 2 weitere/.test(r.dlg[0]||'')&&same(bf,await snap(dst.p)),(r.dlg[0]||'').slice(0,120));await src.b.close();await dst.b.close()}
 // Altdaten im Zielspeicher (mit Dubletten) bleiben beim Import einer sauberen Datei geschützt gesichert
 {const dst=await app([it('X1','Alt Eins','DUP'),it('X2','Alt Zwei','DUP')]);const src=await app(SEED());const exp=await exportOf(src.p);const bf=await snap(dst.p);const r=await doImport(dst,wr('clean.json',exp));
  const l=await list(dst.p);R('1 Zielspeicher mit Alt-Dubletten: saubere Datei wird importiert, der alte Stand (mit Dubletten) wird unverändert gesichert, nichts automatisch korrigiert',r.reloaded&&l.length===1&&l[0].inventory===bf.k);await src.b.close();await dst.b.close()}

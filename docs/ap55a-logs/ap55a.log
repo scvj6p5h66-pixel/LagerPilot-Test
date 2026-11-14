@@ -1,0 +1,84 @@
+PASS A Normaler Import ohne Konflikt: genau EINE Rückfrage (normale Importbestätigung), keine Ausnahme-Rückfrage, importiert
+PASS A Normaler Import: kein Hinweis auf mehrdeutige Barcodes im Abschlussdialog
+PASS A Normaler Import: Vorstand als Sicherungsstand abgelegt und als Datei heruntergeladen
+PASS B "exakte Dublette": Standard = nicht importieren; Rückfrage 1 nennt Barcode und Artikelnummern  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (1 Fall) • Barcode „BC1“ (identisch): Artikel A1, A2 Die Datei ist strukturell gültig, enthält aber Barcodes, die mehreren Artikeln zugeordnet sind. Es wird nichts
+PASS B "exakte Dublette": Abbruch der Ausnahme-Rückfrage: Lager-, Kommissionier- und Sicherungsdaten byte-gleich, kein Download, keine Sicherung  | Import abgebrochen: Der Ausnahmeimport bei mehrdeutigen Barcodes wurde nicht bestätigt. Es wurde nichts verändert.
+PASS B "exakte Dublette": Ausnahme bestätigt, aber normale Importbestätigung abgebrochen: nichts verändert (byte-gleich), keine Sicherung, kein Download  | 2
+PASS B "exakte Dublette": keine JS-Fehler
+PASS B "exakte Dublette": beide Rückfragen bestätigt -> Ausnahmeimport durchgeführt, Seite neu geladen; Reihenfolge: 1. Ausnahme, 2. normale Importrückfrage
+PASS B "exakte Dublette": Abschlussdialog weist auf die mehrdeutigen Barcodes hin  | alert:Sicherung importiert. Hinweis: Die Sicherung enthält 1 mehrdeutige Barcode-Fälle. Es wurde nichts geändert; Scans dieser Barcodes werden nur gewarnt. Bitte den Artikelstamm bereinigen. Die Seite wird jetzt neu geladen.
+PASS B "exakte Dublette": Datenintegrität – items, boxes, places, qrMap, config, history, inventoryLogs byte-gleich zur Datei (nichts zusammengeführt, gelöscht oder korrigiert)
+PASS B "exakte Dublette": Dublette bleibt unverändert bestehen (A2-Barcode wie in der Datei)
+PASS B "exakte Dublette": Vorstand als Sicherungsstand abgelegt (byte-gleich) und als Datei heruntergeladen
+PASS B "exakte Dublette": keine JS-Fehler
+PASS B "Schreibvariante BC1/bc1": Standard = nicht importieren; Rückfrage 1 nennt Barcode und Artikelnummern  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (1 Fall) • Barcode „BC1“ (Schreibvarianten): Artikel A1, A2 Die Datei ist strukturell gültig, enthält aber Barcodes, die mehreren Artikeln zugeordnet sind. Es wird
+PASS B "Schreibvariante BC1/bc1": Abbruch der Ausnahme-Rückfrage: Lager-, Kommissionier- und Sicherungsdaten byte-gleich, kein Download, keine Sicherung  | Import abgebrochen: Der Ausnahmeimport bei mehrdeutigen Barcodes wurde nicht bestätigt. Es wurde nichts verändert.
+PASS B "Schreibvariante BC1/bc1": Ausnahme bestätigt, aber normale Importbestätigung abgebrochen: nichts verändert (byte-gleich), keine Sicherung, kein Download  | 2
+PASS B "Schreibvariante BC1/bc1": keine JS-Fehler
+PASS B "Schreibvariante BC1/bc1": beide Rückfragen bestätigt -> Ausnahmeimport durchgeführt, Seite neu geladen; Reihenfolge: 1. Ausnahme, 2. normale Importrückfrage
+PASS B "Schreibvariante BC1/bc1": Abschlussdialog weist auf die mehrdeutigen Barcodes hin  | alert:Sicherung importiert. Hinweis: Die Sicherung enthält 1 mehrdeutige Barcode-Fälle. Es wurde nichts geändert; Scans dieser Barcodes werden nur gewarnt. Bitte den Artikelstamm bereinigen. Die Seite wird jetzt neu geladen.
+PASS B "Schreibvariante BC1/bc1": Datenintegrität – items, boxes, places, qrMap, config, history, inventoryLogs byte-gleich zur Datei (nichts zusammengeführt, gelöscht oder korrigiert)
+PASS B "Schreibvariante BC1/bc1": Dublette bleibt unverändert bestehen (A2-Barcode wie in der Datei)
+PASS B "Schreibvariante BC1/bc1": Vorstand als Sicherungsstand abgelegt (byte-gleich) und als Datei heruntergeladen
+PASS B "Schreibvariante BC1/bc1": keine JS-Fehler
+PASS B "Barcode = fremde Artikelnummer": Standard = nicht importieren; Rückfrage 1 nennt Barcode und Artikelnummern  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (1 Fall) • Barcode „A1“ (Barcode ist zugleich Artikelnummer von A1): Artikel A2, A1 Die Datei ist strukturell gültig, enthält aber Barcodes, die mehreren Artikeln 
+PASS B "Barcode = fremde Artikelnummer": Abbruch der Ausnahme-Rückfrage: Lager-, Kommissionier- und Sicherungsdaten byte-gleich, kein Download, keine Sicherung  | Import abgebrochen: Der Ausnahmeimport bei mehrdeutigen Barcodes wurde nicht bestätigt. Es wurde nichts verändert.
+PASS B "Barcode = fremde Artikelnummer": Ausnahme bestätigt, aber normale Importbestätigung abgebrochen: nichts verändert (byte-gleich), keine Sicherung, kein Download  | 2
+PASS B "Barcode = fremde Artikelnummer": keine JS-Fehler
+PASS B "Barcode = fremde Artikelnummer": beide Rückfragen bestätigt -> Ausnahmeimport durchgeführt, Seite neu geladen; Reihenfolge: 1. Ausnahme, 2. normale Importrückfrage
+PASS B "Barcode = fremde Artikelnummer": Abschlussdialog weist auf die mehrdeutigen Barcodes hin  | alert:Sicherung importiert. Hinweis: Die Sicherung enthält 1 mehrdeutige Barcode-Fälle. Es wurde nichts geändert; Scans dieser Barcodes werden nur gewarnt. Bitte den Artikelstamm bereinigen. Die Seite wird jetzt neu geladen.
+PASS B "Barcode = fremde Artikelnummer": Datenintegrität – items, boxes, places, qrMap, config, history, inventoryLogs byte-gleich zur Datei (nichts zusammengeführt, gelöscht oder korrigiert)
+PASS B "Barcode = fremde Artikelnummer": Dublette bleibt unverändert bestehen (A2-Barcode wie in der Datei)
+PASS B "Barcode = fremde Artikelnummer": Vorstand als Sicherungsstand abgelegt (byte-gleich) und als Datei heruntergeladen
+PASS B "Barcode = fremde Artikelnummer": keine JS-Fehler
+PASS B "Altformat Schema 26 mit Dublette": Standard = nicht importieren; Rückfrage 1 nennt Barcode und Artikelnummern  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (1 Fall) • Barcode „BC1“ (identisch): Artikel A1, A2 Die Datei ist strukturell gültig, enthält aber Barcodes, die mehreren Artikeln zugeordnet sind. Es wird nichts
+PASS B "Altformat Schema 26 mit Dublette": Abbruch der Ausnahme-Rückfrage: Lager-, Kommissionier- und Sicherungsdaten byte-gleich, kein Download, keine Sicherung  | Import abgebrochen: Der Ausnahmeimport bei mehrdeutigen Barcodes wurde nicht bestätigt. Es wurde nichts verändert.
+PASS B "Altformat Schema 26 mit Dublette": Ausnahme bestätigt, aber normale Importbestätigung abgebrochen: nichts verändert (byte-gleich), keine Sicherung, kein Download  | 2
+PASS B "Altformat Schema 26 mit Dublette": keine JS-Fehler
+PASS B "Altformat Schema 26 mit Dublette": beide Rückfragen bestätigt -> Ausnahmeimport durchgeführt, Seite neu geladen; Reihenfolge: 1. Ausnahme, 2. normale Importrückfrage
+PASS B "Altformat Schema 26 mit Dublette": Abschlussdialog weist auf die mehrdeutigen Barcodes hin  | alert:Sicherung importiert. Hinweis: Die Sicherung enthält 1 mehrdeutige Barcode-Fälle. Es wurde nichts geändert; Scans dieser Barcodes werden nur gewarnt. Bitte den Artikelstamm bereinigen. Die Seite wird jetzt neu geladen.
+PASS B "Altformat Schema 26 mit Dublette": Schema-26-Datei: Artikel (Nummern + Barcodes), Boxen und QR-Zuordnung unverändert übernommen, Schema 27
+PASS B "Altformat Schema 26 mit Dublette": Dublette bleibt unverändert bestehen (A2-Barcode wie in der Datei)
+PASS B "Altformat Schema 26 mit Dublette": Vorstand als Sicherungsstand abgelegt (byte-gleich) und als Datei heruntergeladen
+PASS B "Altformat Schema 26 mit Dublette": keine JS-Fehler
+PASS C Ausnahmeimport mit exakter Dublette DUP und Schreibvariante BC1/bc1 durchgeführt
+PASS C Inventur: "DUP" meldet Mehrdeutigkeit mit X1 und X2, keine Auswahl  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS C Inventur: eindeutiger Barcode UNI -> U1
+PASS C Inventur: "BC1" exakt eindeutig -> A1 (Schreibvariante bc1 gehört zu L2)
+PASS C Bestandssuche: "DUP" meldet Mehrdeutigkeit, Suchfeld bleibt leer  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS C Bestandssuche: eindeutiger Barcode normal
+PASS C Artikelformular: "DUP" nennt beide Artikel  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS C Artikelformular: "BC1" (Schreibvariante) nennt A1 und L2  | Mehrdeutiger Barcode „BC1“: passt zu mehreren Artikeln – A1 (Art Eins), L2 (Art Zwei (Legacy)). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS C Scanner-Tab: "DUP" zeigt Konflikt mit X1 und X2  | Code ist mehrfach vergeben oder zugleich Lagerplatz und Artikel. Bitte Zuordnung prüfen. Betroffen: Artikel X1 (Exakt Eins), X2 (Exakt Zwei).
+PASS C Scanner-Tab: eindeutiger Barcode normal  | Artikel erkannt: Eindeutig · 0 STK · 0 STK
+PASS C Kommissionierung: mehrdeutiger Scan "DUP" abgelehnt, nichts gebucht  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts gebucht. Bitte die Zuordnung im Artikelstamm klären.
+PASS C Kommissionierung: eindeutiger Barcode akzeptiert
+PASS C Scans verändern keine Lagerdaten (Lager byte-gleich)
+PASS C keine JS-Fehler
+PASS D Datei "kein JSON": gesperrt, KEINE Ausnahme-Rückfrage, Meldung passt, Daten byte-gleich, keine Sicherung  | Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS D Datei "Array statt Objekt": gesperrt, KEINE Ausnahme-Rückfrage, Meldung passt, Daten byte-gleich, keine Sicherung  | Ungültiges Backupformat.
+PASS D Datei "Konflikt + doppelte Artikelnummer": gesperrt, KEINE Ausnahme-Rückfrage, Meldung passt, Daten byte-gleich, keine Sicherung  | Ungültiges Backupformat.
+PASS D Datei "Konflikt + Box verweist auf unbekannten Artikel": gesperrt, KEINE Ausnahme-Rückfrage, Meldung passt, Daten byte-gleich, keine Sicherung  | Ungültiges Backupformat.
+PASS D Datei "Konflikt + ungültige Einheit": gesperrt, KEINE Ausnahme-Rückfrage, Meldung passt, Daten byte-gleich, keine Sicherung  | Ungültiges Backupformat.
+PASS D Datei "Konflikt + falsches Schema": gesperrt, KEINE Ausnahme-Rückfrage, Meldung passt, Daten byte-gleich, keine Sicherung  | Ungültiges Backupformat.
+PASS D Datei "Konflikt + kaputte Kommissionierdaten": gesperrt, KEINE Ausnahme-Rückfrage, Meldung passt, Daten byte-gleich, keine Sicherung  | Kommissionierdaten in Sicherung ungültig.
+PASS E1 Ausnahmeimport, Sicherung nicht speicherbar (Speicher voll): abgebrochen, Meldung, Daten und Sicherungen byte-gleich, kein Download  | Sicherheitskopie vor Import konnte nicht gespeichert werden. Import abgebrochen: quota
+PASS E2 Ausnahmeimport, Altsicherung nicht speicherbar: abgebrochen, Liste zurückgerollt, alles byte-gleich  | Sicherheitskopie vor Import konnte nicht gespeichert werden. Import abgebrochen: quota
+PASS E3 Ausnahmeimport, Schreiben der Lagerdaten schlägt fehl: Meldung „bisherige Daten wiederhergestellt“, Lager- und Kommissionierdaten byte-gleich  | Import fehlgeschlagen; bisherige Daten wurden soweit möglich wiederhergestellt: quota
+PASS E4 Beschädigte Sicherungsliste: Import abgebrochen, nichts überschrieben, Lagerdaten byte-gleich  | Die Liste der Sicherungsstände ist beschädigt. Bitte unter „Sicherungsstände“ zurücksetzen (die Lagerdaten bleiben unberührt).
+PASS F Konflikt-Import (Ausnahme): Änderung in anderem Tab während der Rückfrage -> sicherer Abbruch mit Meldung, nicht neu geladen  | Lagerdaten wurden in einem anderen Tab geändert. Import abgebrochen, es wurde nichts verändert. Bitte Seite neu laden und erneut importieren.
+PASS F Konflikt-Import (Ausnahme): Lagerdaten (inkl. Änderung aus Tab 2) unverändert, keine Sicherung angelegt, kein Download, Kommissionierdaten byte-gleich
+PASS F Konflikt-Import (Ausnahme): keine JS-Fehler
+PASS F normaler Import: Änderung in anderem Tab während der Rückfrage -> sicherer Abbruch mit Meldung, nicht neu geladen  | Lagerdaten wurden in einem anderen Tab geändert. Import abgebrochen, es wurde nichts verändert. Bitte Seite neu laden und erneut importieren.
+PASS F normaler Import: Lagerdaten (inkl. Änderung aus Tab 2) unverändert, keine Sicherung angelegt, kein Download, Kommissionierdaten byte-gleich
+PASS F normaler Import: keine JS-Fehler
+PASS G Import 1 (normal): importiert, vorheriger Stand als jüngster Sicherungsstand, Liste ≤ 3  | Liste 1
+PASS G Import 2 (Ausnahme): importiert, vorheriger Stand als jüngster Sicherungsstand, Liste ≤ 3  | Liste 2
+PASS G Import 3 (normal): importiert, vorheriger Stand als jüngster Sicherungsstand, Liste ≤ 3  | Liste 3
+PASS G Import 4 (Ausnahme): importiert, vorheriger Stand als jüngster Sicherungsstand, Liste ≤ 3, älteste entfernt (in Rückfrage angekündigt)  | Liste 3
+PASS G Wiederherstellung abgebrochen: nichts verändert
+PASS G Wiederherstellung bestätigt: Stand des Ausnahmeimports (mit Dublette) byte-gleich zurück, Seite neu geladen; aktueller Stand zuvor gesichert
+PASS G keine JS-Fehler
+
+GESAMT 81 / FAIL 0
+exit 0

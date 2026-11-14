@@ -1,0 +1,82 @@
+PASS 1 gültig "2" -> 2  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 gültig "2.5" -> 2.5  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 gültig "2,5" -> 2.5  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 gültig "0" -> 0  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 gültig "0.001" -> 0.001  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 gültig " 3 " -> 3  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 gültig "007" -> 7  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 gültig "12,75" -> 12.75  | Artikel gespeichert.|success lp-feedback-success
+PASS 1 gültig "9007199254740991" -> 9007199254740991  | Artikel gespeichert.|success lp-feedback-success
+PASS 2-4 Neuanlage ungültig "abc": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "1e5": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "1e999": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "1E3": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "Infinity": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "-Infinity": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "NaN": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "-1": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "+1": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "1.2.3": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "1,2,3": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "1.500,5": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "0x10": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "2 kg": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig ".5": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "5.": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "1e-3": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "٣": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "１２": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "--1": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "1,": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "null": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "undefined": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "99999999…(400)": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "9007199254740992": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 2-4 Neuanlage ungültig "10000000…(31)": Fehlermeldung, nichts gespeichert, Speicher byteweise gleich, Formular behalten  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpunkt oder -
+PASS 5/6 Bearbeiten A1 ungültig "abc": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten A1 ungültig "1e999": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten A1 ungültig "Infinity": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten A1 ungültig "-1": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten A1 ungültig "1.2.3": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten A1 ungültig "1e5": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten A1 ungültig "NaN": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten S1 ungültig "abc": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten S1 ungültig "1e999": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten S1 ungültig "Infinity": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten S1 ungültig "-1": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten S1 ungültig "1.2.3": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten S1 ungültig "1e5": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5/6 Bearbeiten S1 ungültig "NaN": Gewicht 2 bleibt, Speicher gleich, Fehlermeldung  | Gewicht muss eine gültige Zahl ab 0 kg sein (nur Ziffern mit Dezimalpu
+PASS 5 Abgelehnt: Name nicht geändert
+PASS 7 Leeres Feld entfernt Gewicht erst nach Bestätigung (Dialog erschienen)  | Gespeicherte Angaben entfernen?
+• Gewicht (2 kg) wird entfernt
+Ohne Gewicht und maximale Boxmenge ka
+PASS 7 Entfernen protokolliert (Historie +1)
+PASS 7 Gewicht danach wieder setzbar
+PASS 7/8 Artikel MIT Bestand: Gewicht entfernen abgelehnt, Speicher gleich  | Gewicht und maximale Boxmenge dürfen bei vorhandenem Bestand nicht gelöscht werden.|error
+PASS 8 Artikel ohne Gewicht: leer speichern erlaubt, kein Dialog
+PASS 4 Neuanlage mit leerem Gewicht (unbekannt) weiterhin erlaubt
+PASS 8 Bestand 50: Gewicht 15,5 (=800 kg) erlaubt  | Artikel gespeichert.|success lp-feedback-success
+PASS 8 Bestand 50: Gewicht 15,6 (805 kg) abgelehnt (Fachlast)  | Artikeländerung abgelehnt: Fachlast auf H4A-1-1 überschritten.|error
+PASS Speicherlogik: weight=Infinity wird abgelehnt, Speicher gleich  | abgelehnt: Datenprüfung fehlgeschlagen.
+PASS Speicherlogik: weight=NaN wird abgelehnt, Speicher gleich  | abgelehnt: Datenprüfung fehlgeschlagen.
+PASS Speicherlogik: weight=-5 wird abgelehnt, Speicher gleich  | abgelehnt: Datenprüfung fehlgeschlagen.
+PASS Speicherlogik: weight=String "2" wird abgelehnt, Speicher gleich  | abgelehnt: Datenprüfung fehlgeschlagen.
+PASS Speicherlogik: weight=undefined wird abgelehnt, Speicher gleich  | abgelehnt: Datenprüfung fehlgeschlagen.
+PASS 9 Export: Gewichte unverändert (A1 4, S1 15.5, N1 null)
+PASS 9 Import Gewicht gültig 3.25: übernommen  | weight=3.25
+PASS 9 Import Gewicht null: übernommen  | weight=null
+PASS 9 Import Gewicht String "abc": abgelehnt, Bestand unverändert  | weight=2
+PASS 9 Import Gewicht String "2": abgelehnt, Bestand unverändert  | weight=2
+PASS 9 Import Gewicht negativ -1: abgelehnt, Bestand unverändert  | weight=2
+PASS 9 Import Gewicht 1e308 (Altdaten-kompatibel): übernommen  | weight=1e+308
+PASS Altdaten: nach Reload Artikel ändern (Min) lässt Gewicht 2 unverändert
+PASS Integrität: Boxen unverändert
+PASS Integrität: Plätze unverändert
+PASS Integrität: QR-Zuordnung unverändert
+PASS Integrität: Konfiguration unverändert
+PASS Integrität: Zustand gültig (valid)
+PASS Keine JavaScript-Fehler
+
+GESAMT 77 / FAIL 0
+exit 0

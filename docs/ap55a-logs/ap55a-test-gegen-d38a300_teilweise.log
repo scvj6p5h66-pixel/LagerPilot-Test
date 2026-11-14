@@ -1,0 +1,18 @@
+PASS A Normaler Import ohne Konflikt: genau EINE Rückfrage (normale Importbestätigung), keine Ausnahme-Rückfrage, importiert
+PASS A Normaler Import: kein Hinweis auf mehrdeutige Barcodes im Abschlussdialog
+PASS A Normaler Import: Vorstand als Sicherungsstand abgelegt und als Datei heruntergeladen
+FAIL B "exakte Dublette": Standard = nicht importieren; Rückfrage 1 nennt Barcode und Artikelnummern
+FAIL B "exakte Dublette": Abbruch der Ausnahme-Rückfrage: Lager-, Kommissionier- und Sicherungsdaten byte-gleich, kein Download, keine Sicherung  | Import abgebrochen: Die Sicherung enthält mehrdeutige Barcodes (1 Fall). Barcode „BC1“ (identisch): Artikel A1, A2. Es wurde nichts importiert, nichts geändert und nichts automatisch zugeordnet. Bitte die Barcodes in der Quelle ei
+FAIL B "exakte Dublette": Ausnahme bestätigt, aber normale Importbestätigung abgebrochen: nichts verändert (byte-gleich), keine Sicherung, kein Download  | 0
+PASS B "exakte Dublette": keine JS-Fehler
+FAIL B "exakte Dublette": beide Rückfragen bestätigt -> Ausnahmeimport durchgeführt, Seite neu geladen; Reihenfolge: 1. Ausnahme, 2. normale Importrückfrage
+FAIL B "exakte Dublette": Abschlussdialog weist auf die mehrdeutigen Barcodes hin
+FAIL B "exakte Dublette": Datenintegrität – items, boxes, places, qrMap, config, history, inventoryLogs byte-gleich zur Datei (nichts zusammengeführt, gelöscht oder korrigiert)  | items,boxes,qrMap
+/tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/wt_ap53/tests/ap55a/ap55a-altimport.js:66
+  R('B "'+name+'": Dublette bleibt unverändert bestehen (A2-Barcode wie in der Datei)',stNew.items.find(x=>x.code==='A2').barcode===exp.items.find(x=>x.code==='A2').barcode);
+                                                                                                                         ^
+
+TypeError: Cannot read properties of undefined (reading 'barcode')
+    at /tmp/claude-0/-home-claude/f5834085-23a3-5aa7-8e32-8dde603bf47e/scratchpad/wt_ap53/tests/ap55a/ap55a-altimport.js:66:122
+
+Node.js v22.23.4

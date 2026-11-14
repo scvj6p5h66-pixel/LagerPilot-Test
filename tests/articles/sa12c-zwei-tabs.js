@@ -45,7 +45,10 @@ R('4 Veralteter Tab B bucht Bestand (persist): abgewiesen, Bestand unverändert'
 await reset();await edit(A,'ALT-1');await fill(A,{aName:'A-Änderung vor Import'});await save(A);
 const dl=B.waitForEvent('download');await B.evaluate(()=>document.getElementById('jsonExport').click());const d=await dl;const f=path.join(os.tmpdir(),'sa12c-zt-export.json');await d.saveAs(f);
 await B.reload();await B.waitForTimeout(250);await edit(A,'ALT-2');await fill(A,{aName:'A-Änderung nach Export'});await save(A);
-await B.setInputFiles('#jsonImport',f);await B.waitForTimeout(400);const s5=await st(B);const bi=await B.evaluate(()=>localStorage.getItem('lagerpilot_before_import'));
+// AP5.5a: Import im veralteten Tab wird sicher abgebrochen (nichts verändert, keine Sicherung); erst nach Neuladen ersetzt der Import den Stand bewusst.
+const rawBeforeStale=await raw(A);await B.setInputFiles('#jsonImport',f);await B.waitForTimeout(500);const staleMsg=await B.evaluate(()=>document.getElementById('backupMessage')?.textContent||'');
+R('5a Import im veralteten Tab B: sicher abgebrochen (Meldung „anderen Tab geändert“), Hauptstand inkl. A-Änderung byte-gleich, keine „vor Import“-Sicherung',/anderen Tab geändert/.test(staleMsg)&&await raw(A)===rawBeforeStale&&(await B.evaluate(()=>localStorage.getItem('lagerpilot_before_import')))===null,staleMsg.slice(0,100));
+await B.reload();await B.waitForTimeout(300);await B.setInputFiles('#jsonImport',f);await B.waitForTimeout(500);await B.waitForLoadState();await B.waitForTimeout(300);const s5=await st(B);const bi=await B.evaluate(()=>localStorage.getItem('lagerpilot_before_import'));
 R('5 Import einer älteren Sicherung im Tab B ersetzt den Stand bewusst (A-Änderung nach Export geht aus dem Hauptstand), aber „vor Import“-Sicherung enthält sie',s5.items.find(a=>a.code==='ALT-2').name==='Zweiter'&&bi&&JSON.parse(bi).items?.find?.(a=>a.code==='ALT-2')?.name==='A-Änderung nach Export'||(bi&&bi.includes('A-Änderung nach Export')),bi?('before_import vorhanden, '+bi.length+' Zeichen'):'keine before_import-Sicherung');
 R('6 Keine JavaScript-Fehler',errs.length===0,errs.join('|'));
 await b.close();const bad=res.filter(x=>!x).length;console.log('\nGESAMT '+res.length+' Prüfungen / FAIL '+bad);process.exit(bad?1:0)})().catch(e=>{console.log('SCRIPTFEHLER '+e.message);process.exit(2)});

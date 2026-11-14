@@ -20,4 +20,6 @@ run ap53b env BASE=$B/index.html BASE0=${BASE0:-http://localhost:8130/index.html
 run ap5-diagnose node tests/ap5/ap5-diagnose.js
 run ap7e bash -c "cd tests/ap5 && node ap7-edit-modus.js"
 run import-export env BASE=$B/index.html node tests/import-export/ap54-import-export.js
+run ap55 env BASE=$B/index.html node tests/ap55/ap55-barcode-importschutz.js
+run ap55a env BASE=$B/index.html node tests/ap55a/ap55a-altimport.js
 touch "$OUT/FERTIG"

@@ -1,0 +1,84 @@
+PASS 1 Import "eindeutige Barcodes": angenommen, Seite neu geladen
+PASS 1 Import "eindeutige Barcodes": Stand vorher als Sicherungsstand abgelegt (genau 1 Eintrag, byte-gleich)
+PASS 1 Import "eindeutige Barcodes": keine JS-Fehler
+PASS 1 Import "mehrere Artikel ohne Barcode (leer / fehlend)": angenommen, Seite neu geladen
+PASS 1 Import "mehrere Artikel ohne Barcode (leer / fehlend)": Stand vorher als Sicherungsstand abgelegt (genau 1 Eintrag, byte-gleich)
+PASS 1 Import "mehrere Artikel ohne Barcode (leer / fehlend)": keine JS-Fehler
+PASS 1 Import "exakte Dublette (A2 hat Barcode von A1)": ohne Ausnahmebestätigung BLOCKIERT (Standard), keine Neuladung, Meldung „nicht bestätigt“  | Import abgebrochen: Der Ausnahmeimport bei mehrdeutigen Barcodes wurde nicht bestätigt. Es wurde nichts verändert.
+PASS 1 Import "exakte Dublette (A2 hat Barcode von A1)": Rückfrage nennt Barcode und betroffene Artikelnummern  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (1 Fall) • Barcode „BC1“ (identisch): Artikel A1, A2 Die Datei ist strukturell gültig, enthält aber Barcodes, die mehreren Artikeln zugeordnet 
+PASS 1 Import "exakte Dublette (A2 hat Barcode von A1)": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt
+PASS 1 Import "exakte Dublette (A2 hat Barcode von A1)": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)
+PASS 1 Import "exakte Dublette (A2 hat Barcode von A1)": keine JS-Fehler
+PASS 1 Import "Schreibvariante (A2 "bc1" statt BC2)": ohne Ausnahmebestätigung BLOCKIERT (Standard), keine Neuladung, Meldung „nicht bestätigt“  | Import abgebrochen: Der Ausnahmeimport bei mehrdeutigen Barcodes wurde nicht bestätigt. Es wurde nichts verändert.
+PASS 1 Import "Schreibvariante (A2 "bc1" statt BC2)": Rückfrage nennt Barcode und betroffene Artikelnummern  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (1 Fall) • Barcode „BC1“ (Schreibvarianten): Artikel A1, A2 Die Datei ist strukturell gültig, enthält aber Barcodes, die mehreren Artikeln zuge
+PASS 1 Import "Schreibvariante (A2 "bc1" statt BC2)": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt
+PASS 1 Import "Schreibvariante (A2 "bc1" statt BC2)": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)
+PASS 1 Import "Schreibvariante (A2 "bc1" statt BC2)": keine JS-Fehler
+PASS 1 Import "Barcode ist Artikelnummer eines anderen Artikels": ohne Ausnahmebestätigung BLOCKIERT (Standard), keine Neuladung, Meldung „nicht bestätigt“  | Import abgebrochen: Der Ausnahmeimport bei mehrdeutigen Barcodes wurde nicht bestätigt. Es wurde nichts verändert.
+PASS 1 Import "Barcode ist Artikelnummer eines anderen Artikels": Rückfrage nennt Barcode und betroffene Artikelnummern  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (1 Fall) • Barcode „A1“ (Barcode ist zugleich Artikelnummer von A1): Artikel A2, A1 Die Datei ist strukturell gültig, enthält aber Barcodes, di
+PASS 1 Import "Barcode ist Artikelnummer eines anderen Artikels": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt
+PASS 1 Import "Barcode ist Artikelnummer eines anderen Artikels": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)
+PASS 1 Import "Barcode ist Artikelnummer eines anderen Artikels": keine JS-Fehler
+PASS 1 Import "Altformat Schema 26 ohne Dublette": angenommen, Seite neu geladen
+PASS 1 Import "Altformat Schema 26 ohne Dublette": Stand vorher als Sicherungsstand abgelegt (genau 1 Eintrag, byte-gleich)
+PASS 1 Import "Altformat Schema 26 ohne Dublette": keine JS-Fehler
+PASS 1 Import "Altformat Schema 26 mit Dublette": ohne Ausnahmebestätigung BLOCKIERT (Standard), keine Neuladung, Meldung „nicht bestätigt“  | Import abgebrochen: Der Ausnahmeimport bei mehrdeutigen Barcodes wurde nicht bestätigt. Es wurde nichts verändert.
+PASS 1 Import "Altformat Schema 26 mit Dublette": Rückfrage nennt Barcode und betroffene Artikelnummern  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (1 Fall) • Barcode „BC1“ (identisch): Artikel A1, A2 Die Datei ist strukturell gültig, enthält aber Barcodes, die mehreren Artikeln zugeordnet 
+PASS 1 Import "Altformat Schema 26 mit Dublette": keine Rückfrage zum Ersetzen, kein Download, keine Sicherung angelegt
+PASS 1 Import "Altformat Schema 26 mit Dublette": Lager-, Kommissionier- und Sicherungsdaten byte-gleich (nichts geändert, nichts zugeordnet)
+PASS 1 Import "Altformat Schema 26 mit Dublette": keine JS-Fehler
+PASS 1 Import mit 10 Dubletten-Gruppen: ohne Bestätigung blockiert, Rückfrage nennt Anzahl und „weitere“, Daten unverändert  | confirm:ACHTUNG: MEHRDEUTIGE BARCODES IN DER SICHERUNG (10 Fälle) • Barcode „DUPBC0“ (identisch): Artikel D0a, D0b • Ba
+PASS 1 Zielspeicher mit Alt-Dubletten: saubere Datei wird importiert, der alte Stand (mit Dubletten) wird unverändert gesichert, nichts automatisch korrigiert
+PASS 1 Beschädigte Datei "kein JSON": abgelehnt, Daten unverändert, keine Sicherung  | Datei ist keine gültige Sicherung (kein lesbares JSON).
+PASS 1 Beschädigte Datei "Array statt Objekt": abgelehnt, Daten unverändert, keine Sicherung  | Ungültiges Backupformat.
+PASS 1 Beschädigte Datei "leeres Objekt": abgelehnt, Daten unverändert, keine Sicherung  | Ungültiges Backupformat.
+PASS 1 Beschädigte Datei "Schema 27 ohne Artikelliste": abgelehnt, Daten unverändert, keine Sicherung  | Ungültiges Backupformat.
+PASS 2 Inventur: Scan "DUP" (zwei Artikel) -> keine Auswahl, Warnung nennt X1 und X2  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Inventur: Scan "X1" (Artikelnummer von X1 und Barcode von Y1) -> mehrdeutig gemeldet, keine Auswahl  | Mehrdeutiger Barcode „X1“: passt zu mehreren Artikeln – X1 (Exakt Eins), Y1 (Code als Barcode). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Inventur: eindeutiger Barcode "UNI" wird normal verarbeitet (U1 gewählt)  | Artikel erkannt: Eindeutig
+PASS 2 Bestandssuche: Scan "DUP" -> Suchfeld unverändert, Warnung nennt X1 und X2  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Bestandssuche: eindeutiger Barcode normal (Suchfeld U1)  | Artikel gefunden: Eindeutig
+PASS 2 Artikelformular: Scan "DUP" -> Warnung nennt BEIDE Artikel (nicht nur den ersten)  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Artikelformular: freier Barcode normal übernommen (keine Warnung)  | Barcode übernommen. Bitte Artikelangaben prüfen und anschließend speichern.
+PASS 2 Scanner-Tab: Scan "DUP" -> „mehrfach vergeben“ mit Nennung von X1 und X2  | Code ist mehrfach vergeben oder zugleich Lagerplatz und Artikel. Bitte Zuordnung prüfen. Betroffen: Artikel X1 (Exakt Eins), X2 (Exakt Zwei).
+PASS 2 Scanner-Tab: eindeutiger Barcode normal  | Artikel erkannt: Eindeutig · 0 STK · 0 STK
+PASS 2 Scans (inkl. mehrdeutige) verändern weder Lager- noch Kommissionier- noch Sicherungsdaten
+PASS 2 keine JS-Fehler
+PASS 2 Schreibvarianten: Inventur "BC1" -> A1 (exakt, eindeutig)
+PASS 2 Schreibvarianten: Inventur "bc1" -> L2
+PASS 2 Schreibvarianten: Artikelformular "BC1" nennt A1 und L2 (reihenfolgeunabhängig)  | Mehrdeutiger Barcode „BC1“: passt zu mehreren Artikeln – A1 (Art Eins), L2 (Art Zwei (Legacy)). Es wurde kein Artikel ausgewählt und nichts geändert. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Kommissionierung Zeile X1: Scan "DUP" (passt zu X1 und X2) -> abgelehnt mit Warnung, nichts gebucht  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts gebucht. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Kommissionierung Zeile X2: Scan "DUP" ebenfalls abgelehnt (nie „erster Treffer“)  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts gebucht. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Kommissionierung Zeile U1: eindeutiger Barcode "UNI" akzeptiert  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts gebucht. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Kommissionierung: Artikelnummer als Scan weiterhin akzeptiert, wenn eindeutig (X1)  | Mehrdeutiger Barcode „DUP“: passt zu mehreren Artikeln – X1 (Exakt Eins), X2 (Exakt Zwei). Es wurde kein Artikel ausgewählt und nichts gebucht. Bitte die Zuordnung im Artikelstamm klären.
+PASS 2 Kommissionierung: Lager- und Sicherungsdaten unverändert (Lager byte-gleich)
+PASS 2 keine JS-Fehler
+PASS 3 Import 1: angenommen
+PASS 3 Nach Import 1: 1 Sicherungsstand/-stände, jeder mit Datum, neuester = vorheriger Stand byte-gleich
+PASS 3 Import 2: angenommen
+PASS 3 Nach Import 2: 2 Sicherungsstand/-stände, jeder mit Datum, neuester = vorheriger Stand byte-gleich
+PASS 3 Import 3: angenommen
+PASS 3 Nach Import 3: 3 Sicherungsstand/-stände, jeder mit Datum, neuester = vorheriger Stand byte-gleich
+PASS 3 Oberfläche listet 3 Sicherungsstände mit Datum/Uhrzeit, Artikelzahl und Größe  | 14.11.2026, 15:23:54 Uhr · vor Import · 4 Artikel · 0 Boxen · ca. 266 KBWiederherstellenLöschen
+PASS 3 Import bei voller Liste, Rückfrage abgebrochen: Hinweis auf Entfernung des ältesten stand in der Rückfrage, nichts geändert  | er bisherige Stand wird zuerst gesichert. Hinweis: Es sind bereits 3 Sicherungsstände vorhanden. Der älteste (vom 14.11.2026, 15:23:51 Uhr) wird dabei entfernt. Wenn du ihn behalten willst, brich ab und lade ihn vorher als Datei h
+PASS 3 Import bei voller Liste, bestätigt: weiterhin 3 Stände, ältester entfernt, neuer vorhanden
+PASS 3 Wiederherstellung: ohne Bestätigung (abgebrochen) keine Änderung an Lager-/Kommissionier-/Sicherungsdaten  | confirm:ACHTUNG: Sicherungsstand vom 14.11.2026, 15:23:54 Uhr (4 Artikel, 0 Boxen) wiederherstellen? Der aktuelle Lager- und Kommissionierstand wird dadurch er
+PASS 3 Wiederherstellung bestätigt: Lagerdaten byte-gleich dem gewählten Stand, Seite neu geladen
+PASS 3 Wiederherstellung: aktueller Stand wurde vorher als neuer Sicherungsstand (vor Wiederherstellung) abgelegt, Liste bleibt bei 3, ältester wegen Limit entfernt (in der Rückfrage angekündigt)
+PASS 3 Löschen ohne Bestätigung: nichts gelöscht
+PASS 3 Löschen bestätigt: 2 Stände, Lagerdaten unberührt
+PASS 3 „Rohdaten sichern“ enthält die Sicherungsstände
+PASS 3 keine JS-Fehler
+PASS 3 Wiederherstellung eines unlesbaren Stands wird verweigert, Lagerdaten unberührt  | Der Sicherungsstand ist beschädigt und wird nicht wiederhergestellt.
+PASS 3 Wiederherstellung eines ungültigen Stands wird verweigert, Lagerdaten unberührt  | Der Sicherungsstand ist ungültig und wird nicht wiederhergestellt.
+PASS 3 Wiederherstellung eines leeren (ohne Lagerdaten) Stands wird verweigert, Lagerdaten unberührt  | Dieser Stand enthält keine Lagerdaten und kann nicht wiederhergestellt werden.
+PASS 3 Beschädigte Liste der Sicherungsstände: Import wird abgebrochen (Meldung), Lagerdaten unberührt, nichts überschrieben  | Die Liste der Sicherungsstände ist beschädigt. Bitte unter „Sicherungsstände“ zurücksetzen (die Lagerdaten bleiben unberührt).
+PASS 3 Beschädigte Liste: Oberfläche bietet „zurücksetzen“ (mit Bestätigung), danach leer, Lagerdaten unberührt
+PASS 3 Speichergrenze (Sicherungsliste nicht schreibbar): Import abgebrochen mit Meldung, Daten und Sicherungen byte-gleich  | Sicherheitskopie vor Import konnte nicht gespeichert werden. Import abgebrochen: quota
+PASS 3 Kompatibilität: Schlüssel lagerpilot_before_import bleibt im bisherigen Format {inventory,picking,createdAt}
+PASS 4 Zwei-Tab: Wiederherstellung nach Änderung in anderem Tab wird abgebrochen (Meldung), Lagerdaten (inkl. Änderung aus Tab 2) unverändert, keine Rückfrage  | Lagerdaten wurden in einem anderen Tab geändert. Nichts wurde wiederhergestellt. Bitte Seite neu laden.
+PASS 4 Zwei-Tab: Sicherungsliste unverändert (keine Sicherung durch abgebrochene Wiederherstellung)
+PASS 4 keine JS-Fehler
+
+GESAMT 81 / FAIL 0
+exit 0

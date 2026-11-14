@@ -47,7 +47,7 @@ Eindeutige Barcodes und Artikelnummern werden unverändert verarbeitet (getestet
 Gesamt 2.709 PASS (Regressionssuiten) + 81 neu, 0 FAIL. Der neue Test gegen den Vorgängerstand ea12664: 29 PASS / 33 FAIL (`docs/ap55-logs/ap55-test-gegen-ea12664.log`) – er trennt neu von alt.
 Abgedeckt: eindeutige Barcodes, exakte/normalisierte Dubletten, Barcode = fremde Artikelnummer, Schema 26 mit/ohne Dublette, 10 Gruppen (Kürzung), Zielspeicher mit Alt-Dubletten, beschädigte Dateien (4 Arten), Mehrfachimporte inkl. voller Liste, Wiederherstellung (abgebrochen/bestätigt), Löschen, beschädigte Einträge/Liste, Speicherlimit, Altschlüssel, Rohdaten-Download, Zwei-Tab, Scans in 5 Pfaden, Kommissionierung.
 
-## 5. Altdatenkompatibilität – KONFLIKT, bitte entscheiden
+## 5. Altdatenkompatibilität – KONFLIKT (gelöst in AP5.5a, siehe `docs/AP5-5a-Altimport.md`)
 Die neue Importregel blockiert Sicherungen, die Barcode-Mehrdeutigkeiten enthalten. Solche Dateien können real existieren (Schreibvarianten waren vor SA-12b anlegbar). Nachweis im eigenen Test-Seed: Der ap13-Export enthält A1 „BC1“ / L2 „bc1“ und L5 mit Barcode „A3“ (= Artikelnummer A3) → wird jetzt blockiert. Ich habe die Regel wie beauftragt „vorläufig“ umgesetzt. Ohne Bereinigung der Quelle lässt sich eine solche Datei nicht mehr importieren.
 **Vorschlag (nicht umgesetzt, braucht Freigabe):** zweistufig – Standard bleibt Blockade. Zusätzlich im Importdialog eine zweite, deutlich formulierte Bestätigung „Sicherung enthält mehrdeutige Barcodes: A1/L2 … Trotzdem importieren? Scans dieser Barcodes bleiben gesperrt, bis der Artikelstamm bereinigt ist.“ Das ist jetzt vertretbar, weil mehrdeutige Scans geschützt sind. Alternativ: Blockade nur für exakte Dubletten, Schreibvarianten nur als Warnung. Bitte wählen.
 

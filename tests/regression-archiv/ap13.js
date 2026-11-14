@@ -105,9 +105,9 @@ R('6 Namensänderung der Altartikel L1,L2,L3,L6,L7 weiter erlaubt',['L1:name','L
  // Import in frischen Browser
  const h2=await mk('new');await h2.p.evaluate(()=>{transaction(s=>{s.items.length=0;s.boxes.length=0})});
  await h2.go('more');await h2.p.setInputFiles('#jsonImport',{name:'e.json',mimeType:'application/json',buffer:Buffer.from(text)});await h2.p.waitForTimeout(700);const d=await h2.dlg();
- const s2=await snap(h2);const msg2=await h2.p.evaluate(()=>document.getElementById('backupMessage').textContent);
- // AP5.5: Der Seed enthält die Schreibweise-Dublette A1 "BC1" / L2 "bc1". Neue Regel: Import mit mehrdeutigen Barcodes wird blockiert (Altdaten-Konflikt, siehe docs/AP5-5-Barcode-Importschutz.md).
- R('7 Import des Exports mit Schreibweise-Dublette (A1 BC1 / L2 bc1): seit AP5.5 BLOCKIERT mit Meldung, die A1 und L2 nennt; Speicher bleibt leer (nichts importiert)',/mehrdeutige Barcodes/.test(msg2)&&/A1/.test(msg2)&&/L2/.test(msg2)&&/L5/.test(msg2)&&s2.st.items.length===0,msg2.slice(0,160));
+ const s2=await snap(h2);
+ // AP5.5a: Der Seed enthält Barcode-Mehrdeutigkeiten (A1 "BC1" / L2 "bc1"; L5-Barcode = Artikelnummer A3). Der Import fragt deshalb zuerst gesondert (Ausnahmeimport, nennt A1, L2, L5), dann normal. Der Test-Dialoghandler bestätigt beides (Dialogtexte gehen durch das Neuladen verloren; Reihenfolge und Wortlaut prüft tests/ap55a); Ergebnis muss wie früher byteweise gleich sein.
+ R('7 Import des Exports (Altdaten mit langen/ähnlichen/reservierten Barcodes): nach bestätigtem Ausnahmeimport akzeptiert, Artikel byteweise gleich (nichts korrigiert)',JSON.stringify(s2.st.items)===JSON.stringify(exp.items),d.join('|').slice(0,160));
  {const exp2=JSON.parse(text);exp2.items.find(x=>x.code==='L2').barcode='L2-EINDEUTIG';exp2.items.find(x=>x.code==='L5').barcode='L5-EINDEUTIG';const h2b=await mk('new');await h2b.p.evaluate(()=>{transaction(s=>{s.items.length=0;s.boxes.length=0})});await h2b.go('more');
   await h2b.p.setInputFiles('#jsonImport',{name:'e2.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(exp2))});await h2b.p.waitForTimeout(700);const s2b=await snap(h2b);
   R('7 Derselbe Export, in dem die beiden mehrdeutigen Altdaten-Barcodes (L2 "bc1", L5 = Artikelnummer A3) eindeutig gemacht wurden (lange/ähnliche/reservierte Barcodes sonst unverändert): akzeptiert, Artikel byteweise gleich',JSON.stringify(s2b.st.items)===JSON.stringify(exp2.items),'');await h2b.b.close()}
